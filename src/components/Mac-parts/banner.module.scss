@@ -1,0 +1,74 @@
+.banner {
+  background-color: #000;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  .bannerBG {
+    background-color: black;
+    border-radius: 30px;
+    padding: 1rem 0rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    color: black;
+    font-weight: 800;
+  }
+  border-radius: 30px;
+
+  ul {
+    margin-top: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    @media (max-width: 560px) {
+      flex-direction: column;
+    }
+    h5 {
+      color: black;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    list-style: none;
+  }
+
+  h4 {
+    text-align: center;
+  }
+  ul li:before {
+    content: "✓";
+    font-size: 30px;
+    margin-right: 0.5rem;
+    color: rgb(7, 255, 7);
+  }
+}
+.that {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  span {
+    color: rgb(7, 255, 7);
+    font-weight: 700;
+  }
+}
+.imageDiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .firstImg {
+    max-width: 200px;
+    flex: 1;
+  }
+  .secondImg {
+    max-width: 200px;
+    flex: 2;
+  }
+  .thirdImg {
+    max-width: 250px;
+    flex: 2;
+  }
+}

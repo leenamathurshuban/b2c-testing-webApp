@@ -1,0 +1,212 @@
+.no_image_span {
+  box-sizing: border-box;
+  display: inline-block;
+  overflow: hidden;
+  width: 70px;
+  height: 70px;
+  background: black;
+  opacity: 1;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  max-width: 100%;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 100px;
+  padding: 12px;
+}
+
+// =========TESTIMONIAL CSS END======
+.main_testimonial {
+  padding-top: 5px;
+  .mt_slide {
+    padding-top: 70px;
+  }
+  .slick-slider {
+    overflow: hidden;
+    padding-bottom: 70px;
+    .slick-track {
+      transition: all 0.5s;
+    }
+
+    .slick-prev {
+      background: unset;
+      position: absolute;
+      left: 0px;
+      right: 100px;
+      bottom: -10px;
+      margin: 0px auto;
+      top: unset;
+      height: 50px;
+      width: 50px;
+      box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.25);
+      border-radius: 100px;
+      border: 2px solid #ffff;
+      top: unset;
+      transition: all 0.5s;
+
+      &:before {
+        color: #000;
+        content: url("../../../public/assets/images/testimonial/left-arrow.png");
+        position: relative;
+        z-index: 999;
+        width: 100%;
+        font-family: unset;
+        font-size: 25px;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat;
+      }
+      &:hover {
+        border: 2px solid #e75073;
+      }
+    }
+
+    .slick-next {
+      background: unset;
+      position: absolute;
+      left: 0px;
+      right: -80px;
+      bottom: -10px;
+      height: 50px;
+      width: 50px;
+      border-radius: 100px;
+      margin: 0px auto;
+      box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.25);
+      border: 2px solid #ffff;
+      top: unset;
+      transition: all 0.5s;
+
+      &:before {
+        position: relative;
+        z-index: 999;
+        width: 100%;
+        font-family: unset;
+        font-size: 25px;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat;
+        content: url("../../../public/assets/images/testimonial/right-arrow.png");
+      }
+      &:hover {
+        border: 2px solid #e75073;
+      }
+    }
+  }
+
+  /* the parent */
+  .slick-list {
+    padding: 0px !important;
+    overflow: initial;
+    margin-top: 70px;
+  }
+
+  .slick-center {
+    .testimonial_box {
+      background: #ffffff;
+      box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.19);
+      margin-top: -70px;
+      border-color: #f33d74;
+
+      .quate_img {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 10px;
+        .qaimg {
+          display: block;
+          position: absolute;
+          left: 0;
+          right: 0;
+        }
+      }
+
+      p {
+        overflow: unset;
+        text-overflow: unset;
+        -webkit-line-clamp: unset;
+        -webkit-box-orient: unset;
+        display: block;
+      }
+    }
+  }
+}
+
+.testimonial_box {
+  border: 1px solid #e0e0e0;
+  background: #fbfbfc;
+  text-align: center;
+  position: relative;
+  padding: 30px 30px 25px 30px;
+  margin: 0px 15px;
+  margin-bottom: 130px;
+
+  .quate_img {
+    margin-bottom: 5px;
+
+    img {
+      margin: 0px auto;
+    }
+
+    .qaimg {
+      display: none !important;
+    }
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    color: #4f4f4f;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+  }
+
+  .t_pos_main {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -110px;
+
+    h1,
+    h3,
+    h6 {
+      font-weight: 500;
+      font-size: 16px;
+      text-align: center;
+      color: #313132;
+    }
+
+    .t_user_img {
+      width: 83px;
+      height: 83px;
+      border-radius: 100px;
+      margin: 0px auto;
+
+      img {
+        border: 6px solid #fff;
+        border-radius: 100px;
+        margin: 0px auto;
+      }
+    }
+
+    .t_rating {
+      ul {
+        li {
+          display: inline-block;
+
+          svg {
+            color: #e75073;
+          }
+        }
+      }
+    }
+  }
+}
+
+// =========TESTIMONIAL CSS END======

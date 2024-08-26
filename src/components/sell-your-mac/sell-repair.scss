@@ -1,0 +1,259 @@
+.select-fgroup {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+// .infofrom {
+//   .nw-btn {
+//     background: #fff !important;
+//     color: #000 !important;
+//     border-color: #000;
+//     &:hover {
+//       color: #e75074 !important;
+//       border-color: #e75074;
+//     }
+//   }
+// }
+.sell-infofrom input#formGridEmail {
+  text-transform: none;
+}
+.manual-span {
+  color: #464646;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.sellmaccomp {
+  margin-top: 30px;
+}
+.custom-radio {
+  .form-check {
+    position: relative;
+    padding: 0px;
+
+    .form-check-input {
+      width: 100%;
+      border-radius: 100px !important;
+      position: relative;
+      background: #fff;
+      border-color: #000;
+      background-size: cover;
+      margin-left: 0 !important;
+      &:checked {
+        border: 2px solid transparent;
+        background-origin: border-box !important;
+        // background-clip: content-box, border-box;
+        background-size: cover !important;
+        box-sizing: border-box !important;
+        background: linear-gradient(
+          90deg,
+          #93f2ff 1.35%,
+          #fd79a1 68.04%,
+          #e78478 106.3%
+        );
+        color: #fff;
+        // background-image: none !important;
+      }
+      &:hover {
+        background: linear-gradient(
+          90deg,
+          #93f2ff 1.35%,
+          #fd79a1 68.04%,
+          #e78478 106.3%
+        );
+        border-color: #e85e75;
+        color: #fff !important;
+        // border: 2px solid transparent;
+        // background-origin: border-box !important;
+        // background-size: cover !important;
+        // box-sizing: border-box !important;
+      }
+
+      &:checked + label {
+        color: #fff;
+        box-shadow: none;
+      }
+      &:hover + label {
+        color: #fff;
+        box-shadow: none;
+      }
+    }
+    label {
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
+      line-height: 72px;
+      text-transform: capitalize;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+}
+.bn-btnbox {
+  justify-content: center;
+}
+.bn-btnbox {
+  .main_btn {
+    margin-right: 20px;
+  }
+}
+.sellfrom {
+  h2 {
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #464646;
+    text-transform: capitalize;
+    text-align: left;
+  }
+}
+.selld-from {
+  h2 {
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #464646;
+    text-transform: capitalize;
+    text-align: center;
+  }
+  select {
+    height: 64px;
+    background: #fff;
+    border-radius: 100px;
+    border: 1px solid #000;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    color: #464646;
+  }
+  .rmsc {
+    --rmsc-h: 50px;
+    .dropdown-container {
+      border: unset;
+      &:focus {
+        border: unset;
+        box-shadow: none;
+      }
+      &:focus-within {
+        border: unset;
+        box-shadow: none;
+      }
+    }
+  }
+  .dropdown-heading {
+    background: #fff;
+    border-radius: 100px;
+    border: 2px solid #000;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    color: #464646;
+    padding: 0px 10px;
+  }
+}
+.sell-infofrom {
+  .infofrom {
+    padding: 30px 0px 0px 0px;
+  }
+  input {
+    height: 64px;
+    background: #fff;
+    border-radius: 100px;
+    border: 2px solid #000;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 600;
+    margin-bottom: 30px !important;
+  }
+}
+.bkbtn-pos {
+  position: relative;
+  .bkbtn-from {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 4px 20px !important;
+    svg {
+      font-size: 30px;
+    }
+  }
+}
+.thankbox p {
+  font-weight: 500;
+  line-height: 35px;
+  text-align: center;
+}
+.mwbox + .bn-btnbox {
+  .whenwork {
+    display: none !important;
+  }
+}
+.has-error_sell_mac .dropdown-heading,
+.has-error_sell_mac {
+  border-radius: 100px;
+  border: 2px solid red !important;
+}
+.thankbox + .bn-btnbox {
+  .whenwork {
+    display: none !important;
+  }
+}
+.infofrom {
+  .newborder {
+    input {
+      border: 2px solid;
+    }
+  }
+}
+
+.more-repair {
+  text-align: center;
+  p {
+    margin-top: 8px;
+    font-size: 18px;
+    a {
+      color: #000;
+      margin-left: 10px;
+      &:hover {
+        color: #e85e75;
+      }
+    }
+  }
+}
+.select-fgroup {
+  .rmsc.has-error_sell_mac {
+    border: unset !important;
+  }
+}
+
+// ===== mob css start====
+// ===== mob css start====
+@media screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .sell-infofrom {
+    .custom-radio {
+      .form-check {
+        width: 100%;
+      }
+    }
+  }
+  .bkbtn-pos {
+    .bkbtn-from {
+      top: -61px;
+      left: 5%;
+      padding: 2px 20px !important;
+    }
+  }
+}
+// ======mob css end=====
+
+// ======tablet css start=====
+
+@media screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .bkbtn-pos {
+    .bkbtn-from {
+      top: -61px;
+      left: 5%;
+      padding: 2px 20px !important;
+    }
+  }
+}
+// ======tablet css end=====

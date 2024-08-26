@@ -1,0 +1,81 @@
+.shopmac-full {
+    svg {
+        fill: #34495e !important;
+        width: 80px;
+    }
+
+    #mac_mini_svg .inverse {
+        fill: #fff;
+    }
+}
+.repair-row{
+    width: 100%;
+    max-width: 80%;
+    margin: 0px auto !important;
+    text-align: center;
+}
+
+.new_repairmac_box{
+    padding-bottom: 30px;
+    .new_shopmac_img {
+        text-align: center;
+      }
+      .pdimg-next {
+        width: 100%;
+        max-width: 228px;
+        margin: 0px auto;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        span {
+          height: 100% !important;
+          padding: 0 !important;
+        }
+      }
+      .new_shopmac_content {
+        h2 {
+            font-size: 22px;
+            line-height: 51px;
+            text-align: center;
+            color: #515151;
+            // margin-top: 30px;
+            font-weight: 700
+        }
+      }
+      &:hover {
+        // border: 1px solid #edb2bf;
+        h2 {
+          color: #e75073;
+        }
+      }
+}
+.not-allowed {
+  pointer-events: auto! important;
+  cursor: not-allowed! important;
+}
+.mac-repair-new-sell{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  // padding-bottom: 35px;
+  img{
+    width: 100%;
+    max-width: 250px;
+    margin: 0px auto;
+  }
+}
+.repair-img-box{
+  img{
+      width: 160px !important;
+    }
+  .shopmac_content {
+    h2 { 
+        color: #000 
+      };
+    p { 
+      color: #000 
+    };
+  }
+}

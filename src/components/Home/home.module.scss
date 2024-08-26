@@ -1,0 +1,428 @@
+// =====home shop mac css start======
+.Home_product {
+  .new_shopmac_pc_box {
+    padding: 30px 15px;
+    position: relative;
+    .new {
+      text-transform: capitalize;
+      margin-bottom: 0px;
+      position: absolute;
+      top: 10px;
+    }
+  }
+  .new_shopmacpc_content {
+    h5 {
+      margin-top: 35px;
+      margin-bottom: 12px;
+    }
+  }
+}
+// =====home shop mac css end======
+// =========BUY REPAIR CSS START======
+.buyrepair_box {
+  background: #ffffff;
+  box-shadow: 0px 23px 47px #e6e8e9;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  transition: all 0.5s;
+  border: 1px solid #f1f1f1;
+  &:hover {
+    border: 1px solid #edb2bf;
+  }
+}
+
+.buyrepair_icon {
+  position: relative;
+  height: 320px;
+  span {
+    position: unset !important;
+    height: 100% !important;
+    img {
+      width: 100% !important;
+      height: 100% !important;
+      position: unset !important;
+    }
+  }
+
+  img {
+    border-radius: 20px 20px 0px 0px;
+    width: 100%;
+  }
+}
+
+.buyrepair_content {
+  padding: 10px 45px;
+  padding-bottom: 20px;
+  transition: all 0.5s;
+
+  h2 {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 51px;
+    text-align: center;
+    color: #515151;
+    text-transform: capitalize;
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #515151;
+  }
+
+  .repairbox-btn {
+    margin-bottom: 30px;
+    margin-top: 18px;
+  }
+}
+
+.buy_content_col {
+  .buy_content_div {
+    height: 50px;
+    overflow: hidden;
+    -webkit-transition: height 1s ease;
+    -moz-transition: height 1s ease;
+    -o-transition: height 1s ease;
+    transition: height 1s ease;
+  }
+  &:hover {
+    .buy_content_div {
+      height: 50px;
+    }
+  }
+}
+.sell_content_col {
+  .sell_content_div {
+    height: 50px;
+    overflow: hidden;
+    -webkit-transition: height 1s ease;
+    -moz-transition: height 1s ease;
+    -o-transition: height 1s ease;
+    transition: height 1s ease;
+  }
+  &:hover {
+    .sell_content_div {
+      height: 80px;
+    }
+  }
+}
+.repair_content_col {
+  .repair_content_div {
+    height: 50px;
+    overflow: hidden;
+    -webkit-transition: height 1s ease;
+    -moz-transition: height 1s ease;
+    -o-transition: height 1s ease;
+    transition: height 1s ease;
+  }
+  &:hover {
+    .repair_content_div {
+      height: 216px;
+    }
+  }
+}
+
+// =========BUY REPAIR CSS END======
+
+// =========MAC PARTS CSS START======
+
+.imageDiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .firstImg {
+    max-width: 200px;
+    flex: 1;
+  }
+  .secondImg {
+    max-width: 200px;
+    flex: 2;
+  }
+  .thirdImg {
+    max-width: 250px;
+    flex: 2;
+  }
+}
+
+.macparts_full {
+  margin-top: 50px;
+  .macparts_box {
+    background: #ffffff;
+    border: 3px solid #dedede;
+    box-shadow: 0px 23px 47px #e6e8e9;
+    border-radius: 20px;
+    padding: 35px 55px;
+    transition: all 0.5s;
+    &:hover {
+      border: 3px solid #e693b5;
+    }
+    h3 {
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 51px;
+      color: #515151;
+      text-transform: capitalize;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    span {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #f33d74;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+  }
+}
+.macparts_img {
+  text-align: center;
+  padding: 10px 80px;
+}
+
+// =========MAC PARTS CSS END======
+
+// =========WE TRASTED CSS START======
+.main_trusted {
+  margin-bottom: 55px;
+}
+.trusted_box_left {
+  max-width: 476px;
+  padding-right: 30px;
+
+  h5 {
+    font-weight: 700;
+    font-size: 48px; 
+    line-height: 51px;
+    color: #515151;
+    margin-bottom: 22px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.trusted_right_box {
+  display: flex;
+  position: relative;
+  padding-left: 165px;
+
+  .trasted_vlue {
+    position: absolute;
+    left: -49px;
+    top: -4px;
+
+    h6 {
+      font-weight: 700;
+      font-size: 68px;
+      line-height: 76px;
+      background: linear-gradient(
+        90deg,
+        #93f2ff 1.35%,
+        #fd79a1 68.04%,
+        #e78478 106.3%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  .trasted_vluenum {
+    margin-bottom: 45px;
+    width: 100%;
+    max-width: 240px;
+  }
+
+  h5 {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 51px;
+    color: #515151;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+// =========WE TRASTED CSS END======
+
+// ==========responsive  css start=======
+@media screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .buyrepair_icon {
+    height: 200px;
+  }
+  .buyrepair_content {
+    padding: 10px 25px;
+    padding-bottom: 20px;
+    h2 {
+      font-size: 32px;
+      line-height: 36px;
+    }
+  }
+  .imageDiv {
+    flex-direction: column;
+    .firstImg {
+      max-width: 100px;
+      flex: 1 1 100%;
+      margin-bottom: 25px;
+    }
+    .secondImg {
+      max-width: 80px;
+      flex: 1 1 100%;
+    }
+    .thirdImg {
+      max-width: 150px;
+      flex: 1 1 100%;
+    }
+  }
+  .macparts_full {
+    .macparts_box {
+      padding: 35px 20px;
+      h3 {
+        font-size: 30px;
+        line-height: 38px;
+      }
+    }
+  }
+  .macparts_img {
+    padding: 10px 20px;
+  }
+  .trusted_box_left {
+    max-width: 100%;
+    text-align: center;
+    h5 {
+      font-size: 35px;
+      line-height: 40px;
+    }
+  }
+  .trusted_right_box {
+    display: block;
+    text-align: center;
+    padding-left: 15px;
+    .trasted_vlue {
+      position: unset;
+      h6 {
+        font-size: 60px;
+        line-height: 66px;
+      }
+    }
+    .trasted_vluenum {
+      margin-bottom: 45px;
+      max-width: 100%;
+    }
+    h5 {
+      font-size: 22px;
+      line-height: 51px;
+    }
+  }
+}
+
+// ======mobile end=====
+@media screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .main_trusted {
+    .row {
+      align-items: center;
+    }
+  }
+  .buyrepair_icon {
+    height: 200px;
+  }
+  .buyrepair_content {
+    padding: 10px 9px;
+    padding-bottom: 20px;
+    h2 {
+      font-size: 28px;
+      line-height: 40px;
+    }
+  }
+  .imageDiv {
+    .secondImg {
+      max-width: 140px;
+    }
+  }
+  .macparts_full {
+    .macparts_box {
+      padding: 35px 20px;
+      h3 {
+        font-size: 38px;
+        line-height: 48px;
+      }
+    }
+  }
+  .trusted_right_box {
+    padding-left: 55px;
+
+    .trasted_vlue {
+      position: absolute;
+      left: -24px;
+      top: 6px;
+
+      h6 {
+        font-size: 30px;
+        line-height: 1.2;
+      }
+    }
+
+    .trasted_vluenum {
+      margin-bottom: 45px;
+      max-width: 240px;
+    }
+
+    h5 {
+      font-size: 22px;
+      line-height: 51px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  .imageDiv {
+    .firstImg {
+      max-width: 105px;
+    }
+    .secondImg {
+      max-width: 85px;
+    }
+    .thirdImg {
+      max-width: 155px;
+    }
+  }
+}
+// ========tablet css end=======
+@media screen and (min-device-width: 992px) and (max-device-width: 1024px) {
+  .buyrepair_icon {
+    height: 200px;
+  }
+  .buyrepair_content {
+    padding: 10px 9px;
+    padding-bottom: 20px;
+    h2 {
+      font-size: 28px;
+      line-height: 40px;
+    }
+  }
+  .imageDiv {
+    .secondImg {
+      max-width: 140px;
+    }
+  }
+}
+// ==========responsive  css start=======

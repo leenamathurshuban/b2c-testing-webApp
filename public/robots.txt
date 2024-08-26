@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /thank-you
+
+# Host
+Host: https://www.applefixpros.com/
+
+# Sitemaps
+Sitemap: https://www.applefixpros.com/sitemap.xml
+Sitemap: https://www.applefixpros.com/server-sitemap.xml
