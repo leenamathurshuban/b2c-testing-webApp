@@ -414,7 +414,7 @@ export default function FooterComp() {
                           />
                         </Link>
                       </li>
-                      
+
                       <li>
                         <Link href="/">
                           <Image
@@ -444,6 +444,7 @@ export default function FooterComp() {
               </Row>
             </div>
           </div>
+          
           <div className="footer-bottom_copy">
             <div className="footer-copyright">
               <Row>
