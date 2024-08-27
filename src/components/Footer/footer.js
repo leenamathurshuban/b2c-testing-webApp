@@ -291,6 +291,33 @@ export default function FooterComp() {
             </div>
           </Container>
         </div>
+
+        <div className="footer-bottom_copy">
+          <Container>
+            <div className="footer-copyright">
+              <Row>
+                <Col md={12}>
+                  <p className="devlop-para">
+                    <span>Web Application Designed & Developed by :</span>
+                    <Link
+                      href="https://www.arcrel.com/"
+                      className="cp-img"
+                      target="_blank"
+                    >
+                      <Image
+                        src={Fp6}
+                        alt="Apple Fix Pro Payment Img"
+                        className="img-fluid"
+                        width="200px"
+                        height="25px"
+                      />
+                    </Link>
+                  </p>
+                </Col>
+              </Row>
+            </div>
+          </Container>
+        </div>
       </div>
 
       {/* =======DESKTOP FOOTER END======== */}
@@ -412,6 +439,30 @@ export default function FooterComp() {
                 </Col>
 
                 {/* =======FOOTER COLUMN END===== */}
+              </Row>
+            </div>
+          </div>
+          <div className="footer-bottom_copy">
+            <div className="footer-copyright">
+              <Row>
+                <Col md={12}>
+                  <p>
+                    Web Application Designed & Developed by{" "}
+                    <Link
+                      href="https://www.arcrel.com/"
+                      className="cp-img"
+                      target="_blank"
+                    >
+                      <Image
+                        src={Fp6}
+                        alt="Apple Fix Pro Payment Img"
+                        className="img-fluid"
+                        width="250px"
+                        height="30px"
+                      />
+                    </Link>
+                  </p>
+                </Col>
               </Row>
             </div>
           </div>
