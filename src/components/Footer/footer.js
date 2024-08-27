@@ -404,6 +404,7 @@ export default function FooterComp() {
                           />
                         </Link>
                       </li>
+                      
                       <li>
                         <Link href="/">
                           <Image
