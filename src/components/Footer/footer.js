@@ -444,7 +444,7 @@ export default function FooterComp() {
               </Row>
             </div>
           </div>
-          
+
           <div className="footer-bottom_copy">
             <div className="footer-copyright">
               <Row>
@@ -469,6 +469,7 @@ export default function FooterComp() {
               </Row>
             </div>
           </div>
+          {/* This is dummy push  */}
         </Container>
       </div>
     </section>
