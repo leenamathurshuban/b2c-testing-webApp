@@ -404,7 +404,7 @@ export default function FooterComp() {
                           />
                         </Link>
                       </li>
-                      
+
                       <li>
                         <Link href="/">
                           <Image
@@ -414,6 +414,7 @@ export default function FooterComp() {
                           />
                         </Link>
                       </li>
+                      
                       <li>
                         <Link href="/">
                           <Image
