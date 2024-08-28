@@ -87,16 +87,16 @@ export default function MacSerialLookupComp() {
       } else {
         setIsLoadingSerial(true);
         await axios
-          .get(`/api/get_modal_detail?imei=${form_data_serial.serial_number}`)
+          .get(`https://shop.applefixpros.com/wp-json/custom-woo/v1/external/${form_data_serial.serial_number}`)
           .then((res) => {
             if (res.data != "Error E02: IMEI or SN is Wrong!") {
-              window.localStorage.setItem("api_last_serial_response", res.data);
+              window.localStorage.setItem("api_last_serial_response", res.data.response);
               window.localStorage.setItem(
                 "api_last_serial_number",
                 form_data_serial.serial_number
               );
             }
-            setShowData(res.data);
+            setShowData(res.data.response);
             setIsLoadingSerial(false);
           });
       }

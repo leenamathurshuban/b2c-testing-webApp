@@ -52,7 +52,7 @@ export default function MacSaleHome({ collections, loading, query }) {
                         </Col>
                       );
                     })
-                  :  <div className='noproduct'>There are no categories </div>}
+                  :  ""}
               </Row>
             </div>
           </Container>
