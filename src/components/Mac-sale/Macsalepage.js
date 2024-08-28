@@ -4,6 +4,7 @@ import Image from "next/image";
 
 export default function MacsalepageComp({ propValue, url }) {
   return (
+    
     <Link
       href={`${
         propValue?.id == Number(process.env.NEXT_PUBLIC_MAC_SALE_BLOW_OUT_ID)
