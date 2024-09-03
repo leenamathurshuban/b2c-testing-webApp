@@ -1,0 +1,131 @@
+.shopmac-full svg {
+  fill: #34495e !important;
+  width: 80px;
+}
+.shopmac-full #mac_mini_svg .inverse {
+  fill: #fff;
+}
+
+.repair-row {
+  width: 100%;
+  max-width: 80%;
+  margin: 0px auto !important;
+  text-align: center;
+}
+
+.new_repairmac_box {
+  padding-bottom: 30px;
+}
+.new_repairmac_box .new_shopmac_img {
+  text-align: center;
+}
+.new_repairmac_box .pdimg-next {
+  width: 100%;
+  max-width: 228px;
+  margin: 0px auto;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+}
+.new_repairmac_box .pdimg-next span {
+  height: 100% !important;
+  padding: 0 !important;
+}
+.new_repairmac_box .new_shopmac_content h2 {
+  font-size: 22px;
+  line-height: 51px;
+  text-align: center;
+  color: #515151;
+  font-weight: 700;
+}
+.new_repairmac_box:hover h2 {
+  color: #e75073;
+}
+
+.not-allowed {
+  pointer-events: auto !important;
+  cursor: not-allowed !important;
+}
+
+.mac-repair-new-sell {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+.mac-repair-new-sell img {
+  width: 100%;
+  max-width: 250px;
+  margin: 0px auto;
+}
+
+.repair-img-box img {
+  width: 160px !important;
+}
+.repair-img-box .shopmac_content h2 {
+  color: #000;
+}
+.repair-img-box .shopmac_content p {
+  color: #000;
+}
+
+.model_confi ul li {
+  font-family: "Poppins", sans-serif;
+  line-height: 22px;
+  font-weight: 400;
+  color: #676767;
+  padding: 10px;
+  text-align: left;
+  font-size: 15px;
+}
+.model_confi ul span.response-title {
+  min-width: 55px;
+  margin-right: 4px;
+}
+
+.mb-6 {
+  margin-bottom: 3.2rem;
+}
+
+span.serachicon {
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  width: 46px;
+  height: 46px;
+  border-radius: 100px;
+  position: relative;
+  left: 0px;
+  top: -5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+span.serachicon svg {
+  width: 22px;
+  color: #fff;
+  height: 22px;
+}
+
+.hm_cart-mob {
+  position: relative;
+}
+
+.srch-box {
+  position: absolute;
+  right: 60px;
+  top: 100%;
+  z-index: 2;
+}
+
+.srch-box input {
+  background-color: #f2f5f5;
+  border: none;
+  padding: 15px;
+  font-size: 14px;
+  font-family: "Poppins";
+  border-radius: 6px;
+  width: 265px;
+}/*# sourceMappingURL=styles.css.map */

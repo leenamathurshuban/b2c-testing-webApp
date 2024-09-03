@@ -47,6 +47,8 @@ const initialState = {
   subTotal: 0,
   totalAmount: 0,
   shipping: 0,
+  childCollectionData: [],
+  active: process.env.NEXT_PUBLIC_MAC_PART_INITIAL_ID, 
 };
 
 const counterSlice = createSlice({
@@ -158,6 +160,12 @@ const counterSlice = createSlice({
       );
       state.count = countData;
     },
+     setChildCollectionData: (state, action) => {
+      state.childCollectionData = action.payload.data;
+    },
+    setActive: (state, action) => {
+      state.active = action.payload;
+    },
   },
 });
 
@@ -170,5 +178,7 @@ export const {
   getSubTotal,
   getTotal,
   updateCartStock,
+  setChildCollectionData,
+  setActive
 } = counterSlice.actions;
 export default counterSlice.reducer;

@@ -205,7 +205,7 @@ export default function Newmacmain() {
                                 <Row className='justify-content-center'>
                                     <Col md={12} lg={4}>
                                         <Card>
-                                            <Card.Body>
+                                            <Card.Body>                                     
                                                 <Card.Title className='d-flex item-center justify-content-center'>
                                                     Model configuration
                                                 </Card.Title>

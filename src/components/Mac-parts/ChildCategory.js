@@ -1,6 +1,8 @@
 import { useGetCollectionsQuery } from "@/appRedux/apiSlice";
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { setActive } from "@/appRedux/counterReducer";
 
 export default function ChildCategory({
   active,
@@ -12,6 +14,11 @@ export default function ChildCategory({
     isLoading: collectionLoading,
     isFetching,
   } = useGetCollectionsQuery(active);
+   
+ // Data retrieve from store LC function 
+  // const collectionData = useSelector(
+  //   (state) => state.counter.childCollectionData
+  // );
 
   const [childCategory, setChildCategory] = useState([]);
   const [loading, setLoading] = useState(null);
@@ -59,6 +66,7 @@ export default function ChildCategory({
                 );
                 setShowProducts(true);
                 setChildCategoryID(val.id);
+                dispatch(setActive(val.id));
               }}
             >
               <div className='tabslide_box_content macPartsTitle'>

@@ -1,0 +1,483 @@
+.repstatus span {
+  color: #e75073;
+}
+
+.mac_repair_banner {
+  background: unset !important;
+  padding-top: 20px !important;
+}
+.mac_repair_banner .banner_box p {
+  margin: 0px auto;
+}
+
+.file-repair-full .file_box h1,
+.file-repair-full .file_box h6 {
+  font-size: 42px;
+  line-height: 51px;
+  text-align: center;
+  color: #464646;
+  font-weight: 700;
+}
+.file-repair-full .file_box p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  color: #ababab;
+  margin: 30px 0px;
+}
+.file-repair-full .view-check-box {
+  background: #fff;
+  border: 1px solid rgba(218, 218, 218, 0.73);
+  box-shadow: 0px 15px 43px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  width: 280px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto;
+  margin-top: 50px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.file-repair-full .view-check-box .checkbox-img {
+  height: 100%;
+}
+.file-repair-full .view-check-box .checkbox-img a {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+.file-repair-full .view-check-box .checkbox-img span {
+  height: 100% !important;
+}
+.file-repair-full .view-check-box .checkbox-img img {
+  border-radius: 20px;
+}
+.file-repair-full .view-check-box .viewcheck-link a {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 51px;
+  text-align: center;
+  color: #515151;
+  display: block;
+  padding-top: 35px;
+}
+.file-repair-full .view-check-box:hover {
+  border: 1px solid #e86276;
+}
+.file-repair-full .view-check-box:hover a {
+  color: #e86276;
+}
+
+.repair-form input {
+  height: 64px;
+  background: #f2f5f5;
+  border-radius: 10px;
+  border: unset;
+  text-align: center;
+}
+.repair-form input::-moz-placeholder {
+  font-weight: 600;
+  font-size: 16px;
+  color: #616161;
+}
+.repair-form input::placeholder {
+  font-weight: 600;
+  font-size: 16px;
+  color: #616161;
+}
+.repair-form input#formGridEmail::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  text-transform: capitalize;
+}
+.repair-form input#formGridEmail::-moz-placeholder {
+  /* Firefox 19+ */
+  text-transform: capitalize;
+}
+.repair-form input#formGridEmail:-ms-input-placeholder {
+  /* IE 10+ */
+  text-transform: capitalize;
+}
+.repair-form input#formGridEmail:-moz-placeholder {
+  /* Firefox 18- */
+  text-transform: capitalize;
+}
+.repair-form select {
+  height: 64px;
+  background: #f2f5f5;
+  border-radius: 10px;
+  border: unset;
+  text-align: center;
+  width: 100%;
+}
+.repair-form select::-moz-placeholder {
+  font-weight: 600;
+  font-size: 16px;
+  color: #616161;
+}
+.repair-form select::placeholder {
+  font-weight: 600;
+  font-size: 16px;
+  color: #616161;
+}
+.repair-form .service-small {
+  font-weight: 600;
+  font-size: 16px;
+  color: #616161;
+  background-image: linear-gradient(45deg, transparent 50%, #fff 50%), linear-gradient(135deg, #fff 50%, transparent 50%), linear-gradient(to right, #e96876, #e96876);
+  background-position: calc(100% - 20px) calc(1.7em + 2px), calc(100% - 15px) calc(1.7em + 2px), 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 4.5em;
+  background-repeat: no-repeat;
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
+  font-family: "Poppins", sans-serif;
+  padding-left: 10px;
+}
+.repair-form textarea {
+  background: #f2f5f5;
+  line-height: 27px;
+  height: 125px;
+  border-radius: 10px;
+  border: unset;
+  text-align: center;
+}
+.repair-form textarea::-moz-placeholder {
+  font-weight: 600;
+  font-size: 16px;
+  color: #616161;
+}
+.repair-form textarea::placeholder {
+  font-weight: 600;
+  font-size: 16px;
+  color: #616161;
+}
+.repair-form .text-danger {
+  text-align: center;
+}
+
+.repair-btn {
+  text-align: center;
+}
+.repair-btn button {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 13px;
+  min-width: 136px;
+  border: 2px solid transparent;
+  background-origin: border-box !important;
+  background-size: cover !important;
+  box-sizing: border-box !important;
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  border-radius: 50px;
+  padding: 10px 20px !important;
+}
+.repair-btn button:focus {
+  color: #fff !important;
+}
+.repair-btn button:hover {
+  color: #e75073 !important;
+  background-color: #e75073 !important;
+  border-color: #e75073 !important;
+}
+
+.lockno-box {
+  margin: 0px 0px 100px 0px;
+}
+.lockno-box .serial-box {
+  text-align: center;
+  width: 100%;
+  max-width: 523px;
+  margin: 30px auto;
+  margin-bottom: 0;
+}
+.lockno-box .serial-box p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.makeSerial .lockno-box {
+  display: block;
+}
+
+.lockup-box h2 {
+  text-transform: capitalize;
+  font-size: 42px;
+  line-height: 51px;
+  text-align: center;
+  color: #464646;
+  font-weight: 700;
+}
+.lockup-box h2 span {
+  background: linear-gradient(90.73deg, #f33d74 49.37%, #e78478 75.82%, #93f2ff 86.88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.lockup-box input {
+  height: 42px;
+  background: linear-gradient(89.47deg, #f33d74 5.16%, #e78478 87.24%);
+  color: #fff;
+  border-radius: 10px;
+  border: unset;
+  text-align: center;
+  text-transform: capitalize;
+  transition: all 0.5s;
+}
+.lockup-box input::-moz-placeholder {
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.lockup-box input::placeholder {
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.status-model .modal-header {
+  border: unset;
+}
+.status-model .modal-content {
+  background: #fff;
+  border: 1px solid #8a8a8a;
+  box-shadow: 0px 23px 47px #979797;
+  border-radius: 32px;
+  padding: 20px 50px;
+}
+
+.repair-popup-box h1,
+.repair-popup-box h6 {
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 51px;
+  text-align: center;
+  color: #464646;
+}
+
+.repair-from-popup input {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.gomodel-full.modal .modal-content {
+  background: #fff;
+  border: 1px solid #8a8a8a;
+  box-shadow: 0 23px 47px #979797;
+  border-radius: 32px;
+  padding: 20px 50px;
+}
+.gomodel-full.modal .modal-dialog {
+  width: 100%;
+  max-width: 745px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  top: 10%;
+}
+.gomodel-full.modal .modal-header {
+  border: unset;
+}
+.gomodel-full.modal .gopopup-main p {
+  position: relative;
+  padding-left: 140px;
+}
+.gomodel-full.modal .gopopup-main p span {
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  letter-spacing: 0.5px;
+}
+
+p.seriaal-model {
+  color: #000;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+}
+p.seriaal-model span {
+  cursor: pointer;
+  color: #e75074;
+  font-weight: bold;
+}
+
+.ts-full .modal-content {
+  background: #fff;
+  border: 1px solid #8a8a8a;
+  box-shadow: 0 23px 47px #979797;
+  border-radius: 32px;
+  padding: 20px 50px;
+}
+.ts-full .modal-dialog {
+  width: 100%;
+  max-width: 800px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  top: 20%;
+  text-align: center;
+}
+.ts-full .modal-header {
+  border: unset;
+  position: absolute;
+  right: 12px;
+  top: 8px;
+}
+.ts-full .modal-header button.btn-close {
+  position: relative;
+  z-index: 9;
+}
+.ts-full h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.has-error {
+  border: 1px solid red !important;
+}
+
+.has-error:focus {
+  border-color: red !important;
+  box-shadow: 0 0 0 0.25rem rgba(203, 33, 6, 0.19) !important;
+}
+
+.skeleton {
+  background-image: linear-gradient(90deg, #ddd, #e8e8e8 40px, #ddd 80px);
+  background-size: 600px;
+  animation: shine-avatar 1.6s linear infinite;
+  /* width: 200px; */
+  height: 36px;
+  background-color: #ccc;
+}
+
+.file-repair-main .lockno-box {
+  margin-bottom: 0;
+}
+
+.new_repairmac_box {
+  padding-bottom: 30px;
+}
+.new_repairmac_box .new_shopmac_img {
+  text-align: center;
+}
+.new_repairmac_box .pdimg-next {
+  width: 100%;
+  max-width: 228px;
+  margin: 0px auto;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+}
+.new_repairmac_box .pdimg-next span {
+  height: 100% !important;
+  padding: 0 !important;
+}
+.new_repairmac_box .new_shopmac_content h2 {
+  font-size: 22px;
+  line-height: 51px;
+  text-align: center;
+  color: #515151;
+  font-weight: 700;
+}
+.new_repairmac_box:hover h2 {
+  color: #e75073;
+}
+
+.rcshopmac_box {
+  background: #ffffff;
+  text-align: center;
+  border: 1px solid #d6d6d6;
+  padding: 20px 30px;
+  transition: all 0.5s;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  position: relative;
+}
+.rcshopmac_box .shopmac_img {
+  width: 100%;
+  height: 180px;
+}
+.rcshopmac_box .shopmac_img img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100% !important;
+}
+.rcshopmac_box .shopmac_content {
+  padding: 30px 0px;
+}
+.rcshopmac_box .shopmac_content h2 {
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+  color: #000;
+  margin-bottom: 18px;
+}
+.rcshopmac_box .shopmac_content p {
+  font-size: 16px;
+  line-height: 28px;
+  text-align: center;
+  margin-bottom: 0px;
+  color: #000;
+}
+.rcshopmac_box:hover {
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.19);
+  border-color: #f33d74;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 575px) {
+  .modal-dialog .repair-btn button {
+    width: 100%;
+  }
+}
+@media screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .ts-full .modal-content {
+    padding: 30px 15px;
+  }
+  .ts-full .modal-dialog {
+    top: 20%;
+  }
+  .lockup-box h2 {
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .file-repair-full .file_box h1,
+  .file-repair-full .file_box h6 {
+    font-size: 32px;
+    line-height: 1.4;
+  }
+  .gomodel-full.modal .modal-dialog {
+    width: 100%;
+    max-width: 95%;
+    margin: 0 auto;
+  }
+  .gomodel-full.modal .modal-dialog .modal-content {
+    padding: 10px 20px;
+  }
+}
+@media screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .new_repairmac_box .new_shopmac_content h2 {
+    line-height: 1.2;
+    margin-top: 10px;
+  }
+  .lockup-box h2 {
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .file-repair-full .file_box h1,
+  .file-repair-full .file_box h6 {
+    font-size: 32px;
+    line-height: 1.4;
+  }
+  .file-repair-full .repair-form select option {
+    text-align: center;
+  }
+}/*# sourceMappingURL=mac-repair.css.map */

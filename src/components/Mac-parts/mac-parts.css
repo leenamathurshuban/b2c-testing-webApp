@@ -1,0 +1,502 @@
+.macparts-page .main_heading-gradiant-p h1 {
+  text-transform: capitalize;
+}
+.macparts-page .banner_macg {
+  background-color: #000;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 30px;
+}
+.macparts-page .banner_macg .main_heading-gradiant {
+  padding: 1rem 0rem;
+}
+.macparts-page .banner_macg .main_heading-gradiant h2 {
+  font-size: 68px;
+}
+
+.macPartsTitle {
+  border: 1px solid #d6d6d6;
+  border-radius: 11px;
+  padding: 10px;
+  margin-bottom: 20px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.5s;
+}
+
+.animation-left {
+  animation: 1s slide-right;
+  overflow: hidden;
+}
+.animation-left .tabslide_box_img {
+  width: 100%;
+  max-width: 180px;
+  margin: 0px auto;
+  height: 124px;
+}
+.animation-left .tabslide_box_img span {
+  height: 100% !important;
+  padding: 0;
+}
+.animation-left .tabslide_box_img span img {
+  height: 100% !important;
+}
+.animation-left .tabslide_box_content {
+  margin-top: 30px;
+}
+.animation-left .d-none {
+  animation: fadeInRight 1s ease-in-out;
+}
+
+.partsshow-slide.animation-right {
+  animation: fadeInRight 1s ease-in-out;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slide-right {
+  from {
+    transform: translateX(-200px);
+  }
+  to {
+    margin-left: 0%;
+  }
+}
+.wholesale_left {
+  width: 100%;
+  max-width: 476px;
+}
+.wholesale_left h2 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 51px;
+  color: #515151;
+  margin-bottom: 22px;
+}
+.wholesale_left p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.wholesale_form {
+  margin-top: 25px;
+}
+.wholesale_form input {
+  text-align: left;
+  padding-left: 20px;
+}
+.wholesale_form .repair-btn {
+  text-align: right;
+}
+
+.wholesale-img {
+  width: 400px;
+  max-width: 100%;
+  margin: 30px auto 0px;
+}
+
+.wholesale-img img {
+  max-width: 100%;
+}
+
+.ebay-section .checkbox-img {
+  text-align: center;
+}
+.ebay-section .checkbox-img img {
+  width: 100%;
+  max-width: 230px !important;
+}
+
+.macpartscard_box {
+  background: #fafafa;
+  border: 1px solid #d6d6d6;
+  box-shadow: 0px 23px 47px #e6e8e9;
+  border-radius: 20px;
+  padding: 30px 0px 20px 0px;
+  margin-bottom: 40px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.5s;
+}
+.macpartscard_box .mac_shopmac_img {
+  text-align: center;
+}
+.macpartscard_box .mac_shopmac_content h2 {
+  font-size: 22px;
+  line-height: 51px;
+  text-align: center;
+  color: #515151;
+  margin-top: 30px;
+  font-weight: 700;
+  transition: all 0.5s;
+}
+.macpartscard_box:hover {
+  border: 1px solid #edb2bf;
+}
+.macpartscard_box:hover h2 {
+  color: #e75073;
+}
+
+.tabmacfull {
+  background: #fff;
+  border: 1px solid rgba(218, 218, 218, 0.73);
+  box-shadow: 0px 15px 43px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+.tabmacfull .tab-content {
+  padding-right: 60px;
+}
+
+.tabslidebox {
+  padding: 40px 0px 70px 0px !important;
+}
+.tabslidebox .tab-content {
+  border-left: 1px solid #dadada;
+}
+
+.left-nav {
+  padding: 70px 40px !important;
+}
+.left-nav .tab-ancor {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 51px;
+  color: #515151;
+  margin-bottom: 6px;
+  transition: all 0.5s;
+  display: block;
+  padding: 5px 0px;
+}
+.left-nav .tab-ancor:hover {
+  color: #ed6877 !important;
+}
+.left-nav .tab-ancor:focus {
+  color: #ed6877 !important;
+}
+.left-nav .tab-ancor:focus-visible {
+  box-shadow: unset;
+}
+.left-nav .active {
+  background: unset !important;
+  color: #ed6877 !important;
+}
+
+.tabslide_box {
+  background: #fff;
+  text-align: center;
+}
+.tabslide_box .tabslide_box_content {
+  cursor: pointer;
+}
+.tabslide_box .tabslide_box_content h2 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 27px;
+  text-align: center;
+  color: #333333;
+}
+
+.tabslide-full .slick-prev {
+  background: unset;
+  position: absolute;
+  left: 0px;
+  right: 180px;
+  bottom: -17px;
+  margin: 0px auto;
+  top: unset;
+  height: 50px;
+  width: 50px;
+  border-radius: 100px;
+  border: 2px solid white;
+  top: unset;
+  transition: all 0.5s;
+}
+.tabslide-full .slick-prev:before {
+  color: #000;
+  content: url("../../../public/assets/images/macparts-img/tabaleft.png");
+  position: relative;
+  z-index: 999;
+  width: 100%;
+  font-family: unset;
+  font-size: 25px;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat;
+}
+.tabslide-full .slick-next {
+  background: unset;
+  position: absolute;
+  left: 0px;
+  right: -240px;
+  bottom: -17px;
+  height: 50px;
+  width: 50px;
+  border-radius: 100px;
+  margin: 0px auto;
+  border: 2px solid white;
+  top: unset;
+  transition: all 0.5s;
+}
+.tabslide-full .slick-next:before {
+  position: relative;
+  z-index: 999;
+  width: 100%;
+  font-family: unset;
+  font-size: 25px;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat;
+  content: url("../../../public/assets/images/macparts-img/tabaright.png");
+}
+.tabslide-full .slick-dots {
+  padding: 10px;
+  position: unset;
+  bottom: 20px;
+  width: auto;
+}
+.tabslide-full .slick-dots ul li {
+  margin: 0 25px;
+}
+.tabslide-full .slick-dots ul li div {
+  transition: all 0.5s;
+  width: 46px;
+  color: #fff;
+  border: 2px solid rgb(243, 61, 116);
+  background: linear-gradient(90.78deg, rgb(231, 132, 120) -58.4%, rgb(243, 61, 116) 130.41%);
+  border-radius: 100px;
+  height: 46px;
+  line-height: 42px;
+}
+.tabslide-full .slick-dots ul li div:hover {
+  color: #ed6877;
+  border: 2px solid rgb(243, 61, 116);
+  background: #fff;
+}
+
+.mobtab {
+  display: none;
+}
+
+.spinnerbox {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.part-back-box .hvr-shutter-out-horizontal {
+  padding: 5px 15px !important;
+}
+
+.mobile-tabsection {
+  display: none;
+}
+
+.tabaccordian-main {
+  margin-top: 40px;
+  background: #ffffff;
+  border: 1px solid rgba(218, 218, 218, 0.73);
+  box-shadow: 0px 15px 43px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+.tabaccordian-main .accordion {
+  padding-bottom: 30px;
+}
+.tabaccordian-main .accordion-body {
+  padding: 20px 10px 0px 10px;
+}
+.tabaccordian-main .accordion-item {
+  padding: 18px 10px 10px 10px;
+  border-bottom: unset;
+}
+.tabaccordian-main .accordion-button {
+  background: #f2f5f5;
+  border-radius: 30px !important;
+  font-weight: 700;
+  font-size: 22px;
+  color: #515151;
+}
+.tabaccordian-main .accordion-button:active {
+  box-shadow: none;
+}
+.tabaccordian-main .accordion-button:hover {
+  box-shadow: none;
+}
+.tabaccordian-main .accordion-button:focus {
+  box-shadow: none;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 575px) {
+  .left-nav {
+    padding: 20px 30px 0 !important;
+  }
+}
+@media screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .mobile-tabsection {
+    display: block;
+  }
+  .tabdesktop {
+    display: none;
+  }
+  .macparts-page .banner_macg {
+    margin-top: 20px;
+    padding: 10px 10px;
+    max-width: 100%;
+  }
+  .macparts-page .banner_macg .main_heading-gradiant h2 {
+    font-size: 28px;
+    line-height: 1.3;
+    margin-bottom: 0;
+  }
+  .wholesale_left h2 {
+    font-size: 30px;
+  }
+  .wholesale_form .repair-btn {
+    text-align: center;
+  }
+  .part-back-box button {
+    position: relative;
+    left: 20px;
+  }
+  .tabslidebox {
+    padding: 10px 30px 20px !important;
+  }
+}
+@media screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .mobile-tabsection {
+    display: block;
+  }
+  .tabdesktop {
+    display: none;
+  }
+  .macparts-page .banner_macg .main_heading-gradiant h2 {
+    font-size: 48px;
+  }
+  .left-nav {
+    padding: 40px 14px !important;
+  }
+  .left-nav .tab-ancor {
+    font-size: 14px;
+    line-height: 1.2;
+    margin-bottom: 100px;
+  }
+  .tabslidebox {
+    padding: 10px 0px 70px 0px !important;
+  }
+}
+@media screen and (min-device-width: 992px) and (max-device-width: 1024px) {
+  .left-nav {
+    padding: 40px 24px !important;
+  }
+  .left-nav .tab-ancor {
+    line-height: 1.2;
+    margin-bottom: 100px;
+  }
+  .tabslidebox {
+    padding: 10px 0px 70px 0px !important;
+  }
+}
+.tabskl .avatar {
+  float: left;
+  width: 100%;
+  height: 26px;
+  border-radius: 7px;
+  background-color: #ccc;
+  margin-top: 32px;
+  background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+  background-size: 600px;
+  animation: shine-avatar 1.6s infinite linear;
+}
+.tabskl .line {
+  float: left;
+  width: 100%;
+  height: 36px;
+  margin-top: 32px;
+  border-radius: 7px;
+  background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+  background-size: 600px;
+  animation: shine-lines 1.6s infinite linear;
+}
+@keyframes shine-lines {
+  0% {
+    background-position: -100px;
+  }
+  40%, 100% {
+    background-position: 140px;
+  }
+}
+@keyframes shine-avatar {
+  0% {
+    background-position: -32px;
+  }
+  40%, 100% {
+    background-position: 208px;
+  }
+}
+
+.sell-skl .card {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 300px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  max-width: 100%;
+  background-color: #fff;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem;
+}
+.sell-skl .card-img {
+  padding-bottom: 56.25%;
+  position: relative;
+}
+.sell-skl .card-img img {
+  position: absolute;
+  width: 100%;
+}
+.sell-skl .card-body {
+  padding: 1.5rem;
+}
+.sell-skl .card-title {
+  font-size: 1.25rem;
+  line-height: 1.33;
+  font-weight: 700;
+}
+.sell-skl .card-title.skeleton {
+  min-height: 28px;
+  border-radius: 4px;
+}
+.sell-skl .card-intro {
+  margin-top: 0.75rem;
+  line-height: 1.5;
+}
+.sell-skl .card-intro.skeleton {
+  min-height: 72px;
+  border-radius: 4px;
+}
+.sell-skl .skeleton {
+  background-color: #e2e5e7;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-size: 40px 100%;
+  background-repeat: no-repeat;
+  background-position: left -40px top 0;
+  animation: shine 1s ease infinite;
+}
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}/*# sourceMappingURL=mac-parts.css.map */

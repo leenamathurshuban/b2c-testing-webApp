@@ -13,21 +13,20 @@ import WholesalepartsComp from "./wholesale_section";
 import EbayComp from "./ebay";
 import TabContent from "./TabContent";
 import MacSerialLookupComp from "../Mac-repair/lookupform";
-
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setActive } from "@/appRedux/counterReducer";
 
-export default function MacrpartpageComp() {
+export default function MacrpartpageComp({}) {
+  const dispatch = useDispatch();
+  
   const { data: collectionData, isLoading: collectionLoading } =
     useGetCollectionsQuery(process.env.NEXT_PUBLIC_MAC_PARTS_ID);
 
   const [collections, setCollections] = useState([]);
-  const [active, setActive] = useState(
-    process.env.NEXT_PUBLIC_MAC_PART_INITIAL_ID
-  );
+  const active = useSelector((state) => state.counter.active); 
   const [loading, setLoading] = useState(true);
-
   const [showProducts, setShowProducts] = useState(false);
-
   const [dataFromChild, setDataFromChild] = useState(null);
   const [type, setType] = useState(null);
 
@@ -40,16 +39,15 @@ export default function MacrpartpageComp() {
     const DefaultCollectionID = window?.localStorage?.getItem(
       "mac-part-collection"
     );
-
+    console.log("DefaultCollectionID",DefaultCollectionID )
     if (DefaultCollectionID) {
-      setActive(DefaultCollectionID);
     } else {
-      window.localStorage.setItem(
-        "mac-part-collection",
-        process.env.NEXT_PUBLIC_MAC_PART_INITIAL_ID
-      );
-      setActive(process.env.NEXT_PUBLIC_MAC_PART_INITIAL_ID);
+      const initialID = active;
+      console.log("initialID", initialID)
+      window.localStorage.setItem("mac-part-collection", initialID);
+      dispatch(setActive(initialID)); // Update Redux state
     }
+
     setCollections(collectionData || []);
     setLoading(collectionLoading);
   }, [collectionData, collectionLoading]);
@@ -72,6 +70,7 @@ export default function MacrpartpageComp() {
                   <Col md={12} lg={4}>
                     <Card>
                       <Card.Body>
+                      {/* mac-parts */}
                         <Card.Title className="d-flex item-center justify-content-center">
                           Model configuration
                         </Card.Title>
@@ -168,7 +167,7 @@ export default function MacrpartpageComp() {
                                         window.localStorage.removeItem(
                                           "mac-part-collection-child"
                                         );
-                                        setActive(val.id);
+                                        dispatch(setActive(val.id)); // Update Redux state
                                         setShowProducts(false);
                                       }}
                                     >
@@ -230,8 +229,8 @@ export default function MacrpartpageComp() {
                               window.localStorage.removeItem(
                                 "mac-part-collection-child"
                               );
+                              dispatch(setActive(collection.id)); // Update Redux state
                               setShowProducts(false);
-                              setActive(collection.id);
                             }}
                           >
                             {collection.name}

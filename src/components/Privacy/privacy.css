@@ -1,0 +1,53 @@
+.privacy-box-ul {
+  margin-bottom: 30px;
+}
+.privacy-box-ul h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #000;
+}
+.privacy-box-ul h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #000;
+}
+.privacy-box-ul p {
+  color: #666;
+}
+.privacy-box-ul p a {
+  color: #000;
+  transition: all 0.5s;
+}
+.privacy-box-ul p a:hover {
+  color: #e86075;
+}
+.privacy-box-ul ul li {
+  position: relative;
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 28px;
+}
+.privacy-box-ul ul li span {
+  font-weight: 700;
+  margin-right: 8px;
+  color: #000;
+  left: 0;
+}
+.privacy-box-ul ul li a {
+  color: #000;
+  transition: all 0.5s;
+}
+.privacy-box-ul ul li a:hover {
+  color: #e86075;
+}
+.privacy-box-ul ul li b {
+  color: #e86075;
+}
+.privacy-box-ul ul li svg {
+  left: 0;
+  top: 8px;
+  position: absolute;
+  color: #e692b4;
+  font-size: 12px;
+}/*# sourceMappingURL=privacy.css.map */

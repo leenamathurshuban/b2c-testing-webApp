@@ -170,6 +170,7 @@
     text-transform: uppercase;
     font-weight: 600;
     font-size: 13px;
+    min-width: 136px;
     border: 2px solid transparent;
     background-origin: border-box !important;
     // background-clip: content-box, border-box;
@@ -183,7 +184,7 @@
     );
     border-radius: 50px;
     // background-color: #e75073;
-    padding: 10px 50px !important;
+    padding: 10px 20px !important;
     &:focus {
       color: #fff !important;
     }
@@ -549,4 +550,4 @@ p.seriaal-model {
       }
     }
   }
-}
+} 

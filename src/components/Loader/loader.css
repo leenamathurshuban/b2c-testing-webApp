@@ -1,0 +1,19 @@
+.loader-container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  background: rgba(8, 8, 8, 0.6117647059);
+  left: 0%;
+  right: 0%;
+}
+.loader-container > div {
+  left: 0%;
+  top: 50%;
+  position: fixed;
+  z-index: 9999;
+  right: 0%;
+  text-align: center;
+  margin: 0px auto;
+}/*# sourceMappingURL=loader.css.map */

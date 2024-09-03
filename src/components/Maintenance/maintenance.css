@@ -1,0 +1,146 @@
+.map-box .container-fluid {
+  padding: 0;
+}
+
+.main-reach h2 {
+  margin-bottom: 40px;
+  font-size: 60px;
+}
+
+.geth2 .main_heading h2 {
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 51px;
+  color: #464646;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.geth2 .main_heading h2 b {
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.geth2 .main_heading p {
+  width: 100%;
+  max-width: 512px;
+  margin: 18px auto;
+}
+
+.address-box {
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.19);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 10px;
+  margin-bottom: 65px;
+  transition: all 0.5s;
+  border-radius: 5px;
+  border: 1px solid #f1f1f1;
+}
+.address-box:hover {
+  border-color: #e86276;
+}
+.address-box h2, .address-box h5 {
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 51px;
+  color: #464646;
+}
+.address-box a {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 51px;
+  color: #464646;
+  text-align: center;
+}
+.address-box a:hover {
+  color: #e86276;
+}
+.address-box p {
+  margin: 0;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 25px;
+  margin-top: 20px;
+}
+.address-box svg {
+  margin: 30px 0px;
+  font-size: 52px;
+}
+
+.support-lineboxrow {
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.19);
+  padding: 30px 10px 30px 10px;
+  margin-bottom: 90px;
+  transition: all 0.5s;
+  border-radius: 5px;
+  border: 1px solid #f1f1f1;
+}
+.support-lineboxrow:hover {
+  border-color: #e86276;
+}
+.support-lineboxrow h2 {
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 51px;
+  text-align: center;
+  color: #464646;
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.support-lineboxrow h2 b {
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.support-lineboxrow p {
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 30px;
+  text-align: center;
+  color: #464646;
+  margin: 0;
+}
+.support-lineboxrow a {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 51px;
+  text-align: center;
+  color: #464646;
+}
+.support-lineboxrow a:hover {
+  color: #e86276;
+}
+.support-lineboxrow .vimg {
+  text-align: center;
+  margin: 30px 0px 20px 0px;
+  display: block;
+}
+.support-lineboxrow .lines-box {
+  text-align: center;
+}
+
+.support-form .repair-form h1 {
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 51px;
+  color: #464646;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.support-form .repair-form p {
+  width: 100%;
+  max-width: 512px;
+  margin: 18px auto;
+}/*# sourceMappingURL=maintenance.css.map */

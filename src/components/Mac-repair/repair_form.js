@@ -801,30 +801,25 @@ export default function RepairFormComp(props) {
               </p>
             </div>
             <Row className='justify-content-center cl-4tab'>
-              {props?.macrepairnew ? (
-                <Col md={6} lg={6} xl={4}>
-                  <div className='check_box_main'>
-                    <div className='file_box text-center check-status'>
-                      <h6>Model configuration</h6>
-
-                      <ul className='mb-4'>
-                        {Object.entries(props.ShowData).map(([key, value]) => (
-                          <li key={key}>
-                            <span className='response-title'>
-                              <b>{key} : </b>
-                            </span>
-                            <span className='response-value'>{value}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </Col>
-              ) : (
-                ""
-              )}
-
               <Col md={6} lg={6} xl={4}>
+                {props?.macrepairnew ? (
+                    <div className='check_box_main'>
+                      <div className='file_box text-center check-status model_confi'>
+                        <ul className='mb-6'>
+                          {Object.entries(props.ShowData).map(([key, value]) => (
+                            <li key={key}>
+                              <span className='response-title'>
+                                <b>{key} : </b>
+                              </span>
+                              <span className='response-value'>{value}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                ) : (
+                  ""
+                )}
                 <div className='file_box_main'>
                   <div className='file_box text-center'>
                     <h6>File a Repair</h6>

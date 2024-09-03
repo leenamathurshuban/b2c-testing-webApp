@@ -6,6 +6,7 @@ import CheckImage from "../../../public/assets/images/mac-repair/check-setting.p
 import MultiForm from "./multifrom";
 import toast, { Toaster } from "react-hot-toast";
 import parse from "html-react-parser";
+import { useDispatch, useSelector } from "react-redux";
 // const {
 //   HTTP_SERVICE_CALL_NO_AUTH,
 //   HTTP_SERVICE_CALL,
@@ -20,6 +21,7 @@ import axios from "axios";
 import Sellmfrom from "../sell-your-mac/sellmfrom";
 import RepairFormComp from "./repair_form";
 import { useRouter } from "next/router";
+import { setChildCollectionData, setActive } from "@/appRedux/counterReducer";
 
 const availableIssues = [
   "Power Issues",
@@ -124,7 +126,7 @@ const data = {
 };
 // ===SELECT DATA ==
 
-export default function LookupForm({ sendDataToParent }) {
+export default function LookupForm({ sendDataToParent, setParentActive }) {
   const router = useRouter();
 
   const handleClick = (e, val) => {
@@ -179,6 +181,8 @@ export default function LookupForm({ sendDataToParent }) {
     description: "",
   });
   const [RepairStatus, setRepairStatus] = useState("");
+
+  const dispatch = useDispatch();
 
   const handleChangeSerial = (e) => {
     const { name, value } = e.target;
@@ -281,7 +285,9 @@ export default function LookupForm({ sendDataToParent }) {
       } else {
         setIsLoadingSerial(true);
         await axios
-        .get(`https://shop.applefixpros.com/wp-json/custom-woo/v1/external/${form_data_serial.serial_number}`)
+          .get(
+            `https://shop.applefixpros.com/wp-json/custom-woo/v1/external/${form_data_serial.serial_number}`
+          )
           .then((res) => {
             if (res.data.response) {
               window.localStorage.setItem(
@@ -424,7 +430,6 @@ export default function LookupForm({ sendDataToParent }) {
         description: form_data.description,
         status: "Repair Pending",
       };
-      
 
       const response = await fetch("/api/file_repair/sheet_create", {
         method: "POST",
@@ -651,50 +656,130 @@ export default function LookupForm({ sendDataToParent }) {
     handleClick(e, ShowData);
   };
 
+  //Function for redirect to particular product categories
+  const handleViewClick = async () => {
+    try {
+      let model = ShowData.Model;
+      let modelParts = model.split(" ");
+
+      if (
+        modelParts.length > 1 &&
+        (modelParts[1].startsWith("(") || /\d/.test(modelParts[1]))
+      ) {
+        model = modelParts[0].toLowerCase();
+      } else {
+        model = `${modelParts[0]}-${modelParts[1]}`.toLowerCase();
+      }
+      model = encodeURIComponent(model);
+      const url = `https://shop.applefixpros.com/wp-json/custom-woo/v1/pro_cat_part/${model}`;
+
+      const response = await axios.get(url);
+      if (response.data && response.data[0]) {
+        console.log("Parent Value:", response.data[0].parent);
+        //setParentActive(response.data[0].parent);
+        dispatch(setActive(response.data[0].parent));
+        dispatch(
+          setChildCollectionData({
+            data: response.data,
+          })
+        );
+        router.push("/mac-parts");
+      } else {
+        console.error("Unexpected response structure or missing data");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+    setShow(false);
+    //router.push('/mac-parts');
+  };
+
+  console.log("path", router.pathname);
+
+  // const handleViewClick = async () => {
+  //   try {
+  //     let model = ShowData.Model;
+  //     let modelParts = model.split(' ');
+
+  //     if (modelParts.length > 1 && (modelParts[1].startsWith('(') || /\d/.test(modelParts[1]))) {
+  //       model = modelParts[0].toLowerCase();
+  //     } else {
+  //       model = `${modelParts[0]}-${modelParts[1]}`.toLowerCase();
+  //     }
+  //     model = encodeURIComponent(model);
+  //     const url = `https://shop.applefixpros.com/wp-json/custom-woo/v1/pro_cat_part/${model}`;
+
+  //     const response = await axios.get(url);
+
+  //     if (response.data && response.data.length > 0) {
+  //       console.log("Parent Value:", response.data[0].parent);
+  //       if (typeof setParentActive === 'function') {
+  //         setParentActive(response.data[0].parent);
+  //       } else {
+  //         console.error("setParentActive is not defined or is not a function");
+  //       }
+
+  //       dispatch(
+  //         setChildCollectionData({
+  //           data: response.data,
+  //         })
+  //       );
+
+  //       // Now redirect after ensuring data is set
+  //       router.push('/mac-parts');
+  //     } else {
+  //       console.error("Unexpected response structure or missing data");
+  //     }
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error);
+  //   }
+  //   setShow(false);
+  // };
+
   return (
     <>
       {isLoading ? <LoaderComp /> : ""}
       {SellState == "sell" ? (
         <Container>
           <Sellmfrom
-            macrepairnew='macrepairnew'
-            macrepairstep='2'
+            macrepairnew="macrepairnew"
+            macrepairstep="2"
             serial_number={form_data_serial.serial_number}
           />
         </Container>
       ) : SellState == "repair" ? (
         <Container>
           <RepairFormComp
-            macrepairnew='macrepairnew'
+            macrepairnew="macrepairnew"
             serial_number={form_data_serial.serial_number}
             ShowData={ShowData}
           />
         </Container>
       ) : (
-        <section className='file-repair-main mrt100'>
+        <section className="file-repair-main mrt100">
           <Container>
-            <div className='file-repair-full'>
-              <div className='lockno-box'>
-                <Row className='justify-content-center'>
+            <div className="file-repair-full">
+              <div className="lockno-box">
+                <Row className="justify-content-center">
                   <Col md={3}>
-                    <div className='lockup-box'>
+                    <div className="lockup-box">
                       <h2>Mac serial lookup</h2>
                     </div>
                   </Col>
 
                   <Col md={6}>
-                    <div className='repair-form'>
+                    <div className="repair-form">
                       <Form onSubmit={(e) => handleSubmit(e, "serial_number")}>
-                        <Row className='mb-3'>
+                        <Row className="mb-3">
                           <Col md={8}>
                             <Form.Group
-                              className=''
-                              controlId='formGridSnumber'
+                              className=""
+                              controlId="formGridSnumber"
                             >
                               <Form.Control
-                                type='text'
-                                placeholder='Serial Number'
-                                name='serial_number'
+                                type="text"
+                                placeholder="Serial Number"
+                                name="serial_number"
                                 onChange={(e) => handleChangeSerial(e)}
                                 value={form_data_serial.serial_number}
                                 className={
@@ -703,16 +788,16 @@ export default function LookupForm({ sendDataToParent }) {
                               />
                             </Form.Group>
 
-                            <p className='seriaal-model'>
+                            <p className="seriaal-model">
                               Finding Your Serial
                               <span onClick={handleShowt}> click here </span>
                             </p>
                           </Col>
                           <Col md={3}>
-                            <div className='repair-btn'>
+                            <div className="repair-btn">
                               <Button
-                                type='submit'
-                                className='main_btn hvr-shutter-out-horizontal'
+                                type="submit"
+                                className="main_btn hvr-shutter-out-horizontal"
                                 // onClick={handleShow}
                               >
                                 go
@@ -732,25 +817,25 @@ export default function LookupForm({ sendDataToParent }) {
       {/* ======MODEL START====== */}
 
       <Modal
-        size='lg'
+        size="lg"
         show={lgShow}
         onHide={() => setLgShow(false)}
-        aria-labelledby='example-modal-sizes-title-lg'
-        className='status-model'
+        aria-labelledby="example-modal-sizes-title-lg"
+        className="status-model"
       >
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          <div className='repair-popup-box'>
+          <div className="repair-popup-box">
             <h6>Enter Repair Number</h6>
-            <div className='repair-form repair-from-popup'>
+            <div className="repair-form repair-from-popup">
               <Form onSubmit={(e) => handleSubmit(e, "repair_number")}>
-                <Row className='mb-3 justify-content-center'>
+                <Row className="mb-3 justify-content-center">
                   <Col md={7}>
-                    <Form.Group className='' controlId='formGridSnumber'>
+                    <Form.Group className="" controlId="formGridSnumber">
                       <Form.Control
-                        type='text'
-                        placeholder='Enter Repair Status Code'
-                        name='repair_number'
+                        type="text"
+                        placeholder="Enter Repair Status Code"
+                        name="repair_number"
                         onChange={(e) => handleChangeRepair(e)}
                         value={form_data_repair.repair_number}
                         className={validation.repair_number ? "has-error" : ""}
@@ -759,12 +844,12 @@ export default function LookupForm({ sendDataToParent }) {
                   </Col>
                 </Row>
 
-                <Row className='mb-3'>
+                <Row className="mb-3">
                   <Col md={12}>
-                    <div className='repair-btn'>
+                    <div className="repair-btn">
                       <Button
-                        type='submit'
-                        className='main_btn hvr-shutter-out-horizontal'
+                        type="submit"
+                        className="main_btn hvr-shutter-out-horizontal"
                       >
                         Get status
                       </Button>
@@ -774,11 +859,11 @@ export default function LookupForm({ sendDataToParent }) {
               </Form>
             </div>
             <div className={isLoadingRepair ? "" : "d-none"}>
-              <h5 className='text-center mt-5 mb-5 repstatus skeleton'></h5>
+              <h5 className="text-center mt-5 mb-5 repstatus skeleton"></h5>
             </div>
             {RepairStatus != "" && RepairStatus != undefined ? (
               <div className={isLoadingRepair ? "d-none" : ""}>
-                <h5 className='text-center mt-5 mb-5 repstatus'>
+                <h5 className="text-center mt-5 mb-5 repstatus">
                   <span>Repair Status:</span> {RepairStatus}
                 </h5>
               </div>
@@ -796,7 +881,7 @@ export default function LookupForm({ sendDataToParent }) {
         show={show}
         onHide={handleClose}
         animation={false}
-        className='gomodel-full'
+        className="gomodel-full"
       >
         <Modal.Header closeButton>
           <Modal.Title>Mac Serial Lookup</Modal.Title>
@@ -811,18 +896,74 @@ export default function LookupForm({ sendDataToParent }) {
               <h5>Please enter correct serial number</h5>
             ) : (
               <>
-                <ul className='mb-4'>
+                <ul className="mb-4">
                   {Object.entries(ShowData).map(([key, value]) => (
                     <li key={key}>
-                      <span className='response-title'>
+                      <span className="response-title">
                         <b>{key} : </b>
                       </span>
-                      <span className='response-value'>{value}</span>
+                      <span className="response-value">{value}</span>
                     </li>
                   ))}
                 </ul>
 
-                <Row className='justify-content-evenly'>
+                {/* condition based button rendering  */}
+                <Row className="justify-content-evenly">
+                  {router.pathname === "/sell-your-mac" && (
+                    <Col md={3} sm={6}>
+                      <div className="repair-btn">
+                        <Button
+                          type="button"
+                          className="main_btn hvr-shutter-out-horizontal"
+                          onClick={() => handleSeialNumber("sell")}
+                        >
+                          Sell
+                        </Button>
+                      </div>
+                    </Col>
+                  )}
+                  {router.pathname === "/mac-repair" && (
+                    <>
+                      <Col md={3} sm={6}>
+                        <div className="repair-btn">
+                          <Button
+                            type="button"
+                            className="main_btn hvr-shutter-out-horizontal"
+                            onClick={() => handleSeialNumber("repair")}
+                          >
+                            Repair
+                          </Button>
+                        </div>
+                      </Col>
+                      <Col md={3} sm={6}>
+                        <div className="repair-btn">
+                          <Button
+                            type="button"
+                            className="main_btn hvr-shutter-out-horizontal"
+                            onClick={handleViewClick}
+                          >
+                            Shop Parts
+                          </Button>
+                        </div>
+                      </Col>
+                    </>
+                  )}
+                  {router.pathname === "/mac-parts" && (
+                    <Col md={3} sm={6}>
+                      <div className="repair-btn">
+                        <Button
+                          type="button"
+                          className="main_btn hvr-shutter-out-horizontal"
+                          onClick={handleViewClick}
+                        >
+                          Find Parts
+                        </Button>
+                      </div>
+                    </Col>
+                  )}
+                </Row>
+
+                {/* <Row className='justify-content-evenly'>
                   <Col md={3} sm={6}>
                     <div className='repair-btn'>
                       <Button
@@ -845,25 +986,36 @@ export default function LookupForm({ sendDataToParent }) {
                       </Button>
                     </div>
                   </Col>
-                </Row>
+                  <Col md={3} sm={6}>
+                    <div className='repair-btn'>                   
+                      <Button
+                        type='button'
+                        className='main_btn hvr-shutter-out-horizontal'
+                        onClick={handleViewClick}
+                      >
+                      Find Part 
+                      </Button>
+                    </div>
+                  </Col>
+                </Row> */}
               </>
             )}
           </div>
-
+          
           <div
             className={
               isLoadingSerial ? "gopopup-main" : "gopopup-main d-none "
             }
           >
             <div
-              className='skeleton mt-2 mb-4'
+              className="skeleton mt-2 mb-4"
               style={{ height: "150px" }}
             ></div>
-            <div className='skeleton mt-2 mb-2'></div>
-            <div className='skeleton mt-2 mb-2'></div>
-            <div className='skeleton mt-2 mb-2'></div>
-            <div className='skeleton mt-2 mb-2'></div>
-            <div className='skeleton mt-2 mb-2'></div>
+            <div className="skeleton mt-2 mb-2"></div>
+            <div className="skeleton mt-2 mb-2"></div>
+            <div className="skeleton mt-2 mb-2"></div>
+            <div className="skeleton mt-2 mb-2"></div>
+            <div className="skeleton mt-2 mb-2"></div>
           </div>
         </Modal.Body>
       </Modal>
@@ -874,13 +1026,13 @@ export default function LookupForm({ sendDataToParent }) {
         show={showt}
         onHide={handleCloset}
         animation={false}
-        className='ts-full'
+        className="ts-full"
       >
         <Modal.Header closeButton>
           {/* <Modal.Title>Thank You</Modal.Title> */}
         </Modal.Header>
         <Modal.Body>
-          <div className='tspopup-main'>
+          <div className="tspopup-main">
             <h2> If Your Mac Turns On </h2>
             <p>
               If your Mac is working properly, finding the serial number is
@@ -902,7 +1054,7 @@ export default function LookupForm({ sendDataToParent }) {
         </Modal.Body>
       </Modal>
       {/* =======MODAL THANKS END====== */}
-      <Toaster position='top-center' reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 }

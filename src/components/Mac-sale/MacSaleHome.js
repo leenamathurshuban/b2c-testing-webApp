@@ -56,7 +56,6 @@ export default function MacSaleHome({ collections, loading, query }) {
               </Row>
 
             </div>
-            
           </Container>
         </div>
       </section>

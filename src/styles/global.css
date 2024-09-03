@@ -1,0 +1,238 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Poppins", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0 !important;
+}
+
+body .container {
+  max-width: 95%;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+  line-height: 30px;
+  font-weight: 400;
+  color: #676767;
+}
+
+a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.5s;
+  list-style-type: none;
+  text-decoration: none !important;
+}
+
+.p0 {
+  padding: 0;
+}
+
+.opcity0 {
+  opacity: 0;
+}
+
+.mrt80 {
+  margin-top: 80px;
+}
+
+.mrt100 {
+  margin-top: 100px;
+}
+
+.mrb100 {
+  margin-bottom: 100px;
+}
+
+.mrt50 {
+  margin-top: 50px;
+}
+
+.mrb50 {
+  margin-bottom: 50px;
+}
+
+.pdt100 {
+  padding-top: 100px;
+}
+
+.pdb100 {
+  padding-bottom: 100px;
+}
+
+.pdt50 {
+  padding-top: 50px;
+}
+
+.pdb50 {
+  padding-bottom: 50px;
+}
+
+.wd100 {
+  width: 100%;
+}
+
+.dsnone {
+  display: none;
+}
+
+:focus-visible {
+  outline: none;
+}
+
+/* Shutter Out Horizontal */
+.hvr-shutter-out-horizontal {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  color: #fff !important;
+  transition-property: color;
+  transition-duration: 0.3s;
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  display: inline-block !important;
+  padding: 12px 28px !important;
+  margin-top: 10px;
+  transition: all 0.5s;
+  border: 2px solid transparent;
+  background-origin: border-box !important;
+  background-size: cover !important;
+  box-sizing: border-box !important;
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+}
+.hvr-shutter-out-horizontal:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  color: #e75073 !important;
+  transform: scaleX(0);
+  transform-origin: 50%;
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  border-radius: 100px;
+}
+.hvr-shutter-out-horizontal:hover::before {
+  transform: scaleX(1);
+}
+.hvr-shutter-out-horizontal:hover {
+  color: #e75073 !important;
+}
+.hvr-shutter-out-horizontal:active {
+  color: #e75073 !important;
+}
+
+.main_heading {
+  margin-top: 30px;
+  margin-bottom: 35px;
+}
+.main_heading h1 {
+  font-weight: 700;
+  font-size: 55px;
+  line-height: 51px;
+  text-align: center;
+  color: #464646;
+}
+
+.main_heading-gradiant h2 {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 92px;
+  text-align: center;
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.main_heading-gradiant h2 b {
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.main_heading-gradiant p {
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+  max-width: 496px;
+  margin: 0px auto;
+  margin-top: 15px;
+  margin-bottom: 60px;
+  line-height: 24px;
+}
+
+.main_heading-gradiant-p h1 {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 92px;
+  text-align: center;
+  color: #464646;
+}
+.main_heading-gradiant-p h1 b {
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.main_heading-gradiant-p p {
+  font-size: 22px;
+  text-align: center;
+  width: 100%;
+  max-width: 515px;
+  margin: 0px auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  line-height: 30px;
+  color: #727272;
+}
+
+.inner_gheading h6 {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 51px;
+  text-align: center;
+}
+.inner_gheading h6 span {
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.inner_gheading p {
+  font-size: 22px;
+  text-align: center;
+  width: 100%;
+  max-width: 515px;
+  margin: 0px auto;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  line-height: 27px;
+  color: #727272;
+}/*# sourceMappingURL=global.css.map */
