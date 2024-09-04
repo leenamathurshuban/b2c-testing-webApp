@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import Sellmfrom from "./sellmfrom";
 import MacSerialLookupComp from "../Mac-repair/lookupform";
 
@@ -15,30 +15,68 @@ export default function MacsaleyourComp() {
 
   return (
     <section className="main_macsalecomp pdt100">
-      <Container>
-        <div className="main_heading-gradiant-p">
-          <h1>
-            Looking to sell <b>Your Mac?</b>
-          </h1>
-          {/* <p>
-            Apple Fix Pros will buy your MacBook Air, MacBook Pro, iMac and Mac
-            Mini products.
-          </p> */}
-
-          <MacSerialLookupComp sendDataToParent={handleDataFromChild} />
-          {/* <Sellmfrom /> */}
-
-          <div className="more-repair sellmaccomp">
-            <h4>Do you have more than one MacBook to sell?</h4>
-            <p>
-              Please contact our sales department <br></br>
-              <Link href="tel:+12795990139" className="">
-                +1(279) 599-0139
-              </Link>
-            </p>
+      <container>
+        {dataFromChild && type == "sell" ? (
+          <section className="main_macsalecomp">
+            <Container>
+              <div className="main_heading inner_gheading">
+                <h6>
+                  Looking to sell <span>Your Mac?</span>
+                </h6>
+                <p>
+                  Apple Fix Pros will buy your MacBook Air, MacBook Pro, iMac,
+                  and Mac Mini products.
+                </p>
+                <div className="cardbox">
+                  <Row className="justify-content-center">
+                    <Col md={12} lg={4}>
+                      <Card>
+                        <Card.Body>
+                          <Card.Title className="d-flex item-center justify-content-center">
+                            Model configuration
+                          </Card.Title>
+                          <div className="mac-repair-new-sell">
+                            <ul className="mb-4">
+                              {Object.entries(dataFromChild).map(
+                                ([key, value]) => (
+                                  <li key={key}>
+                                    <span className="response-title">
+                                      <b>{key}:</b>
+                                    </span>
+                                    <span className="response-value">
+                                      {value}
+                                    </span>
+                                  </li>
+                                )
+                              )}
+                            </ul>
+                          </div>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  </Row>
+                </div>
+              </div>
+            </Container>
+          </section>
+        ) : (
+          <div className="main_heading-gradiant-p">
+            <h1>
+              Looking to sell <b>Your Mac?</b>
+            </h1>
           </div>
+        )}
+        <MacSerialLookupComp sendDataToParent={handleDataFromChild} />
+        <div className="more-repair sellmaccomp">
+          <h4>Do you have more than one MacBook to sell?</h4>
+          <p>
+            Please contact our sales department <br />
+            <Link href="tel:+12795990139" className="">
+              +1(279) 599-0139
+            </Link>
+          </p>
         </div>
-      </Container>
+      </container>
     </section>
   );
 }

@@ -691,50 +691,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
       console.error("Error fetching data:", error);
     }
     setShow(false);
-    //router.push('/mac-parts');
   };
-
-  console.log("path", router.pathname);
-
-  // const handleViewClick = async () => {
-  //   try {
-  //     let model = ShowData.Model;
-  //     let modelParts = model.split(' ');
-
-  //     if (modelParts.length > 1 && (modelParts[1].startsWith('(') || /\d/.test(modelParts[1]))) {
-  //       model = modelParts[0].toLowerCase();
-  //     } else {
-  //       model = `${modelParts[0]}-${modelParts[1]}`.toLowerCase();
-  //     }
-  //     model = encodeURIComponent(model);
-  //     const url = `https://shop.applefixpros.com/wp-json/custom-woo/v1/pro_cat_part/${model}`;
-
-  //     const response = await axios.get(url);
-
-  //     if (response.data && response.data.length > 0) {
-  //       console.log("Parent Value:", response.data[0].parent);
-  //       if (typeof setParentActive === 'function') {
-  //         setParentActive(response.data[0].parent);
-  //       } else {
-  //         console.error("setParentActive is not defined or is not a function");
-  //       }
-
-  //       dispatch(
-  //         setChildCollectionData({
-  //           data: response.data,
-  //         })
-  //       );
-
-  //       // Now redirect after ensuring data is set
-  //       router.push('/mac-parts');
-  //     } else {
-  //       console.error("Unexpected response structure or missing data");
-  //     }
-  //   } catch (error) {
-  //     console.error('Error fetching data:', error);
-  //   }
-  //   setShow(false);
-  // };
 
   return (
     <>

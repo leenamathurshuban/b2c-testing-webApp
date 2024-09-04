@@ -58,7 +58,7 @@ const Sellfstep = ({ handleChangeSelect, selectedValue, error }) => {
       <Form>
         <h2>Choose the reason it is not working properly</h2>
         <Row className="mb-3 justify-content-center">
-          <Col md={12} lg={3}>
+          <Col md={12}>
             <div className="select-fgroup">
               <MultiSelect
                 options={options}
