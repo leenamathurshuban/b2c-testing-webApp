@@ -6,7 +6,8 @@ export default function MacsalepageComp({ propValue, url }) {
   return (
     <Link
       href={`${
-        propValue?.id == Number(process.env.NEXT_PUBLIC_MAC_SALE_BLOW_OUT_ID)
+        propValue?.id == Number(process.env.NEXT_PUBLIC_MAC_SALE_BLOW_OUT_ID) ||
+        propValue?.id === 237
           ? `${url}/blowout/${propValue?.slug}?id=${propValue?.id}`
           : `${url}/${propValue?.slug}?id=${propValue?.id}`
       }`}

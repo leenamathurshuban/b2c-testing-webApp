@@ -1,16 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import MacsalepageComp from "@/components/Mac-sale/Macsalepage";
-import { useRouter } from "next/router";
 
 export default function MacSaleHome({ collections, loading, query }) {
-
-  const router = useRouter();
-  const {id} = router.query;
-  
-  if (!collections.length && !loading) {
-    router.push(`${query}/used-sale?id=${id}`);
-  }
 
   return (
     <>
@@ -54,7 +46,6 @@ export default function MacSaleHome({ collections, loading, query }) {
                     })
                   :  ""}
               </Row>
-
             </div>
           </Container>
         </div>
