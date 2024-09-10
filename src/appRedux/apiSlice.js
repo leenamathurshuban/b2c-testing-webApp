@@ -29,7 +29,18 @@ export const apiSlice = createApi({
       query: ({ id, limit = 10, cursor = 1 }) =>
         `/products/${id}?cursor=${cursor}&limit=${limit}`,
     }),
+    searchProducts: builder.query({
+      query: ({ query, page = 1 }) => ({
+        url: `https://shop.applefixpros.com/wp-json/custom-woo/v1/search/?quaryvar=${query}&page=${page}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
-export const { useGetCollectionsQuery, useGetProductsByCollectionIdQuery } =
-  apiSlice;
+
+export const { 
+  useGetCollectionsQuery, 
+  useGetProductsByCollectionIdQuery, 
+  useSearchProductsQuery, 
+  useLazySearchProductsQuery
+} = apiSlice;

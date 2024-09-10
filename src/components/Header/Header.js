@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar, Modal } from "react-bootstrap";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -7,25 +7,43 @@ import { Cross as Hamburger } from "hamburger-react";
 import CartIcon from "../../../public/assets/images/header/cart.webp";
 import { useSelector } from "react-redux";
 import afpLogo from "../../../public/AfpLogo.png";
+import { BiSearchAlt2 } from "react-icons/bi";
+import { useLazySearchProductsQuery } from '@/appRedux/apiSlice';
 
 export default function HeaderComp() {
   const count = useSelector((state) => state.counter.count);
   const router = useRouter();
 
   const [isOpen, setOpen] = useState(false);
+  const [show, setShow] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(""); 
+  const [triggerSearch] = useLazySearchProductsQuery(); 
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // Handle search button click
+  const handleSearch = async () => {
+    if (searchTerm.trim() !== "") {
+      await triggerSearch({ query: searchTerm, page: 1 });
+      router.push(`/searchProduct?query=${searchTerm}`); 
+      handleClose(); 
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
 
   return (
     <Navbar collapseOnSelect expand="lg" className="my_nav">
       <Container>
         <Navbar.Brand className="logo-text">
-          {/* <div className="AfpLogo"> */}
           <Link href="/" className="">
-            <p>
-              {/* <Image src={afpLogo} alt="afp-logo" className="img-fluid " /> */}
-              Apple Fix Pros
-            </p>
+            <p>Apple Fix Pros</p>
           </Link>
-          {/* </div> */}
         </Navbar.Brand>
         <Link href="/cart" className="cart_mob">
           <div className="cart">
@@ -40,12 +58,11 @@ export default function HeaderComp() {
             className={"navbar-toggler"}
           />
         </div>
-        <div className="burger"></div>
         <Navbar.Collapse
           className={isOpen ? "show" : ""}
           id="responsive-navbar-nav"
         >
-          <Nav className="ms-auto my_navbar ms-5">
+           <Nav className="ms-auto my_navbar ms-5">
             <Link
               href="/"
               className={
@@ -133,8 +150,27 @@ export default function HeaderComp() {
               Login
             </Link> */}
           </Nav>
-
-          <Nav className="hm_cart-mob">
+          <Nav className="hm_cart-mob ddd">
+            <Button className="serachicon" onClick={handleShow}>
+              <BiSearchAlt2 />
+            </Button>
+            <Modal show={show} dialogClassName="modal-90w" onHide={handleClose} className="srch-boxmodel">
+              <Modal.Header closeButton></Modal.Header>
+              <Modal.Body>
+                <div className="serachinner">
+                  <input
+                    type="text"
+                    placeholder="Search Keywords....."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                  />
+                  <Button className="btn btn-info" onClick={handleSearch}>
+                    Search
+                  </Button>
+                </div>
+              </Modal.Body>
+            </Modal>
             <Link href="/cart" className="cart_desktop">
               <div className="cart">
                 <Image src={CartIcon} alt="Cart Img" className="img-fluid" />
@@ -147,4 +183,3 @@ export default function HeaderComp() {
     </Navbar>
   );
 }
-// ========NAVBAR END======

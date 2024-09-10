@@ -1,140 +1,397 @@
-.shopmac-full {
-    svg {
-        fill: #34495e !important;
-        width: 80px;
-    }
+// .shopmac-full {
+//     svg {
+//         fill: #34495e !important;
+//         width: 80px;
+//     }
 
-    #mac_mini_svg .inverse {
-        fill: #fff;
-    }
+//     #mac_mini_svg .inverse {
+//         fill: #fff;
+//     }
+// }
+// .repair-row{
+//     width: 100%;
+//     max-width: 80%;
+//     margin: 0px auto !important;
+//     text-align: center;
+// }
+
+// .new_repairmac_box{
+//     padding-bottom: 30px;
+//     .new_shopmac_img {
+//         text-align: center;
+//       }
+//       .pdimg-next {
+//         width: 100%;
+//         max-width: 228px;
+//         margin: 0px auto;
+//         height: 70px;
+//         display: flex;
+//         justify-content: center;
+//         span {
+//           height: 100% !important;
+//           padding: 0 !important;
+//         }
+//       }
+//       .new_shopmac_content {
+//         h2 {
+//             font-size: 22px;
+//             line-height: 51px;
+//             text-align: center;
+//             color: #515151;
+//             // margin-top: 30px;
+//             font-weight: 700
+//         }
+//       }
+//       &:hover {
+//         // border: 1px solid #edb2bf;
+//         h2 {
+//           color: #e75073;
+//         }
+//       }
+// }
+// .not-allowed {
+//   pointer-events: auto! important;
+//   cursor: not-allowed! important;
+// }
+// .mac-repair-new-sell{
+//   text-align: center;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   margin: 0 auto;
+//   // padding-bottom: 35px;
+//   img{
+//     width: 100%;
+//     max-width: 250px;
+//     margin: 0px auto;
+//   }
+// }
+// .repair-img-box{
+//   img{
+//       width: 160px !important;
+//     }
+//   .shopmac_content {
+//     h2 { 
+//         color: #000 
+//       };
+//     p { 
+//       color: #000 
+//     };
+//   }
+// }
+// .model_confi {
+//   ul {
+//     li {
+//       font-family: "Poppins", sans-serif;
+//       line-height: 22px;
+//       font-weight: 400;
+//       color: #676767;
+//       padding: 10px;
+//       text-align: left;
+//       font-size: 15px;
+//     }
+//     span.response-title {
+//       min-width: 55px;
+//       margin-right: 4px;
+//     }
+//   }
+// }
+// .mb-6 {
+//   margin-bottom: 3.2rem;
+// }
+// span.serachicon {
+//   background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+//   width: 46px;
+//   height: 46px;
+//   border-radius: 100px;
+//   position: relative;
+//   left: 0px;
+//   top: -5px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 5px;
+//   margin-right: 15px;
+//   cursor: pointer;
+//   svg {
+//     width: 22px;
+//     color: #fff;
+//     height: 22px;
+//   }
+// } 
+// .hm_cart-mob {
+//   position: relative;
+// }
+// .srch-box {
+//   position: absolute;
+//   right: 60px;
+//   top: 100%;
+//   z-index: 2;
+// }
+
+// .srch-box input {
+//   background-color: #f2f5f5;
+//   border: none;
+//   padding: 15px;
+//   font-size: 14px;
+//   font-family: 'Poppins';
+//   border-radius: 6px;
+//   width: 265px;
+// } 
+
+.shopmac-full {
+  svg {
+      fill: #34495e !important;
+      width: 80px;
+  }
+
+  #mac_mini_svg .inverse {
+      fill: #fff;
+  }
 }
 .repair-row{
-    width: 100%;
-    max-width: 80%;
-    margin: 0px auto !important;
-    text-align: center;
+  width: 100%;
+  max-width: 80%;
+  margin: 0px auto !important;
+  text-align: center;
 }
 
 .new_repairmac_box{
-    padding-bottom: 30px;
-    .new_shopmac_img {
-        text-align: center;
+  padding-bottom: 30px;
+  .new_shopmac_img {
+      text-align: center;
+    }
+    .pdimg-next {
+      width: 100%;
+      max-width: 228px;
+      margin: 0px auto;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      span {
+        height: 100% !important;
+        padding: 0 !important;
       }
-      .pdimg-next {
-        width: 100%;
-        max-width: 228px;
-        margin: 0px auto;
-        height: 70px;
-        display: flex;
-        justify-content: center;
-        span {
-          height: 100% !important;
-          padding: 0 !important;
-        }
+    }
+    .new_shopmac_content {
+      h2 {
+          font-size: 22px;
+          line-height: 51px;
+          text-align: center;
+          color: #515151;
+          // margin-top: 30px;
+          font-weight: 700
       }
-      .new_shopmac_content {
-        h2 {
-            font-size: 22px;
-            line-height: 51px;
-            text-align: center;
-            color: #515151;
-            // margin-top: 30px;
-            font-weight: 700
-        }
+    }
+    &:hover {
+      // border: 1px solid #edb2bf;
+      h2 {
+        color: #e75073;
       }
-      &:hover {
-        // border: 1px solid #edb2bf;
-        h2 {
-          color: #e75073;
-        }
-      }
+    }
 }
 .not-allowed {
-  pointer-events: auto! important;
-  cursor: not-allowed! important;
+pointer-events: auto! important;
+cursor: not-allowed! important;
 }
 .mac-repair-new-sell{
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  // padding-bottom: 35px;
-  img{
-    width: 100%;
-    max-width: 250px;
-    margin: 0px auto;
-  }
+text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin: 0 auto;
+// padding-bottom: 35px;
+img{
+  width: 100%;
+  max-width: 250px;
+  margin: 0px auto;
+}
 }
 .repair-img-box{
-  img{
-      width: 160px !important;
-    }
-  .shopmac_content {
-    h2 { 
-        color: #000 
-      };
-    p { 
+img{
+    width: 160px !important;
+  }
+.shopmac_content {
+  h2 { 
       color: #000 
     };
+  p { 
+    color: #000 
+  };
+}
+} 
+.model_confi {
+ul {
+  li {
+    font-family: "Poppins", sans-serif;
+    line-height: 22px;
+    font-weight: 400;
+    color: #676767;
+    padding: 10px;
+    text-align: left;
+    font-size: 15px;
+    display: flex;
+  }
+  span.response-title {
+    min-width: 55px;
+    margin-right: 4px;
   }
 }
-.model_confi {
-  ul {
-    li {
-      font-family: "Poppins", sans-serif;
-      line-height: 22px;
-      font-weight: 400;
-      color: #676767;
-      padding: 10px;
-      text-align: left;
-      font-size: 15px;
-    }
-    span.response-title {
-      min-width: 55px;
-      margin-right: 4px;
-    }
-  }
 }
 .mb-6 {
-  margin-bottom: 3.2rem;
+margin-bottom: 3.2rem;
 }
-span.serachicon {
-  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
-  width: 46px;
-  height: 46px;
-  border-radius: 100px;
-  position: relative;
-  left: 0px;
-  top: -5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  margin-right: 15px;
-  cursor: pointer;
-  svg {
-    width: 22px;
-    color: #fff;
-    height: 22px;
-  }
+.serachicon {
+background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+width: 46px;
+height: 46px;
+border-radius: 100px;
+position: relative;
+left: 0px;
+top: -5px;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 5px;
+margin-right: 15px;
+border: none;
+svg {
+  width: 22px;
+  color: #fff;
+  height: 22px;
+}
 } 
 .hm_cart-mob {
-  position: relative;
+position: relative;
 }
-.srch-box {
-  position: absolute;
-  right: 60px;
-  top: 100%;
-  z-index: 2;
+.srch-boxmodel {
+padding-right: 0 !important;
+.modal-90w {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1019607843);
 }
+.modal-content {
+border-radius: 0;
+border: 0;
+}
+.modal-header {
+border: none;
+padding-right: 20px;
+}
+}
+.serachinner {
+max-width: 800px;
+margin: auto;
+padding-bottom: 55px;
+position: relative;
 
-.srch-box input {
+input {
   background-color: #f2f5f5;
   border: none;
   padding: 15px;
   font-size: 14px;
+  font-family: "Poppins";
+  border-radius: 8px;
+  width: 100%;
+  min-height: 58px;
+  color: #000;
+}
+.btn.btn-info {
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  padding: 14px 24px;
   font-family: 'Poppins';
-  border-radius: 6px;
-  width: 265px;
-} 
+  border-radius: 8px;
+}
+}  
+.gradiant_page_title{
+font-weight: 700;
+font-size: 60px;
+line-height: 92px;
+text-align: center;
+background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+b{
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+}
+.src_rusults {
+.serachinner {
+  max-width: 650px;
+  padding-bottom: 30px;
+  margin-top: 20px;
+}
+}
+.utility-bar {
+padding: 15px;
+background-color: #fff;
+box-shadow: 0px 4px 10px #e8e8e8;
+border-radius: 10px;
+margin-bottom: 25px;
+.result_count {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  color: #515151;
+  text-transform: capitalize;
+  font-weight: 700;
+  span{
+    color: #e78478;
+  }
+}
+}
+.filter-sidebar {
+.flt_title{
+  background: #93F2FF;
+  background: linear-gradient(to right, #93F2FF 0%, #FD79A1 25%, #E78478 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 34px;
+  font-weight: 700;
+}
+button.accordion-button {
+  background: linear-gradient(90deg, #93f2ff 0.35%, #fd79a1 40%, #e78478 106.3%);
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.accordion-button::after {
+filter: invert(1);
+}
+.filter-group_item {
+li {
+  margin-bottom: 18px;
+  .form-check-label {
+    font-size: 15px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    color: #515151;
+  }
+  .form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    margin-top: 0;
+    border-color: #adadad;
+    margin-right: 8px;
+ }
+ .form-check-inline {
+  display: flex;
+ }
+}
+}
+}
