@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
-import { Col, Container, Row, Accordion, Form, Button } from "react-bootstrap";
+import { Col, Container, Row, Form, Button } from "react-bootstrap";
 import { useLazySearchProductsQuery } from "@/appRedux/apiSlice";
-import axios from "axios";
 import LoaderComp from "../Loader/loader_comp";
 import Link from "next/link";
 import { debounce } from "@/lib/helpers";
@@ -16,7 +15,6 @@ const SearchProduct = () => {
   const [triggerSearch, { data: productsData, error, isLoading }] =
     useLazySearchProductsQuery();
   const [products, setProducts] = useState([]);
-  const [loadingCategory, setLoadingCategory] = useState(false);
   const [page, setPage] = useState(1);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
@@ -34,7 +32,8 @@ const SearchProduct = () => {
   const handleScroll = useCallback(
     debounce(() => {
       if (
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 &&
+        window.innerHeight + window.scrollY >=
+        document.body.offsetHeight - 500 &&
         !isFetchingMore &&
         hasMore
       ) {
@@ -52,29 +51,32 @@ const SearchProduct = () => {
 
   useEffect(() => {
     if (isFetchingMore && page > 1) {
-      triggerSearch({ query: searchTerm, page }).then((newProductsData) => {
-        const newProducts = newProductsData.data?.[0]?.response || [];
-        const endOfPagination = newProductsData.data?.[0]?.endofpagination === "true";
-        
-        if (newProducts.length > 0) {
-          setProducts((prevProducts) => [...prevProducts, ...newProducts]);
-          setHasMore(!endOfPagination);
-        } else {
-          setHasMore(false); 
-        }
-        setIsFetchingMore(false);
-      }).catch(() => {
-        setIsFetchingMore(false);
-      });
+      triggerSearch({ query: searchTerm, page })
+        .then((newProductsData) => {
+          const newProducts = newProductsData.data?.[0]?.response || [];
+          const endOfPagination =
+            newProductsData.data?.[0]?.endofpagination === "true";
+
+          if (newProducts.length > 0) {
+            setProducts((prevProducts) => [...prevProducts, ...newProducts]);
+            setHasMore(!endOfPagination); 
+          } else {
+            setHasMore(false);
+          }
+          setIsFetchingMore(false);
+        })
+        .catch(() => {
+          setIsFetchingMore(false);
+        });
     }
   }, [isFetchingMore, page, searchTerm]);
 
   useEffect(() => {
     if (productsData && productsData.length > 0 && page === 1) {
       setProducts(productsData[0]?.response || []);
-      setHasMore(productsData[0]?.response.length > 0); 
+      setHasMore(productsData[0]?.endofpagination !== "true");
     }
-  }, [productsData]);
+  }, [productsData, page]);
 
   const handleSearch = () => {
     if (searchTerm.trim() !== "") {
@@ -87,34 +89,10 @@ const SearchProduct = () => {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleSearch();
     }
   };
-
-  const handleCategorySelect = async (category) => {
-    const firstCategoryPart = category.split(",")[0].trim();
-
-    setSelectedCategory(firstCategoryPart);
-    setProducts([]);
-    setLoadingCategory(true);
-    setPage(1);
-    setHasMore(true); 
-
-    try {
-      const response = await axios.get(
-        `https://shop.applefixpros.com/wp-json/custom-woo/v1/search/?quaryvar=${firstCategoryPart}&page=1`
-      );
-      setProducts(response.data?.[0]?.response || []);
-      setHasMore(response.data?.[0]?.response.length > 0); 
-    } catch (error) {
-      console.error("Error fetching category data:", error);
-    } finally {
-      setLoadingCategory(false);
-    }
-  };
-
-  const categories = productsData?.[0]?.categories?.split(",") || [];
 
   return (
     <section className="src_rusults">
@@ -142,55 +120,18 @@ const SearchProduct = () => {
         </Row>
 
         <Row className="mt-5">
-          <Col md={4} lg={3}>
-            <aside className="filter-sidebar">
-              <h4 className="flt_title">Filter</h4>
-              <Accordion defaultActiveKey={["0"]} alwaysOpen>
-                <Accordion.Item eventKey="0" className="filter-group">
-                  <Accordion.Header className="filter-group_heading">
-                    Categories
-                  </Accordion.Header>
-                  <Accordion.Body className="filter-group_item">
-                    <Form>
-                      {categories.length > 0 ? (
-                        categories.map((category, index) => (
-                          <ul key={index} className="mb-3">
-                            <li>
-                              <Form.Check
-                                inline
-                                label={category.split(",")[0].trim()}
-                                name="group1"
-                                type="radio"
-                                id={`category-${index}`}
-                                checked={selectedCategory === category.split(",")[0].trim()}
-                                onChange={() => handleCategorySelect(category)}
-                              />
-                            </li>
-                          </ul>
-                        ))
-                      ) : (
-                        <p>No categories available</p>
-                      )}
-                    </Form>
-                  </Accordion.Body>
-                </Accordion.Item>
-              </Accordion>
-            </aside>
-          </Col>
-
-          <Col md={8} lg={9}>
+          <Col md={12} lg={12}>
             <Row>
               <Col md={12} lg={12}>
                 <div className="utility-bar">
                   <strong className="result_count">
                     We found{" "}
-                    <span>({productsData?.[0]?.productcount || 0})</span>
+                    <span>({productsData?.[0]?.productcount || 0})</span>{" "}
                     results
                   </strong>
                 </div>
               </Col>
-
-              {(isLoading || loadingCategory) && (
+              {isLoading && (
                 <div className="loader-center">
                   <LoaderComp />
                 </div>
@@ -202,7 +143,7 @@ const SearchProduct = () => {
                 </Col>
               ) : (
                 products.map((product) => (
-                  <Col sm={12} lg={4} md={6} xl={4} key={product.id}>
+                  <Col sm={12} lg={3} md={6} xl={3} key={product.id}>
                     <Link href={`/${product.slug}?id=${product.id}`}>
                       <div className="new_shopmac_pc_box">
                         {product.tags && (
@@ -213,7 +154,9 @@ const SearchProduct = () => {
                         <div className="new_shopmac_pc_img">
                           <img
                             alt={product.name}
-                            src={product?.image_url[0] || "/assets/no_image.jpg"}
+                            src={
+                              product?.image_url[0] || "/assets/no_image.jpg"
+                            }
                             className="img-fluid"
                           />
                         </div>
@@ -246,4 +189,5 @@ const SearchProduct = () => {
     </section>
   );
 };
+
 export default SearchProduct;
