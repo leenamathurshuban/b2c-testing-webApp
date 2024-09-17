@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 //   HTTP_SERVICE_CALL,
 // } = require("../../provider/ApiProvider");
 import axios from "axios";
-// import LoaderComp from "../Loader/loader_comp";
+import LoaderComp from "../Loader/loader_comp";
 // import {
 //   isNumericInput,
 //   formatToPhone,
@@ -254,6 +254,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
 
   const handleSubmit = async (e, type = "") => {
     e.preventDefault();
+    setIsLoading(true)
     const { name, value } = e.target;
 
     let errors = { ...validation };
@@ -299,11 +300,13 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
                 form_data_serial.serial_number
               );
               setShowData(res.data.response);
+              setIsLoading(false)
               setIsLoadingSerial(false);
             }
           })
           .catch((error) => {
             setShowData(error.response.data.message);
+            setIsLoading(false)
             setIsLoadingSerial(false);
           });
       }
@@ -324,7 +327,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
         .get(`/api/file_repair/get_data?id=${form_data_repair.repair_number}`)
         .then((res) => {
           setIsLoadingRepair(false);
-
+          setIsLoading(false)
           if (res.status == 200) {
             if (res.data.status) {
               setRepairStatus(res.data.data.status);
@@ -336,6 +339,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
           }
         })
         .catch((err) => {
+          setIsLoading(false)
           setIsLoadingRepair(false);
         });
     }
@@ -439,6 +443,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
         },
       })
         .then(async (res) => {
+          setIsLoading(false)
           if (res.status == 200) {
             const sendData = {
               sendTo: form_data.email,
@@ -548,11 +553,14 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
         })
         .catch((err) => {
           setIsLoading(false);
+          setIsLoading(false)
           toast.error("Something went wrong!");
         });
 
       // setIsSubmitForm(true)
     }
+    console.log(ShowData)
+    setIsLoading(false)
   };
 
   const checkValidation = (type = "") => {
@@ -767,7 +775,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
                 </Row>
                 {router.pathname==="/mac-parts"&&show&&ShowData!=[]&&<div className="cardbox mb-4">
                   <Row className="justify-content-center">
-                    <Col md={12} lg={4}>
+                    <Col md={12} lg={4} style={{marginLeft:"105px"}}>
                       <Card>
                         <Card.Body>
                           <Card.Title className="d-flex item-center justify-content-center">
