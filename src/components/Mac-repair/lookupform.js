@@ -773,13 +773,13 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
                     </div>
                   </Col>
                 </Row>
-                {router.pathname==="/mac-parts"&&show&&ShowData!=[]&&<div className="cardbox mb-4">
+                {router.pathname==="/mac-parts"&&ShowData!=[]&&show&&<div className="cardbox mb-4">
                   <Row className="justify-content-center">
                     <Col md={12} lg={4} style={{marginLeft:"105px"}}>
                       <Card>
                         <Card.Body>
                           <Card.Title className="d-flex item-center justify-content-center">
-                            Model configuration
+                            Model Configuration
                           </Card.Title>
                           <div className="mac-repair-new-sell">
                           <div
