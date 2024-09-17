@@ -253,7 +253,6 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
   }, [form_data, form_data_repair, form_data_serial]);
 
   const handleSubmit = async (e, type = "") => {
-    setIsLoading(true)
     e.preventDefault();
     const { name, value } = e.target;
 
@@ -301,13 +300,11 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
               );
               setShowData(res.data.response);
               setIsLoadingSerial(false);
-              setIsLoading(false)
             }
           })
           .catch((error) => {
             setShowData(error.response.data.message);
             setIsLoadingSerial(false);
-            setIsLoading(false)
           });
       }
     }
@@ -322,12 +319,11 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
         setValidation(errors);
       }
       setIsLoadingRepair(true);
-      
+
       await axios
-      .get(`/api/file_repair/get_data?id=${form_data_repair.repair_number}`)
-      .then((res) => {
-        setIsLoadingRepair(false);
-        setIsLoading(false)
+        .get(`/api/file_repair/get_data?id=${form_data_repair.repair_number}`)
+        .then((res) => {
+          setIsLoadingRepair(false);
 
           if (res.status == 200) {
             if (res.data.status) {
@@ -341,7 +337,6 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
         })
         .catch((err) => {
           setIsLoadingRepair(false);
-          setIsLoading(false)
         });
     }
     if (type == "file_repair") {
@@ -445,7 +440,6 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
       })
         .then(async (res) => {
           if (res.status == 200) {
-            setIsLoading(false)
             const sendData = {
               sendTo: form_data.email,
               subject: "Apple fix pros - File a repair",
