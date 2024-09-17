@@ -242,4 +242,56 @@
 }
 .filter-sidebar .filter-group_item li .form-check-inline {
   display: flex;
+}
+
+@media (min-width: 769px) {
+  .md-hide {
+    display: none;
+  }
+}
+@media (max-width: 768.98px) {
+  .xs-hide {
+    display: none;
+  }
+  .serachicon {
+    width: 40px;
+    height: 40px;
+    left: 0px;
+    top: 0;
+    margin-right: 30px;
+  }
+  .srch-boxmodel .modal-90w {
+    margin: 0;
+  }
+  .srch-boxmodel .modal-90w .modal-body {
+    padding-top: 5px;
+  }
+  .serachinner {
+    padding-bottom: 5px;
+  }
+  .serachinner input {
+    padding: 10px 14px;
+    font-size: 13px;
+    min-height: 50px;
+  }
+  .serachinner .btn.btn-info {
+    font-size: 13px;
+    padding: 11px 20px;
+  }
+  .gradiant_page_title {
+    font-size: 28px;
+    line-height: 34px;
+    margin-top: 15px;
+  }
+  .src_rusults .serachinner {
+    padding-bottom: 0;
+  }
+  .utility-bar .result_count {
+    font-size: 14px;
+    text-align: center;
+    display: block;
+  }
+  .src_rusults .mt-5.row {
+    margin-top: 2rem !important;
+  }
 }/*# sourceMappingURL=styles.css.map */

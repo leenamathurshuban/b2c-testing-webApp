@@ -15,7 +15,7 @@ export default function MacsaleyourComp() {
 
   return (
     <section className="main_macsalecomp pdt100">
-      <container>
+      <Container>
         {dataFromChild && type == "sell" ? (
           <section className="main_macsalecomp">
             <Container>
@@ -76,7 +76,7 @@ export default function MacsaleyourComp() {
             </Link>
           </p>
         </div>
-      </container>
+      </Container>
     </section>
   );
 }

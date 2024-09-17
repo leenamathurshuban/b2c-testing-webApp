@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Container, Row, Col, Modal, Button, Form } from "react-bootstrap";
+import { Container, Row, Col, Modal, Button, Form,Card } from "react-bootstrap";
 import Image from "next/image";
 import CheckImage from "../../../public/assets/images/mac-repair/check-setting.png";
 import MultiForm from "./multifrom";
@@ -253,6 +253,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
   }, [form_data, form_data_repair, form_data_serial]);
 
   const handleSubmit = async (e, type = "") => {
+    setIsLoading(true)
     e.preventDefault();
     const { name, value } = e.target;
 
@@ -300,11 +301,13 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
               );
               setShowData(res.data.response);
               setIsLoadingSerial(false);
+              setIsLoading(false)
             }
           })
           .catch((error) => {
             setShowData(error.response.data.message);
             setIsLoadingSerial(false);
+            setIsLoading(false)
           });
       }
     }
@@ -319,11 +322,12 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
         setValidation(errors);
       }
       setIsLoadingRepair(true);
-
+      
       await axios
-        .get(`/api/file_repair/get_data?id=${form_data_repair.repair_number}`)
-        .then((res) => {
-          setIsLoadingRepair(false);
+      .get(`/api/file_repair/get_data?id=${form_data_repair.repair_number}`)
+      .then((res) => {
+        setIsLoadingRepair(false);
+        setIsLoading(false)
 
           if (res.status == 200) {
             if (res.data.status) {
@@ -337,6 +341,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
         })
         .catch((err) => {
           setIsLoadingRepair(false);
+          setIsLoading(false)
         });
     }
     if (type == "file_repair") {
@@ -440,6 +445,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
       })
         .then(async (res) => {
           if (res.status == 200) {
+            setIsLoading(false)
             const sendData = {
               sendTo: form_data.email,
               subject: "Apple fix pros - File a repair",
@@ -675,7 +681,6 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
 
       const response = await axios.get(url);
       if (response.data && response.data[0]) {
-        console.log("Parent Value:", response.data[0].parent);
         //setParentActive(response.data[0].parent);
         dispatch(setActive(response.data[0].parent));
         dispatch(
@@ -766,6 +771,43 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
                     </div>
                   </Col>
                 </Row>
+                {router.pathname==="/mac-parts"&&show&&ShowData!=[]&&<div className="cardbox mb-4">
+                  <Row className="justify-content-center">
+                    <Col md={12} lg={4}>
+                      <Card>
+                        <Card.Body>
+                          <Card.Title className="d-flex item-center justify-content-center">
+                            Model configuration
+                          </Card.Title>
+                          <div className="mac-repair-new-sell">
+                          <div
+            className={
+              isLoadingSerial ? "d-none gopopup-main" : "gopopup-main pb-3"
+            }
+          >
+            {ShowData === "rejected" ? (
+              <h5>Please enter correct serial number</h5>
+            ) : (
+              <>
+                <ul className="mb-4">
+                  {Object.entries(ShowData).map(([key, value]) => (
+                    <li key={key}>
+                      <span className="response-title">
+                        <b>{key} : </b>
+                      </span>
+                      <span className="response-value">{value}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
+                          </div>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  </Row>
+                </div>}
               </div>
             </div>
           </Container>
@@ -834,7 +876,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
       {/* ======MODEL START====== */}
 
       {/* ======MODAL GO START=== */}
-      <Modal
+      {router.pathname!="/mac-parts"&&<Modal
         show={show}
         onHide={handleClose}
         animation={false}
@@ -975,7 +1017,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
             <div className="skeleton mt-2 mb-2"></div>
           </div>
         </Modal.Body>
-      </Modal>
+      </Modal>}
       {/* =======MODAL GO END====== */}
 
       {/* ======MODAL THANKS START=== */}

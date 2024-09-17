@@ -45,6 +45,9 @@ export default function HeaderComp() {
             <p>Apple Fix Pros</p>
           </Link>
         </Navbar.Brand>
+        <Button className="serachicon md-hide" onClick={handleShow}>
+          <BiSearchAlt2 />
+        </Button>
         <Link href="/cart" className="cart_mob">
           <div className="cart">
             <Image src={CartIcon} alt="Apple Fix Pro" className="img-fluid" />
@@ -150,8 +153,8 @@ export default function HeaderComp() {
               Login
             </Link> */}
           </Nav>
-          <Nav className="hm_cart-mob ddd">
-            <Button className="serachicon" onClick={handleShow}>
+          <Nav className="hm_cart-mob">
+            <Button className="serachicon xs-hide" onClick={handleShow}>
               <BiSearchAlt2 />
             </Button>
             <Modal show={show} dialogClassName="modal-90w" onHide={handleClose} className="srch-boxmodel">
