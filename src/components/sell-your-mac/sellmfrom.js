@@ -164,6 +164,7 @@ const Sellmfrom = (props) => {
   };
 
   const handleSubmitData = async () => {    
+    debugger
     if (workingCondition == "working") {
       var assVal = accessoriesValues.map((value, key) => {
         return value.value;
@@ -319,14 +320,17 @@ const Sellmfrom = (props) => {
       .post(`/api/sendMail`, sendData)
       .then(res => {
         setIsLoading(false);
-        toast.success("Successfully submitted your request. We will get back to you with an offer by email or call or iMessage.");
+        toast.success("Successfully submitted your request. We will get back to you with an offer by email or call or iMessage.",{duration:5000});        
       })
       .catch(err => {
         setIsLoading(false);
-        toast.error("Something went wrong!");
+        toast.error('Something went wrong!',{duration:5000})
       });
     setIsLoading(false);
-    window.location.reload()
+    setTimeout(()=>{
+      window.location.reload()
+    },4000)
+    
     // SENDGRID END
   };
   // Mac Sell form webhook
