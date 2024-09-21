@@ -163,7 +163,7 @@ const Sellmfrom = (props) => {
     }
   };
 
-  const handleSubmitData = async () => {
+  const handleSubmitData = async () => {    
     if (workingCondition == "working") {
       var assVal = accessoriesValues.map((value, key) => {
         return value.value;
@@ -319,13 +319,14 @@ const Sellmfrom = (props) => {
       .post(`/api/sendMail`, sendData)
       .then(res => {
         setIsLoading(false);
-        toast.success("suceesfully submitted your request!");
+        toast.success("Successfully submitted your request. We will get back to you with an offer by email or call or iMessage.");
       })
       .catch(err => {
         setIsLoading(false);
         toast.error("Something went wrong!");
       });
     setIsLoading(false);
+    window.location.reload()
     // SENDGRID END
   };
   // Mac Sell form webhook

@@ -6,6 +6,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Default } from "react-awesome-spinners";
 import { Col, Row } from "react-bootstrap";
 import n1 from "../../../public/assets/images/new-mac/n1.png";
+import { useRouter } from "next/router";
 
 export default function AllProducts({ childCategoryID }) {
   if (!childCategoryID) return;
@@ -76,6 +77,24 @@ export default function AllProducts({ childCategoryID }) {
       window.removeEventListener("scroll", debouncedHandleScroll);
     };
   }, [cursor, showMoreLoading]);
+
+  //<--------------browser back button------------->
+  const router = useRouter();
+
+  useEffect(() => {
+    const savedPosition = sessionStorage.getItem('scrollPosition');
+    if (savedPosition) {
+      window.scrollTo(0, parseInt(savedPosition));
+    }
+    const handleRouteChange = () => {
+      sessionStorage.setItem('scrollPosition', window.scrollY);
+    };
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, [router.events]);
+  //<----------------end of code--------------------->
 
   return (
     <Row>

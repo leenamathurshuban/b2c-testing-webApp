@@ -20,15 +20,8 @@ export default function FooterComp() {
               <Row>
                 <Col md={3}>
                   <div className="footer_box">
-                    <div className="footer_img">
-                      <Link href="/" className="footer_logo">
-                        <p>
-                          <span>Apple Fix Pros</span>
-                        </p>
-                      </Link>
-                    </div>
-
-                    <div className="footer_boxul">
+                    <h2>get in touch</h2>
+                    <div className="footer_boxul ct-info">
                       <ul className="flogoul">
                         <li>
                           <Link
@@ -205,6 +198,17 @@ export default function FooterComp() {
                   </div>
                 </Col>
               </Row>
+              <Row>
+                <Col md={12}>
+                <div className="footer_img">
+                      <Link href="/" className="footer_logo">
+                        <p>
+                          <span>Apple Fix Pros</span>
+                        </p>
+                      </Link>
+                    </div>
+                </Col>
+              </Row>
             </div>
           </div>
         </Container>
@@ -213,9 +217,9 @@ export default function FooterComp() {
           <Container>
             <div className="footer-social">
               <Row>
-                <Col md={7}>
+                <Col md={12}>
                   <div className="footer_sbox">
-                    <p>We Accept:</p>
+                    {/* <p>We Accept:</p> */}
                     <ul>
                       <li>
                         <Link href="/">
@@ -268,23 +272,16 @@ export default function FooterComp() {
                       </li>
                     </ul>
                   </div>
+                  <div className="footer-copyright">
+                      <p>
+                        Copyright © 2024
+                        <Link href="/"> Apple Fix Pros.</Link>
+                        All rights reserved
+                      </p>
+                  </div>
                 </Col>
 
                 {/* =======COLUMN END===== */}
-
-                <Col md={5}>
-                  <div className="footer-copyright">
-                    <Row>
-                      <Col md={12}>
-                        <p>
-                          Copyright © 2024
-                          <Link href="/"> Apple Fix Pros.</Link>
-                          All rights reserved
-                        </p>
-                      </Col>
-                    </Row>
-                  </div>
-                </Col>
 
                 {/* =======COLUMN END===== */}
               </Row>

@@ -30,11 +30,11 @@ export default function MacsaleyourComp() {
                 <div className="cardbox">
                   <Row className="justify-content-center">
                     <Col md={12} lg={4}>
-                      <Card>
+                      <Card border="0">
                         <Card.Body>
-                          <Card.Title className="d-flex item-center justify-content-center">
-                            Model configuration
-                          </Card.Title>
+                          {/* <Card.Title className="d-flex item-center justify-content-center">
+                            Model configuration 
+                          </Card.Title> */}
                           <div className="mac-repair-new-sell">
                             <ul className="mb-4">
                               {Object.entries(dataFromChild).map(

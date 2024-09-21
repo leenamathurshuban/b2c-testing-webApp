@@ -25,6 +25,9 @@ export const apiSlice = createApi({
         }
       },
     }),
+    getPopularProductsParts:builder.query({
+      query:()=> `https://shop.applefixpros.com/wp-json/custom-woo/v1/popular`
+    }),
     getProductsByCollectionId: builder.query({
       query: ({ id, limit = 10, cursor = 1 }) =>
         `/products/${id}?cursor=${cursor}&limit=${limit}`,
@@ -42,5 +45,6 @@ export const {
   useGetCollectionsQuery, 
   useGetProductsByCollectionIdQuery, 
   useSearchProductsQuery, 
-  useLazySearchProductsQuery
+  useLazySearchProductsQuery,
+  useGetPopularProductsPartsQuery
 } = apiSlice;

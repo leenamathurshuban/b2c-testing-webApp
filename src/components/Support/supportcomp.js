@@ -437,9 +437,9 @@ export default function MacsupportComp() {
           </Container>
         </div>
       </section>
-      <div className="mac-testimonial">
+      {/* <div className="mac-testimonial">
         <TestiComp />
-      </div>
+      </div> */}
 
       {/* // ======MAP SECTION END==== */}
     </>

@@ -170,7 +170,7 @@
     text-transform: uppercase;
     font-weight: 600;
     font-size: 13px;
-    min-width: 136px;
+    min-width: 146px;
     border: 2px solid transparent;
     background-origin: border-box !important;
     // background-clip: content-box, border-box;
@@ -417,7 +417,7 @@ p.seriaal-model {
   }
   .new_shopmac_content {
     h2 {
-      font-size: 22px;
+      font-size: 20px;
       line-height: 51px;
       text-align: center;
       color: #515151;
@@ -473,7 +473,12 @@ p.seriaal-model {
     border-color: #f33d74;
   }
 }
-
+.repair-row.mac_repairicons.row {
+  max-width: 100%;
+  .col-lg-3 {
+    width: 14.28%;
+  }
+}
 // ======responsive css start======
 @media screen and (min-device-width: 320px) and (max-device-width: 575px) {
   .modal-dialog .repair-btn button{
@@ -515,7 +520,9 @@ p.seriaal-model {
       }
     }
   }
-
+  .repair-row.mac_repairicons.row .col-lg-3 {
+    width: 50%;
+}
 }
 
 @media screen and (min-device-width: 768px) and (max-device-width: 991px) {

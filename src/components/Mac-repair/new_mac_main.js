@@ -255,10 +255,11 @@ export default function Newmacmain() {
                                 <h1>
                                     Mac <b>Repair</b>
                                 </h1>
-                                <p>
-                                    Apple Fix Pros will repair your MacBook Air,
-                                    MacBook Pro, iMac and Mac Mini products.
+                                <p className="mb-2">
+                                You have two ways to submit a repair request: 
                                 </p>
+                                <p className="text-start mt-2 mb-0">1. Click on the device icon and follow the process</p>
+                                <p className="text-start mt-2 mb-0">2. If you have the serial number just type it in the Mac Serial Lookup.</p>
                             </div>
 
                             <div className='shopmac-full mrt50'>
@@ -278,7 +279,7 @@ export default function Newmacmain() {
                                 <Row
                                     className={
                                         allCollections.length > 0
-                                            ? "repair-row justify-content-center"
+                                            ? "repair-row justify-content-center mac_repairicons"
                                             : "d-none"
                                     }
                                 >

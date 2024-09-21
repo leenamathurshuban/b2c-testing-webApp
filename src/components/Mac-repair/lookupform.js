@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Container, Row, Col, Modal, Button, Form,Card } from "react-bootstrap";
+import { Container, Row, Col, Modal, Button, Form, Card } from "react-bootstrap";
 import Image from "next/image";
 import CheckImage from "../../../public/assets/images/mac-repair/check-setting.png";
 import MultiForm from "./multifrom";
@@ -126,7 +126,7 @@ const data = {
 };
 // ===SELECT DATA ==
 
-export default function LookupForm({ sendDataToParent, setParentActive }) {
+export default function LookupForm({ sendDataToParent, setParentActive,oldDataSerial }) {
   const router = useRouter();
 
   const handleClick = (e, val) => {
@@ -276,7 +276,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
       if (
         window.localStorage.getItem("api_last_serial_response") != null &&
         window.localStorage.getItem("api_last_serial_number") ==
-          form_data_serial.serial_number
+        form_data_serial.serial_number
       ) {
         const last_serial_data = window.localStorage.getItem(
           "api_last_serial_response"
@@ -690,7 +690,11 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
             data: response.data,
           })
         );
-        router.push("/mac-parts");
+        // router.push("/mac-parts");
+        router.push({
+          pathname:"mac-parts",
+          query:ShowData
+        },'/mac-parts')
       } else {
         console.error("Unexpected response structure or missing data");
       }
@@ -762,7 +766,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
                               <Button
                                 type="submit"
                                 className="main_btn hvr-shutter-out-horizontal"
-                                // onClick={handleShow}
+                              // onClick={handleShow}
                               >
                                 go
                               </Button>
@@ -773,43 +777,82 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
                     </div>
                   </Col>
                 </Row>
-                {router.pathname==="/mac-parts"&&ShowData!=[]&&show&&<div className="cardbox mb-4">
+                {router.pathname === "/mac-parts" && ShowData != [] && show && <div className="cardbox mb-4">
                   <Row className="justify-content-center">
-                    <Col md={12} lg={4} style={{marginLeft:"105px"}}>
-                      <Card>
+                    <Col md={12} lg={4} style={{ marginLeft: "105px" }}>
+                      <Card border="0">
                         <Card.Body>
-                          <Card.Title className="d-flex item-center justify-content-center">
+                          {/* <Card.Title className="d-flex item-center justify-content-center">
                             Model Configuration
-                          </Card.Title>
+                          </Card.Title> */}
                           <div className="mac-repair-new-sell">
-                          <div
-            className={
-              isLoadingSerial ? "d-none gopopup-main" : "gopopup-main pb-3"
-            }
-          >
-            {ShowData === "rejected" ? (
-              <h5>Please enter correct serial number</h5>
-            ) : (
-              <>
-                <ul className="mb-4">
-                  {Object.entries(ShowData).map(([key, value]) => (
-                    <li key={key}>
-                      <span className="response-title">
-                        <b>{key} : </b>
-                      </span>
-                      <span className="response-value">{value}</span>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-          </div>
+                            <div
+                              className={
+                                isLoadingSerial ? "d-none gopopup-main" : "gopopup-main pb-3"
+                              }
+                            >
+                              {ShowData === "rejected" ? (
+                                <h5>Please enter correct serial number</h5>
+                              ) : (
+                                <>
+                                  <ul className="mb-4">
+                                    {Object.entries(ShowData).map(([key, value]) => (
+                                      <li key={key}>
+                                        <span className="response-title">
+                                          <b>{key} : </b>
+                                        </span>
+                                        <span className="response-value">{value}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </>
+                              )}
+                            </div>
                           </div>
                         </Card.Body>
                       </Card>
                     </Col>
                   </Row>
                 </div>}
+
+                {router.pathname === "/mac-parts" && Object.keys(oldDataSerial).length != 0 && !show && <div className="cardbox mb-4">
+                  <Row className="justify-content-center">
+                    <Col md={12} lg={4} style={{ marginLeft: "105px" }}>
+                      <Card border="0">
+                        <Card.Body>
+                          {/* <Card.Title className="d-flex item-center justify-content-center">
+                            Model Configuration
+                          </Card.Title> */}
+                          <div className="mac-repair-new-sell">
+                            <div
+                              className={
+                                isLoadingSerial ? "d-none gopopup-main" : "gopopup-main pb-3"
+                              }
+                            >
+                              {ShowData === "rejected" ? (
+                                <h5>Please enter correct serial number</h5>
+                              ) : (
+                                <>
+                                  <ul className="mb-4">
+                                    {Object.entries(oldDataSerial).map(([key, value]) => (
+                                      <li key={key}>
+                                        <span className="response-title">
+                                          <b>{key} : </b>
+                                        </span>
+                                        <span className="response-value">{value}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  </Row>
+                </div>}
+
               </div>
             </div>
           </Container>
@@ -878,7 +921,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
       {/* ======MODEL START====== */}
 
       {/* ======MODAL GO START=== */}
-      {router.pathname!="/mac-parts"&&<Modal
+      {router.pathname != "/mac-parts" && <Modal
         show={show}
         onHide={handleClose}
         animation={false}
@@ -925,7 +968,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
                   )}
                   {router.pathname === "/mac-repair" && (
                     <>
-                      <Col md={3} sm={6}>
+                      <Col md={4} sm={6}>
                         <div className="repair-btn">
                           <Button
                             type="button"
@@ -936,7 +979,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
                           </Button>
                         </div>
                       </Col>
-                      <Col md={3} sm={6}>
+                      <Col md={4} sm={6}>
                         <div className="repair-btn">
                           <Button
                             type="button"
@@ -1002,7 +1045,7 @@ export default function LookupForm({ sendDataToParent, setParentActive }) {
               </>
             )}
           </div>
-          
+
           <div
             className={
               isLoadingSerial ? "gopopup-main" : "gopopup-main d-none "

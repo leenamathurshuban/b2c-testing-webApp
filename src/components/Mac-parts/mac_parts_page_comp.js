@@ -16,9 +16,18 @@ import MacSerialLookupComp from "../Mac-repair/lookupform";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setActive } from "@/appRedux/counterReducer";
+import { useRouter } from "next/router";
 
 export default function MacrpartpageComp({}) {
   const dispatch = useDispatch();
+  const router = useRouter();
+  
+  const [ShowData,setShowData] = useState({})
+  useEffect(()=>{
+    if(router.query){
+      setShowData(router.query)
+    }
+  },[router.isReady])
   
   const { data: collectionData, isLoading: collectionLoading } =
     useGetCollectionsQuery(process.env.NEXT_PUBLIC_MAC_PARTS_ID);
@@ -120,7 +129,7 @@ export default function MacrpartpageComp({}) {
         </section>
       )}
 
-      <MacSerialLookupComp sendDataToParent={handleDataFromChild} />
+      <MacSerialLookupComp sendDataToParent={handleDataFromChild} oldDataSerial={ShowData} />
 
       {dataFromChild === null && (
         <>

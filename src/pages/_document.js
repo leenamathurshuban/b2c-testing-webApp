@@ -9,6 +9,7 @@ export default function Document() {
         <meta name='msapplication-TileColor' content='#070707' />
         <meta name='msapplication-tap-highlight' content='no' />
         <meta name='theme-color' content='#f1f1f1' />
+        <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js" type="text/javascript" />
 
         <link
           href='https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Poppins:wght@400;700&display=swap'

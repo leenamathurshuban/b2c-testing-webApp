@@ -9,6 +9,7 @@ const Sellcondition = ({ handleChangeSelect, selectedValue, error }) => {
     { label: "Grade A", value: "Grade A" },
     { label: "Grade B", value: "Grade B" },
     { label: "Grade C", value: "Grade C" },
+    { label: "Salvage", value: "Salvage" },
   ];
 
   const [selected, setSelected] = useState([]);
