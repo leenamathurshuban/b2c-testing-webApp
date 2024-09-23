@@ -218,8 +218,8 @@ export default function FooterComp() {
             <div className="footer-social">
               <Row>
                 <Col md={12}>
-                  <div className="footer_sbox">
-                    {/* <p>We Accept:</p> */}
+                  {/* <div className="footer_sbox">
+                    <p>We Accept:</p>
                     <ul>
                       <li>
                         <Link href="/">
@@ -271,7 +271,7 @@ export default function FooterComp() {
                         </Link>
                       </li>
                     </ul>
-                  </div>
+                  </div> */}
                   <div className="footer-copyright">
                       <p>
                         Copyright © 2024
@@ -343,7 +343,7 @@ export default function FooterComp() {
 
                 {/* =======FOOTER COLUMN END===== */}
                 <Col md={12} className="fw0">
-                  <div className="footer_sbox">
+                  {/* <div className="footer_sbox">
                     <h2>We accept</h2>
                     <ul>
                       <li>
@@ -396,7 +396,7 @@ export default function FooterComp() {
                         </Link>
                       </li>
                     </ul>
-                  </div>
+                  </div> */}
                 </Col>
 
                 {/* =======COLUMN END===== */}

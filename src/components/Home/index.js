@@ -21,8 +21,8 @@ export default function HomeComp() {
 
   useEffect(() => {
     if (popularData) {
-      popularData.map((val)=>{
-        val.category == "Products"?setProducts(val.data):setParts(val.data)
+      Array.isArray(popularData) && popularData?.map((val)=>{
+        val.category == "Products"?setProducts(val?.data):setParts(val?.data)
       })
       setLoading(popularLoading)
     }

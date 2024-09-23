@@ -9,7 +9,7 @@ import LoaderComp from "../Loader/loader_comp";
 import { useGetProductsByCollectionIdQuery } from "@/appRedux/apiSlice";
 
 export default function Shoppopular({ loading, products }) {
-  console.log(products)
+  console.log(Array.isArray(products))
   // const {
   //   data: popularData,
   //   isLoading: popularLoading,
@@ -45,17 +45,17 @@ export default function Shoppopular({ loading, products }) {
 
         <div className="Home_product mrt50">
           <Row>
-            {products?.map((productVal) => {
+            {Array.isArray(products) && products?.map((productVal) => {
               const hasAvailableStock =
                 productVal?.variations?.length > 0
-                  ? productVal.variations.some(
+                  ? productVal?.variations?.some(
                     (e) => e.stock_quantity !== null && e.stock_quantity > 0
                   )
-                  : productVal.stock_quantity !== null &&
-                  productVal.stock_quantity > 0;
+                  : productVal?.stock_quantity !== null &&
+                  productVal?.stock_quantity > 0;
               return (
-                <Col md={6} lg={4} key={productVal.id}>
-                  <Link href={`/${productVal.slug}?id=${productVal.id}`}>
+                <Col md={6} lg={4} key={productVal?.id}>
+                  <Link href={`/${productVal?.slug}?id=${productVal?.id}`}>
                     <div className="new_shopmac_pc_box">
                       {!hasAvailableStock && <span className="img-sold"></span>}
                       <div className="single_pro_heading tagspan">
@@ -64,7 +64,7 @@ export default function Shoppopular({ loading, products }) {
                         ))} */}
                         {Array.isArray(productVal?.tags) ?
                           productVal?.tags?.map((tag, i) => (
-                            <span key={i}>{tag.name}</span>
+                            <span key={i}>{tag?.name}</span>
                           )) : (<span>{productVal?.tags}</span>)
                         }
                       </div>
@@ -81,7 +81,7 @@ export default function Shoppopular({ loading, products }) {
                         />
                       </div>
                       <div className="new_shopmacpc_content">
-                        <h2>{productVal.name}</h2>
+                        <h2>{productVal?.name}</h2>
                         {/* <p>{productVal.description}</p> */}
                         <h5>
                           From ${(Number(productVal?.price) || 0).toFixed(2)}
@@ -92,7 +92,7 @@ export default function Shoppopular({ loading, products }) {
                               ? "main_btn hvr-shutter-out-horizontal"
                               : "main_btn hvr-shutter-out-horizontal btn-disabled"
                           }
-                          href={`/${productVal.slug}?id=${productVal.id}`}
+                          href={`/${productVal?.slug}?id=${productVal?.id}`}
                         >
                           {hasAvailableStock ? "View Product" : "Out of Stock"}
                         </Link>

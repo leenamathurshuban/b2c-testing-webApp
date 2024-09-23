@@ -164,7 +164,6 @@ const Sellmfrom = (props) => {
   };
 
   const handleSubmitData = async () => {    
-    debugger
     if (workingCondition == "working") {
       var assVal = accessoriesValues.map((value, key) => {
         return value.value;

@@ -258,8 +258,10 @@ export default function Newmacmain() {
                                 <p className="mb-2">
                                 You have two ways to submit a repair request: 
                                 </p>
-                                <p className="text-start mt-2 mb-0">1. Click on the device icon and follow the process</p>
-                                <p className="text-start mt-2 mb-0">2. If you have the serial number just type it in the Mac Serial Lookup.</p>
+                                <Row className="mcr_iconrow">
+                                    <div className="mcr_iconbox"><p><strong>1</strong> Click on the device icon and follow the process</p></div>
+                                    <div className="mcr_iconbox"><p><strong>2</strong> If you have the serial number just type it in the Mac Serial Lookup.</p></div>
+                                </Row>
                             </div>
 
                             <div className='shopmac-full mrt50'>
