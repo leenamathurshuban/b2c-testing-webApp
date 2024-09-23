@@ -16,7 +16,7 @@ export default function FooterComp() {
       <div className="desk_footer">
         <Container>
           <div className="footer-full">
-            <div className="footer-linkbox">
+            <div className="footer-linkbox ">
               <Row>
                 <Col md={3}>
                   <div className="footer_box">
