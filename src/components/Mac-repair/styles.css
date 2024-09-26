@@ -78,11 +78,11 @@
   padding: 10px;
   text-align: left;
   font-size: 15px;
-  display: flex;
 }
 .model_confi ul span.response-title {
   min-width: 55px;
   margin-right: 4px;
+  float: left;
 }
 
 .mb-6 {

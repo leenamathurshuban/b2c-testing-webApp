@@ -18,26 +18,33 @@ import { useSelector, useDispatch } from "react-redux";
 import { setActive } from "@/appRedux/counterReducer";
 import { useRouter } from "next/router";
 
-export default function MacrpartpageComp({}) {
+export default function MacrpartpageComp({ }) {
   const dispatch = useDispatch();
   const router = useRouter();
-  
-  const [ShowData,setShowData] = useState({})
-  useEffect(()=>{
-    if(router.query){
-      setShowData(router.query)
+
+  const [ShowData, setShowData] = useState({})
+  useEffect(() => {
+    if (router.query) {
+      if (router.query.categoryid) {
+        setShowProducts(true)
+        setChildCategoryID(router.query.categoryid)
+        dispatch(setActive(router.query.categoryid))
+      } else {
+        setShowData(router.query)
+      }
     }
-  },[router.isReady])
-  
+  }, [router.isReady])
+
   const { data: collectionData, isLoading: collectionLoading } =
     useGetCollectionsQuery(process.env.NEXT_PUBLIC_MAC_PARTS_ID);
 
   const [collections, setCollections] = useState([]);
-  const active = useSelector((state) => state.counter.active); 
+  const active = useSelector((state) => state.counter.active);
   const [loading, setLoading] = useState(true);
   const [showProducts, setShowProducts] = useState(false);
   const [dataFromChild, setDataFromChild] = useState(null);
   const [type, setType] = useState(null);
+  const [childCategoryID, setChildCategoryID] = useState("");
 
   const handleDataFromChild = (e, data) => {
     setDataFromChild(data);
@@ -48,8 +55,9 @@ export default function MacrpartpageComp({}) {
     const DefaultCollectionID = window?.localStorage?.getItem(
       "mac-part-collection"
     );
-    console.log("DefaultCollectionID",DefaultCollectionID )
+    console.log("DefaultCollectionID", DefaultCollectionID)
     if (DefaultCollectionID) {
+      dispatch(setActive(DefaultCollectionID))
     } else {
       const initialID = active;
       console.log("initialID", initialID)
@@ -79,7 +87,7 @@ export default function MacrpartpageComp({}) {
                   <Col md={12} lg={4}>
                     <Card>
                       <Card.Body>
-                      {/* mac-parts */}
+                        {/* mac-parts */}
                         <Card.Title className="d-flex item-center justify-content-center">
                           Model configuration
                         </Card.Title>
@@ -129,7 +137,7 @@ export default function MacrpartpageComp({}) {
         </section>
       )}
 
-      <MacSerialLookupComp sendDataToParent={handleDataFromChild} oldDataSerial={ShowData} />
+      <MacSerialLookupComp sendDataToParent={handleDataFromChild} oldDataSerial={ShowData} setShowProducts={setShowProducts} setChildCategoryID={setChildCategoryID} />
 
       {dataFromChild === null && (
         <>
@@ -194,6 +202,8 @@ export default function MacrpartpageComp({}) {
                                   active={active}
                                   showProducts={showProducts}
                                   setShowProducts={setShowProducts}
+                                  childCategoryID={childCategoryID}
+                                  setChildCategoryID={setChildCategoryID}
                                 />
                               </Tab.Pane>
                             </Tab.Content>
@@ -250,6 +260,8 @@ export default function MacrpartpageComp({}) {
                                 active={active}
                                 showProducts={showProducts}
                                 setShowProducts={setShowProducts}
+                                childCategoryID={childCategoryID}
+                                setChildCategoryID={setChildCategoryID}
                               />
                             </div>
                           </Accordion.Body>

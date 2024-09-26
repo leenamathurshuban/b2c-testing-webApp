@@ -105,7 +105,7 @@ export default function HeaderComp() {
                   "mac-part-collection",
                   process.env.NEXT_PUBLIC_MAC_PART_INITIAL_ID
                 );
-                window.localStorage.removeItem("mac-part-collection-child");
+                 window.localStorage.removeItem("mac-part-collection-child");
               }}
             >
               Mac Parts

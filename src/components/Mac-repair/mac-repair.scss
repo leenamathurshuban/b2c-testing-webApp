@@ -518,6 +518,31 @@ p.seriaal-model {
     }
 }
 }
+.privacy-box-ul {
+  h2 {
+    text-transform: capitalize;
+     font-size: 42px;
+     line-height: normal;
+     text-align: left;
+     color: #464646;
+     font-weight: 700;
+     line-height: 46px;
+     margin: 40px 0 15px 0;
+ }
+ p {
+
+ }
+}
+.main_heading-gradiant-p .haddingh_h2 {
+  max-width: 45%;
+  text-transform: capitalize;
+  font-size: 42px;
+  line-height: 51px;
+  text-align: center;
+  color: #464646;
+  font-weight: 700;
+}
+
 // ======responsive css start======
 @media screen and (min-device-width: 320px) and (max-device-width: 575px) {
   .modal-dialog .repair-btn button{
@@ -525,6 +550,15 @@ p.seriaal-model {
   }
 }
 @media screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .main_heading-gradiant-p .haddingh_h2 {
+    font-size: 22px;
+    line-height: 1.4;
+    max-width: 100%;
+  }
+  .privacy-box-ul h2 {
+    font-size: 22px;
+    line-height: 1.4;
+  }
   .mcr_iconrow  {
     padding: 0 5%;
     margin-top: 20px;

@@ -126,7 +126,7 @@ const data = {
 };
 // ===SELECT DATA ==
 
-export default function LookupForm({ sendDataToParent, setParentActive,oldDataSerial }) {
+export default function LookupForm({ sendDataToParent, setParentActive, oldDataSerial, setShowProducts, setChildCategoryID }) {
   const router = useRouter();
 
   const handleClick = (e, val) => {
@@ -181,7 +181,7 @@ export default function LookupForm({ sendDataToParent, setParentActive,oldDataSe
     description: "",
   });
   const [RepairStatus, setRepairStatus] = useState("");
-
+  const [showText, setShowText] = useState(false);
   const dispatch = useDispatch();
 
   const handleChangeSerial = (e) => {
@@ -256,7 +256,7 @@ export default function LookupForm({ sendDataToParent, setParentActive,oldDataSe
     e.preventDefault();
     setIsLoading(true)
     const { name, value } = e.target;
-
+    
     let errors = { ...validation };
 
     if (type == "serial_number") {
@@ -268,7 +268,7 @@ export default function LookupForm({ sendDataToParent, setParentActive,oldDataSe
         errors.serial_number = "";
         setValidation(errors);
       }
-      handleShow();
+      // handleShow();
       window.localStorage.removeItem("last_serial_response");
       window.localStorage.removeItem("new_last_serial_response");
       window.localStorage.removeItem("last_serial_number");
@@ -283,6 +283,11 @@ export default function LookupForm({ sendDataToParent, setParentActive,oldDataSe
         );
         setShowData(JSON.parse(last_serial_data));
         setIsLoadingSerial(false);
+        if (form_data_serial.serial_number.length >= 12) {
+          handleShow()
+        } else {
+          setShowText(true)
+        }
       } else {
         setIsLoadingSerial(true);
         await axios
@@ -299,6 +304,11 @@ export default function LookupForm({ sendDataToParent, setParentActive,oldDataSe
                 "api_last_serial_number",
                 form_data_serial.serial_number
               );
+              if (form_data_serial.serial_number.length >= 12) {
+                handleShow()
+              } else {
+                setShowText(true)
+              }
               setShowData(res.data.response);
               setIsLoading(false)
               setIsLoadingSerial(false);
@@ -613,7 +623,7 @@ export default function LookupForm({ sendDataToParent, setParentActive,oldDataSe
         errors.mac = "";
       }
       //Model validation
-      if (!fform_data.model) {
+      if (!form_data.model) {
         errors.model = "Model is required";
       } else {
         errors.model = "";
@@ -667,43 +677,141 @@ export default function LookupForm({ sendDataToParent, setParentActive,oldDataSe
   //Function for redirect to particular product categories
   const handleViewClick = async () => {
     try {
-      let model = ShowData.Model;
-      let modelParts = model.split(" ");
-
-      if (
-        modelParts.length > 1 &&
-        (modelParts[1].startsWith("(") || /\d/.test(modelParts[1]))
-      ) {
-        model = modelParts[0].toLowerCase();
+      if (form_data_serial.serial_number.length >= 12) {
+        handleFindParts()
       } else {
-        model = `${modelParts[0]}-${modelParts[1]}`.toLowerCase();
-      }
-      model = encodeURIComponent(model);
-      const url = `https://shop.applefixpros.com/wp-json/custom-woo/v1/pro_cat_part/${model}`;
+        let model = ShowData.Model;
+        let modelParts = model.split(" ");
 
-      const response = await axios.get(url);
-      if (response.data && response.data[0]) {
-        //setParentActive(response.data[0].parent);
-        dispatch(setActive(response.data[0].parent));
-        dispatch(
-          setChildCollectionData({
-            data: response.data,
-          })
-        );
-        // router.push("/mac-parts");
-        router.push({
-          pathname:"mac-parts",
-          query:ShowData
-        },'/mac-parts')
-      } else {
-        console.error("Unexpected response structure or missing data");
+        if (
+          modelParts.length > 1 &&
+          (modelParts[1].startsWith("(") || /\d/.test(modelParts[1]))
+        ) {
+          model = modelParts[0].toLowerCase();
+        } else {
+          model = `${modelParts[0]}-${modelParts[1]}`.toLowerCase();
+        }
+        model = encodeURIComponent(model);
+        const url = `https://shop.applefixpros.com/wp-json/custom-woo/v1/pro_cat_part/${model}`;
+
+        const response = await axios.get(url);
+        if (response.data && response.data[0]) {
+          //setParentActive(response.data[0].parent);
+          dispatch(setActive(response.data[0].parent));
+          dispatch(
+            setChildCollectionData({
+              data: response.data,
+            })
+          );
+          // router.push("/mac-parts");
+          router.push({
+            pathname: "mac-parts",
+            query: ShowData
+          }, '/mac-parts')
+        } else {
+          console.error("Unexpected response structure or missing data");
+        }
       }
+      // let model = ShowData.Model;
+      // let modelParts = model.split(" ");
+
+      // if (
+      //   modelParts.length > 1 &&
+      //   (modelParts[1].startsWith("(") || /\d/.test(modelParts[1]))
+      // ) {
+      //   model = modelParts[0].toLowerCase();
+      // } else {
+      //   model = `${modelParts[0]}-${modelParts[1]}`.toLowerCase();
+      // }
+      // model = encodeURIComponent(model);
+      // const url = `https://shop.applefixpros.com/wp-json/custom-woo/v1/pro_cat_part/${model}`;
+
+      // const response = await axios.get(url);
+      // if (response.data && response.data[0]) {
+      //   //setParentActive(response.data[0].parent);
+      //   dispatch(setActive(response.data[0].parent));
+      //   dispatch(
+      //     setChildCollectionData({
+      //       data: response.data,
+      //     })
+      //   );
+      //   // router.push("/mac-parts");
+      //   router.push({
+      //     pathname: "mac-parts",
+      //     query: ShowData
+      //   }, '/mac-parts')
+      // } else {
+      //   console.error("Unexpected response structure or missing data");
+      // }
     } catch (error) {
       console.error("Error fetching data:", error);
     }
     setShow(false);
   };
+  const handleFindParts = async () => {
+    try {
+      if (
+        window.localStorage.getItem("mac-part-collection-child") != null &&
+        window.localStorage.getItem("api_last_serial_number") ==
+        form_data_serial.serial_number
+      ) {
+        const last_collection_child = window.localStorage.getItem(
+          "mac-part-collection-child"
+        );
+        if (router.pathname == '/mac-repair') {
+          router.push({
+            pathname: "mac-parts",
+            query: { categoryid: JSON.parse(last_collection_child) }
+          }, '/mac-parts')
+          sessionStorage.setItem("scrollPosition",500)
+        } else {
+          sessionStorage.setItem("scrollPosition",500)
+          setShowProducts(true)
+          setChildCategoryID(JSON.parse(last_collection_child))
+          dispatch(setActive(JSON.parse(last_collection_child)))
+          handleClose()
+        }
 
+      } else {
+        const url = `https://shop.applefixpros.com/wp-json/custom-woo/v1/searchbymodal/${form_data_serial.serial_number}`
+        const response = await axios.get(url);
+        if (response?.status == 200) {
+          window.localStorage.setItem("mac-part-collection-child",response?.data?.categoryid)
+          if (router.pathname == '/mac-repair') {
+            router.push({
+              pathname: "mac-parts",
+              query: { categoryid: response?.data?.categoryid }
+            }, '/mac-parts')
+            sessionStorage.setItem("scrollPosition",500)
+          } else {
+            sessionStorage.setItem("scrollPosition",500)
+            setShowProducts(true)
+            setChildCategoryID(response?.data?.categoryid)
+            dispatch(setActive(response?.data?.categoryid))
+            handleClose()
+          }
+        }
+      }
+      // const url = `https://shop.applefixpros.com/wp-json/custom-woo/v1/searchbymodal/${form_data_serial.serial_number}`
+      // const response = await axios.get(url);
+      // if (response?.status == 200) {
+      //   window.localStorage.setItem("mac-part-collection-child", response?.data?.categoryid)
+      //   if (router.pathname == '/mac-repair') {
+      //     router.push({
+      //       pathname: "mac-parts",
+      //       query: { categoryid: response?.data?.categoryid }
+      //     }, '/mac-parts')
+      //   } else {
+      //     setShowProducts(true)
+      //     setChildCategoryID(response?.data?.categoryid)
+      //     dispatch(setActive(response?.data?.categoryid))
+      //     handleClose()
+      //   }        
+      // }
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <>
       {isLoading ? <LoaderComp /> : ""}
@@ -777,7 +885,7 @@ export default function LookupForm({ sendDataToParent, setParentActive,oldDataSe
                     </div>
                   </Col>
                 </Row>
-                {router.pathname === "/mac-parts" && ShowData != [] && show && <div className="cardbox mb-4">
+                {router.pathname === "/mac-parts" && ShowData != [] && showText && <div className="cardbox mb-4">
                   <Row className="justify-content-center">
                     <Col md={12} lg={4} style={{ marginLeft: "105px" }}>
                       <Card border="0">
@@ -815,7 +923,7 @@ export default function LookupForm({ sendDataToParent, setParentActive,oldDataSe
                   </Row>
                 </div>}
 
-                {router.pathname === "/mac-parts" && Object.keys(oldDataSerial).length != 0 && !show && <div className="cardbox mb-4">
+                {router.pathname === "/mac-parts" && Object.keys(oldDataSerial).length != 0 && showText && <div className="cardbox mb-4">
                   <Row className="justify-content-center">
                     <Col md={12} lg={4} style={{ marginLeft: "105px" }}>
                       <Card border="0">
@@ -921,7 +1029,7 @@ export default function LookupForm({ sendDataToParent, setParentActive,oldDataSe
       {/* ======MODEL START====== */}
 
       {/* ======MODAL GO START=== */}
-      {router.pathname != "/mac-parts" && <Modal
+      {(router.pathname != "/mac-parts" || router.pathname == '/mac-parts') && <Modal
         show={show}
         onHide={handleClose}
         animation={false}
@@ -998,7 +1106,7 @@ export default function LookupForm({ sendDataToParent, setParentActive,oldDataSe
                         <Button
                           type="button"
                           className="main_btn hvr-shutter-out-horizontal"
-                          onClick={handleViewClick}
+                          onClick={handleFindParts}
                         >
                           Find Parts
                         </Button>

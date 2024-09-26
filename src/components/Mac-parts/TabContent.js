@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Col, Row, Tab } from "react-bootstrap";
 import ChildCategory from "./ChildCategory";
 import AllProducts from "./AllProducts";
+import { useDispatch } from "react-redux";
+import { setActive } from "@/appRedux/counterReducer";
 
-export default function TabContent({ active, showProducts, setShowProducts }) {
-  const [childCategoryID, setChildCategoryID] = useState("");
-
+export default function TabContent({ active, showProducts, setShowProducts, childCategoryID, setChildCategoryID }) {
+  // const [childCategoryID, setChildCategoryID] = useState("");
+  const dispatch = useDispatch();
   useEffect(() => {
     const DefaultActiveChild = window?.localStorage?.getItem(
       "mac-part-collection-child"
@@ -24,6 +26,12 @@ export default function TabContent({ active, showProducts, setShowProducts }) {
             className='main_btn hvr-shutter-out-horizontal partsbk-btn'
             onClick={() => {
               setShowProducts(false);
+              const DefaultCollectionID = window?.localStorage?.getItem(
+                "mac-part-collection"
+              );
+              if(DefaultCollectionID){
+                dispatch(setActive(DefaultCollectionID))
+              }
             }}
           >
             <svg

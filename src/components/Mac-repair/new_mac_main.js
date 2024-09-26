@@ -255,7 +255,7 @@ export default function Newmacmain() {
                                 <h1>
                                     Mac <b>Repair</b>
                                 </h1>
-                                <p className="mb-2">
+                                <p className="mb-2 haddingh_h2">
                                 You have two ways to submit a repair request: 
                                 </p>
                                 <Row className="mcr_iconrow">

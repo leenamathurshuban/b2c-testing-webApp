@@ -166,7 +166,7 @@
   text-transform: uppercase;
   font-weight: 600;
   font-size: 13px;
-  min-width: 136px;
+  min-width: 146px;
   border: 2px solid transparent;
   background-origin: border-box !important;
   background-size: cover !important;
@@ -378,7 +378,7 @@ p.seriaal-model span {
   padding: 0 !important;
 }
 .new_repairmac_box .new_shopmac_content h2 {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 51px;
   text-align: center;
   color: #515151;
@@ -431,12 +431,97 @@ p.seriaal-model span {
   border-color: #f33d74;
 }
 
+.repair-row.mac_repairicons.row {
+  max-width: 100%;
+}
+.repair-row.mac_repairicons.row .col-lg-3 {
+  width: 14.28%;
+}
+
+.mcr_iconrow {
+  padding: 0 20%;
+  margin-top: 40px;
+  margin-bottom: 75px;
+  justify-content: space-between;
+}
+.mcr_iconrow .mcr_iconbox {
+  flex: 0 0 48%;
+  padding: 20px;
+  background: linear-gradient(90deg, #93f2ff 0.35%, #fd79a1 40%, #e78478 106.3%);
+  text-align: center;
+  color: #fff;
+  border-radius: 15px;
+}
+.mcr_iconrow .mcr_iconbox p {
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  line-height: normal;
+  font-weight: 500;
+}
+.mcr_iconrow .mcr_iconbox p strong {
+  width: 38px;
+  height: 38px;
+  display: block;
+  margin: auto;
+  background-color: #ffffff;
+  color: #f08088;
+  line-height: 38px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1411764706);
+  border: solid 2px #e95f7c;
+  margin-bottom: 7px;
+  font-size: 16px;
+}
+
+.privacy-box-ul h2 {
+  text-transform: capitalize;
+  font-size: 42px;
+  line-height: normal;
+  text-align: left;
+  color: #464646;
+  font-weight: 700;
+  line-height: 46px;
+  margin: 15px 0;
+}
+.main_heading-gradiant-p .haddingh_h2 {
+  max-width: 45%;
+  text-transform: capitalize;
+  font-size: 42px;
+  line-height: 51px;
+  text-align: center;
+  color: #464646;
+  font-weight: 700;
+}
+
 @media screen and (min-device-width: 320px) and (max-device-width: 575px) {
   .modal-dialog .repair-btn button {
     width: 100%;
   }
 }
 @media screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .main_heading-gradiant-p .haddingh_h2 {
+    font-size: 22px;
+    line-height: 1.4;
+    max-width: 100%;
+  }
+  .privacy-box-ul h2 {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+  .mcr_iconrow {
+    padding: 0 5%;
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+  .mcr_iconrow .mcr_iconbox {
+    flex: 0 0 100%;
+    margin-top: 20px;
+  }
+  .mcr_iconrow .mcr_iconbox p {
+    font-size: 0.95rem;
+  }
   .ts-full .modal-content {
     padding: 30px 15px;
   }
@@ -460,6 +545,9 @@ p.seriaal-model span {
   }
   .gomodel-full.modal .modal-dialog .modal-content {
     padding: 10px 20px;
+  }
+  .repair-row.mac_repairicons.row .col-lg-3 {
+    width: 50%;
   }
 }
 @media screen and (min-device-width: 768px) and (max-device-width: 991px) {

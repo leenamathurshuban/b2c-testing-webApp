@@ -113,13 +113,14 @@
 .selld-from .dropdown-heading {
   background: #fff;
   border-radius: 100px;
-  border: 2px solid #000;
+  border: 1px solid #000;
   text-align: center;
   text-transform: uppercase;
   font-weight: 600;
   font-size: 14px;
   color: #464646;
   padding: 0px 10px;
+  min-height: 64px;
 }
 
 .sell-infofrom .infofrom {

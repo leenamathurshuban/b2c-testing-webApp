@@ -7,6 +7,7 @@ import { Default } from "react-awesome-spinners";
 import { Col, Row } from "react-bootstrap";
 import n1 from "../../../public/assets/images/new-mac/n1.png";
 import { useRouter } from "next/router";
+import LoaderComp from "../Loader/loader_comp";
 
 export default function AllProducts({ childCategoryID }) {
   if (!childCategoryID) return;
@@ -83,7 +84,7 @@ export default function AllProducts({ childCategoryID }) {
 
   useEffect(() => {
     const savedPosition = sessionStorage.getItem('scrollPosition');
-    if (savedPosition) {
+    if (savedPosition && loading && !showMoreLoading) {
       window.scrollTo(0, parseInt(savedPosition));
     }
     const handleRouteChange = () => {
@@ -93,8 +94,13 @@ export default function AllProducts({ childCategoryID }) {
     return () => {
       router.events.off('routeChangeStart', handleRouteChange);
     };
-  }, [router.events]);
+  }, [router.events,showMoreLoading,loading]);
   //<----------------end of code--------------------->
+  // console.log(loading,showMoreLoading)
+  
+  if (loading) {
+    return <LoaderComp />;
+  }
 
   return (
     <Row>

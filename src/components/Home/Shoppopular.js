@@ -9,7 +9,20 @@ import LoaderComp from "../Loader/loader_comp";
 import { useGetProductsByCollectionIdQuery } from "@/appRedux/apiSlice";
 
 export default function Shoppopular({ loading, products }) {
-  console.log(Array.isArray(products))
+  // console.log(products)
+  const getLowestPrice = (newArray) => {
+    if (Array.isArray(newArray) && newArray.length > 0) {
+      const lowestPrice = newArray.reduce((min, product) => {
+        return Number(product.price) < min ? Number(product.price) : min;
+      }, Number(newArray[0]?.price));
+      return lowestPrice.toFixed(2);
+    } else {
+      return 0;
+    }
+  }
+
+  // console.log(lowestPrice)
+  // console.log(products[1].tags.split(",")?true:false)
   // const {
   //   data: popularData,
   //   isLoading: popularLoading,
@@ -62,11 +75,15 @@ export default function Shoppopular({ loading, products }) {
                         {/* {productVal?.tags?.map((tag, i) => (
                           <span key={i}>{tag.name}</span>
                         ))} */}
-                        {Array.isArray(productVal?.tags) ?
+                        {/* {Array.isArray(productVal?.tags) ?
                           productVal?.tags?.map((tag, i) => (
                             <span key={i}>{tag?.name}</span>
-                          )) : (<span>{productVal?.tags}</span>)
-                        }
+                          )) : productVal?.tags?.split(",")?.map((val, i) => (
+                            <span key={i}>{val}</span>
+                          ))
+                        } */}
+                        {Array.isArray(productVal?.tags) && productVal?.tags?.map((tag, i) => (<span key={i}>{tag?.name}</span>))}
+                        {!productVal?.tags ? "" : productVal?.tags?.split(",").map((val, i) => (<span key={i}>{val}</span>))}
                       </div>
                       <div className="new_shopmac_pc_img">
                         <Image
@@ -84,7 +101,12 @@ export default function Shoppopular({ loading, products }) {
                         <h2>{productVal?.name}</h2>
                         {/* <p>{productVal.description}</p> */}
                         <h5>
-                          From ${(Number(productVal?.price) || 0).toFixed(2)}
+                          {/* From ${(Number(productVal?.price) || 0).toFixed(2)} */}
+                          {/* From ${Array.isArray(productVal?.variations) && productVal?.variations?.length > 0 ?
+                            getLowestPrice(productVal?.variations)
+                            : (Number(productVal?.price) || 0).toFixed(2)} */}
+                          From ${productVal?.price != "" ? (Number(productVal?.price)).toFixed(2)
+                            : getLowestPrice(productVal?.variations)}
                         </h5>
                         <Link
                           className={

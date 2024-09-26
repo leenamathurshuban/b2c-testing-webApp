@@ -6,8 +6,18 @@ import n1 from "../../../public/assets/images/new-mac/n1.png";
 import Image from "next/image";
 import LoaderComp from "../Loader/loader_comp";
 
-export const Shoppopularpart = ({loading,parts}) => {
-    // console.log(Array.isArray(parts))
+export const Shoppopularpart = ({ loading, parts }) => {
+    // console.log(parts)
+    const getLowestPrice = (newArray) => {
+        if (Array.isArray(newArray) && newArray.length > 0) {
+            const lowestPrice = newArray.reduce((min, product) => {
+                return Number(product.price) < min ? Number(product.price) : min;
+            }, Number(newArray[0]?.price));
+            return lowestPrice.toFixed(2);
+        } else {
+            return 0;
+        }
+    }
 
     if (loading) {
         return <LoaderComp />;
@@ -30,7 +40,7 @@ export const Shoppopularpart = ({loading,parts}) => {
                                         (e) => e?.stock_quantity !== null && e?.stock_quantity > 0
                                     )
                                     : productVal?.stock_quantity !== null &&
-                                    productVal?.stock_quantity > 0;                                    
+                                    productVal?.stock_quantity > 0;
                             return (
                                 <Col md={6} lg={4} key={productVal?.id}>
                                     <Link href={`/${productVal?.slug}?id=${productVal?.id}`}>
@@ -40,11 +50,15 @@ export const Shoppopularpart = ({loading,parts}) => {
                                                 {/* {productVal?.tags?.map((tag, i) => (
                                                     <span key={i}>{tag.name}</span>
                                                 ))} */}
-                                                {Array.isArray(productVal?.tags)?
+                                                {/* {Array.isArray(productVal?.tags) ?
                                                     productVal?.tags?.map((tag, i) => (
-                                                    <span key={i}>{tag?.name}</span>
-                                                )):(<span>{productVal?.tags}</span>)                                                    
-                                                }
+                                                        <span key={i}>{tag?.name}</span>
+                                                    )) : productVal?.tags?.split(",")?.map((val, i) => (
+                                                        <span key={i}>{val}</span>
+                                                    ))
+                                                } */}
+                                                {Array.isArray(productVal?.tags) && productVal?.tags?.map((tag, i) => (<span key={i}>{tag?.name}</span>))}
+                                                {!productVal?.tags ? "" : productVal?.tags?.split(",").map((val, i) => (<span key={i}>{val}</span>))}
                                             </div>
                                             <div className="new_shopmac_pc_img">
                                                 <Image
@@ -61,9 +75,14 @@ export const Shoppopularpart = ({loading,parts}) => {
                                             </div>
                                             <div className="new_shopmacpc_content">
                                                 <h2>{productVal?.name}</h2>
-                                                
+
                                                 <h5>
-                                                    From ${(Number(productVal?.price) || 0).toFixed(2)}
+                                                    {/* From ${(Number(productVal?.price) || 0).toFixed(2)} */}
+                                                    {/* From ${Array.isArray(productVal?.variations) && productVal?.variations?.length > 0 ?
+                                                        getLowestPrice(productVal?.variations)
+                                                        : (Number(productVal?.price) || 0).toFixed(2)} */}
+                                                    From ${productVal?.price != "" ? (Number(productVal?.price)).toFixed(2)
+                                                        : getLowestPrice(productVal?.variations)}
                                                 </h5>
                                                 <Link
                                                     className={
