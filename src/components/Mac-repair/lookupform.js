@@ -287,6 +287,12 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
           handleShow()
         } else {
           setShowText(true)
+          // if(router.pathname == "/mac-repair"){
+          //   router.push({
+          //     pathname: "mac-parts",
+          //     query: JSON.parse(last_serial_data)
+          //   }, '/mac-parts')
+          // }
         }
       } else {
         setIsLoadingSerial(true);

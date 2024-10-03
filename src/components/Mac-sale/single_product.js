@@ -53,11 +53,13 @@ export default function SingleproductComp({ webUrl }) {
 
   const getProducById = async () => {
     try {
-      const apiUrl = `/api/WP_APIs/product/${id}`;
+      // const apiUrl = `/api/WP_APIs/product/${id}`;
+      const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/wp-json/custom-woo/v1/products/${id}`;
       const response = await axios.get(apiUrl);
 
-      const productData = response.data || [];
-      const pros = productData?.variations?.[0] || productData;
+      const productData = response.data.product || [];
+      const sortedPros = productData?.variations?.sort((a,b)=>Number(a.price) - Number(b.price))
+      const pros = sortedPros?.[0] || productData;
       setTotalQuantity(pros?.stock_quantity || 0);
 
       productData?.variations?.length
@@ -75,7 +77,7 @@ export default function SingleproductComp({ webUrl }) {
       }
 
       const imageData = pros?.image
-        ? [pros.image, ...productData.images]
+        ? [...pros.image, ...productData.images]
         : pros.images;
 
       const uniqueImageData = imageData.filter(
@@ -121,7 +123,7 @@ export default function SingleproductComp({ webUrl }) {
     if (variantData) {
       if (product?.images?.length || variantData.image) {
         const imageData = [
-          ...(variantData.image ? [variantData.image] : []),
+          ...(variantData.image ? [...variantData.image] : []),
           ...(product.images || []),
         ];
 
@@ -187,24 +189,24 @@ export default function SingleproductComp({ webUrl }) {
   const attributeName = productVariant?.attributes?.find(
     (e) => e.option === productVariant?.name
   );
-
+  // console.log('product------', productVariant)
   return (
     <>
       <NextSeo
-        title={product?.name}
+        title={product?.title}
         description="Apple Fix Pros offers a wide range of fixed-price upgrades and repairs for your Apple computers. You can drop in our office in Citrus Heights or if you are not local, you can either have us collect or send in your computer yourself. Same-day fitting is available for most computers. We fix what Apple won’t. We offer free estimates/diagnoses for all computer jobs. No Repair = No Pay."
         canonical={canonicalUrl}
         openGraph={{
           type: "website",
           url: canonicalUrl,
-          title: `${product?.name}`,
+          title: `${product?.title}`,
           description: `Apple Fix Pros offers a wide range of fixed-price upgrades and repairs for your Apple computers. You can drop in our office in Citrus Heights or if you are not local, you can either have us collect or send in your computer yourself. Same-day fitting is available for most computers. We fix what Apple won’t. We offer free estimates/diagnoses for all computer jobs. No Repair = No Pay.`,
           images: [
             {
               url: `${imageGallary?.[0]?.original ?? ""}`,
               width: 1022,
               height: 600,
-              alt: `Apple Fix Pros  | ${product?.name}`,
+              alt: `Apple Fix Pros  | ${product?.title}`,
             },
           ],
         }}
@@ -295,10 +297,10 @@ export default function SingleproductComp({ webUrl }) {
                                 imageGallary?.length
                                   ? imageGallary
                                   : [
-                                      {
-                                        original: "/assets/no_image.jpg",
-                                      },
-                                    ]
+                                    {
+                                      original: "/assets/no_image.jpg",
+                                    },
+                                  ]
                               }
                               showNav={false}
                               showPlayButton={false}
@@ -379,7 +381,7 @@ export default function SingleproductComp({ webUrl }) {
                     <div className="single_product_box">
                       <div className="single_pro_heading">
                         {product?.tags?.map((tag, index) => (
-                          <span key={index}>{tag.name}</span>
+                          <span key={index}>{tag}</span>
                         ))}
                       </div>
 
@@ -401,7 +403,7 @@ export default function SingleproductComp({ webUrl }) {
                         </div>
                       )}
 
-                      <h1>{product?.name}</h1>
+                      <h1>{product?.title}</h1>
 
                       {product?.variations?.length > 0 && (
                         <Form.Select
@@ -409,13 +411,22 @@ export default function SingleproductComp({ webUrl }) {
                           value={productVariant?.id}
                           className="select-option"
                         >
-                          {product?.variations.map((variation) => (
+                          {/* {product?.variations.map((variation) => (
                             <option
                               key={variation.id}
                               value={variation.id}
                               data-width="auto"
                             >
                               {variation?.name || ""}
+                            </option>
+                          ))} */}
+                          {Array.isArray(product?.variations) && product?.variations?.map((obj) => (
+                            <option
+                              key={obj.id}
+                              value={obj.id}
+                              data-width="auto"
+                            >
+                              {Array.isArray(obj?.attributes) && obj?.attributes?.map((item) => item?.option).join(', ')}
                             </option>
                           ))}
                         </Form.Select>
