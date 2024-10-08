@@ -16,6 +16,7 @@ export default function EbayComp() {
                 <p>
                   Please visit our eBay store or call our Mac Parts Department.
                 </p>
+                
               </div>
             </Col>
             {/* ======WHOLESALE CONTENT COLUMN END======= */}
@@ -41,7 +42,7 @@ export default function EbayComp() {
           </Row>
           <Row className="justify-content-center">
             <Col md={12} lg={12}>
-              <div className="wholesale-img">
+              {/* <div className="wholesale-img">
                 <Link href="https://business.applefixpros.com/">
                   <Image
                     src={wholesaleimg}
@@ -52,7 +53,7 @@ export default function EbayComp() {
                     height={150}
                   />
                 </Link>
-              </div>
+              </div> */}
             </Col>
           </Row>
         </div>

@@ -49,6 +49,7 @@ const initialState = {
   shipping: 0,
   childCollectionData: [],
   active: process.env.NEXT_PUBLIC_MAC_PART_INITIAL_ID, 
+  activeTab: ''
 };
 
 const counterSlice = createSlice({
@@ -166,6 +167,9 @@ const counterSlice = createSlice({
     setActive: (state, action) => {
       state.active = action.payload;
     },
+    setActiveTab: (state, action) => {
+      state.activeTab = action.payload?action.payload:"iMac";
+    },
   },
 });
 
@@ -179,6 +183,7 @@ export const {
   getTotal,
   updateCartStock,
   setChildCollectionData,
-  setActive
+  setActive,
+  setActiveTab
 } = counterSlice.actions;
 export default counterSlice.reducer;

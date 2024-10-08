@@ -58,8 +58,8 @@ export default function SingleproductComp({ webUrl }) {
       const response = await axios.get(apiUrl);
 
       const productData = response.data.product || [];
-      const sortedPros = productData?.variations?.sort((a,b)=>Number(a.price) - Number(b.price))
-      const pros = sortedPros?.[0] || productData;
+      // const sortedPros = productData?.variations?.sort((a,b)=>Number(a.price) - Number(b.price))
+      const pros = productData?.variations?.[0] || productData;
       setTotalQuantity(pros?.stock_quantity || 0);
 
       productData?.variations?.length

@@ -25,7 +25,7 @@ const SearchProduct = () => {
       setPage(1);
       setProducts([]);
       setHasMore(true);
-      triggerSearch({ query, page: 1 });
+      triggerSearch({ query: query, page: 1 });
     }
   }, [query]);
 
@@ -59,7 +59,25 @@ const SearchProduct = () => {
 
           if (newProducts.length > 0) {
             setProducts((prevProducts) => [...prevProducts, ...newProducts]);
-            setHasMore(!endOfPagination); 
+            setHasMore(!endOfPagination);
+          } else {
+            setHasMore(false);
+          }
+          setIsFetchingMore(false);
+        })
+        .catch(() => {
+          setIsFetchingMore(false);
+        });
+    }else if (!isFetchingMore && page>1){
+      triggerSearch({ query: searchTerm, page })
+        .then((newProductsData) => {
+          const newProducts = newProductsData.data?.[0]?.response || [];
+          const endOfPagination =
+            newProductsData.data?.[0]?.endofpagination === "true";
+
+          if (newProducts.length > 0) {
+            setProducts((prevProducts) => [...prevProducts, ...newProducts]);
+            setHasMore(!endOfPagination);
           } else {
             setHasMore(false);
           }
@@ -78,14 +96,31 @@ const SearchProduct = () => {
     }
   }, [productsData, page]);
 
+  // const handleSearch = () => {
+  //   if (searchTerm.trim() !== "") {
+  //     router.push(`/searchProduct?query=${searchTerm}`);
+  //     setPage(1);
+  //     setProducts([]);
+  //     setHasMore(true);
+  //     triggerSearch({ query: searchTerm, page: 1 });
+  //   }
+  // };
   const handleSearch = () => {
-    if (searchTerm.trim() !== "") {
+    if (searchTerm.trim() !== "" && query !== searchTerm) {
+      // router.push(`/searchProduct?query=${searchTerm}`);
+      // setPage(1);
+      // setProducts([]);
+      // // setHasMore(true);
+      // triggerSearch({ query: searchTerm, page: 1 });
       router.push(`/searchProduct?query=${searchTerm}`);
       setPage(1);
       setProducts([]);
       setHasMore(true);
-      triggerSearch({ query: searchTerm, page: 1 });
+      // triggerSearch({ query: searchTerm, page: 1 });
+    }else{
+      setPage((prevPage)=>prevPage + 1)
     }
+    setHasMore(true)
   };
 
   const handleKeyDown = (e) => {
@@ -93,7 +128,10 @@ const SearchProduct = () => {
       handleSearch();
     }
   };
-
+  const newArray = Array.isArray(products) && products.filter((obj, index) => {
+    return index === products.findIndex(o => obj.id === o.id);
+  })
+  console.log(newArray,page)
   return (
     <section className="src_rusults">
       <Container>
@@ -142,7 +180,7 @@ const SearchProduct = () => {
                   <p>Error fetching data</p>
                 </Col>
               ) : (
-                products.map((product) => (
+                Array.isArray(newArray) && newArray.map((product) => (
                   <Col sm={12} lg={3} md={6} xl={3} key={product.id}>
                     <Link href={`/${product.slug}?id=${product.id}`}>
                       <div className="new_shopmac_pc_box">

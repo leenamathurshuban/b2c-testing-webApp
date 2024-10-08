@@ -15,7 +15,7 @@ import TabContent from "./TabContent";
 import MacSerialLookupComp from "../Mac-repair/lookupform";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setActive } from "@/appRedux/counterReducer";
+import { setActive, setActiveTab } from "@/appRedux/counterReducer";
 import { useRouter } from "next/router";
 
 export default function MacrpartpageComp({ }) {
@@ -185,6 +185,7 @@ export default function MacrpartpageComp({ }) {
                                           "mac-part-collection-child"
                                         );
                                         dispatch(setActive(val.id)); // Update Redux state
+                                        dispatch(setActiveTab(val.name))
                                         setShowProducts(false);
                                       }}
                                     >
@@ -249,6 +250,7 @@ export default function MacrpartpageComp({ }) {
                                 "mac-part-collection-child"
                               );
                               dispatch(setActive(collection.id)); // Update Redux state
+                              dispatch(setActiveTab(collection.name))
                               setShowProducts(false);
                             }}
                           >

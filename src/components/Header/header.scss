@@ -146,6 +146,23 @@ display: none;
 .hamburger-react {
 display: none;
 }
+nav.breadcrumb-nav {
+  text-align: center;
+    display: flex;
+    justify-content: center;
+    border-top: solid 1px #ddd;
+    padding: 10px 0;
+    .breadcrumb {
+      margin: 0;
+      position: relative;
+      top: 24px;
+      .breadcrumb-item {
+        a {
+          color: #f33d74;
+        }
+      }
+    }
+}
 // =========HEADER CSS END======
 
 // ======responsive css start======

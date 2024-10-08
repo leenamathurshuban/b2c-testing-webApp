@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Container, Row, Form, Button, Col } from "react-bootstrap";
+import { Container, Row, Form, Button, Col,Link } from "react-bootstrap";
 import toast, { Toaster } from "react-hot-toast";
 import LoaderComp from "../Loader/loader_comp";
 import { enforceFormat, formatToPhone } from "@/lib/helpers";
+import wholesaleimg from "../../../public/assets/images/macparts-img/wholesaleimg.jpg";
+import Image from "next/image";
 
 const notify = () => toast.success("submited.");
 
@@ -225,6 +227,18 @@ export default function WholesalepartsComp() {
                     We Offer expedited shipping and bulk prices. Please submit
                     this form and our sales Department will call you back.
                   </p>
+                  <div className="wholesale-img">
+                    
+                      <Image
+                        src={wholesaleimg}
+                        alt="Apple Fix Pro Check Img"
+                        priority={true}
+                        className="img-fluid wd100"
+                        width={150}
+                        height={150}
+                      />
+                 
+              </div>
                 </div>
               </Col>
               {/* ======WHOLESALE CONTENT COLUMN END======= */}

@@ -5,14 +5,16 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { Cross as Hamburger } from "hamburger-react";
 import CartIcon from "../../../public/assets/images/header/cart.webp";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import afpLogo from "../../../public/AfpLogo.png";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { useLazySearchProductsQuery } from '@/appRedux/apiSlice';
+import { setActiveTab } from "@/appRedux/counterReducer";
 
 export default function HeaderComp() {
   const count = useSelector((state) => state.counter.count);
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const [isOpen, setOpen] = useState(false);
   const [show, setShow] = useState(false);
@@ -23,9 +25,15 @@ export default function HeaderComp() {
   const handleShow = () => setShow(true);
 
   // Handle search button click
-  const handleSearch = async () => {
+  // const handleSearch = async () => {
+  //   if (searchTerm.trim() !== "") {
+  //     await triggerSearch({ query: searchTerm, page: 1 });
+  //     router.push(`/searchProduct?query=${searchTerm}`); 
+  //     handleClose(); 
+  //   }
+  // };
+  const handleSearch = () => {
     if (searchTerm.trim() !== "") {
-      await triggerSearch({ query: searchTerm, page: 1 });
       router.push(`/searchProduct?query=${searchTerm}`); 
       handleClose(); 
     }
@@ -105,7 +113,8 @@ export default function HeaderComp() {
                   "mac-part-collection",
                   process.env.NEXT_PUBLIC_MAC_PART_INITIAL_ID
                 );
-                // window.localStorage.removeItem("mac-part-collection-child");
+                window.localStorage.removeItem("mac-part-collection-child");
+                dispatch(setActiveTab("iMac"))
               }}
             >
               Mac Parts
