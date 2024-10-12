@@ -49,7 +49,8 @@ const initialState = {
   shipping: 0,
   childCollectionData: [],
   active: process.env.NEXT_PUBLIC_MAC_PART_INITIAL_ID, 
-  activeTab: ''
+  activeTab: '',
+  productTitle:''
 };
 
 const counterSlice = createSlice({
@@ -168,8 +169,11 @@ const counterSlice = createSlice({
       state.active = action.payload;
     },
     setActiveTab: (state, action) => {
-      state.activeTab = action.payload?action.payload:"iMac";
+      state.activeTab = action.payload?action.payload:"";
     },
+    setProductTitle:(state,action)=>{
+      state.productTitle = action.payload?action.payload:"";
+    }
   },
 });
 
@@ -184,6 +188,7 @@ export const {
   updateCartStock,
   setChildCollectionData,
   setActive,
-  setActiveTab
+  setActiveTab,
+  setProductTitle
 } = counterSlice.actions;
 export default counterSlice.reducer;

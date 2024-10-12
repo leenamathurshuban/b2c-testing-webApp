@@ -14,6 +14,7 @@ import {
   addToCart,
   getSubTotal,
   getTotal,
+  setProductTitle,
 } from "../../appRedux/counterReducer";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -24,12 +25,12 @@ import { NextSeo } from "next-seo";
 export default function SingleproductComp({ webUrl }) {
   const router = useRouter();
   const dispatch = useDispatch();
-  const cartItem = useSelector((state) => state.counter.cart);
+  const cartItem = useSelector((state) => state?.counter?.cart);
 
-  const { id } = router.query;
+  const { id } = router?.query;
   const pathname = usePathname();
 
-  const ifMacPartPage = pathname.includes("mac-parts");
+  const ifMacPartPage = pathname?.includes("mac-parts");
 
   const [product, setProduct] = useState({});
   const [productVariant, setProductVariant] = useState({});
@@ -40,11 +41,11 @@ export default function SingleproductComp({ webUrl }) {
   const [totalQuantity, setTotalQuantity] = useState(0);
 
   async function quantityManage(productData, total) {
-    const checkcartData = cartItem?.find((e) => e.id === productData?.id);
+    const checkcartData = cartItem?.find((e) => e?.id === productData?.id);
     if (checkcartData) {
       setProductVariant({
         ...productData,
-        stock_quantity: total - checkcartData.quantity,
+        stock_quantity: total - checkcartData?.quantity,
       });
     } else {
       setProductVariant(productData);
@@ -57,7 +58,7 @@ export default function SingleproductComp({ webUrl }) {
       const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/wp-json/custom-woo/v1/products/${id}`;
       const response = await axios.get(apiUrl);
 
-      const productData = response.data.product || [];
+      const productData = response?.data?.product || [];
       // const sortedPros = productData?.variations?.sort((a,b)=>Number(a.price) - Number(b.price))
       const pros = productData?.variations?.[0] || productData;
       setTotalQuantity(pros?.stock_quantity || 0);
@@ -66,21 +67,21 @@ export default function SingleproductComp({ webUrl }) {
         ? setProVariant(true)
         : setProVariant(false);
 
-      const checkcartData = cartItem?.find((e) => e.id === pros?.id);
+      const checkcartData = cartItem?.find((e) => e?.id === pros?.id);
       if (checkcartData) {
         setProductVariant({
           ...pros,
-          stock_quantity: (pros?.stock_quantity || 0) - checkcartData.quantity,
+          stock_quantity: (pros?.stock_quantity || 0) - checkcartData?.quantity,
         });
       } else {
         setProductVariant(pros);
       }
 
       const imageData = pros?.image
-        ? [...pros.image, ...productData.images]
-        : pros.images;
+        ? [...pros.image, ...productData?.images]
+        : pros?.images;
 
-      const uniqueImageData = imageData.filter(
+      const uniqueImageData = imageData?.filter(
         (obj, index, self) => index === self.findIndex((t) => t.id === obj.id)
       );
       const imageUrl = uniqueImageData?.map((val) => ({
@@ -90,6 +91,7 @@ export default function SingleproductComp({ webUrl }) {
 
       setImageGallary(imageUrl);
       setProduct(productData);
+      dispatch(setProductTitle(productData?.title))
       setLoading(false);
     } catch (error) {
       console.log(error.message);
@@ -121,14 +123,14 @@ export default function SingleproductComp({ webUrl }) {
     const variantData = product?.variations?.find((e) => e.id == selectID);
 
     if (variantData) {
-      if (product?.images?.length || variantData.image) {
+      if (product?.images?.length || variantData?.image) {
         const imageData = [
-          ...(variantData.image ? [...variantData.image] : []),
-          ...(product.images || []),
+          ...(variantData?.image ? [...variantData?.image] : []),
+          ...(product?.images || []),
         ];
 
-        const uniqueImageData = imageData.filter(
-          (obj, index, self) => index === self.findIndex((t) => t.id === obj.id)
+        const uniqueImageData = imageData?.filter(
+          (obj, index, self) => index === self?.findIndex((t) => t.id === obj.id)
         );
 
         const imageUrl = uniqueImageData.map((val) => ({
@@ -190,6 +192,7 @@ export default function SingleproductComp({ webUrl }) {
     (e) => e.option === productVariant?.name
   );
   // console.log('product------', productVariant)
+  console.log(product?.title)
   return (
     <>
       <NextSeo
@@ -380,7 +383,7 @@ export default function SingleproductComp({ webUrl }) {
                   <Col md={6} lg={5} sm={12}>
                     <div className="single_product_box">
                       <div className="single_pro_heading">
-                        {product?.tags?.map((tag, index) => (
+                        {Array.isArray(product?.tags) && product?.tags?.map((tag, index) => (
                           <span key={index}>{tag}</span>
                         ))}
                       </div>
@@ -396,9 +399,9 @@ export default function SingleproductComp({ webUrl }) {
                         <div className="skudiv">
                           <label>SKU: </label>
                           <em>
-                            {productVariant.sku.split("-").length > 1
-                              ? productVariant.sku.split("-")[1]
-                              : productVariant.sku.split("-")[0]}
+                            {productVariant?.sku?.split("-").length > 1
+                              ? productVariant?.sku?.split("-")[1]
+                              : productVariant?.sku?.split("-")[0]}
                           </em>
                         </div>
                       )}
@@ -422,11 +425,11 @@ export default function SingleproductComp({ webUrl }) {
                           ))} */}
                           {Array.isArray(product?.variations) && product?.variations?.map((obj) => (
                             <option
-                              key={obj.id}
-                              value={obj.id}
+                              key={obj?.id}
+                              value={obj?.id}
                               data-width="auto"
                             >
-                              {Array.isArray(obj?.attributes) && obj?.attributes?.map((item) => item?.option).join(', ')}
+                              {Array.isArray(obj?.attributes) && obj?.attributes?.map((item) => item?.option)?.join(', ')}
                             </option>
                           ))}
                         </Form.Select>
