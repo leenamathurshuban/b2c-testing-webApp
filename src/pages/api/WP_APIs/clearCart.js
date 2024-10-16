@@ -13,7 +13,7 @@ export default async function handler(req, res) {
       }
 
       const decoded = jwt.decode(jwtToken, process.env.JWT_SECRET_KEY);
-      console.log(decoded);
+      // console.log(decoded);
       if (!decoded?.email && !decoded?.passsword) {
         return res
           .status(401)

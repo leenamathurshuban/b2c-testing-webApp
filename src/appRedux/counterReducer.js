@@ -50,7 +50,8 @@ const initialState = {
   childCollectionData: [],
   active: process.env.NEXT_PUBLIC_MAC_PART_INITIAL_ID, 
   activeTab: '',
-  productTitle:''
+  productTitle:'',
+  categoryName:'',
 };
 
 const counterSlice = createSlice({
@@ -173,6 +174,9 @@ const counterSlice = createSlice({
     },
     setProductTitle:(state,action)=>{
       state.productTitle = action.payload?action.payload:"";
+    },
+    setCategoryName:(state,action)=>{
+      state.categoryName = action.payload?action.payload:""
     }
   },
 });
@@ -189,6 +193,7 @@ export const {
   setChildCollectionData,
   setActive,
   setActiveTab,
-  setProductTitle
+  setProductTitle,
+  setCategoryName,
 } = counterSlice.actions;
 export default counterSlice.reducer;

@@ -61,7 +61,7 @@ export default function AllProducts({ childCategoryID }) {
       //   const windowHeight = window.innerHeight;
       //   if (windowHeight >= top - 1) {
           if (cursor) {
-            console.log("Scroll product");
+            // console.log("Scroll product");
             getProductByCollectionID(cursor);
           }
       //   }
@@ -96,11 +96,10 @@ export default function AllProducts({ childCategoryID }) {
     };
   }, [router.events,showMoreLoading,loading]);
   //<----------------end of code--------------------->
-  // console.log(loading,showMoreLoading)
   
-  if (loading) {
-    return <LoaderComp />;
-  }
+  // if (loading) {
+  //   return <LoaderComp />;
+  // }
 
   return (
     <Row>

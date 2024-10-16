@@ -3,7 +3,7 @@ import { Col, Row, Tab } from "react-bootstrap";
 import ChildCategory from "./ChildCategory";
 import AllProducts from "./AllProducts";
 import { useDispatch } from "react-redux";
-import { setActive } from "@/appRedux/counterReducer";
+import { setActive, setCategoryName } from "@/appRedux/counterReducer";
 
 export default function TabContent({ active, showProducts, setShowProducts, childCategoryID, setChildCategoryID }) {
   // const [childCategoryID, setChildCategoryID] = useState("");
@@ -32,6 +32,8 @@ export default function TabContent({ active, showProducts, setShowProducts, chil
               if(DefaultCollectionID){
                 dispatch(setActive(DefaultCollectionID))
               }
+              dispatch(setCategoryName(''))
+              sessionStorage.removeItem('scrollPosition')
             }}
           >
             <svg

@@ -111,6 +111,21 @@ nav.my_nav .logo-text p {
   display: none;
 }
 
+nav.breadcrumb-nav {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 0px 0 15px 0;
+}
+nav.breadcrumb-nav .breadcrumb {
+  margin: 0;
+  position: relative;
+  top: 24px;
+}
+nav.breadcrumb-nav .breadcrumb .breadcrumb-item a {
+  color: #f33d74;
+}
+
 @media screen and (min-device-width: 768px) and (max-device-width: 991px) {
   .my_navbar {
     border-top: 1px solid #949494;

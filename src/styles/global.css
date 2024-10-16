@@ -236,4 +236,8 @@ a {
   margin-bottom: 60px;
   line-height: 27px;
   color: #727272;
+}
+
+.breadcrumb-item.active {
+  font-weight: 500;
 }/*# sourceMappingURL=global.css.map */

@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import afpLogo from "../../../public/AfpLogo.png";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { useLazySearchProductsQuery } from '@/appRedux/apiSlice';
-import { setActiveTab } from "@/appRedux/counterReducer";
+import { setActiveTab, setCategoryName } from "@/appRedux/counterReducer";
 
 export default function HeaderComp() {
   const count = useSelector((state) => state.counter.count);
@@ -115,6 +115,8 @@ export default function HeaderComp() {
                 );
                 window.localStorage.removeItem("mac-part-collection-child");
                 dispatch(setActiveTab("iMac"))
+                dispatch(setCategoryName(""))
+                sessionStorage.removeItem("scrollPosition")
               }}
             >
               Mac Parts

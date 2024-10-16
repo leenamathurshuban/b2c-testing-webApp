@@ -123,10 +123,10 @@ export default function MacSaleProducts({ webUrl, query }) {
       //   const windowHeight = window.innerHeight;
       //   if (windowHeight >= top - 1) {
       if (cursor) {
-        console.log("Scroll product");
+        // console.log("Scroll product");
         getProductByCollectionID(cursor);
       } else if (selectVal.length !== 0 && filterCursor) {
-        console.log("Scroll filter");
+        // console.log("Scroll filter");
         filterProductData(selectVal, "showMore");
       }
       //   }

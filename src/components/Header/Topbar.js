@@ -4,7 +4,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 export default function Tobbar() {
   return (
     <section className="topOfferBar">
-      Free Shipping for any purchase above $50
+      Apple Fix Pros LLC is now R2V3 Facility w/ ISO 9001, 45001, & 14001 Certifications!
     </section>
   );
 }

@@ -18,7 +18,7 @@ export default function Macproductpage() {
       setCollections(collectionData || []);
       setLoading(collectionLoading);
     } catch (error) {
-      console.log(error.message);
+      // console.log(error);
     }
   }, [collectionData, collectionLoading]);
 

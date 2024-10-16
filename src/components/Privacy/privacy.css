@@ -5,6 +5,10 @@
   font-size: 22px;
   margin-bottom: 15px;
   color: #000;
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .privacy-box-ul h3 {
   font-size: 18px;

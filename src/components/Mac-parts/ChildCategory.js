@@ -2,7 +2,7 @@ import { useGetCollectionsQuery } from "@/appRedux/apiSlice";
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { setActive } from "@/appRedux/counterReducer";
+import { setActive, setCategoryName } from "@/appRedux/counterReducer";
 
 export default function ChildCategory({
   active,
@@ -69,6 +69,8 @@ export default function ChildCategory({
                 setShowProducts(true);
                 setChildCategoryID(val.id);
                 dispatch(setActive(val.id));
+                dispatch(setCategoryName(val.name))
+                sessionStorage.removeItem('scrollPosition')
               }}
             >
               <div className='tabslide_box_content macPartsTitle'>

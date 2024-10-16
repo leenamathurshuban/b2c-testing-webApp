@@ -575,7 +575,6 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
 
       // setIsSubmitForm(true)
     }
-    console.log(ShowData)
     setIsLoading(false)
   };
 

@@ -15,7 +15,7 @@ import TabContent from "./TabContent";
 import MacSerialLookupComp from "../Mac-repair/lookupform";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setActive, setActiveTab } from "@/appRedux/counterReducer";
+import { setActive, setActiveTab, setCategoryName } from "@/appRedux/counterReducer";
 import { useRouter } from "next/router";
 
 export default function MacrpartpageComp({ }) {
@@ -55,12 +55,12 @@ export default function MacrpartpageComp({ }) {
     const DefaultCollectionID = window?.localStorage?.getItem(
       "mac-part-collection"
     );
-    console.log("DefaultCollectionID", DefaultCollectionID)
+    // console.log("DefaultCollectionID", DefaultCollectionID)
     if (DefaultCollectionID) {
       dispatch(setActive(DefaultCollectionID))
     } else {
       const initialID = active;
-      console.log("initialID", initialID)
+      // console.log("initialID", initialID)
       window.localStorage.setItem("mac-part-collection", initialID);
       dispatch(setActive(initialID)); // Update Redux state
     }
@@ -187,6 +187,8 @@ export default function MacrpartpageComp({ }) {
                                         dispatch(setActive(val.id)); // Update Redux state
                                         dispatch(setActiveTab(val.name))
                                         setShowProducts(false);
+                                        dispatch(setCategoryName(''))
+                                        sessionStorage.removeItem('scrollPosition')
                                       }}
                                     >
                                       {val.name}

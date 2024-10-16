@@ -9,7 +9,7 @@ import LoaderComp from "../Loader/loader_comp";
 import { useGetProductsByCollectionIdQuery } from "@/appRedux/apiSlice";
 
 export default function Shoppopular({ loading, products }) {
-  // console.log(products)
+  
   const getLowestPrice = (newArray) => {
     if (Array.isArray(newArray) && newArray.length > 0) {
       const lowestPrice = newArray.reduce((min, product) => {
@@ -21,8 +21,6 @@ export default function Shoppopular({ loading, products }) {
     }
   }
 
-  // console.log(lowestPrice)
-  // console.log(products[1].tags.split(",")?true:false)
   // const {
   //   data: popularData,
   //   isLoading: popularLoading,
