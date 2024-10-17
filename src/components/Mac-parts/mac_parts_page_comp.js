@@ -22,6 +22,7 @@ export default function MacrpartpageComp({ }) {
   const dispatch = useDispatch();
   const router = useRouter();
 
+  const categoryName = useSelector((state) => state?.counter?.categoryName);
   const [ShowData, setShowData] = useState({})
   useEffect(() => {
     if (router.query) {
@@ -68,6 +69,19 @@ export default function MacrpartpageComp({ }) {
     setCollections(collectionData || []);
     setLoading(collectionLoading);
   }, [collectionData, collectionLoading]);
+
+  useEffect(() => {
+    if (!categoryName) {
+      setShowProducts(false)
+      const DefaultCollectionID = window?.localStorage?.getItem(
+        "mac-part-collection"
+      );
+      if (DefaultCollectionID) {
+        dispatch(setActive(DefaultCollectionID))
+      }
+      sessionStorage.removeItem('scrollPosition')
+    }
+  }, [categoryName])
 
   return (
     <>

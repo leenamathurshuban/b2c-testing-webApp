@@ -1,9 +1,11 @@
+import { setCategoryName } from '@/appRedux/counterReducer';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Breadcrumb = () => {
     const router = useRouter();
+    const dispatch = useDispatch();
 
     const selectedItem = useSelector(state => state?.counter?.activeTab)
     const productBreadcrumb = useSelector((state) => state?.counter?.productTitle)
@@ -120,7 +122,7 @@ const Breadcrumb = () => {
         }
 
     };
-    
+
 
     return (
         <>
@@ -150,10 +152,10 @@ const Breadcrumb = () => {
                                         className={`breadcrumb-item${isLast ? ' active' : ''}`}
                                         aria-current={isLast ? 'page' : undefined}
                                     >
-                                        {isLast ? (
+                                        {isLast && path !== 'mac-parts' ? (
                                             formatPageName(path)
                                         ) : (
-                                            <Link href={href}>{formatPageName(path)}</Link>
+                                            <Link href="/mac-parts">{formatPageName(path)}</Link>
                                         )}
                                     </li>
                                 );
@@ -163,12 +165,25 @@ const Breadcrumb = () => {
                         })}
                         {router.pathname == "/mac-parts" && selectedItem && (
                             <li className="breadcrumb-item active" aria-current="page">
-                                {formatPageName(selectedItem)}
+                                {!categoryName ? (
+                                    formatPageName(selectedItem)
+                                ) : (
+                                    <Link href='/mac-parts' onClick={()=>dispatch(setCategoryName(""))}>
+                                        {formatPageName(selectedItem)}
+                                    </Link>
+                                )}
                             </li>
                         )}
                         {router.pathname == "/mac-parts" && categoryName && (
                             <li className="breadcrumb-item active" aria-current="page">
-                                {formatPageName(categoryName)}
+                                {router.pathname == "/mac-parts/[product_name]" ? (
+                                    <Link href='/mac-parts'>
+                                        {formatPageName(categoryName)}
+                                    </Link>
+                                ) : (
+                                    formatPageName(categoryName)
+                                )}
+
                             </li>
                         )}
                     </ol>
