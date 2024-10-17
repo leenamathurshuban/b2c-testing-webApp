@@ -7,9 +7,35 @@ body {
 }
 
 .main_footer {
-  background: linear-gradient(90deg, #93f2ff 0.35%, #fd79a1 40%, #e78478 106.3%);
-  padding-top: 30px;
+  background: linear-gradient(90deg, #2BB2C8 0.35%, #A82654 40%, #E8003E 106.3%);
+  padding-top: 70px;
   margin-top: 80px;
+  position: relative;
+}
+.main_footer::before {
+  content: "";
+  background-image: url("../../../public/images/footer/footer_vector.png");
+  background-repeat: repeat-x;
+  position: absolute;
+  top: -1px;
+  width: 100%;
+  height: 40px;
+}
+.main_footer .gif-image {
+  width: 76px;
+  height: 76px;
+  position: absolute;
+}
+.main_footer .gif-image.gif1 {
+  transform: rotate(335deg);
+  left: 1%;
+  top: 60%;
+}
+.main_footer .gif-image.gif2 {
+  z-index: 0;
+  transform: rotate(25deg);
+  right: 3%;
+  bottom: 70%;
 }
 .main_footer .footer_logo p {
   font-size: 30px;
@@ -23,12 +49,12 @@ body {
 }
 .main_footer h1,
 .main_footer h2 {
-  font-size: 22px;
+  font-size: 24px;
   margin-bottom: 20px;
   text-align: left;
   text-transform: capitalize;
-  color: rgba(255, 255, 255, 0.75);
-  font-weight: 600;
+  color: rgb(255, 255, 255);
+  letter-spacing: 0.1rem;
 }
 .main_footer .footer_boxul .flogoul {
   margin-top: 20px;
@@ -213,7 +239,7 @@ body {
 }
 .footer_img .footer_logo {
   display: inline-block;
-  background-color: #fb799f;
+  background-color: #b02151;
   position: relative;
   z-index: 9;
   padding: 0 25px;

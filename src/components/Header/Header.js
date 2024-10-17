@@ -116,7 +116,7 @@ export default function HeaderComp() {
                 window.localStorage.removeItem("mac-part-collection-child");
                 dispatch(setActiveTab("iMac"))
                 dispatch(setCategoryName(""))
-                sessionStorage.removeItem("scrollPosition")
+                sessionStorage.removeItem('scrollPosition')
               }}
             >
               Mac Parts

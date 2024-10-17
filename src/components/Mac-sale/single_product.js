@@ -78,11 +78,11 @@ export default function SingleproductComp({ webUrl }) {
       }
 
       const imageData = pros?.image
-        ? [...pros?.image, ...productData?.images]
+        ? [...pros.image, ...productData?.images]
         : pros?.images;
 
       const uniqueImageData = imageData?.filter(
-        (obj, index, self) => index === self?.findIndex((t) => t.id === obj.id)
+        (obj, index, self) => index === self.findIndex((t) => t.id === obj.id)
       );
       const imageUrl = uniqueImageData?.map((val) => ({
         original: val?.src,
@@ -94,7 +94,7 @@ export default function SingleproductComp({ webUrl }) {
       dispatch(setProductTitle(productData?.title))
       setLoading(false);
     } catch (error) {
-      // console.log(error);
+      // console.log(error.message);
     }
   };
 
@@ -133,7 +133,7 @@ export default function SingleproductComp({ webUrl }) {
           (obj, index, self) => index === self?.findIndex((t) => t.id === obj.id)
         );
 
-        const imageUrl = uniqueImageData?.map((val) => ({
+        const imageUrl = uniqueImageData.map((val) => ({
           original: val?.src,
           thumbnail: val?.src,
         }));
@@ -189,8 +189,10 @@ export default function SingleproductComp({ webUrl }) {
   const canonicalUrl = `https://www.applefixpros.com${routerPath?.[0]}`;
 
   const attributeName = productVariant?.attributes?.find(
-    (e) => e?.option === productVariant?.name
+    (e) => e.option === productVariant?.name
   );
+  // console.log('product------', productVariant)
+  // console.log(product?.title)
   return (
     <>
       <NextSeo
@@ -397,7 +399,7 @@ export default function SingleproductComp({ webUrl }) {
                         <div className="skudiv">
                           <label>SKU: </label>
                           <em>
-                            {productVariant?.sku?.split("-")?.length > 1
+                            {productVariant?.sku?.split("-").length > 1
                               ? productVariant?.sku?.split("-")[1]
                               : productVariant?.sku?.split("-")[0]}
                           </em>

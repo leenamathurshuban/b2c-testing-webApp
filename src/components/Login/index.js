@@ -67,7 +67,7 @@ function Login() {
       }
     } catch (error) {
       toast.error("Login Failed!");
-      console.log(error);
+      // console.log(error);
     } finally {
       setLoading(false);
     }

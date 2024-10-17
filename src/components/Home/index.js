@@ -6,7 +6,8 @@ import TrustedComp from "./trusted";
 import { useRouter } from "next/router";
 import { Shoppopularpart } from "./Shoppopularpart";
 import { useGetPopularProductsPartsQuery } from "@/appRedux/apiSlice";
-
+import CountdownTimer from "./CountdownTimer";
+// import FlowerApp from "../FlowerApp";
 export default function HomeComp() {
 
   const {
@@ -21,8 +22,8 @@ export default function HomeComp() {
 
   useEffect(() => {
     if (popularData) {
-      Array.isArray(popularData) && popularData?.map((val)=>{
-        val.category == "Products"?setProducts(val?.data):setParts(val?.data)
+      Array.isArray(popularData) && popularData?.map((val) => {
+        val.category == "Products" ? setProducts(val?.data) : setParts(val?.data)
       })
       setLoading(popularLoading)
     }
@@ -43,11 +44,26 @@ export default function HomeComp() {
       router.events.off('routeChangeStart', handleRouteChange);
     };
   }, [router.events]);
-  //<----------------end of code--------------------->
+  //<----------------end of code back--------------------->
 
   return (
     <>
       <Shoppopular loading={loading} products={products} />
+      <section className="countdown_aria">
+        <div className="overlay">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-5 countdown_info">
+                <h4>Get 20% off now</h4>
+                <h2>Sales end in :</h2>
+                <p>Lorem ipsum dolor sit amet consectetur. Pretium aliquet amet ligula pulvinar feugiat. Nibh neque urna in id in nulla. Id eget nunc ac etiam</p>
+                <CountdownTimer />
+                <a href="#" className="main_btn hvr-shutter-out-horizontal">Shop Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <Shoppopularpart loading={loading} parts={parts} />
       <BuyrepairComp />
       <Looking_macparts />

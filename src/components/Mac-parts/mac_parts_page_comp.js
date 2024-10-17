@@ -82,7 +82,6 @@ export default function MacrpartpageComp({ }) {
       sessionStorage.removeItem('scrollPosition')
     }
   }, [categoryName])
-
   return (
     <>
       {dataFromChild && type == "sell" && (

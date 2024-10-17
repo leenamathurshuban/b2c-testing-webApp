@@ -96,6 +96,7 @@ export default function AllProducts({ childCategoryID }) {
     };
   }, [router.events,showMoreLoading,loading]);
   //<----------------end of code--------------------->
+  // console.log(loading,showMoreLoading)
   
   // if (loading) {
   //   return <LoaderComp />;

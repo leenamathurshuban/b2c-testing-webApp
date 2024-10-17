@@ -46,6 +46,9 @@ export default function App({ Component, pageProps }) {
         <meta name='description' content='Apple fix pros' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/icon.ico' />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet"/>
       </Head>
       <Provider store={store}>
         <PersistGate persistor={persistor}>

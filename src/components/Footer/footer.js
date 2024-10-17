@@ -9,10 +9,18 @@ import Fp3 from "../../../public/assets/images/footer/masterf.webp";
 import Fp4 from "../../../public/assets/images/footer/visaf.webp";
 import Fp5 from "../../../public/assets/images/footer/cashapp.webp";
 import Fp6 from "../../../public/assets/images/footer/Arcrel.png";
+import ftgif from "../../../public/images/footer/halloween_vector01.gif";
 
 export default function FooterComp() {
   return (
     <section className="main_footer mrt80">
+      <div className="gif-image gif1">
+          <Image
+            src={ftgif}
+            alt="Apple Fix Pro Payment Img"
+            className="img-fluid"
+          />
+        </div>
       <div className="desk_footer">
         <Container>
           <div className="footer-full">
@@ -290,7 +298,13 @@ export default function FooterComp() {
         </div>
 
       </div>
-
+      <div className="gif-image gif2">
+          <Image
+            src={ftgif}
+            alt="Apple Fix Pro Payment Img"
+            className="img-fluid"
+          />
+        </div>
       {/* =======DESKTOP FOOTER END======== */}
 
       <div className="mobile_footer">

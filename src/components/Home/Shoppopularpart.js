@@ -7,6 +7,7 @@ import Image from "next/image";
 import LoaderComp from "../Loader/loader_comp";
 
 export const Shoppopularpart = ({ loading, parts }) => {
+    // console.log(parts)
     const getLowestPrice = (newArray) => {
         if (Array.isArray(newArray) && newArray.length > 0) {
             const lowestPrice = newArray.reduce((min, product) => {

@@ -131,7 +131,6 @@ const SearchProduct = () => {
   const newArray = Array.isArray(products) && products.filter((obj, index) => {
     return index === products.findIndex(o => obj.id === o.id);
   })
-  
   return (
     <section className="src_rusults">
       <Container>

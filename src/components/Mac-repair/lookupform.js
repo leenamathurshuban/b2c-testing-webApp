@@ -575,6 +575,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
 
       // setIsSubmitForm(true)
     }
+    // console.log(ShowData)
     setIsLoading(false)
   };
 
@@ -814,7 +815,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
       //   }        
       // }
     } catch (error) {
-      console.log(error)
+      // console.log(error)
     }
   }
   return (

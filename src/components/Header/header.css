@@ -115,7 +115,8 @@ nav.breadcrumb-nav {
   text-align: center;
   display: flex;
   justify-content: center;
-  padding: 0px 0 15px 0;
+  border-top: solid 1px #ddd;
+  padding: 10px 0;
 }
 nav.breadcrumb-nav .breadcrumb {
   margin: 0;
@@ -124,6 +125,19 @@ nav.breadcrumb-nav .breadcrumb {
 }
 nav.breadcrumb-nav .breadcrumb .breadcrumb-item a {
   color: #f33d74;
+}
+
+.offer_banner {
+  position: relative;
+}
+.offer_banner::before {
+  content: "";
+  background-image: url("../../../public/images/footer/footer_vector.png");
+  background-repeat: repeat-x;
+  position: absolute;
+  top: -1px;
+  width: 100%;
+  height: 40px;
 }
 
 @media screen and (min-device-width: 768px) and (max-device-width: 991px) {
