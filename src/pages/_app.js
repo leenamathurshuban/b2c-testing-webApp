@@ -49,6 +49,9 @@ export default function App({ Component, pageProps }) {
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
         <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet"/>
       </Head>
       <Provider store={store}>
         <PersistGate persistor={persistor}>

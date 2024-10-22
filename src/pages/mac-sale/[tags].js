@@ -1,8 +1,10 @@
 import { useGetCollectionsQuery } from "@/appRedux/apiSlice";
 import MacSaleHome from "@/components/Mac-sale/MacSaleHome";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 export default function MacProducts({ webUrl, query }) {
+  const router = useRouter();
   const { data: collectionData, isLoading: collectionLoading } =
     useGetCollectionsQuery(query.id);
 
@@ -11,8 +13,13 @@ export default function MacProducts({ webUrl, query }) {
 
   useEffect(() => {
     try {
-      setCollections(collectionData || []);
-      setLoading(collectionLoading);
+      if (!collectionData.length) {        
+        router.push(`/mac-sale/${query.tags}/${query.tags}?id=${query?.id}`)
+        router.replace(`/mac-sale`)
+      } else {
+        setCollections(collectionData || []);
+        setLoading(collectionLoading);
+      }
     } catch (error) {
       // console.log(error.message);
     }

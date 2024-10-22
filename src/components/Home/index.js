@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Looking_macparts from "./Looking_macparts";
 import Shoppopular from "./Shoppopular";
 import BuyrepairComp from "./buysellandrepair";
@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { Shoppopularpart } from "./Shoppopularpart";
 import { useGetPopularProductsPartsQuery } from "@/appRedux/apiSlice";
 import CountdownTimer from "./CountdownTimer";
+import Link from "next/link";
 // import FlowerApp from "../FlowerApp";
 export default function HomeComp() {
 
@@ -18,7 +19,8 @@ export default function HomeComp() {
 
   const [products, setProducts] = useState([]);
   const [parts, setParts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);  
+  
 
   useEffect(() => {
     if (popularData) {
@@ -35,6 +37,9 @@ export default function HomeComp() {
     const savedPosition = sessionStorage.getItem('scrollPosition');
     if (savedPosition) {
       window.scrollTo(0, parseInt(savedPosition));
+      setTimeout(() => {
+        sessionStorage.removeItem("scrollPosition")
+      }, 1000)
     }
     const handleRouteChange = () => {
       sessionStorage.setItem('scrollPosition', window.scrollY);
@@ -45,6 +50,27 @@ export default function HomeComp() {
     };
   }, [router.events]);
   //<----------------end of code back--------------------->
+  // useEffect(() => {
+  //   // Check if the page was refreshed
+  //   const isPageRefreshed = performance.getEntriesByType('navigation')[0].type === 'reload';
+
+  //   if (isPageRefreshed) {
+  //     console.log('Page was refreshed');
+  //     sessionStorage.removeItem('scrollPosition')
+  //     // Handle the refresh event here
+  //   }
+  // }, [router.events]);
+  useEffect(() => {
+    setTimeout(()=>{
+      if (window.location.hash) {
+        const targetId = window.location.hash.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    },100)    
+  }, [router.events]);
 
   return (
     <>
@@ -54,11 +80,11 @@ export default function HomeComp() {
           <div className="container">
             <div className="row">
               <div className="col-md-5 countdown_info">
-                <h4>Get 20% off now</h4>
+                <h4>Get <span>15% off</span> now</h4>
                 <h2>Sales end in :</h2>
-                <p>Lorem ipsum dolor sit amet consectetur. Pretium aliquet amet ligula pulvinar feugiat. Nibh neque urna in id in nulla. Id eget nunc ac etiam</p>
+                {/* <p>Lorem ipsum dolor sit amet consectetur. Pretium aliquet amet ligula pulvinar feugiat. Nibh neque urna in id in nulla. Id eget nunc ac etiam</p> */}
                 <CountdownTimer />
-                <a href="#" className="main_btn hvr-shutter-out-horizontal">Shop Now</a>
+                <Link href="#shop-now" className="main_btn hvr-shutter-out-horizontal">Shop Now</Link>
               </div>
             </div>
           </div>

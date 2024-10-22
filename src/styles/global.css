@@ -6,6 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 h1,
@@ -278,7 +279,14 @@ a {
   padding-right: 10%;
 }
 .countdown_info h4 {
-  color: #c3154a;
+  color: #ffffff;
+  font-family: "Oleo Script", system-ui;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+.countdown_info h4 span {
+  color: #fa1052;
+  text-shadow: 1px 1px #fff, -1px 1px #fff, 1px -1px #fff, -1px -1px #fff, 1px 1px 5px #555;
 }
 .countdown_info h2 {
   color: #fff;
@@ -319,17 +327,67 @@ a {
 
 .count_banner {
   position: absolute;
-  bottom: 36%;
-  left: 10%;
+  bottom: 0;
+  left: 0;
+  width: 47%;
+  height: 100%;
+  padding: 4% 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.count_banner h1 {
+  font-family: "Henny Penny", system-ui;
+  font-weight: 400;
+  color: #fff;
+  font-size: 2.7rem;
+  letter-spacing: 0.2rem;
+  margin: 10px 0 15px 0;
+}
+.count_banner img.happy_vtr {
+  max-width: 20%;
+  height: auto;
+}
+.count_banner p.text-discount {
+  font-size: 2rem;
+  font-family: "Oleo Script", system-ui;
+  color: #fff;
+  font-weight: 600;
+  margin: 0px 0 20px 0;
+}
+.count_banner a.btn-shopnow {
+  background: linear-gradient(45deg, #431137, #C71349);
+  color: #fff;
+  padding: 9px 18px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  font-size: 0.7rem;
 }
 .count_banner .countdowncontainer .countdown {
-  height: 95px;
-  padding: 15px 0;
+  height: 60px;
+  padding: 6px 0;
+  width: 55px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.count_banner .countdowncontainer .countdown span {
+  font-size: 12px;
+  position: relative;
+  top: -6px;
 }
 .count_banner .countdowncontainer .countdown h3 {
   color: #fff;
-  font-size: 35px;
+  font-size: 26px;
   margin-bottom: 0;
+}
+
+span.text-denger {
+  color: #fa1052;
+  text-shadow: 1px 1px #fff, -1px 1px #fff, 1px -1px #fff, -1px -1px #fff, 1px 1px 5px #555;
 }
 
 .fox_vactor img {
@@ -426,10 +484,20 @@ img.vert-move {
 /**==========Responsove============**/
 @media (max-width: 767.98px) {
   .count_banner {
-    bottom: 100px;
+    bottom: 0;
     left: 0;
     width: 100%;
     text-align: center;
+    padding-top: 45%;
+  }
+  .count_banner p.text-discount {
+    font-size: 1.85rem;
+    margin: 0px 0 15px 0;
+  }
+  .count_banner a.btn-shopnow {
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 12px;
   }
   .count_banner .countdowncontainer .countdown {
     height: 64px;
@@ -446,6 +514,8 @@ img.vert-move {
   }
   .count_banner .countdowncontainer .countdown span {
     font-size: 10px;
+    position: relative;
+    top: -5px;
   }
   .flower {
     width: 42px;

@@ -5,10 +5,13 @@ import { useLazySearchProductsQuery } from "@/appRedux/apiSlice";
 import LoaderComp from "../Loader/loader_comp";
 import Link from "next/link";
 import { debounce } from "@/lib/helpers";
+import { useDispatch } from "react-redux";
+import { setActiveTab, setCategoryName } from "@/appRedux/counterReducer";
 
 const SearchProduct = () => {
   const router = useRouter();
   const { query } = router.query;
+  const dispatch = useDispatch()
 
   const [searchTerm, setSearchTerm] = useState(query || "");
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -68,7 +71,7 @@ const SearchProduct = () => {
         .catch(() => {
           setIsFetchingMore(false);
         });
-    }else if (!isFetchingMore && page>1){
+    } else if (!isFetchingMore && page > 1) {
       triggerSearch({ query: searchTerm, page })
         .then((newProductsData) => {
           const newProducts = newProductsData.data?.[0]?.response || [];
@@ -117,8 +120,8 @@ const SearchProduct = () => {
       setProducts([]);
       setHasMore(true);
       // triggerSearch({ query: searchTerm, page: 1 });
-    }else{
-      setPage((prevPage)=>prevPage + 1)
+    } else {
+      setPage((prevPage) => prevPage + 1)
     }
     setHasMore(true)
   };
@@ -131,6 +134,7 @@ const SearchProduct = () => {
   const newArray = Array.isArray(products) && products.filter((obj, index) => {
     return index === products.findIndex(o => obj.id === o.id);
   })
+  // console.log(newArray, page)
   return (
     <section className="src_rusults">
       <Container>
@@ -181,8 +185,11 @@ const SearchProduct = () => {
               ) : (
                 Array.isArray(newArray) && newArray.map((product) => (
                   <Col sm={12} lg={3} md={6} xl={3} key={product.id}>
-                    <Link href={`/${product.slug}?id=${product.id}`}>
-                      <div className="new_shopmac_pc_box">
+                    <Link href={`${product.maincategory === "Mac parts" ? `/mac-parts/${product.slug}?id=${product.id}` : `/${product.slug}?id=${product.id}`}`}>
+                      <div className="new_shopmac_pc_box" onClick={() => {
+                        dispatch(setCategoryName(product?.subcategory))
+                        dispatch(setActiveTab(product?.category))
+                      }}>
                         {product.tags && (
                           <div className="single_pro_heading tagspan">
                             <span>{product.tags}</span>

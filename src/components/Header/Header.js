@@ -34,7 +34,7 @@ export default function HeaderComp() {
   // };
   const handleSearch = () => {
     if (searchTerm.trim() !== "") {
-      router.push(`/searchProduct?query=${searchTerm}`); 
+      router.push(`/searchProduct?query=${searchTerm}`);
       handleClose(); 
     }
   };

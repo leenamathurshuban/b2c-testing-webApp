@@ -5,9 +5,12 @@ import { Container, Row, Col } from "react-bootstrap";
 import n1 from "../../../public/assets/images/new-mac/n1.png";
 import Image from "next/image";
 import LoaderComp from "../Loader/loader_comp";
+import { useDispatch } from "react-redux";
+import { setActiveTab, setCategoryName } from "@/appRedux/counterReducer";
 
 export const Shoppopularpart = ({ loading, parts }) => {
     // console.log(parts)
+    const dispatch = useDispatch()
     const getLowestPrice = (newArray) => {
         if (Array.isArray(newArray) && newArray.length > 0) {
             const lowestPrice = newArray.reduce((min, product) => {
@@ -43,8 +46,11 @@ export const Shoppopularpart = ({ loading, parts }) => {
                                     productVal?.stock_quantity > 0;
                             return (
                                 <Col md={6} lg={4} key={productVal?.id}>
-                                    <Link href={`/${productVal?.slug}?id=${productVal?.id}`}>
-                                        <div className="new_shopmac_pc_box">
+                                    <Link href={`/mac-parts/${productVal.slug}?id=${productVal.id}`}>
+                                        <div className="new_shopmac_pc_box" onClick={() => {
+                                            dispatch(setCategoryName(productVal?.subcategory))
+                                            dispatch(setActiveTab(productVal?.category))
+                                        }}>
                                             {!hasAvailableStock && <span className="img-sold"></span>}
                                             <div className="single_pro_heading tagspan">
                                                 {/* {productVal?.tags?.map((tag, i) => (
@@ -90,7 +96,11 @@ export const Shoppopularpart = ({ loading, parts }) => {
                                                             ? "main_btn hvr-shutter-out-horizontal"
                                                             : "main_btn hvr-shutter-out-horizontal btn-disabled"
                                                     }
-                                                    href={`/${productVal?.slug}?id=${productVal?.id}`}
+                                                    href={`/mac-parts/${productVal?.slug}?id=${productVal?.id}`}
+                                                    onClick={() => {
+                                                        dispatch(setCategoryName(productVal?.subcategory))
+                                                        dispatch(setActiveTab(productVal?.category))
+                                                    }}
                                                 >
                                                     {hasAvailableStock ? "View Product" : "Out of Stock"}
                                                 </Link>

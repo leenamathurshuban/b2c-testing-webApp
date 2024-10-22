@@ -267,6 +267,8 @@ export default function MacrpartpageComp({ }) {
                               dispatch(setActive(collection.id)); // Update Redux state
                               dispatch(setActiveTab(collection.name))
                               setShowProducts(false);
+                              dispatch(setCategoryName(''))
+                              sessionStorage.removeItem('scrollPosition')
                             }}
                           >
                             {collection.name}

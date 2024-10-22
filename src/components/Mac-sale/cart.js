@@ -79,16 +79,18 @@ export default function MaccartComp() {
       });
 
       if (response?.data) {
-        router.push(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/checkout?add-to-cart=${response.data?.data}&clear-cart=true`
-        );
+        setTimeout(()=>{
+          router.push(
+            `${process.env.NEXT_PUBLIC_API_BASE_URL}/checkout?add-to-cart=${response.data?.data}&clear-cart=true`
+          );
+        },1000)
         // dispatch(cartBlank());
       }
     } catch (error) {
       console.error("Error creating checkout:", error);
       toast.error("Something went wrong!");
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   };
 

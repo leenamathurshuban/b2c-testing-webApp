@@ -86,6 +86,9 @@ export default function AllProducts({ childCategoryID }) {
     const savedPosition = sessionStorage.getItem('scrollPosition');
     if (savedPosition && loading && !showMoreLoading) {
       window.scrollTo(0, parseInt(savedPosition));
+      setTimeout(() => {
+        sessionStorage.removeItem("scrollPosition")
+      }, 1000)
     }
     const handleRouteChange = () => {
       sessionStorage.setItem('scrollPosition', window.scrollY);

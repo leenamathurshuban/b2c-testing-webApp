@@ -150,7 +150,7 @@ import spider from "../../../public/images/spider.png";
 import { useGetProductsByCollectionIdQuery } from "@/appRedux/apiSlice";
 
 export default function Shoppopular({ loading, products }) {
-  // console.log(products)
+  // console.log(id)
   const getLowestPrice = (newArray) => {
     if (Array.isArray(newArray) && newArray.length > 0) {
       const lowestPrice = newArray.reduce((min, product) => {
@@ -188,7 +188,7 @@ export default function Shoppopular({ loading, products }) {
   }
 
   return (
-    <section className="main_macparts pdt50 pdb50">
+    <section className="main_macparts pdt50 pdb50" id="shop-now">
       <Container>
         <div className="main_heading-gradiant-p">
           <p className="sub_title">Welcome to Apple Fix Pros</p>
