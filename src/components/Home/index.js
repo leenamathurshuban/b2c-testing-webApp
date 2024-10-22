@@ -71,7 +71,6 @@ export default function HomeComp() {
       }
     },100)    
   }, [router.events]);
-  // console.log('')
 
   return (
     <>
