@@ -1,6 +1,4 @@
 import { useEffect, useRef } from 'react';
-const NEXT_PUBLIC_APPLE_MAP_TOKEN='eyJraWQiOiJSTURSQVA5UlA2IiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJLV001MzI5RjVYIiwiaWF0IjoxNzI4NDkyMjYyLCJvcmlnaW4iOiJ3d3cuYXBwbGVmaXhwcm9zLmNvbSJ9.WJeBk-KIZrav_zhBWlrUMaImPGqEM6P8LKpBfuXHGHLIHCXBGbrqqkaLkftp9Yl6K5iA-Y7O25_BV5TcS2PfEw'
-
 const AppleMap = () => {
   // useEffect(() => {
   //   console.log('Current Origin:', window.location.origin);
@@ -33,7 +31,7 @@ const AppleMap = () => {
       mapkit.init({
         authorizationCallback: function (done) {
           // Use your Apple MapKit token here
-          done(NEXT_PUBLIC_APPLE_MAP_TOKEN);
+          done(process.env.NEXT_PUBLIC_APPLE_MAP_TOKEN);
         },
       });
 
