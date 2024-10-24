@@ -52,9 +52,11 @@ const AppleMap = () => {
 
       map.showItems([annotation]);
 
-      // Center the map on the specified coordinates
-      map.setCenter(coordinate);
-      map.setRegionAnimated(new mapkit.CoordinateRegion(coordinate, new mapkit.CoordinateSpan(0.01, 0.01)), true);
+      // Set the map's center to the coordinate
+      map.center = coordinate;
+
+      // Optionally, set the region to control zoom level
+      map.region = new mapkit.CoordinateRegion(coordinate, new mapkit.CoordinateSpan(0.01, 0.01));
     }
   }, []);
 
