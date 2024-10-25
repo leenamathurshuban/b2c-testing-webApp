@@ -148,83 +148,196 @@
 // export default AppleMap;
 
 
+// import { useEffect, useRef } from 'react';
+// import './AppleMap.module.css'; // Import styles
+
+// const AppleMap = () => {
+//   const mapRef = useRef(null);
+//   const destination = new window.mapkit.Coordinate(38.7521, -121.2880); // Apple Fix Pros location
+
+//   useEffect(() => {
+//     if (typeof window !== 'undefined' && window.mapkit) {
+//       // Initialize the Apple Map
+//       window.mapkit.init({
+//         authorizationCallback: function (done) {
+//           // Use your Apple MapKit token here
+//           done(process.env.NEXT_PUBLIC_APPLE_MAP_TOKEN);
+//         }
+//       });
+
+//       const map = new window.mapkit.Map(mapRef.current, {
+//         center: destination,
+//         zoom: 12
+//       });
+
+//       // Add destination annotation (Apple Fix Pros LLC)
+//       const destinationAnnotation = new window.mapkit.MarkerAnnotation(destination, {
+//         title: "Apple Fix Pros LLC",
+//         subtitle: "500 Cirby Way, Roseville, CA"
+//       });
+//       map.addAnnotation(destinationAnnotation);
+
+//       // Check if browser supports geolocation
+//       if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition((position) => {
+//           const userLocation = new window.mapkit.Coordinate(
+//             position.coords.latitude,
+//             position.coords.longitude
+//           );
+
+//           // Add user location annotation
+//           const userAnnotation = new window.mapkit.MarkerAnnotation(userLocation, {
+//             title: "Apple Fix Pros LLC"
+//           });
+//           map.addAnnotation(userAnnotation);
+
+//           // Calculate directions
+//           const directions = new window.mapkit.Directions();
+
+//           directions.route({
+//             origin: userLocation,
+//             destination: destination,
+//             transportType: window.mapkit.Directions.Transport.Automobile // Options: Walking, Automobile, Transit
+//           }, (error, data) => {
+//             if (error) {
+//               console.error('Error calculating directions:', error);
+//               return;
+//             }
+
+//             // Display the route on the map
+//             const route = data?.routes[0];
+//             const polyline = new window.mapkit.PolylineOverlay(route?.path);
+//             map.addOverlay(polyline);
+
+//             // Zoom to show the full route
+//             map.region = new window.mapkit.CoordinateRegion(route.path[0], route.path[route.path.length - 1]);
+//           });
+//         });
+//       } else {
+//         console.log("Geolocation is not supported by this browser.");
+//       }
+//     }
+//   }, []);
+
+//   return (
+//     <div className="mapContainer">
+//       {/* Title box in the top left corner */}
+//       <div className="styles.titleBox">
+//         <h2>Apple Fix Pros LLC</h2>
+//         <p>500 Cirby Way, Roseville, CA</p>
+//       </div>
+//       {/* Map container */}
+//       <div ref={mapRef} className="map" />
+//     </div>
+//   );
+// };
+
+// export default AppleMap;
+
+// components/AppleMap.js
 import { useEffect, useRef } from 'react';
-import styles from './AppleMap.module.css'; // Import styles
+import './AppleMap.module.css'; // Import styles
+import useScript from '@/lib/useScript';
 
 const AppleMap = () => {
   const mapRef = useRef(null);
-  const destination = new window.mapkit.Coordinate(38.7521, -121.2880); // Apple Fix Pros location
+  const directionsControlRef = useRef(null);
+
+  // Load the MapKit JS script
+  useScript('https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js');
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.mapkit) {
-      // Initialize the Apple Map
+    if (window.mapkit) {
+      // Initialize MapKit JS with your token
       window.mapkit.init({
         authorizationCallback: function (done) {
-          done(process.env.NEXT_PUBLIC_APPLE_MAP_TOKEN); // Use your Apple MapKit token here
-        }
+          done(process.env.NEXT_PUBLIC_APPLE_MAP_TOKEN); // Replace with your token
+        },
       });
 
+      // Create a new map object
       const map = new window.mapkit.Map(mapRef.current, {
-        center: destination,
-        zoom: 12
+        showsCompass: window.mapkit.FeatureVisibility.Hidden,
+        showsZoomControl: true,
       });
 
-      // Add destination annotation (Apple Fix Pros LLC)
-      const destinationAnnotation = new window.mapkit.MarkerAnnotation(destination, {
-        title: "Apple Fix Pros LLC",
-        subtitle: "500 Cirby Way, Roseville, CA"
-      });
-      map.addAnnotation(destinationAnnotation);
+      // Define starting and ending points for directions
+      const start = new window.mapkit.Coordinate(37.7749, -122.4194); // Example: San Francisco
+      const end = new window.mapkit.Coordinate(37.8716, -122.2727); // Example: Berkeley
 
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-          const userLocation = new window.mapkit.Coordinate(
-            position.coords.latitude,
-            position.coords.longitude
-          );
+      // Create directions request
+      const directions = new window.mapkit.Directions();
+      const request = {
+        origin: start,
+        destination: end,
+      };
 
-          // Add user location annotation
-          const userAnnotation = new window.mapkit.MarkerAnnotation(userLocation, {
-            title: "Your Location"
-          });
-          map.addAnnotation(userAnnotation);
+      // Request directions and show them on the map
+      directions.route(request, (error, data) => {
+        if (error) {
+          console.error('Error with directions:', error);
+          return;
+        }
 
-          // Calculate directions
-          const directions = new window.mapkit.Directions();
-          directions.route({
-            origin: userLocation,
-            destination: destination,
-            transportType: window.mapkit.Directions.Transport.Automobile
-          }, (error, data) => {
-            if (error) {
-              console.error('Error calculating directions:', error);
-              return;
-            }
+        const route = data.routes[0];
+        const polyline = new window.mapkit.PolylineOverlay(route.path);
 
-            // Display the route on the map
-            const route = data?.routes[0];
-            const polyline = new window.mapkit.PolylineOverlay(route.path);
-            map.addOverlay(polyline);
+        // Add the polyline (route) and markers for start and end points
+        map.addOverlay(polyline);
 
-            // Adjust map region to fit the route
-            map.region = new window.mapkit.CoordinateRegion(route.path[0], route.path[route.path.length - 1]);
-          });
+        const startMarker = new window.mapkit.MarkerAnnotation(start, {
+          title: 'Start Location',
         });
-      } else {
-        console.log("Geolocation is not supported by this browser.");
-      }
+
+        const endMarker = new window.mapkit.MarkerAnnotation(end, {
+          title: 'Destination',
+        });
+
+        map.showItems([startMarker, endMarker]);
+
+        // Create custom control for directions
+        createDirectionsControl(map);
+      });
     }
   }, []);
 
+  const createDirectionsControl = (map) => {
+    // Create a div for the control
+    const controlDiv = document.createElement('div');
+    controlDiv.style.backgroundColor = 'white';
+    controlDiv.style.border = '2px solid #ccc';
+    controlDiv.style.borderRadius = '5px';
+    controlDiv.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+    controlDiv.style.padding = '10px';
+    controlDiv.style.position = 'absolute';
+    controlDiv.style.top = '10px';
+    controlDiv.style.left = '10px';
+    controlDiv.style.zIndex = '10';
+
+    // Add a title to the control
+    const title = document.createElement('div');
+    title.innerText = 'Directions';
+    title.style.fontSize = '16px';
+    title.style.fontWeight = 'bold';
+    controlDiv.appendChild(title);
+
+    // Add an icon for directions (you can replace with an image URL)
+    const icon = document.createElement('img');
+    icon.src = 'https://example.com/path-to-your-icon.png'; // Replace with your icon URL
+    icon.alt = 'Direction Icon';
+    icon.style.width = '24px'; // Set icon size
+    icon.style.height = '24px';
+    icon.style.marginRight = '8px';
+    controlDiv.appendChild(icon);
+
+    // Add the control to the map
+    mapRef.current.appendChild(controlDiv);
+  };
+
   return (
-    <div className={styles.mapContainer}>
-      {/* Title box in the top left corner */}
-      <div className={styles.titleBox}>
-        <h2>Apple Fix Pros LLC</h2>
-        <p>500 Cirby Way, Roseville, CA</p>
-      </div>
-      {/* Map container */}
-      <div ref={mapRef} className={styles.map}></div>
+    <div>
+      <h2>Apple Maps Directions Example</h2>
+      <div ref={mapRef} style={{ height: '500px', width: '100%' }}></div>
     </div>
   );
 };
