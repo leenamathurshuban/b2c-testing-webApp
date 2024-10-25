@@ -65,7 +65,7 @@ const AppleMap = () => {
       // Initialize MapKit with your token
       window.mapkit.init({
         authorizationCallback: function (done) {
-          done("YOUR_MAPKIT_JS_TOKEN"); // Replace with your actual Apple MapKit token
+          done(process.env.NEXT_PUBLIC_APPLE_MAP_TOKEN); // Replace with your actual Apple MapKit token
         },
       });
 
