@@ -164,7 +164,7 @@ const AppleMap = () => {
       // Create a map with adjusted zoom level
       const map = new mapkit.Map("apple-map", {
         center: new mapkit.Coordinate(38.7276, -121.2857), // Adjust latitude and longitude
-        zoom: 13, // Adjusted zoom level to focus similarly as in the screenshot
+        // zoom: 13, // Adjusted zoom level to focus similarly as in the screenshot
       });
 
       // Create a marker with an annotation
@@ -172,14 +172,14 @@ const AppleMap = () => {
       const annotation = new mapkit.MarkerAnnotation(markerLocation, {
         title: "Apple Fix Pros LLC",
         subtitle: "500 Cirby Way STE D, Roseville, CA 95678",
-        glyphText: "🔧",
+        color: "#FF0000", // Marker color
       });
 
       map.addAnnotation(annotation);
 
       // Optionally add directions link or functionality
       const directionsButton = document.createElement("a");
-      directionsButton.href = `https://maps.apple.com/?daddr=38.7452,-121.256`; // Adjust coordinates
+      directionsButton.href = `https://maps.apple.com/?daddr=38.7276,-121.2857`; // Adjust coordinates
       directionsButton.innerText = "Get Directions";
       directionsButton.target = "_blank";
       directionsButton.style.cssText = "position: absolute; top: 10px; left: 10px; background-color: white; padding: 8px; text-decoration: none;";
