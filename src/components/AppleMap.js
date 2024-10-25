@@ -205,8 +205,8 @@ const AppleMap = () => {
             }
 
             // Display the route on the map
-            const route = data.routes[0];
-            const polyline = new window.mapkit.PolylineOverlay(route.path);
+            const route = data?.routes[0];
+            const polyline = new window.mapkit.PolylineOverlay(route?.path);
             map.addOverlay(polyline);
 
             // Zoom to show the full route
