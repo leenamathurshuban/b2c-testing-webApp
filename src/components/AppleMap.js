@@ -149,7 +149,7 @@
 
 
 import { useEffect, useRef } from 'react';
-import './AppleMap.module.css'; // Import styles
+import styles from './AppleMap.module.css'; // Import styles
 
 const AppleMap = () => {
   const mapRef = useRef(null);
@@ -160,8 +160,7 @@ const AppleMap = () => {
       // Initialize the Apple Map
       window.mapkit.init({
         authorizationCallback: function (done) {
-          // Use your Apple MapKit token here
-          done(process.env.NEXT_PUBLIC_APPLE_MAP_TOKEN);
+          done(process.env.NEXT_PUBLIC_APPLE_MAP_TOKEN); // Use your Apple MapKit token here
         }
       });
 
@@ -177,7 +176,6 @@ const AppleMap = () => {
       });
       map.addAnnotation(destinationAnnotation);
 
-      // Check if browser supports geolocation
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
           const userLocation = new window.mapkit.Coordinate(
@@ -187,17 +185,16 @@ const AppleMap = () => {
 
           // Add user location annotation
           const userAnnotation = new window.mapkit.MarkerAnnotation(userLocation, {
-            title: "Apple Fix Pros LLC"
+            title: "Your Location"
           });
           map.addAnnotation(userAnnotation);
 
           // Calculate directions
           const directions = new window.mapkit.Directions();
-
           directions.route({
             origin: userLocation,
             destination: destination,
-            transportType: window.mapkit.Directions.Transport.Automobile // Options: Walking, Automobile, Transit
+            transportType: window.mapkit.Directions.Transport.Automobile
           }, (error, data) => {
             if (error) {
               console.error('Error calculating directions:', error);
@@ -206,10 +203,10 @@ const AppleMap = () => {
 
             // Display the route on the map
             const route = data?.routes[0];
-            const polyline = new window.mapkit.PolylineOverlay(route?.path);
+            const polyline = new window.mapkit.PolylineOverlay(route.path);
             map.addOverlay(polyline);
 
-            // Zoom to show the full route
+            // Adjust map region to fit the route
             map.region = new window.mapkit.CoordinateRegion(route.path[0], route.path[route.path.length - 1]);
           });
         });
@@ -220,16 +217,17 @@ const AppleMap = () => {
   }, []);
 
   return (
-    <div className="mapContainer">
+    <div className={styles.mapContainer}>
       {/* Title box in the top left corner */}
-      <div className="styles.titleBox">
+      <div className={styles.titleBox}>
         <h2>Apple Fix Pros LLC</h2>
         <p>500 Cirby Way, Roseville, CA</p>
       </div>
       {/* Map container */}
-      <div ref={mapRef} className="map" />
+      <div ref={mapRef} className={styles.map}></div>
     </div>
   );
 };
 
 export default AppleMap;
+
