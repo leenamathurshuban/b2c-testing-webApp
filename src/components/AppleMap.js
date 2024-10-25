@@ -164,7 +164,7 @@ const AppleMap = () => {
       // Create a map with adjusted zoom level
       const map = new mapkit.Map("apple-map", {
         center: new mapkit.Coordinate(38.7276, -121.2857), // Adjust latitude and longitude
-        // zoom: 13, // Adjusted zoom level to focus similarly as in the screenshot
+        zoom: 50, // Adjusted zoom level to focus similarly as in the screenshot
       });
 
       // Create a marker with an annotation
