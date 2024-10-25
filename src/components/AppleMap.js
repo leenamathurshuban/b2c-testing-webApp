@@ -1,30 +1,38 @@
 import { useEffect, useRef } from 'react';
+import "./AppleMap.module.css"
 const AppleMap = () => {
-//   // useEffect(() => {
-//   //   console.log('Current Origin:', window.location.origin);
+  //   // useEffect(() => {
+  //   //   console.log('Current Origin:', window.location.origin);
 
-//   //   const mapScript = document.createElement('script');
-//   //   mapScript.src = `https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js`;
-//   //   mapScript.async = true;
-//   //   mapScript.onload = () => {
-//   //     if (window.mapkit) {
-//   //       window.mapkit.init({
-//   //         authorizationCallback: function (done) {
-//   //           done(NEXT_PUBLIC_APPLE_MAP_TOKEN);
-//   //         },
-//   //       });
+  //   //   const mapScript = document.createElement('script');
+  //   //   mapScript.src = `https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js`;
+  //   //   mapScript.async = true;
+  //   //   mapScript.onload = () => {
+  //   //     if (window.mapkit) {
+  //   //       window.mapkit.init({
+  //   //         authorizationCallback: function (done) {
+  //   //           done(NEXT_PUBLIC_APPLE_MAP_TOKEN);
+  //   //         },
+  //   //       });
 
-//   //       const map = new window.mapkit.Map('map-container');
-//   //       const coordinate = new window.mapkit.Coordinate(37.7749, -122.4194); // Example: San Francisco coordinates
-//   //       map.center = coordinate;
-//   //       map.showItems = ['standard', 'satellite', 'hybrid'];
-//   //     }
-//   //   };
-//   //   document.head.appendChild(mapScript);
-//   // }, []);
+  //   //       const map = new window.mapkit.Map('map-container');
+  //   //       const coordinate = new window.mapkit.Coordinate(37.7749, -122.4194); // Example: San Francisco coordinates
+  //   //       map.center = coordinate;
+  //   //       map.showItems = ['standard', 'satellite', 'hybrid'];
+  //   //     }
+  //   //   };
+  //   //   document.head.appendChild(mapScript);
+  //   // }, []);
 
-//   // return <div id="map-container" style={{ width: '100%', height: '500px' }} />;
+  //   // return <div id="map-container" style={{ width: '100%', height: '500px' }} />;
   const mapRef = useRef(null);
+  const handleDirections = () => {
+    window.open(
+      `https://maps.apple.com/?daddr=37.7749,-122.4194`,
+      '_blank'
+    );
+  };
+
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -142,7 +150,20 @@ const AppleMap = () => {
   // }, []);
 
 
-  return <div ref={mapRef} style={{ height: '500px', width: '100%' }} />;
+  return (
+    <div className="mapContainer">
+      {/* Title box in the top left corner */}
+      <div className="titleBox">
+        <h2>Apple Fix Pros LLC</h2>
+        <p>500 Cirby Way, Roseville, CA</p>
+        <button onClick={handleDirections}>
+          i
+        </button>
+      </div>
+      {/* Map container */}
+      <div ref={mapRef} className="map" />
+    </div>
+  );
 };
 
 export default AppleMap;

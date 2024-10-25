@@ -1,11 +1,11 @@
 /* AppleMap.module.css */
-/* .mapContainer {
+.mapContainer {
     position: relative;
     width: 100%;
     height: 600px;
-  } */
+  }
   
-  /* .titleBox {
+  .titleBox {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -13,7 +13,7 @@
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    z-index: 1000; /* Make sure the title box stays on top of the map */
   }
   
   .titleBox h2 {
@@ -30,28 +30,5 @@
   .map {
     width: 100%;
     height: 100%;
-  } */
-   /* styles/globals.css */
-.map-header {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  display: flex;
-  align-items: center;
-  z-index: 1000; /* Ensure it appears above the map */
-}
-
-.map-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #000;
-  margin-right: 10px;
-}
-
-.direction-icon img {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-
+  }
   
