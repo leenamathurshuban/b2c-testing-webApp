@@ -90,7 +90,7 @@ const AppleMap = () => {
   const mapRef = useRef(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && window.mapkit) {
       // Initialize MapKit JS using your token
       window.mapkit.init({
         authorizationCallback: function (done) {
@@ -98,18 +98,25 @@ const AppleMap = () => {
         }
       });
 
-      // Create a map instance
+      // Create a map instance only after mapkit is initialized
       const map = new window.mapkit.Map(mapRef.current);
 
-      // Set the initial region (optional)
-      const coordinate = new window.mapkit.Coordinate(38.7521, -121.2880); // Example: San Francisco
-      map.setRegion(new window.mapkit.CoordinateRegion(coordinate, new window.mapkit.CoordinateSpan(0.1, 0.1)));
+      // Check if the map instance is available before setting region
+      if (map && typeof map.setRegion === 'function') {
+        // Set the initial region (San Francisco as an example)
+        const coordinate = new window.mapkit.Coordinate(38.7521, -121.2880);
+        map.setRegion(
+          new window.mapkit.CoordinateRegion(coordinate, new window.mapkit.CoordinateSpan(0.1, 0.1))
+        );
+      } else {
+        console.error('Map object not properly initialized or setRegion method not available');
+      }
 
-      // Add a sample annotation for the location
-      const annotation = new window.mapkit.MarkerAnnotation(coordinate, {
-        title: "Apple Fix Pros LLC",
-        color: "red"
-      });
+      // Add an annotation as an example
+      const annotation = new window.mapkit.MarkerAnnotation(
+        new window.mapkit.Coordinate(38.7521, -121.2880),
+        { title: "Apple Fix Pros LLC",subtitle: "500 Cirby Way, Roseville, CA",color: "red" }
+      );
       map.addAnnotation(annotation);
     }
   }, []);
@@ -162,4 +169,3 @@ const styles = {
 };
 
 export default AppleMap;
-
