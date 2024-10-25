@@ -71,7 +71,7 @@
 
 //       // Create a map
 //       const map = new window.mapkit.Map(mapRef.current, {
-//         center: new window.mapkit.Coordinate(38.7521, -121.2880), // Center on Roseville, CA
+//         center: new window.mapkit.Coordinate(38.7276, -121.2857), // Center on Roseville, CA
 //         showsCompass: window.mapkit.FeatureVisibility.Hidden, // Hide the compass
 //         showsZoomControl: true, // Show zoom controls
 //         showsMapTypeControl: true, // Show map type control (satellite, hybrid, etc.)
@@ -81,7 +81,7 @@
 //       // Create some markers (annotations) for the map
 //       const locations = [
 //         {
-//           coordinate: new window.mapkit.Coordinate(38.7521, -121.2880), // Apple Fix Pros
+//           coordinate: new window.mapkit.Coordinate(38.7276, -121.2857), // Apple Fix Pros
 //           title: "Apple Fix Pros LLC",
 //           subtitle: "500 Cirby Way, Roseville, CA",
 //         },
@@ -148,129 +148,88 @@
 // export default AppleMap;
 
 
-// import { useEffect } from 'react';
-
-// const AppleMap = () => {
-//   useEffect(() => {
-//     if (typeof window !== 'undefined' && window.mapkit) {
-//       // Set up the MapKit JS with your token
-//       mapkit.init({
-//         authorizationCallback: function(done) {
-//           // Pass your MapKit JS token here
-//           done(process.env.NEXT_PUBLIC_APPLE_MAP_TOKEN);
-//         },
-//       });
-
-//       // Create a map with adjusted zoom level
-//       const map = new mapkit.Map("apple-map", {
-//         center: new mapkit.Coordinate(38.7276, -121.2857), // Adjust latitude and longitude        
-//         initialZoom: 9, // Adjust this value to match your desired zoom level
-//         showsPointsOfInterest: true
-//       });
-
-//       // Create a marker with an annotation
-//       const markerLocation = new mapkit.Coordinate(38.7276, -121.2857); // Adjust coordinates
-//       const annotation = new mapkit.MarkerAnnotation(markerLocation, {
-//         title: "Apple Fix Pros LLC",
-//         subtitle: "500 Cirby Way STE D, Roseville, CA 95678",
-//         color: "#FF0000", // Marker color
-//       });
-
-//       map.addAnnotation(annotation);
-
-//       // Optionally add directions link or functionality
-//       const directionsButton = document.createElement("a");
-//       directionsButton.href = `https://maps.apple.com/?daddr=38.7276,-121.2857`; // Adjust coordinates
-//       directionsButton.innerText = "Get Directions";
-//       directionsButton.target = "_blank";
-//       directionsButton.style.cssText = "position: absolute; top: 10px; left: 10px; background-color: white; padding: 8px; text-decoration: none;";
-
-//       document.getElementById("apple-map-container").appendChild(directionsButton);
-
-//       // Create the title box and place it on the map's top-left corner
-//       const titleBox = document.createElement("div");
-//       titleBox.innerHTML = `
-//         <strong>Apple Fix Pros LLC</strong><br>
-//         500 Cirby Way STE D, Roseville, CA 95678
-//       `;
-//       titleBox.style.cssText = `
-//         position: absolute;
-//         top: 10px;
-//         left: 50px;
-//         background-color: white;
-//         padding: 8px;
-//         border-radius: 4px;
-//         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-//         font-family: Arial, sans-serif;
-//       `;
-
-//       document.getElementById("apple-map-container").appendChild(titleBox);
-//     }
-//   }, []);
-
-//   return (
-//     <div id="apple-map-container" style={{ position: "relative" }}>
-//       <div id="apple-map" style={{ height: "500px", width: "100%" }}></div>
-//     </div>
-//   );
-// };
-
-// export default AppleMap;
-
-// components/AppleMap.js
-import { useEffect } from 'react';
-import "./AppleMap.module.css";
+import { useEffect, useRef } from 'react';
+import './AppleMap.module.css'; // Import styles
 
 const AppleMap = () => {
+  const mapRef = useRef(null);
+  const destination = new window.mapkit.Coordinate(38.7276, -121.2857); // Apple Fix Pros location
+
   useEffect(() => {
     if (typeof window !== 'undefined' && window.mapkit) {
-      mapkit.init({
+      // Initialize the Apple Map
+      window.mapkit.init({
         authorizationCallback: function (done) {
-          done(process.env.NEXT_PUBLIC_APPLE_MAP_TOKEN); // Replace with your actual Apple Map token
+          // Use your Apple MapKit token here
+          done(process.env.NEXT_PUBLIC_APPLE_MAP_TOKEN);
         }
       });
 
-      const map = new mapkit.Map('mapContainer', {
-        center: new mapkit.Coordinate(38.7276, -121.2857), // Coordinates for Roseville, CA
-        initialZoom: 9, // Set zoom to match the screenshot
-        showsPointsOfInterest: true,
-        showsUserLocation: false
+      const map = new window.mapkit.Map(mapRef.current, {
+        center: destination,
+        zoom: 12
       });
 
-      // Add a marker annotation for the location
-      const annotation = new mapkit.MarkerAnnotation(
-        new mapkit.Coordinate(38.7276, -121.2857),
-        {
-          title: "Apple Fix Pros LLC",
-          subtitle: "500 Cirby Way STE D, Roseville, CA 95678"
-        }
-      );
+      // Add destination annotation (Apple Fix Pros LLC)
+      const destinationAnnotation = new window.mapkit.MarkerAnnotation(destination, {
+        title: "Apple Fix Pros LLC",
+        subtitle: "500 Cirby Way, Roseville, CA"
+      });
+      map.addAnnotation(destinationAnnotation);
 
-      map.addAnnotation(annotation);
+      // Check if browser supports geolocation
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          const userLocation = new window.mapkit.Coordinate(
+            position.coords.latitude,
+            position.coords.longitude
+          );
+
+          // Add user location annotation
+          const userAnnotation = new window.mapkit.MarkerAnnotation(userLocation, {
+            title: "Apple Fix Pros LLC"
+          });
+          map.addAnnotation(userAnnotation);
+
+          // Calculate directions
+          const directions = new window.mapkit.Directions();
+
+          directions.route({
+            origin: userLocation,
+            destination: destination,
+            transportType: window.mapkit.Directions.Transport.Automobile // Options: Walking, Automobile, Transit
+          }, (error, data) => {
+            if (error) {
+              console.error('Error calculating directions:', error);
+              return;
+            }
+
+            // Display the route on the map
+            const route = data?.routes[0];
+            const polyline = new window.mapkit.PolylineOverlay(route?.path);
+            map.addOverlay(polyline);
+
+            // Zoom to show the full route
+            map.region = new window.mapkit.CoordinateRegion(route.path[0], route.path[route.path.length - 1]);
+          });
+        });
+      } else {
+        console.log("Geolocation is not supported by this browser.");
+      }
     }
   }, []);
 
   return (
-    <div style={{ position: 'relative' }}>
-      {/* Title and Direction Icon in Top Left */}
-      <div className="map-header">
-        <h1 className="map-title">Apple Fix Pros LLC</h1>
-        <a
-          href="https://maps.apple.com/?daddr=500+Cirby+Way+STE+D,+Roseville,+CA+95678"
-          className="direction-icon"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="/directions-icon.png" alt="Get Directions" />
-        </a>
+    <div className="mapContainer">
+      {/* Title box in the top left corner */}
+      <div className="styles.titleBox">
+        <h2>Apple Fix Pros LLC</h2>
+        <p>500 Cirby Way, Roseville, CA</p>
       </div>
-
-      {/* Apple Map Container */}
-      <div id="mapContainer" style={{ width: '100%', height: '500px' }} />
+      {/* Map container */}
+      <div ref={mapRef} className="map" />
     </div>
   );
 };
 
 export default AppleMap;
-
-
