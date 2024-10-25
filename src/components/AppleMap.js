@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import "./AppleMap.module.css"
+import styles from "./AppleMap.module.css"
 const AppleMap = () => {
   //   // useEffect(() => {
   //   //   console.log('Current Origin:', window.location.origin);
@@ -26,13 +26,6 @@ const AppleMap = () => {
 
   //   // return <div id="map-container" style={{ width: '100%', height: '500px' }} />;
   const mapRef = useRef(null);
-  const handleDirections = () => {
-    window.open(
-      `https://maps.apple.com/?daddr=37.7749,-122.4194`,
-      '_blank'
-    );
-  };
-
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -151,17 +144,14 @@ const AppleMap = () => {
 
 
   return (
-    <div className="mapContainer">
+    <div className={styles.mapContainer}>
       {/* Title box in the top left corner */}
-      <div className="titleBox">
+      <div className={styles.titleBox}>
         <h2>Apple Fix Pros LLC</h2>
         <p>500 Cirby Way, Roseville, CA</p>
-        <button onClick={handleDirections}>
-          i
-        </button>
       </div>
       {/* Map container */}
-      <div ref={mapRef} className="map" />
+      <div ref={mapRef} className={styles.map} />
     </div>
   );
 };
