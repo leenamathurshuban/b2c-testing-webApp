@@ -1,3 +1,153 @@
+import { useEffect, useRef } from 'react';
+const AppleMap = () => {
+//   // useEffect(() => {
+//   //   console.log('Current Origin:', window.location.origin);
+
+//   //   const mapScript = document.createElement('script');
+//   //   mapScript.src = `https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js`;
+//   //   mapScript.async = true;
+//   //   mapScript.onload = () => {
+//   //     if (window.mapkit) {
+//   //       window.mapkit.init({
+//   //         authorizationCallback: function (done) {
+//   //           done(NEXT_PUBLIC_APPLE_MAP_TOKEN);
+//   //         },
+//   //       });
+
+//   //       const map = new window.mapkit.Map('map-container');
+//   //       const coordinate = new window.mapkit.Coordinate(37.7749, -122.4194); // Example: San Francisco coordinates
+//   //       map.center = coordinate;
+//   //       map.showItems = ['standard', 'satellite', 'hybrid'];
+//   //     }
+//   //   };
+//   //   document.head.appendChild(mapScript);
+//   // }, []);
+
+//   // return <div id="map-container" style={{ width: '100%', height: '500px' }} />;
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      mapkit.init({
+        authorizationCallback: function (done) {
+          // Use your Apple MapKit token here
+          done(process.env.NEXT_PUBLIC_APPLE_MAP_TOKEN);
+        },
+      });
+
+      // Coordinates for 'Apple Fix Pros LLC, 500 Cirby Way, Suite D, Roseville, CA 95678'
+      const coordinate = new mapkit.Coordinate(38.7276, -121.2857);
+
+      // Initialize the map
+      const map = new mapkit.Map(mapRef.current);
+
+      // Add a marker at the location
+      const annotation = new mapkit.MarkerAnnotation(coordinate, {
+        title: 'Apple Fix Pros LLC',
+        subtitle: '500 Cirby Way, Suite D, Roseville, CA 95678',
+        color: '#FF0000', // Custom color for the marker
+      });
+
+      map.showItems([annotation]);
+
+      // Set the map's center to the coordinate
+      map.center = coordinate;
+
+      // Optionally, set the region to control zoom level
+      map.region = new mapkit.CoordinateRegion(coordinate, new mapkit.CoordinateSpan(0.01, 0.01));
+    }
+  }, []);
+  // const mapRef = useRef(null);
+
+  // useEffect(() => {
+  //   // Initialize Apple MapKit JS if the script has loaded
+  //   if (window.mapkit) {
+  //     // Initialize MapKit with your token
+  //     window.mapkit.init({
+  //       authorizationCallback: function (done) {
+  //         done(process.env.NEXT_PUBLIC_APPLE_MAP_TOKEN); // Replace with your actual Apple MapKit token
+  //       },
+  //     });
+
+  //     // Create a map
+  //     const map = new window.mapkit.Map(mapRef.current, {
+  //       center: new window.mapkit.Coordinate(38.7521, -121.2880), // Center on Roseville, CA
+  //       showsCompass: window.mapkit.FeatureVisibility.Hidden, // Hide the compass
+  //       showsZoomControl: true, // Show zoom controls
+  //       showsMapTypeControl: true, // Show map type control (satellite, hybrid, etc.)
+  //       zoomLevel: 10,
+  //     });
+
+  //     // Create some markers (annotations) for the map
+  //     const locations = [
+  //       {
+  //         coordinate: new window.mapkit.Coordinate(38.7521, -121.2880), // Apple Fix Pros
+  //         title: "Apple Fix Pros LLC",
+  //         subtitle: "500 Cirby Way, Roseville, CA",
+  //       },
+  //       {
+  //         coordinate: new window.mapkit.Coordinate(38.721, -121.273), // Gibson Ranch
+  //         title: "Gibson Ranch",
+  //         subtitle: "Elverta, CA",
+  //       },
+  //       {
+  //         coordinate: new window.mapkit.Coordinate(38.680, -121.180), // Beals Point
+  //         title: "Beals Point",
+  //         subtitle: "Granite Bay, CA",
+  //       },
+  //     ];
+
+  //     // Loop through locations and add markers
+  //     locations.forEach((location) => {
+  //       const annotation = new window.mapkit.MarkerAnnotation(location.coordinate, {
+  //         title: location.title,
+  //         subtitle: location.subtitle,
+  //         color: "#FF0000", // Marker color
+  //       });
+  //       map.addAnnotation(annotation);
+  //     });
+
+  //     // Add directions from Apple Fix Pros to Beals Point
+  //     const directions = new window.mapkit.Directions();
+  //     directions.route(
+  //       {
+  //         origin: locations[0].coordinate, // Apple Fix Pros
+  //         destination: locations[2].coordinate, // Beals Point
+  //       },
+  //       (error, data) => {
+  //         if (error) {
+  //           console.error("Error fetching directions:", error);
+  //           return;
+  //         }
+
+  //         // Access the route and draw it on the map
+  //         const route = data.routes[0];
+  //         const routeLine = new window.mapkit.PolylineOverlay(route.path, {
+  //           style: {
+  //             lineWidth: 5, // Thickness of the route
+  //             strokeColor: "#00FF00", // Color of the route
+  //           },
+  //         });
+
+  //         // Add the route line to the map
+  //         map.addOverlay(routeLine);
+  //       }
+  //     );
+
+  //     // Clean up the map instance on unmount
+  //     return () => {
+  //       map.destroy();
+  //     };
+  //   }
+  // }, []);
+
+
+  return <div ref={mapRef} style={{ height: '500px', width: '100%' }} />;
+};
+
+export default AppleMap;
+
+
 // import { useEffect, useRef } from 'react';
 // import './AppleMap.module.css'; // Import styles
 
@@ -83,89 +233,3 @@
 // };
 
 // export default AppleMap;
-
-import { useEffect, useRef } from 'react';
-
-const AppleMap = () => {
-  const mapRef = useRef(null);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.mapkit) {
-      // Initialize MapKit JS using your token
-      window.mapkit.init({
-        authorizationCallback: function (done) {
-          done(process.env.NEXT_PUBLIC_APPLE_MAP_TOKEN); // replace with your actual Apple Maps token
-        }
-      });
-
-      // Create a map instance only after mapkit is initialized
-      const map = new window.mapkit.Map(mapRef.current);
-
-      // Check if the map instance is available before setting region
-      if (map && typeof map.setRegion === 'function') {
-        // Set the initial region (San Francisco as an example)
-        const coordinate = new window.mapkit.Coordinate(38.7521, -121.2880);
-        map.setRegion(
-          new window.mapkit.CoordinateRegion(coordinate, new window.mapkit.CoordinateSpan(0.1, 0.1))
-        );
-      } else {
-        console.error('Map object not properly initialized or setRegion method not available');
-      }
-
-      // Add an annotation as an example
-      const annotation = new window.mapkit.MarkerAnnotation(
-        new window.mapkit.Coordinate(38.7521, -121.2880),
-        { title: "Apple Fix Pros LLC",subtitle: "500 Cirby Way, Roseville, CA",color: "red" }
-      );
-      map.addAnnotation(annotation);
-    }
-  }, []);
-
-  return (
-    <div style={{ position: 'relative' }}>
-      <div ref={mapRef} style={{ width: '100%', height: '500px' }}></div>
-      
-      {/* Title and Directions Box */}
-      <div style={styles.titleBox}>
-        <h2 style={styles.title}>San Francisco</h2>
-        <button style={styles.directionButton}>
-          <img src="/direction-icon.svg" alt="Directions" style={styles.icon} />
-        </button>
-      </div>
-    </div>
-  );
-};
-
-const styles = {
-  titleBox: {
-    position: 'absolute',
-    top: '10px',
-    left: '10px',
-    backgroundColor: 'white',
-    padding: '10px 15px',
-    borderRadius: '8px',
-    boxShadow: '0 2px 10px rgba(0, 0, 0, 0.15)',
-    display: 'flex',
-    alignItems: 'center',
-    zIndex: 1000, // Ensure it stays on top of the map
-  },
-  title: {
-    margin: 0,
-    fontSize: '16px',
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  directionButton: {
-    marginLeft: '10px',
-    background: 'none',
-    border: 'none',
-    cursor: 'pointer',
-    padding: 0,
-  },
-  icon: {
-    width: '24px',
-    height: '24px',
-  },
-};
-
-export default AppleMap;
