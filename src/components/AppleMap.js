@@ -149,7 +149,7 @@
 
 
 import { useEffect, useRef } from 'react';
-import styles from './AppleMap.module.css'; // Import styles
+import './AppleMap.module.css'; // Import styles
 
 const AppleMap = () => {
   const mapRef = useRef(null);
@@ -220,14 +220,14 @@ const AppleMap = () => {
   }, []);
 
   return (
-    <div className={styles.mapContainer}>
+    <div className="mapContainer">
       {/* Title box in the top left corner */}
-      <div className={styles.titleBox}>
+      <div className="styles.titleBox">
         <h2>Apple Fix Pros LLC</h2>
         <p>500 Cirby Way, Roseville, CA</p>
       </div>
       {/* Map container */}
-      <div ref={mapRef} className={styles.map} />
+      <div ref={mapRef} className="map" />
     </div>
   );
 };
