@@ -42,7 +42,7 @@ const AppleMap = () => {
       map.region = new mapkit.CoordinateRegion(coordinate, new mapkit.CoordinateSpan(0.01, 0.01));
     }
   }, []);
-
+  // console.log(mapRef)
 
   return (
     <div className={styles.mapContainer}>
