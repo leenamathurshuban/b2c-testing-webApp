@@ -43,7 +43,6 @@ const AppleMap = () => {
     }
   }, []);
 
-  // console.log(mapRef)
   return (
     <div className={styles.mapContainer}>
       {/* Title box in the top left corner */}
