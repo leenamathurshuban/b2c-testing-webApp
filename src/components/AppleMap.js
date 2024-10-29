@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react';
-import styles from "./AppleMap.module.css"
+import styles from "./AppleMap.module.css";
+import Image from "next/image";
+import Direction_icon from "../../public/assets/images/arrow-direction-1.png";
 const AppleMap = () => {
 
   const mapRef = useRef(null);
   const handleDirections = () => {
-    window.open(
-      `https://maps.apple.com/?daddr=38.7276, -121.2857`,
-      '_blank'
-    );
+    const appleMapsUrl = `http://maps.apple.com/?daddr=38.7276,-121.2857`;
+    window.open(appleMapsUrl, '_blank');
   };
 
 
@@ -48,9 +48,14 @@ const AppleMap = () => {
     <div className={styles.mapContainer}>
       {/* Title box in the top left corner */}
       <div className={styles.titleBox}>
-        <h2>Apple Fix Pros LLC</h2>
-        <p>500 Cirby Way, Roseville, CA</p>
-        <span onClick={handleDirections}>Direction</span>
+        <div className='map-addressinfo'>
+          <h2>Apple Fix Pros LLC</h2>
+          <small>500 Cirby Way, Roseville, CA</small>
+        </div>
+        <span onClick={handleDirections} className={styles.direction_link}>
+          <Image src={Direction_icon} alt="Apple Fix Pro" className={styles.direction_link_img} />
+          Direction
+        </span>
       </div>
       {/* Map container */}
       <div ref={mapRef} className={styles.map} />
