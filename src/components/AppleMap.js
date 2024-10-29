@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import styles from "./AppleMap.module.css";
 import Image from "next/image";
-import Direction_icon from "../../public/assets/images/arrow-direction-1.png";
+import Direction_icon from "../../public/images/arrow-direction-1.png";
 const AppleMap = () => {
 
   const mapRef = useRef(null);
