@@ -12,34 +12,10 @@ body{
 .main_footer {
   // background:linear-gradient(90deg, #93f2ff 0.35%, #fd79a1 40%, #e78478 106.3%);
   background: linear-gradient(90deg, #2BB2C8 0.35%, #A82654 40%, #E8003E 106.3%);
-  padding-top: 70px;
+  padding-top: 60px;
   margin-top: 80px;
   position: relative;
-  &::before{
-    content: '';
-    background-image: url('../../../public/images/footer/footer_vector.png');
-    background-repeat: repeat-x;
-    position: absolute;
-    top: -1px;
-    width: 100%;
-    height: 40px;
-  }
-  .gif-image {
-    width: 76px;
-    height: 76px;
-    position: absolute;
-    &.gif1 {
-      transform: rotate(335deg);
-      left: 1%;
-      top: 60%;
-    }
-    &.gif2 {
-      z-index: 0;
-      transform: rotate(25deg);
-      right: 3%;
-      bottom: 70%;
-    }
-  }
+
   .footer_logo {
     p {
       font-size: 30px;
@@ -262,7 +238,7 @@ body{
   }
 
   .footer-social {
-    height: 90px;
+    height: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;

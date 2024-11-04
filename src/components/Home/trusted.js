@@ -27,9 +27,6 @@ export default function TrustedComp() {
                   same day solutions.
                 </p>
               </div>
-              <div className="fox_vactor">
-                <Image src={fox_vactor} alt="Apple Fix Pro" className="img-fluid" />
-              </div>
             </Col>
             {/* ======TRUSTED CONTENT COLUMN END======= */}
             <Col md={5}>

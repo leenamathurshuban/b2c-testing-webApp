@@ -277,12 +277,6 @@ export default function Shoppopular({ loading, products }) {
           </Link>
         </div>
       </Container>
-      <div className="spider_img ">
-        <Image className="vert-move" src={spider} alt="Apple Fix Pro"/>
-      </div>
-      <div className="spider_img spider02">
-        <Image className="vert-move" src={spider} alt="Apple Fix Pro"/>
-      </div>
     </section>
   );
 }
