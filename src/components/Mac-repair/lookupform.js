@@ -21,7 +21,7 @@ import LoaderComp from "../Loader/loader_comp";
 import Sellmfrom from "../sell-your-mac/sellmfrom";
 import RepairFormComp from "./repair_form";
 import { useRouter } from "next/router";
-import { setChildCollectionData, setActive } from "@/appRedux/counterReducer";
+import { setChildCollectionData, setActive, setActiveTab } from "@/appRedux/counterReducer";
 
 const availableIssues = [
   "Power Issues",
@@ -126,7 +126,7 @@ const data = {
 };
 // ===SELECT DATA ==
 
-export default function LookupForm({ sendDataToParent, setParentActive, oldDataSerial, setShowProducts, setChildCategoryID }) {
+export default function LookupForm({ sendDataToParent, setParentActive, oldDataSerial, setShowProducts, setChildCategoryID,collection }) {
   const router = useRouter();
 
   const handleClick = (e, val) => {
@@ -294,8 +294,15 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
           //   }, '/mac-parts')
           // }
         }
+        collection?.map((val)=>{
+          if(JSON.parse(last_serial_data)?.Model?.includes(val?.name)){
+            dispatch(setActiveTab(val?.name))
+          }
+        })
       } else {
         setIsLoadingSerial(true);
+        setShowProducts(false);
+        window.localStorage.removeItem("mac-part-collection-child")
         await axios
           .get(
             `https://shop.applefixpros.com/wp-json/custom-woo/v1/external/${form_data_serial.serial_number}`
@@ -318,6 +325,11 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
               setShowData(res.data.response);
               setIsLoading(false)
               setIsLoadingSerial(false);
+              collection?.map((val)=>{
+                if(res?.data?.response?.Model?.includes(val?.name)){
+                  dispatch(setActiveTab(val?.name))
+                }
+              })
             }
           })
           .catch((error) => {
@@ -777,6 +789,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
           dispatch(setActive(JSON.parse(last_collection_child)))
           handleClose()
         }
+        dispatch(setCategoryName(""))
 
       } else {
         const url = `https://shop.applefixpros.com/wp-json/custom-woo/v1/searchbymodal/${form_data_serial.serial_number}`
@@ -796,6 +809,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
             dispatch(setActive(response?.data?.categoryid))
             handleClose()
           }
+          dispatch(setCategoryName(""))
         }
       }
       // const url = `https://shop.applefixpros.com/wp-json/custom-woo/v1/searchbymodal/${form_data_serial.serial_number}`
@@ -818,6 +832,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
       // console.log(error)
     }
   }
+  console.log(ShowData)
   return (
     <>
       {isLoading ? <LoaderComp /> : ""}

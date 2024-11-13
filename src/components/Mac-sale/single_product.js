@@ -14,6 +14,7 @@ import {
   addToCart,
   getSubTotal,
   getTotal,
+  setCategoryName,
   setProductTitle,
 } from "../../appRedux/counterReducer";
 import axios from "axios";
@@ -26,6 +27,7 @@ export default function SingleproductComp({ webUrl }) {
   const router = useRouter();
   const dispatch = useDispatch();
   const cartItem = useSelector((state) => state?.counter?.cart);
+  const categoryName = useSelector((state) => state?.counter?.categoryName);
 
   const { id } = router?.query;
   const pathname = usePathname();
@@ -92,6 +94,9 @@ export default function SingleproductComp({ webUrl }) {
       setImageGallary(imageUrl);
       setProduct(productData);
       dispatch(setProductTitle(productData?.title))
+      if(!categoryName){
+        dispatch(setCategoryName(productData?.categories[0]))
+      }
       setLoading(false);
     } catch (error) {
       // console.log(error.message);

@@ -146,6 +146,7 @@ export default function MacSaleProducts({ webUrl, query }) {
 
   const routerPath = webUrl?.split("?");
   const canonicalUrl = `https://www.applefixpros.com${routerPath?.[0]}`;
+  console.log(allProducts)
 
   return (
     <>

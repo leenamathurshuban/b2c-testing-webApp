@@ -33,6 +33,7 @@ export default function MacrpartpageComp({ }) {
       } else {
         setShowData(router.query)
       }
+      dispatch(setCategoryName(""))
     }
   }, [router.isReady])
 
@@ -150,7 +151,7 @@ export default function MacrpartpageComp({ }) {
         </section>
       )}
 
-      <MacSerialLookupComp sendDataToParent={handleDataFromChild} oldDataSerial={ShowData} setShowProducts={setShowProducts} setChildCategoryID={setChildCategoryID} />
+      <MacSerialLookupComp sendDataToParent={handleDataFromChild} oldDataSerial={ShowData} setShowProducts={setShowProducts} setChildCategoryID={setChildCategoryID} collection={collections} />
 
       {dataFromChild === null && (
         <>
