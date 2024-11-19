@@ -60,14 +60,25 @@ export default function MacsaleyourComp() {
             </Container>
           </section>
         ) : (
-          <div className="main_heading-gradiant-p">
+          <>
+            {/* <div className="main_heading-gradiant-p">
             <h1>
               Looking to sell <b>Your Mac?</b>
             </h1>
-          </div>
+          </div> */}
+            <div className="more-repair sellmaccomp">
+              <h4>Sell your Mac system is down.</h4>
+              <p>
+                Please contact our purchase/sales department <br />
+                <Link href="tel:+12795990139" className="">
+                  +1 (916)735-5966
+                </Link>
+              </p>
+            </div>
+          </>
         )}
-        <MacSerialLookupComp sendDataToParent={handleDataFromChild} />
-        <div className="more-repair sellmaccomp">
+        {/* <MacSerialLookupComp sendDataToParent={handleDataFromChild} /> */}
+        {/* <div className="more-repair sellmaccomp">
           <h4>Do you have more than one MacBook to sell?</h4>
           <p>
             Please contact our sales department <br />
@@ -75,7 +86,12 @@ export default function MacsaleyourComp() {
               +1(279) 599-0139
             </Link>
           </p>
-        </div>
+        </div> */}
+        {/* <div className="main_heading-gradiant-p">
+            <h1>
+              Looking to sell <b>Your Mac?</b>
+            </h1>
+          </div> */}
       </Container>
     </section>
   );

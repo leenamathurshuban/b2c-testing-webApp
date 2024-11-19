@@ -126,7 +126,7 @@ const data = {
 };
 // ===SELECT DATA ==
 
-export default function LookupForm({ sendDataToParent, setParentActive, oldDataSerial, setShowProducts, setChildCategoryID,collection }) {
+export default function LookupForm({ sendDataToParent, setParentActive, oldDataSerial, setShowProducts, setChildCategoryID, collection }) {
   const router = useRouter();
 
   const handleClick = (e, val) => {
@@ -256,7 +256,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
     e.preventDefault();
     setIsLoading(true)
     const { name, value } = e.target;
-    
+
     let errors = { ...validation };
 
     if (type == "serial_number") {
@@ -283,57 +283,73 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
         );
         setShowData(JSON.parse(last_serial_data));
         setIsLoadingSerial(false);
-        if (form_data_serial.serial_number.length >= 12) {
-          handleShow()
-        } else {
-          setShowText(true)
-          // if(router.pathname == "/mac-repair"){
-          //   router.push({
-          //     pathname: "mac-parts",
-          //     query: JSON.parse(last_serial_data)
-          //   }, '/mac-parts')
-          // }
+        // if (form_data_serial.serial_number.length >= 12) {
+        //   handleShow()
+        // } else {
+        //   setShowText(true)
+        //   if (router.pathname == "/mac-repair") {
+        //     router.push({
+        //       pathname: "mac-parts",
+        //       query: JSON.parse(last_serial_data)
+        //     }, '/mac-parts')
+        //   }
+        // }
+        setShowText(true)
+        if (router.pathname == "/mac-repair") {
+          router.push({
+            pathname: "mac-parts",
+            query: JSON.parse(last_serial_data)
+          }, '/mac-parts')
         }
-        collection?.map((val)=>{
-          if(JSON.parse(last_serial_data)?.Model?.includes(val?.name)){
+        collection?.map((val) => {
+          if (JSON.parse(last_serial_data)?.Model?.includes(val?.name)) {
             dispatch(setActiveTab(val?.name))
           }
         })
       } else {
         setIsLoadingSerial(true);
-        setShowProducts(false);
+        if (router.pathname === '/mac-parts') {
+          setShowProducts(false);
+        }
         window.localStorage.removeItem("mac-part-collection-child")
         await axios
           .get(
             `https://shop.applefixpros.com/wp-json/custom-woo/v1/external/${form_data_serial.serial_number}`
           )
           .then((res) => {
-            if (res.data.response) {
+            if (res?.data?.response) {
               window.localStorage.setItem(
                 "api_last_serial_response",
-                JSON.stringify(res.data.response)
+                JSON.stringify(res?.data?.response)
               );
               window.localStorage.setItem(
                 "api_last_serial_number",
                 form_data_serial.serial_number
               );
-              if (form_data_serial.serial_number.length >= 12) {
-                handleShow()
-              } else {
-                setShowText(true)
+              // if (form_data_serial.serial_number.length >= 12) {
+              //   handleShow()
+              // } else {
+              //   setShowText(true)
+              // }
+              setShowText(true)
+              if (router.pathname == "/mac-repair") {
+                router.push({
+                  pathname: "mac-parts",
+                  query: res?.data?.response
+                }, '/mac-parts')
               }
-              setShowData(res.data.response);
+              setShowData(res?.data?.response);
               setIsLoading(false)
               setIsLoadingSerial(false);
-              collection?.map((val)=>{
-                if(res?.data?.response?.Model?.includes(val?.name)){
+              collection?.map((val) => {
+                if (res?.data?.response?.Model?.includes(val?.name)) {
                   dispatch(setActiveTab(val?.name))
                 }
               })
             }
           })
           .catch((error) => {
-            setShowData(error.response.data.message);
+            setShowData(error?.response?.data?.message);
             setIsLoading(false)
             setIsLoadingSerial(false);
           });
@@ -781,9 +797,9 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
             pathname: "mac-parts",
             query: { categoryid: JSON.parse(last_collection_child) }
           }, '/mac-parts')
-          sessionStorage.setItem("scrollPosition",500)
+          sessionStorage.setItem("scrollPosition", 500)
         } else {
-          sessionStorage.setItem("scrollPosition",500)
+          sessionStorage.setItem("scrollPosition", 500)
           setShowProducts(true)
           setChildCategoryID(JSON.parse(last_collection_child))
           dispatch(setActive(JSON.parse(last_collection_child)))
@@ -795,15 +811,15 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
         const url = `https://shop.applefixpros.com/wp-json/custom-woo/v1/searchbymodal/${form_data_serial.serial_number}`
         const response = await axios.get(url);
         if (response?.status == 200) {
-          window.localStorage.setItem("mac-part-collection-child",response?.data?.categoryid)
+          window.localStorage.setItem("mac-part-collection-child", response?.data?.categoryid)
           if (router.pathname == '/mac-repair') {
             router.push({
               pathname: "mac-parts",
               query: { categoryid: response?.data?.categoryid }
             }, '/mac-parts')
-            sessionStorage.setItem("scrollPosition",500)
+            sessionStorage.setItem("scrollPosition", 500)
           } else {
-            sessionStorage.setItem("scrollPosition",500)
+            sessionStorage.setItem("scrollPosition", 500)
             setShowProducts(true)
             setChildCategoryID(response?.data?.categoryid)
             dispatch(setActive(response?.data?.categoryid))
@@ -832,7 +848,12 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
       // console.log(error)
     }
   }
-  console.log(ShowData)
+  useEffect(() => {
+    if (router.query) {
+      setShowData(router.query)
+    }
+  }, [router.isReady])
+  console.log("=============>",router.query)
   return (
     <>
       {isLoading ? <LoaderComp /> : ""}
@@ -943,6 +964,46 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
                     </Col>
                   </Row>
                 </div>}
+
+                {/*==============================  redirect by mac-repair page======================================================================== */}
+                {router.pathname === "/mac-parts" && ShowData != [] && Object.keys(router.query).length != 0 && <div className="cardbox mb-4">
+                  <Row className="justify-content-center">
+                    <Col md={12} lg={4} style={{ marginLeft: "105px" }}>
+                      <Card border="0">
+                        <Card.Body>
+                          {/* <Card.Title className="d-flex item-center justify-content-center">
+                            Model Configuration
+                          </Card.Title> */}
+                          <div className="mac-repair-new-sell">
+                            <div
+                              className={
+                                isLoadingSerial ? "d-none gopopup-main" : "gopopup-main pb-3"
+                              }
+                            >
+                              {ShowData === "rejected" ? (
+                                <h5>Please enter correct serial number</h5>
+                              ) : (
+                                <>
+                                  <ul className="mb-4">
+                                    {Object.entries(ShowData).map(([key, value]) => (
+                                      <li key={key}>
+                                        <span className="response-title">
+                                          <b>{key} : </b>
+                                        </span>
+                                        <span className="response-value">{value}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  </Row>
+                </div>}
+                {/*==============================end  redirect by mac-repair page======================================================================== */}
 
                 {router.pathname === "/mac-parts" && Object.keys(oldDataSerial).length != 0 && showText && <div className="cardbox mb-4">
                   <Row className="justify-content-center">
