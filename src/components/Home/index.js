@@ -75,6 +75,21 @@ export default function HomeComp() {
   return (
     <>
       <Shoppopular loading={loading} products={products} />
+      <section className="countdown_aria">
+        <div className="overlay">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12 countdown_info">
+                <h4>Get <span>15% off</span> now</h4>
+                <h2>Sales end in </h2>
+                {/* <p>Lorem ipsum dolor sit amet consectetur. Pretium aliquet amet ligula pulvinar feugiat. Nibh neque urna in id in nulla. Id eget nunc ac etiam</p> */}
+                <CountdownTimer />
+                <Link href="#shop-now" className="main_btn hvr-shutter-out-horizontal">Shop Now</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <Shoppopularpart loading={loading} parts={parts} />
       <BuyrepairComp />
       <Looking_macparts />

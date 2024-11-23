@@ -8,9 +8,26 @@ body {
 
 .main_footer {
   background: linear-gradient(90deg, #2BB2C8 0.35%, #A82654 40%, #E8003E 106.3%);
-  padding-top: 60px;
+  padding-top: 70px;
   margin-top: 80px;
   position: relative;
+}
+.main_footer .gif-image {
+  width: 76px;
+  height: 76px;
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.main_footer .gif-image.gif1 {
+  transform: rotate(335deg);
+  left: 1%;
+  top: 60%;
+}
+.main_footer .gif-image.gif2 {
+  z-index: 0;
+  right: 3%;
+  bottom: 70%;
 }
 .main_footer .footer_logo p {
   font-size: 30px;
@@ -187,7 +204,7 @@ body {
   margin-top: 15px;
 }
 .main_footer .footer-social {
-  height: 50px;
+  height: 90px;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -4,11 +4,14 @@ import Flower from './Flower';
 
 // Array of flower image URLs
 const flowerImages = [
-  '/images/bat.png',
-  '/images/gtts_022.png',
-  '/images/ghost-011.png',
-  '/images/gtts_023.png',
-  '/images/bat01.png',
+  '/images/thanksGiving05.png',
+  '/images/thanksGiving06.png',
+  '/images/thanksGiving03.png',
+  '/images/thanksGiving07.png',
+  '/images/thanksGiving04.png',
+  '/images/thanksGiving02.png',
+  '/images/thanksGiving01.png',
+  // '/images/bat01.png',
   // Add more flower images as needed
 ];
 
@@ -33,7 +36,7 @@ const FlowerApp = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(createFlower, 800); // Create a flower every 500ms
+    const interval = setInterval(createFlower, 1500); // Create a flower every 500ms
     return () => clearInterval(interval);
   }, []);
 

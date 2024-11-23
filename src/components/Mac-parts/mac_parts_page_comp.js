@@ -17,6 +17,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setActive, setActiveTab, setCategoryName } from "@/appRedux/counterReducer";
 import { useRouter } from "next/router";
+import AmazonComp from "./amazon";
 
 export default function MacrpartpageComp({ }) {
   const dispatch = useDispatch();
@@ -295,6 +296,7 @@ export default function MacrpartpageComp({ }) {
           </div>
           <WholesalepartsComp />
           <EbayComp />
+          <AmazonComp />
         </>
       )}
     </>

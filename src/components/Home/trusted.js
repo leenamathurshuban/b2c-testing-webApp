@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "../Home/home.module.scss";
 import Image from "next/image";
-import fox_vactor from "../../../public/images/footer/fox-background-image.png";
+import thanksfoot_vctr from "../../../public/images/footer/thanksgiving_footvactor.png";
 export default function TrustedComp() {
   return (
     <section className="main_trusted">
@@ -26,6 +26,9 @@ export default function TrustedComp() {
                   the issues, Apple Fix Pros' certified technicians can provide
                   same day solutions.
                 </p>
+              </div>
+              <div className="fox_vactor">
+                <Image src={thanksfoot_vctr} alt="Apple Fix Pro" className="img-fluid" />
               </div>
             </Col>
             {/* ======TRUSTED CONTENT COLUMN END======= */}

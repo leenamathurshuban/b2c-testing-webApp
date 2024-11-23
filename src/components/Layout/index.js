@@ -12,9 +12,11 @@ export default function Layout({ children }) {
     <>
       <Tobbar />
       <HeaderComp />
+      <Halloween_Sales/>
       <Breadcrumb />
       {children}
       <FooterComp />
+      <FlowerApp />
       {/* {router.pathname !== "/" && (
         <>
           <Tobbar />

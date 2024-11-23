@@ -8,7 +8,7 @@ const CountdownTimer = () => {
   // Set the countdown duration in milliseconds (e.g., 5 minutes)
   // const countdownTime = 29 * 55000 * 1000; // 5 minutes
   // const endDate = new Date('2024-11-03T00:00:00'); // End date: November 3, 2024
-  const endDate = moment.tz('2024-11-03 12:00', 'America/New_York').toDate()
+  const endDate = moment.tz('2024-11-30 12:00', 'America/New_York').toDate()
 
   // Renderer function for the countdown
   const renderer = ({ days, hours, minutes, seconds, completed }) => {

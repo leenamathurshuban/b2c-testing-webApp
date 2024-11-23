@@ -10,10 +10,10 @@ export default function MacSaleHome({ collections, loading, query }) {
         <div className='shopmac_desktop_new'>
           <Container>
             <div className='main_heading-gradiant-p'>
-              <h1>
+              {/* <h1>
                 Looking for a <b>New Mac?</b>
               </h1>
-              <p>Which Mac is right for you? We sell New and Certified Macs</p>
+              <p>Which Mac is right for you? We sell New and Certified Macs</p> */}
             </div>
 
             <div className='macsalerpro_row'>
