@@ -15,11 +15,11 @@ export default function FooterComp() {
   return (
     <section className="main_footer mrt80">
       <div className="gif-image gif1">
-          <Image
+          {/* <Image
             src={ftgif}
             alt="Apple Fix Pro Payment Img"
             className="img-fluid"
-          />
+          /> */}
         </div>
       <div className="desk_footer">
         <Container>
@@ -299,11 +299,11 @@ export default function FooterComp() {
 
       </div>
       <div className="gif-image gif2">
-          <Image
+          {/* <Image
             src={ftgif2}
             alt="Apple Fix Pro Payment Img"
             className="img-fluid"
-          />
+          /> */}
         </div>
       {/* =======DESKTOP FOOTER END======== */}
 

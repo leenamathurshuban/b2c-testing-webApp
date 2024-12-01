@@ -28,7 +28,7 @@ export default function TrustedComp() {
                 </p>
               </div>
               <div className="fox_vactor">
-                <Image src={thanksfoot_vctr} alt="Apple Fix Pro" className="img-fluid" />
+                {/* <Image src={thanksfoot_vctr} alt="Apple Fix Pro" className="img-fluid" /> */}
               </div>
             </Col>
             {/* ======TRUSTED CONTENT COLUMN END======= */}
