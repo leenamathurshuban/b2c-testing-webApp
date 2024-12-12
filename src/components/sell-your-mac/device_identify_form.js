@@ -143,7 +143,7 @@ export const DeviceIdentificationForm = ({ dataFromChild, ansOfQuestions }) => {
         });
       setIsLoading(false);
       setTimeout(() => {
-        // window.location.reload()
+        window.location.reload()
         router.push({
           pathname: "sell-your-system",
           query: {flag:true}
