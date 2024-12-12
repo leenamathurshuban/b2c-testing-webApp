@@ -2,6 +2,7 @@ import { useGetCollectionsQuery } from '@/appRedux/apiSlice';
 import { Findyourdevice } from '@/components/sell-your-mac/find_your_device';
 import MacsaleyourComp from '@/components/sell-your-mac/sell_your_mac_comp';
 import { NextSeo } from 'next-seo';
+import { ToastContainer, toast } from 'react-toastify';
 import { useEffect, useState } from 'react';
 
 export default function sale_mac_system() {
@@ -21,6 +22,7 @@ export default function sale_mac_system() {
 	}, [collectionData, collectionLoading]);
 	return (
 		<>
+            <ToastContainer />
 			<NextSeo
 				title='Sell your used Mac, Macbook pro, Macbook Air, Mac Pro, and iMac'
 				description='Looking to sell Your Mac? Apple Fix Pros will buy your MacBook Air, MacBook Pro, iMac and Mac Mini products.'

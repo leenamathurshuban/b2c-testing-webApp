@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
-import toast, { Toaster } from "react-hot-toast";
+// import toast, { Toaster } from "react-hot-toast";
+import { ToastContainer, toast } from 'react-toastify';
 
 export const DeviceIdentificationForm = ({ dataFromChild, ansOfQuestions }) => {
   const [formInput, setFormInput] = useState({ name: '', email: '', phone_number: '' })
@@ -140,9 +141,9 @@ export const DeviceIdentificationForm = ({ dataFromChild, ansOfQuestions }) => {
           toast.error('Something went wrong!', { duration: 5000 })
         });
       setIsLoading(false);
-      // setTimeout(() => {
-      //   window.location.reload()
-      // }, 4000)
+      setTimeout(() => {
+        window.location.reload()
+      }, 4000)
     }
   }
   return (
