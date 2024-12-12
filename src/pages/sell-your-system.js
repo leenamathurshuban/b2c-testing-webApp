@@ -15,7 +15,7 @@ export default function sale_mac_system() {
 	const [loading, setLoading] = useState(true);
     const router = useRouter();
     useEffect(()=>{
-        if(router.query.flag){
+        if(router?.query?.flag){
             toast.success('Email sent successfully')
         }
     },[router.isReady])
@@ -29,7 +29,7 @@ export default function sale_mac_system() {
 			// console.log(error.message);
 		}
 	}, [collectionData, collectionLoading]);
-    console.log(router.query)
+    console.log(router?.query?.flag)
 	return (
 		<>
             <ToastContainer autoClose={4000} />
