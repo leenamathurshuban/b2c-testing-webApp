@@ -1,14 +1,14 @@
 import axios from 'axios';
-import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
-import toast, { Toaster } from "react-hot-toast";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const DeviceIdentificationForm = ({ dataFromChild, ansOfQuestions }) => {
   const [formInput, setFormInput] = useState({ name: '', email: '', phone_number: '' })
   const [errorMsg, setErrorMsg] = useState({})
   const [isLoading, setIsLoading] = useState(false)
-  const router = useRouter();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormInput({
@@ -135,25 +135,21 @@ export const DeviceIdentificationForm = ({ dataFromChild, ansOfQuestions }) => {
         .post(`/api/sendMail`, sendData)
         .then(res => {
           setIsLoading(false);
-          // toast.success("Email sent successfully", { duration: 5000 });
+          toast.success("Email sent successfully");
         })
         .catch(err => {
           setIsLoading(false);
-          toast.error('Something went wrong!', { duration: 5000 })
+          toast.error('Something went wrong!')
         });
       setIsLoading(false);
       setTimeout(() => {
-        window.location.reload()
-        router.push({
-          pathname: "sell-your-system",
-          query: {flag:true}
-        }, '/sell-your-system')
+        window.location.reload()        
       }, 4000)
     }
   }
   return (
     <div>
-      <Toaster />
+      <ToastContainer autoClose={4000} />
       <section className="main_macsalecomp">
         <Container>
           <div className="main_heading inner_gheading">
