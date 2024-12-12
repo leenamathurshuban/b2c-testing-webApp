@@ -1,8 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
-// import toast, { Toaster } from "react-hot-toast";
-import { ToastContainer, toast } from 'react-toastify';
+import toast, { Toaster } from "react-hot-toast";
 
 export const DeviceIdentificationForm = ({ dataFromChild, ansOfQuestions }) => {
   const [formInput, setFormInput] = useState({ name: '', email: '', phone_number: '' })
@@ -134,7 +133,7 @@ export const DeviceIdentificationForm = ({ dataFromChild, ansOfQuestions }) => {
         .post(`/api/sendMail`, sendData)
         .then(res => {
           setIsLoading(false);
-          toast.success("Email sent successfully", { duration: 5000 });
+          // toast.success("Email sent successfully", { duration: 5000 });
         })
         .catch(err => {
           setIsLoading(false);
@@ -142,12 +141,17 @@ export const DeviceIdentificationForm = ({ dataFromChild, ansOfQuestions }) => {
         });
       setIsLoading(false);
       setTimeout(() => {
-        window.location.reload()
+        // window.location.reload()
+        router.push({
+          pathname: "sell-your-system",
+          query: true
+        }, '/sell-your-system')
       }, 4000)
     }
   }
   return (
     <div>
+      <Toaster />
       <section className="main_macsalecomp">
         <Container>
           <div className="main_heading inner_gheading">

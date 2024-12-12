@@ -2,14 +2,21 @@ import { useGetCollectionsQuery } from '@/appRedux/apiSlice';
 import { Findyourdevice } from '@/components/sell-your-mac/find_your_device';
 import MacsaleyourComp from '@/components/sell-your-mac/sell_your_mac_comp';
 import { NextSeo } from 'next-seo';
-import { ToastContainer, toast } from 'react-toastify';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 
 export default function sale_mac_system() {
 	const { data: collectionData, isLoading: collectionLoading } =
 		useGetCollectionsQuery(process.env.NEXT_PUBLIC_MAC_SALE_ID || 120);
 	const [collections, setCollections] = useState([]);
 	const [loading, setLoading] = useState(true);
+    const router = useRouter();
+    useEffect(()=>{
+        if(router.query){
+            toast.success('Email sent successfully')
+        }
+    },[router.isReady])
 
 	useEffect(() => {
 		try {			
