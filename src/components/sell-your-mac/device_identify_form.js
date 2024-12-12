@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import toast, { Toaster } from "react-hot-toast";
@@ -7,6 +8,7 @@ export const DeviceIdentificationForm = ({ dataFromChild, ansOfQuestions }) => {
   const [formInput, setFormInput] = useState({ name: '', email: '', phone_number: '' })
   const [errorMsg, setErrorMsg] = useState({})
   const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormInput({
