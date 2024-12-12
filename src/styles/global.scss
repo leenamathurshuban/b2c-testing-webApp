@@ -608,3 +608,242 @@ img.vert-move {
  .carousel-indicators [data-bs-target] {
   background-color: #c0103f;
  }
+
+ .title_header {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.title_header h2 {
+  font-weight: 500 !important;
+  font-size: 26px;
+}
+
+section.find_your_divs {
+  padding: 60px 0;
+  max-width: 1140px;
+  margin: auto;
+}
+
+ul.list_device {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul.list_device .inner_box {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: solid 1px #cccccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 2px 2px 8px #00000017;
+}
+
+ul.list_device li {
+  width: 33.33%;
+  padding: 0 10px;
+}
+
+ul.list_device .icon svg {
+  width: 40px;
+  height: 50px;
+  filter: invert(0.4);
+  margin-right: 8px;
+}
+
+ul.list_device .inner_box h4 {
+  font-size: 18px;
+  font-weight: 500 !important;
+  margin: 0;
+}
+
+ul.list_device .inner_box p {
+  margin: 0;
+}
+
+.find_your_divs h4 {
+  font-weight: 400 !important;
+  font-size: 20px;
+  color: #333;
+}
+
+ul.list_device.series li {
+  width: 50%;
+}
+
+ul.list_device li.active .inner_box {
+  border: solid 2px #f37e8f;
+}
+
+ul.list_device .inner_box:hover {
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  border-color: #fff;
+}
+
+ul.list_device .inner_box:hover svg {
+  filter: invert(1);
+}
+
+ul.list_device .inner_box:hover h4 {
+  color: #fff;
+}
+
+ul.list_device .inner_box:hover p {
+  color: #fff;
+}
+
+ul.list_device li {
+  margin-bottom: 20px;
+}
+
+ul.list_device.storage li {
+  width: 25%;
+}
+
+ul.list_device.device li {
+  width: 100%;
+}
+
+ul.list_device.device li .inner_box {
+  justify-content: space-between;
+}
+
+ul.list_device.device li .icon {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+ul.list_device .inner_box img {
+  max-width: 50px;
+  margin-right: 15px;
+}
+
+ul.list_device.device li p b {
+  display: block;
+  font-size: 24px;
+  color: #000;
+  font-weight: 500;
+}
+
+ul.list_device.device li p {
+  text-align: center;
+}
+
+ul.list_device li:hover p b {
+  color: #fff;
+}
+
+.title_header p {
+  margin: 0;
+}
+
+.title_header a {
+  font-weight: 400;
+  color: #f37e8f;
+  text-decoration: underline !important;
+}
+
+ul.assess_list li {
+  justify-content: space-between;
+  border-bottom: solid 1px #ddd;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: solid 1px #cccccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.0901960784);
+}
+
+ul.assess_list li p a {
+  text-decoration: underline !important;;
+  font-weight: 400;
+  color: #f37e8f;
+}
+
+ul.assess_list li p {
+  margin: 0;
+}
+
+ul.assess_list li button.btn {
+  padding: 10px 25px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+ul.assess_list li .assess_buttons {
+  border: solid 1px #cccccc;
+  border-radius: 6px;
+}
+
+ul.assess_list li button.btn:hover {
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  color: #fff;
+}
+
+ul.assess_list li button.btn:first-child {
+  border-right: solid 1px #ddd;
+  border-radius: 6px 0 0 6px;
+}
+
+ul.assess_list li button.btn:last-child {
+  border-radius: 0 6px 6px 0;
+}
+
+ul.assess_list li {
+  margin-bottom: 20px;
+}
+
+ul.assess_list li button.btn.active {
+  border: solid 2px #f37e8f;
+}
+
+form.serial_no_form {
+  max-width: 450px;
+  margin: auto;
+  text-align: center;
+}
+
+form.serial_no_form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+form.serial_no_form .device_felid {
+  width: 100%;
+  border: solid 2px #f37e8f;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+button.btn.device_button {
+  margin-top: 25px;
+  text-align: center;
+  border: solid 2px transparent;
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.4s;
+  min-width: 200px;
+  padding: 10px;
+}
+
+form.serial_no_form .form-group {
+  text-align: left;
+}
+
+button.btn.device_button:hover {
+  background: transparent;
+  border-color: #f37e8f;
+  color: #333;
+}
