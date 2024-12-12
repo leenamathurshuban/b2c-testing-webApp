@@ -150,37 +150,24 @@ export const DeviceIdentificationForm = ({ dataFromChild, ansOfQuestions }) => {
   return (
     <div>
       <ToastContainer autoClose={4000} />
-      <section className="main_macsalecomp">
-        <Container>
-          <div className="main_heading inner_gheading">
-            <div className="cardbox">
-              <Row className="justify-content-center">
-                <Col md={12} lg={4}>
-                  <Card border="0">
-                    <Card.Body>
-                      <div className="mac-repair-new-sell">
-                        <ul className="mb-4">
-                          {Object.entries(dataFromChild)?.map(
-                            ([key, value]) => (
-                              <li key={key}>
-                                <span className="response-title">
-                                  <b>{key}:</b>
-                                </span>
-                                <span className="response-value">
-                                  {value}
-                                </span>
-                              </li>
-                            ))}
-                          <span style={{ cursor: 'pointer' }}>X Wrong one? Use a different Serial</span>
-                        </ul>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              </Row>
-            </div>
+      <section className="main_macsalecomp sell_mac_list">
+        <div className="main_heading inner_gheading">
+          <div className="mac-repair-new-sell">
+            <ul className="mb-12">
+              {Object.entries(dataFromChild)?.map(
+                ([key, value]) => (
+                  <li key={key}>
+                    <span className="response-title">
+                      <b>{key}:</b>
+                    </span>
+                    <span className="response-value">
+                      {value}
+                    </span>
+                  </li>
+                ))}
+            </ul>
           </div>
-        </Container>
+        </div>
       </section>
 
       <div className='row'>
@@ -205,15 +192,15 @@ export const DeviceIdentificationForm = ({ dataFromChild, ansOfQuestions }) => {
           </ul>
         </div>
       </div>
-      <section className='file-repair-main mrt100'>
+      <section className='file-repair-main mt-3'>
         <Container>
           <div className='file-repair-full'>
             <Row className='justify-content-center cl-4tab'>
-              <Col md={6} lg={6} xl={4}>
+              <Col md={12}>
                 <div className='file_box_main'>
-                  <div className='file_box text-center'>
-                    <h6>Your Shipping Information</h6>
-                    <p>We'll send your prepaid shipping label and supplies in 3-5 business days.</p>
+                  <div className='title_header main_heading-gradiant-p mt-4'>
+                    <h1>Your Shipping <b>Information</b></h1>
+                    <p className='haddingh_h2'>We'll send your prepaid shipping label and supplies in 3-5 business days.</p>
                   </div>
                   <div className='repair-form-multi'>
                     <div className='repair-form'>

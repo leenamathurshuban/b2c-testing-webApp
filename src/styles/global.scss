@@ -611,16 +611,22 @@ img.vert-move {
 
  .title_header {
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 }
 
-.title_header h2 {
-  font-weight: 500 !important;
-  font-size: 26px;
+.find_your_divs h1 {
+  font-size: 48px;
+}
+
+.find_your_divs p.haddingh_h2 {
+  font-size: 30px;
+  line-height: 40px;
+  max-width: 80%;
+  margin: auto;
 }
 
 section.find_your_divs {
-  padding: 60px 0;
+  padding: 40px 0;
   max-width: 1140px;
   margin: auto;
 }
@@ -657,6 +663,7 @@ ul.list_device .inner_box h4 {
   font-size: 18px;
   font-weight: 500 !important;
   margin: 0;
+  
 }
 
 ul.list_device .inner_box p {
@@ -664,9 +671,23 @@ ul.list_device .inner_box p {
 }
 
 .find_your_divs h4 {
-  font-weight: 400 !important;
-  font-size: 20px;
-  color: #333;
+  font-weight: 600 !important;
+  font-size: 24px;
+  color: #464646;
+}
+
+.find_your_divs h4 {
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.find_your_divs h4 b {
+  background: transparent !important;
+  -webkit-text-fill-color: #464646;
+  background-clip: text;
+  font-weight: 600;
 }
 
 ul.list_device.series li {
@@ -687,7 +708,8 @@ ul.list_device .inner_box:hover svg {
 }
 
 ul.list_device .inner_box:hover h4 {
-  color: #fff;
+  background: transparent;
+  -webkit-text-fill-color: #fff;
 }
 
 ul.list_device .inner_box:hover p {
@@ -744,6 +766,8 @@ ul.list_device li:hover p b {
   font-weight: 400;
   color: #f37e8f;
   text-decoration: underline !important;
+  margin-top: 10px;
+  display: block;
 }
 
 ul.assess_list li {
@@ -841,9 +865,40 @@ button.btn.device_button {
 form.serial_no_form .form-group {
   text-align: left;
 }
-
+ 
 button.btn.device_button:hover {
   background: transparent;
   border-color: #f37e8f;
   color: #333;
+}
+
+section.macparts-page {
+  padding-bottom: 100px;
+}
+
+.shopmac_desktop_new {
+  margin-bottom: 30px;
+}
+
+.sell_mac_list ul li {
+  padding: 10px 0;
+  border-bottom: solid 1px #ddd;
+  font-size: 16px;
+}
+
+.sell_mac_list ul li span.response-title b {
+  font-weight: 500;
+  color: #000;
+}
+
+.sell_mac_list ul>span {
+  margin-top: 15px;
+  display: block;
+  font-weight: 500;
+  color: #000;
+}
+
+.find_your_divs .repair-form {
+  max-width: 600px;
+  margin: auto;
 }
