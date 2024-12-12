@@ -148,7 +148,6 @@ export const DeviceIdentificationForm = ({ dataFromChild, ansOfQuestions }) => {
   }
   return (
     <div>
-      <Toaster />
       <section className="main_macsalecomp">
         <Container>
           <div className="main_heading inner_gheading">
