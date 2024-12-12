@@ -5,6 +5,8 @@ import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function sale_mac_system() {
 	const { data: collectionData, isLoading: collectionLoading } =
@@ -27,9 +29,10 @@ export default function sale_mac_system() {
 			// console.log(error.message);
 		}
 	}, [collectionData, collectionLoading]);
+    console.log(router.query)
 	return (
 		<>
-            <ToastContainer />
+            <ToastContainer autoClose={4000} />
 			<NextSeo
 				title='Sell your used Mac, Macbook pro, Macbook Air, Mac Pro, and iMac'
 				description='Looking to sell Your Mac? Apple Fix Pros will buy your MacBook Air, MacBook Pro, iMac and Mac Mini products.'
