@@ -129,8 +129,8 @@ const data = {
 export default function LookupForm({ sendDataToParent, setParentActive, oldDataSerial, setShowProducts, setChildCategoryID, collection }) {
   const router = useRouter();
 
-  const handleClick = (e, val) => {
-    sendDataToParent(e, val);
+  const handleClick = (e, val,s_no) => {
+    sendDataToParent(e, val,s_no);
   };
 
   // ===SELECT DATA ==
@@ -182,6 +182,9 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
   });
   const [RepairStatus, setRepairStatus] = useState("");
   const [showText, setShowText] = useState(false);
+  const [SellState, setSellState] = useState("");
+  const [show, setShow] = useState(false);
+  const [ShowData, setShowData] = useState({});
   const dispatch = useDispatch();
 
   const handleChangeSerial = (e) => {
@@ -252,6 +255,12 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
     // checkValidation();
   }, [form_data, form_data_repair, form_data_serial]);
 
+  const handleSeialNumber = (e,data,sn) => {
+    setShow(false);
+    // setSellState(e);
+    handleClick(e, data,sn);
+  };
+
   const handleSubmit = async (e, type = "") => {
     e.preventDefault();
     setIsLoading(true)
@@ -301,6 +310,9 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
             query: JSON.parse(last_serial_data)
           }, '/mac-parts')
         }
+        if(router.pathname == "/sell-your-system"){
+          handleSeialNumber("sell",JSON.parse(last_serial_data),form_data_serial.serial_number)
+        }
         collection?.map((val) => {
           if (JSON.parse(last_serial_data)?.Model?.includes(val?.name)) {
             dispatch(setActiveTab(val?.name))
@@ -337,6 +349,9 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
                   pathname: "mac-parts",
                   query: res?.data?.response
                 }, '/mac-parts')
+              }
+              if(router.pathname == "/sell-your-system"){
+                handleSeialNumber("sell",res?.data?.response,form_data_serial.serial_number)
               }
               setShowData(res?.data?.response);
               setIsLoading(false)
@@ -678,10 +693,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
     }
   };
 
-  // ===go popup==
-  const [show, setShow] = useState(false);
-
-  const [ShowData, setShowData] = useState({});
+  // ===go popup==   
 
   const handleClose = () => {
     setShow(false);
@@ -699,14 +711,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
 
   const handleCloset = () => setShowt(false);
   const handleShowt = () => setShowt(true);
-  // ===THANKS popup==
-  const [SellState, setSellState] = useState("");
-
-  const handleSeialNumber = (e) => {
-    setShow(false);
-    setSellState(e);
-    handleClick(e, ShowData);
-  };
+  // ===THANKS popup== 
 
   //Function for redirect to particular product categories
   const handleViewClick = async () => {
@@ -1149,7 +1154,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
                         <Button
                           type="button"
                           className="main_btn hvr-shutter-out-horizontal"
-                          onClick={() => handleSeialNumber("sell")}
+                          onClick={() => handleSeialNumber("sell",{})}
                         >
                           Sell
                         </Button>
