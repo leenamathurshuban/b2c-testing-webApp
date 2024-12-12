@@ -66,7 +66,7 @@ export default function MacsaleyourComp() {
               Looking to sell <b>Your Mac?</b>
             </h1>
           </div> */}
-            <div className="more-repair sellmaccomp">
+            {/* <div className="more-repair sellmaccomp">
               <h4>Sell your Mac system is down.</h4>
               <p>
                 Please contact our purchase/sales department <br />
@@ -74,7 +74,7 @@ export default function MacsaleyourComp() {
                   +1 (916)735-5966
                 </Link>
               </p>
-            </div>
+            </div> */}
           </>
         )}
         {/* <MacSerialLookupComp sendDataToParent={handleDataFromChild} /> */}
