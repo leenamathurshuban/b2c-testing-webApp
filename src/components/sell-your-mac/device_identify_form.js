@@ -144,7 +144,7 @@ export const DeviceIdentificationForm = ({ dataFromChild, ansOfQuestions }) => {
         // window.location.reload()
         router.push({
           pathname: "sell-your-system",
-          query: true
+          query: {flag:true}
         }, '/sell-your-system')
       }, 4000)
     }

@@ -15,7 +15,7 @@ export default function sale_mac_system() {
 	const [loading, setLoading] = useState(true);
     const router = useRouter();
     useEffect(()=>{
-        if(router.query){
+        if(router.query.flag){
             toast.success('Email sent successfully')
         }
     },[router.isReady])
