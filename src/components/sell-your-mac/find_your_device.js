@@ -16,13 +16,14 @@ export const Findyourdevice = ({ data }) => {
     const [series, setSeries] = useState([]);
     const [loading, setLoading] = useState(true);
     const [accessDevice, setAccessDevice] = useState({});
+    const [accessCount,setAccessCount] = useState({})
     const [showSerialBox, setShowSerialBox] = useState(false)
     const [dataFromChild, setDataFromChild] = useState(null);
     const [type, setType] = useState(null);
-    const handleDataFromChild = (e, data,serialNumber) => {
+    const handleDataFromChild = (e, data, serialNumber) => {
         setDataFromChild(data);
         setType(e);
-        setAccessDevice({...accessDevice,["serialNumber"]:serialNumber})
+        setAccessDevice({ ...accessDevice, ["serialNumber"]: serialNumber })
     };
 
     // const { data: collectionData, isLoading: collectionLoading } =   useGetCollectionsQuery(deviceId);   
@@ -38,7 +39,7 @@ export const Findyourdevice = ({ data }) => {
         setSeriesId('')
         // setStorage([])
         setProducts([])
-        setAccessDevice({...accessDevice,['device_type']:Val?.name})
+        setAccessDevice({ ...accessDevice, ['device_type']: Val?.name })
         // setStorageId('')
     }
 
@@ -53,7 +54,7 @@ export const Findyourdevice = ({ data }) => {
         getProductById({ id: Val?.id })
         setSeriesId(Val?.id)
         setProducts([])
-        setAccessDevice({...accessDevice,['series']:Val?.name})
+        setAccessDevice({ ...accessDevice, ['series']: Val?.name })
     }
     useEffect(() => {
         if (product.isSuccess) {
@@ -66,7 +67,7 @@ export const Findyourdevice = ({ data }) => {
         setHideStepUp(true)
         setProductId(value?.id)
         setSelectProduct(value)
-        setAccessDevice({...accessDevice,['device_name']:value?.name})
+        setAccessDevice({ ...accessDevice, ['device_name']: value?.name })
     }
     // console.log(products)
     const handleAccessQuestion = (name, value, index) => {
@@ -74,15 +75,19 @@ export const Findyourdevice = ({ data }) => {
             ...accessDevice,
             [name]: value
         })
+        setAccessCount({
+            ...accessCount,
+            [name]:value
+        })
     }
     useEffect(() => {
-        if (Object.keys(accessDevice)?.length == 4) {
+        if (Object.keys(accessCount)?.length == 4) {
             setShowSerialBox(true)
         }
-    }, [accessDevice])
+    }, [accessCount])
     console.log(accessDevice)
     return (
-        <> 
+        <>
             <section className='find_your_divs'>
                 <div className='container'>
                     <div className='row'>
@@ -449,7 +454,7 @@ export const Findyourdevice = ({ data }) => {
                             <MacSerialLookupComp sendDataToParent={handleDataFromChild} />
                         </div>
                     )}
-                    {accessDevice?.device_power === "No" && (
+                    {showSerialBox && accessDevice?.device_power === "No" && (
                         <div className='row'>
                             <div className='col-md-12'>
                                 <div className='title_header'>
