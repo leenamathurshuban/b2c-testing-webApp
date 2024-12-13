@@ -74,7 +74,7 @@ export default function HomeComp() {
 
   console.log('order_data',router.query)
   useEffect(()=>{
-    const base64 = atob(router.query)
+    const base64 = window.atob(router.query)
     console.log(base64)
   },[router.isReady])
 
