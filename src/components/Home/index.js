@@ -72,6 +72,8 @@ export default function HomeComp() {
     },100)    
   }, [router.events]);
 
+  console.log('order_data',router.query)
+
   return (
     <>
       <Shoppopular loading={loading} products={products} />
