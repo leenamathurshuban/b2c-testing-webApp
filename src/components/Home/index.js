@@ -71,8 +71,9 @@ export default function HomeComp() {
       }
     },100)    
   }, [router.events]);
-
-  console.log('order_data',router.query)
+  
+  const decode = Buffer.from(router.query,"base64").toString('utf-8')
+  console.log('order_data',decode)
 
   return (
     <>
