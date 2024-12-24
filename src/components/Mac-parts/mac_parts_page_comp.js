@@ -18,7 +18,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setActive, setActiveTab, setCategoryName } from "@/appRedux/counterReducer";
 import { useRouter } from "next/router";
 import AmazonComp from "./amazon";
-
+import { MultiSelect } from "react-multi-select-component";
 export default function MacrpartpageComp({ }) {
   const dispatch = useDispatch();
   const router = useRouter();
@@ -151,6 +151,45 @@ export default function MacrpartpageComp({ }) {
           </Container>
         </section>
       )}
+
+      {/* <section className="mac_parts_form">
+        <Container>
+          <div className="form_outer">
+            <div className="heading_form">
+              <h4>Easy Part Finder Tool</h4>
+            </div>
+            <form>
+              <div className="form-group">
+                <select className="form-control">
+                  <option>Model A#</option>
+                  <option>A1278</option>
+                  <option>A1278</option>
+                  <option>A1342</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <select className="form-control">
+                  <option>Year</option>
+                  <option>MacBook Pro (13-inch, Mid 2012)</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <select className="form-control">
+                  <option>Type</option>
+                  <option>CPU & Logic Boards</option>
+                  <option>Case Components</option>
+                  <option>Displays / LCD</option>
+                </select>
+              </div>
+              <div className="form_button">
+                <button className="btn">
+                  <img src="https://cdn.shopify.com/s/files/1/0492/9414/7746/files/icons8-search-120.svg?v=1734954347"/>
+                </button>
+              </div>
+            </form>
+          </div>
+        </Container>
+      </section> */}
 
       <MacSerialLookupComp sendDataToParent={handleDataFromChild} oldDataSerial={ShowData} setShowProducts={setShowProducts} setChildCategoryID={setChildCategoryID} collection={collections} />
 

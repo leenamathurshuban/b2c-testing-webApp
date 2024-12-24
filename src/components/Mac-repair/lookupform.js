@@ -310,7 +310,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
             query: JSON.parse(last_serial_data)
           }, '/mac-parts')
         }
-        if(router.pathname == "/sell-your-system"){
+        if(router.pathname == "/sell-your-mac"){
           handleSeialNumber("sell",JSON.parse(last_serial_data),form_data_serial.serial_number)
         }
         collection?.map((val) => {
@@ -350,7 +350,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
                   query: res?.data?.response
                 }, '/mac-parts')
               }
-              if(router.pathname == "/sell-your-system"){
+              if(router.pathname == "/sell-your-mac"){
                 handleSeialNumber("sell",res?.data?.response,form_data_serial.serial_number)
               }
               setShowData(res?.data?.response);

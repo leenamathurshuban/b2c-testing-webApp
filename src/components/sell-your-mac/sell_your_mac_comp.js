@@ -14,10 +14,10 @@ export default function MacsaleyourComp() {
   };
 
   return (
-    <section className="main_macsalecomp pdt100">
+    // <section className="main_macsalecomp ">
       <Container>
         {dataFromChild && type == "sell" ? (
-          <section className="main_macsalecomp">
+          <section className="main_macsalecomp pdt100">
             <Container>
               <div className="main_heading inner_gheading">
                 <h6>
@@ -93,6 +93,6 @@ export default function MacsaleyourComp() {
             </h1>
           </div> */}
       </Container>
-    </section>
+    // </section>
   );
 }

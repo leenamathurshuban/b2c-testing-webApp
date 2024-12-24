@@ -92,16 +92,16 @@ export const Findyourdevice = ({ data }) => {
                 <div className='container'>
                     <div className='row'>
                         <div className='col-md-12'>
-                            <div className='title_header main_heading-gradiant-p'>
-                                <h1>Find Your Device to <b>Determine Its Value</b></h1>
-                                <p className='haddingh_h2'>Select the make, model, and device specifications to determine your trade-in offer</p>
+                            <div className='title_header'>
+                                <h2>Find Your Device to Determine Its Value</h2>
+                                <p>Select the make, model, and device specifications to determine your trade-in offer</p>
                             </div>
                         </div>
 
                         {!hideStepUp && (
                             <>
                                 <div className='col-md-2'>
-                                    <h4>Device <b>Type</b></h4>
+                                    <h4>Device Type</h4>
                                 </div>
                                 <div className='col-md-10'>
                                     <ul className='list_device'>
@@ -395,9 +395,9 @@ export const Findyourdevice = ({ data }) => {
                             </div>
                             <div className='row'>
                                 <div className='col-md-12'>
-                                    <div className='title_header main_heading-gradiant-p'>
+                                    <div className='title_header'>
                                         <h1><b>Assess Device</b> Condition</h1>
-                                        <p className='haddingh_h2'>Your quoted value is based on the information provided and confirmed upon final inspection.</p>
+                                        <p>Your quoted value is based on the information provided and confirmed upon final inspection.</p>
                                         <a href='#'>View Device Inspection Tips</a>
                                     </div>
                                 </div>
@@ -439,9 +439,9 @@ export const Findyourdevice = ({ data }) => {
                     {showSerialBox && accessDevice?.device_power === "Yes" && !dataFromChild && (
                         <div className='row'>
                             <div className='col-md-12'>
-                                <div className='title_header main_heading-gradiant-p mt-4'>
+                                <div className='title_header'>
                                     <h1>Device <b>Identification</b></h1>
-                                    <p className='haddingh_h2'>To ensure your trade-in is secure, please provide your device's serial number</p>
+                                    <p>To ensure your trade-in is secure, please provide your device's serial number</p>
                                 </div>
                             </div>
                             {/* <form className='serial_no_form'>
@@ -469,9 +469,9 @@ export const Findyourdevice = ({ data }) => {
                         <>
                             <div className='row'>
                                 <div className='col-md-12'>
-                                    <div className='title_header main_heading-gradiant-p mt-4'>
+                                    <div className='title_header'>
                                         <h1>Device <b>Identification</b></h1>
-                                        <p className='haddingh_h2'>To ensure your trade-in is secure, please provide your device's serial number</p>
+                                        <p>To ensure your trade-in is secure, please provide your device's serial number</p>
                                     </div>
                                 </div>
                             </div>

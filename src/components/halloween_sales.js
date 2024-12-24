@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Carousel } from "react-bootstrap";
 import Image from "next/image";
 import offer_banner from "../../public/images/banner/thankgiving_banner.jpg";
+import crismas_banner from "../../public/images/banner/bannersanta.jpg";
+import mobile_christmas from "../../public/images/banner/mobilecm.jpg";
 import offer_blackfriday from "../../public/images/banner/blackfriday_banner.jpg";
 import offer_bannerxs from "../../public/images/banner/thanks_day_sx.jpg";
 import blackfridayxs from "../../public/images/banner/blackfriday_sx.jpg";
@@ -19,21 +21,21 @@ const Halloween_Sales = () => {
         <div className='offer_banner'>
             <Carousel activeIndex={index} onSelect={handleSelect}>
                 <Carousel.Item>
-                    <Image src={offer_banner} alt="Apple Fix Pro" className="img-fluid xs-hide" />
-                    <Image src={offer_bannerxs} alt="Apple Fix Pro" className="img-fluid md-hide" />
+                    <Image src={crismas_banner} alt="Apple Fix Pro" className="img-fluid xs-hide" />
+                    <Image src={mobile_christmas} alt="Apple Fix Pro" className="img-fluid md-hide" />
                     <div className='count_banner'>
                         <CountdownTimer/>
                         <Link href='/#shop-now' className='btn-shopnow'>Shop Now</Link>
                     </div>
                 </Carousel.Item>
-                <Carousel.Item>
+                {/* <Carousel.Item>
                     <Image src={offer_blackfriday} alt="Apple Fix Pro" className="img-fluid xs-hide" />
                     <Image src={blackfridayxs} alt="Apple Fix Pro" className="img-fluid md-hide" />
                     <div className='count_banner'>
                         <CountdownTimer/>
                         <Link href='/#shop-now' className='btn-shopnow'>Shop Now</Link>
                     </div>
-                </Carousel.Item>
+                </Carousel.Item> */}
             </Carousel>
             
         </div>

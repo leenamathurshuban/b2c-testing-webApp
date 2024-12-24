@@ -2,10 +2,12 @@
 * {
   box-sizing: border-box;
 }
+
 $wcolor: #fff;
 $bcolor: #000;
 $pcolor: #676767;
 $scondryc: #464646;
+
 // ======all variables====
 html,
 body {
@@ -13,6 +15,7 @@ body {
   margin: 0;
   scroll-behavior: smooth;
 }
+
 h1,
 h2,
 h3,
@@ -20,14 +23,17 @@ h4 {
   font-family: "Poppins", sans-serif;
   font-weight: 600 !important;
 }
+
 ul {
   list-style-type: none;
   padding: 0 !important;
   text-align: left !important;
 }
+
 body .container {
   max-width: 95%;
 }
+
 p {
   font-family: "Poppins", sans-serif;
   line-height: 30px;
@@ -43,45 +49,59 @@ a {
   list-style-type: none;
   text-decoration: none !important;
 }
+
 .p0 {
   padding: 0;
 }
+
 .opcity0 {
   opacity: 0;
 }
+
 .mrt80 {
   margin-top: 80px;
 }
+
 .mrt100 {
   margin-top: 100px;
 }
+
 .mrb100 {
   margin-bottom: 100px;
 }
+
 .mrt50 {
   margin-top: 50px;
 }
+
 .mrb50 {
   margin-bottom: 50px;
 }
+
 .pdt100 {
   padding-top: 100px;
 }
+
 .pdb100 {
   padding-bottom: 100px;
 }
+
 .pdt50 {
   padding-top: 50px;
 }
+
 .pdb50 {
   padding-bottom: 50px;
 }
+
 .wd100 {
   width: 100%;
 }
+
 .dsnone {
   display: none;
 }
+
 :focus-visible {
   outline: none;
 }
@@ -113,12 +133,11 @@ a {
   background-origin: border-box !important;
   background-size: cover !important;
   box-sizing: border-box !important;
-  background: linear-gradient(
-    90deg,
-    #93f2ff 1.35%,
-    #fd79a1 68.04%,
-    #e78478 106.3%
-  );
+  background: linear-gradient(90deg,
+      #93f2ff 1.35%,
+      #fd79a1 68.04%,
+      #e78478 106.3%);
+
   &:before {
     content: "";
     position: absolute;
@@ -141,10 +160,12 @@ a {
     transition-timing-function: ease-out;
     border-radius: 100px;
   }
+
   &:hover::before {
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
   }
+
   &:hover {
     color: #e75073 !important;
   }
@@ -153,9 +174,11 @@ a {
     color: #e75073 !important;
   }
 }
+
 .main_heading {
   margin-top: 30px;
   margin-bottom: 35px;
+
   h1 {
     font-weight: 700;
     font-size: 55px;
@@ -164,33 +187,32 @@ a {
     color: $scondryc;
   }
 }
+
 .main_heading-gradiant {
   h2 {
     font-weight: 700;
     font-size: 60px;
     line-height: 92px;
     text-align: center;
-    background: linear-gradient(
-      90deg,
-      #93f2ff 1.35%,
-      #fd79a1 68.04%,
-      #e78478 106.3%
-    );
+    background: linear-gradient(90deg,
+        #93f2ff 1.35%,
+        #fd79a1 68.04%,
+        #e78478 106.3%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+
     b {
-      background: linear-gradient(
-        90deg,
-        #93f2ff 1.35%,
-        #fd79a1 68.04%,
-        #e78478 106.3%
-      );
+      background: linear-gradient(90deg,
+          #93f2ff 1.35%,
+          #fd79a1 68.04%,
+          #e78478 106.3%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
   }
+
   p {
     font-size: 16px;
     text-align: center;
@@ -202,6 +224,7 @@ a {
     line-height: 24px;
   }
 }
+
 .main_heading-gradiant-p {
   h1 {
     // font-weight: 700;
@@ -211,18 +234,18 @@ a {
     color: #464646;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
+
     b {
-      background: linear-gradient(
-        90deg,
-        #93f2ff 1.35%,
-        #fd79a1 68.04%,
-        #e78478 106.3%
-      );
+      background: linear-gradient(90deg,
+          #93f2ff 1.35%,
+          #fd79a1 68.04%,
+          #e78478 106.3%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
   }
+
   p {
     font-size: 20px;
     text-align: center;
@@ -242,18 +265,18 @@ a {
     font-size: 60px;
     line-height: 51px;
     text-align: center;
+
     span {
-      background: linear-gradient(
-        90deg,
-        #93f2ff 1.35%,
-        #fd79a1 68.04%,
-        #e78478 106.3%
-      );
+      background: linear-gradient(90deg,
+          #93f2ff 1.35%,
+          #fd79a1 68.04%,
+          #e78478 106.3%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
   }
+
   p {
     font-size: 22px;
     text-align: center;
@@ -266,6 +289,7 @@ a {
     color: #727272;
   }
 }
+
 // =========COUNT DOWN CSS START======//
 .countdown_aria {
   background-image: url('../../public/images/banner/countdown_banner.jpg');
@@ -273,47 +297,57 @@ a {
   background-size: cover;
   background-position: center center;
   position: relative;
+
   .overlay {
     padding: 85px 0;
     background-color: rgb(0 0 0 / 33%);
   }
+
   .row {
     justify-content: flex-end;
     align-items: center;
   }
 }
+
 .countdown_info {
- text-align: center;
+  text-align: center;
+
   h4 {
     color: #ffffff;
     font-family: "Oleo Script", system-ui;
     font-size: 2rem;
     letter-spacing: 1px;
+
     span {
       color: #fa1052;
       text-shadow: 1px 1px #fff, -1px 1px #fff, 1px -1px #fff, -1px -1px #fff, 1px 1px 5px #555;
     }
   }
+
   h2 {
     color: #fff;
     font-size: 52px;
     text-transform: uppercase;
     margin: 20px 0 30px 0;
   }
+
   .main_btn {
     background: #fff;
     color: #a92045 !important;
     outline: solid 2px #fff;
     outline-offset: 2px;
   }
+
   p {
     font-size: 14px;
     color: #fff;
     line-height: 24px;
   }
 }
+
 .countdowncontainer {
   margin-bottom: 15px;
+
   .countdown {
     display: inline-block;
     vertical-align: middle;
@@ -327,13 +361,15 @@ a {
     -webkit-backdrop-filter: blur(6.5px);
     backdrop-filter: blur(6.5px);
     border-radius: 10px;
+
     h3 {
       color: #9c142b;
       font-size: 40px;
       margin-bottom: 0;
       text-shadow: 1px 1px #fff, -1px 1px #fff, 1px -1px #fff, -1px -1px #fff, 1px 1px 5px #555;
     }
-    span{
+
+    span {
       color: #9c142b;
       text-transform: capitalize;
       text-shadow: 1px 1px #fff, -1px 1px #fff, 1px -1px #fff, -1px -1px #fff, 1px 1px 1px #555;
@@ -341,17 +377,19 @@ a {
     }
   }
 }
+
 .count_banner {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 68%;
-    height: 195px;
-    padding: 4% 0;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 68%;
+  height: 195px;
+  padding: 4% 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   h1 {
     font-family: "Henny Penny", system-ui;
     font-weight: 400;
@@ -359,68 +397,79 @@ a {
     font-size: 2.70rem;
     letter-spacing: 0.2rem;
     margin: 10px 0 15px 0;
-}
-.countdowncontainer {
-  margin-bottom: 0;
-  margin-right: 15px;
-}
-img.happy_vtr {
-  max-width: 20%;
-  height: auto;
-}
-p.text-discount {
-  font-size: 2rem;
-  font-family: "Oleo Script", system-ui;
-  color: #fff;
-  font-weight: 600;
-  margin: 0px 0 20px 0;
-}
-a.btn-shopnow {
-  background: linear-gradient(45deg, #431137, #C71349);
-  color: #fff;
-  padding: 11px 20px;
-  display: inline-block;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 6px;
-  font-size: 0.7rem;
-}
+  }
+
+  .countdowncontainer {
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+
+  img.happy_vtr {
+    max-width: 20%;
+    height: auto;
+  }
+
+  p.text-discount {
+    font-size: 2rem;
+    font-family: "Oleo Script", system-ui;
+    color: #fff;
+    font-weight: 600;
+    margin: 0px 0 20px 0;
+  }
+
+  a.btn-shopnow {
+    background: linear-gradient(45deg, #431137, #C71349);
+    color: #fff;
+    padding: 11px 20px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+  }
+
   .countdowncontainer .countdown {
     height: 60px;
     padding: 6px 0;
     width: 60px;
     border-radius: 5px;
     margin-right: 10px;
+
     span {
       font-size: 12px;
       position: relative;
       top: -6px;
     }
   }
+
   .countdowncontainer .countdown h3 {
     font-size: 26px;
     margin-bottom: 0;
+  }
 }
-}
+
 span.text-denger {
   color: #fa1052;
-  text-shadow: 
-     1px  1px     #fff, 
-    -1px  1px     #fff, 
-     1px -1px     #fff, 
-    -1px -1px     #fff,
-     1px  1px 5px #555;
+  text-shadow:
+    1px 1px #fff,
+    -1px 1px #fff,
+    1px -1px #fff,
+    -1px -1px #fff,
+    1px 1px 5px #555;
 }
+
 .fox_vactor img {
-    max-width: 550px;
-    position: relative;
-    left: -50px;
-    bottom: -200px;
+  max-width: 550px;
+  position: relative;
+  left: -50px;
+  bottom: -200px;
 }
+
 section.main_macparts {
   position: relative;
   overflow: hidden;
 }
+
 .spider_img {
   position: absolute;
   top: -46px;
@@ -428,7 +477,8 @@ section.main_macparts {
   display: flex;
   align-items: flex-end;
   left: 25px;
-  &::before{
+
+  &::before {
     content: '';
     position: absolute;
     left: 41px;
@@ -437,45 +487,56 @@ section.main_macparts {
     height: 90%;
     top: 0;
   }
+
   img {
     max-width: 85px;
     height: auto;
-    
+
   }
+
   &.spider02 {
     right: 25px;
     left: auto;
     height: 215px;
-    &::before{
+
+    &::before {
       left: 32px;
     }
+
     img {
       max-width: 65px;
       height: auto;
-      
+
     }
   }
 }
+
 img.vert-move {
   animation: UpDown 2s linear infinite;
   position: relative;
 }
+
 @keyframes UpDown {
   0% {
     bottom: 0;
   }
+
   50% {
     bottom: .5em;
   }
+
   100% {
     bottom: 0;
   }
 }
+
 /* src/Flower.css */
 .flower {
   position: absolute;
-  width: 100px; /* Adjust size as needed */
-  height: 100px; /* Adjust size as needed */
+  width: 100px;
+  /* Adjust size as needed */
+  height: 100px;
+  /* Adjust size as needed */
   background-size: 100%;
   animation: fall linear forwards;
   background-repeat: no-repeat;
@@ -486,11 +547,13 @@ img.vert-move {
     transform: translateY(0);
     opacity: 1;
   }
+
   100% {
     transform: translateY(100vh);
     opacity: 0;
   }
 }
+
 .flowApp {
   position: fixed;
   height: 100vh;
@@ -501,23 +564,26 @@ img.vert-move {
 }
 
 /**==========Responsove============**/
-@media (max-width: 767.98px) { 
+@media (max-width: 767.98px) {
   .count_banner {
     bottom: 0;
     left: 0;
     width: 100%;
     text-align: center;
     padding-top: 10%;
-    p.text-discount{
+
+    p.text-discount {
       font-size: 1.85rem;
       margin: 0px 0 15px 0;
     }
+
     a.btn-shopnow {
       padding: 6px 12px;
       border-radius: 2px;
       font-size: 10px;
     }
-    .countdowncontainer{
+
+    .countdowncontainer {
       .countdown {
         height: 40px;
         padding: 6px 0;
@@ -525,12 +591,14 @@ img.vert-move {
         border-radius: 4px;
         margin: 0 4px;
         line-height: normal;
+
         h3 {
           font-size: 18px;
           margin-bottom: 0;
           line-height: normal;
         }
-        span{
+
+        span {
           font-size: 10px;
           position: relative;
           top: 5px;
@@ -538,42 +606,53 @@ img.vert-move {
       }
     }
   }
+
   .flower {
     width: 42px;
     height: 42px;
   }
+
   .spider_img img {
     max-width: 50px;
   }
+
   .spider_img {
     height: 50vh;
     left: 11px;
-    &::before{
+
+    &::before {
       left: 25px;
       height: 95%;
     }
   }
+
   .spider_img.spider02 {
     height: 265px;
-    &::before{
+
+    &::before {
       left: 15px;
     }
+
     img {
       max-width: 30px;
     }
   }
+
   .countdown_info {
     padding: 0 35px;
     text-align: center;
+
     h2 {
       font-size: 42px;
     }
+
     p {
       font-size: 12px;
       line-height: 22px;
     }
   }
-  .countdowncontainer{
+
+  .countdowncontainer {
     .countdown {
       height: 70px;
       padding: 10px 0;
@@ -581,35 +660,42 @@ img.vert-move {
       border-radius: 6px;
       margin: 0 4px;
       line-height: normal;
+
       h3 {
         font-size: 24px;
         margin-bottom: 0;
         line-height: normal;
       }
-      span{
+
+      span {
         font-size: 11px;
       }
     }
   }
+
   .countdown_aria .countdowncontainer .countdown span {
     position: relative;
     top: -7px;
   }
+
   .fox_vactor {
     display: none;
   }
+
   .footer_img .footer_logo {
     background: linear-gradient(90deg, #91406900 0.35%, #a82654 40%, #d20d45 106.3%);
-    p{
+
+    p {
       font-size: 24px;
     }
+  }
 }
- }
- .carousel-indicators [data-bs-target] {
-  background-color: #c0103f;
- }
 
- .title_header {
+.carousel-indicators [data-bs-target] {
+  background-color: #c0103f;
+}
+
+.title_header {
   text-align: center;
   padding-bottom: 50px;
 }
@@ -663,7 +749,7 @@ ul.list_device .inner_box h4 {
   font-size: 18px;
   font-weight: 500 !important;
   margin: 0;
-  
+
 }
 
 ul.list_device .inner_box p {
@@ -671,23 +757,13 @@ ul.list_device .inner_box p {
 }
 
 .find_your_divs h4 {
-  font-weight: 600 !important;
-  font-size: 24px;
+  font-weight: 500 !important;
+  font-size: 20px;
   color: #464646;
 }
 
-.find_your_divs h4 {
-  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 .find_your_divs h4 b {
-  background: transparent !important;
-  -webkit-text-fill-color: #464646;
-  background-clip: text;
-  font-weight: 600;
+  font-weight: 500 !important;
 }
 
 ul.list_device.series li {
@@ -760,6 +836,7 @@ ul.list_device li:hover p b {
 
 .title_header p {
   margin: 0;
+  line-height: 24px;
 }
 
 .title_header a {
@@ -784,13 +861,15 @@ ul.assess_list li {
 }
 
 ul.assess_list li p a {
-  text-decoration: underline !important;;
+  text-decoration: underline !important;
+  ;
   font-weight: 400;
   color: #f37e8f;
 }
 
 ul.assess_list li p {
   margin: 0;
+  line-height: 24px;
 }
 
 ul.assess_list li button.btn {
@@ -865,7 +944,7 @@ button.btn.device_button {
 form.serial_no_form .form-group {
   text-align: left;
 }
- 
+
 button.btn.device_button:hover {
   background: transparent;
   border-color: #f37e8f;
@@ -901,4 +980,213 @@ section.macparts-page {
 .find_your_divs .repair-form {
   max-width: 600px;
   margin: auto;
+}
+
+ul.list_device.shipping {
+  display: flex;
+  align-items: center;
+  padding: 20px !important;
+  border: solid 1px #cccccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0 10px 35px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.0901960784);
+}
+
+ul.list_device.shipping:hover {
+  border: solid 2px #f37e8f;
+}
+
+ul.list_device.shipping li {
+  width: 100%;
+  margin: 0 0 10px !important;
+}
+
+ul.list_device.shipping li p {
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 22px;
+}
+
+ul.list_device.device li .inner_box p {
+  text-align: left;
+}
+
+.count_banner {
+  display: none !important;
+}
+
+section.main_buyrepair.mrt50 {
+  padding-bottom: 60px;
+}
+
+.main_trusted {
+  position: relative;
+}
+
+.main_trusted.home_pge:before {
+  content: "";
+  width: 50%;
+  display: block;
+  height: 600px;
+  position: absolute;
+  bottom: 0;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url(https://cdn.shopify.com/s/files/1/0492/9414/7746/files/rb_37021.png?v=1734691348);
+}
+
+.mac_parts_form .heading_form {
+  margin-bottom: 25px;
+}
+
+.mac_parts_form .form_outer {
+  background: #fff;
+  border: 1px solid rgba(218, 218, 218, 0.73);
+  box-shadow: 0px 15px 43px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.mac_parts_form form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mac_parts_form form .form-group {
+  width: 31%;
+}
+
+.mac_parts_form form .form_button {
+  width: 5.50%;
+}
+
+.mac_parts_form form .form-control {
+  border-radius: 0;
+  padding: 15px 20px;
+  font-size: 15px;
+  outline: 0;
+  box-shadow: none;
+  border: solid 1px #ddd;
+}
+
+.mac_parts_form form .form-group:first-child .form-control {
+  border-right: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+.mac_parts_form form .form-group:nth-child(3) .form-control {
+  border-left: 0;
+}
+
+.mac_parts_form form .form_button img {
+  width: 28px;
+  filter: invert(1);
+}
+
+.mac_parts_form form .form_button button.btn {
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  width: 100%;
+  height: 55px;
+  border-radius: 0 10px 10px 0;
+}
+
+
+@media (max-width: 767.98px) {
+  .main_trusted:before {
+    display: none;
+  }
+
+  ul.list_device li {
+    width: 100% !important;
+    padding: 0;
+  }
+
+  .find_your_divs h4 {
+    margin-bottom: 20px;
+  } 
+
+  ul.list_device .inner_box h4 {
+    font-size: 16px;
+  }
+
+  ul.assess_list li .assess_buttons {
+    margin-left: 5px;
+    display: flex;
+  }
+
+  ul.assess_list li button.btn {
+    padding: 10px 11px;
+  }
+
+  ul.list_device.shipping {
+    margin: 0 0px 25px;
+  }
+
+  .file-repair-main .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .find_your_divs .repair-form>span {
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .find_your_divs .repair-form>span {
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .find_your_divs .repair-form .mb-3.row {
+    margin: 0 !important;
+  }
+
+  .find_your_divs .repair-form .mob-inmargin {
+    margin: 0;
+  }
+
+  .find_your_divs .repair-form .mb-3.row>div {
+    margin-bottom: 15px;
+    padding: 0;
+  }
+
+  .mac_parts_form .form_outer {
+    padding: 25px;
+  }
+
+  .mac_parts_form .heading_form {
+    margin-bottom: 20px;
+  }   
+
+  .mac_parts_form form .form-group {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .mac_parts_form form .form-control {
+    border: solid 1px #ddd !important;
+    border-radius: 10px !important;
+  }
+
+  .mac_parts_form form .form_button {
+    width: 50%;
+    margin: auto;
+  }
+
+  .mac_parts_form form .form_button button.btn {
+    border-radius: 50px;
+  }
+
+  section.macparts-page {
+    padding-bottom: 40px;
+  }
+
+  section.macparts-page .main_heading-gradiant-p h1 {
+    margin-top: 15px;
+} 
+
+  
 }

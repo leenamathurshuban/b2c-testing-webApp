@@ -7,7 +7,9 @@ import { useRouter } from "next/router";
 import { Shoppopularpart } from "./Shoppopularpart";
 import { useGetPopularProductsPartsQuery } from "@/appRedux/apiSlice";
 import CountdownTimer from "./CountdownTimer";
+import back_banner from "../../../public/images/banner/bannerdowncm.jpg"
 import Link from "next/link";
+import Image from "next/image";
 // import FlowerApp from "../FlowerApp";
 export default function HomeComp() {
 
@@ -88,9 +90,10 @@ export default function HomeComp() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>       */}
       <Shoppopularpart loading={loading} parts={parts} />
       <BuyrepairComp />
+      <Image src={back_banner} alt="Apple Fix Pro" className="img-fluid" />
       <Looking_macparts />
       <TrustedComp />
     </>

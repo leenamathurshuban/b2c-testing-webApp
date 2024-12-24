@@ -5,7 +5,7 @@ import Image from "next/image";
 import thanksfoot_vctr from "../../../public/images/footer/thanksgiving_footvactor.png";
 export default function TrustedComp() {
   return (
-    <section className="main_trusted">
+    <section className="main_trusted home_pge">
       <Container>
         <div className={styles.trusted_full} data-aos="fade-down">
           <Row className="">
