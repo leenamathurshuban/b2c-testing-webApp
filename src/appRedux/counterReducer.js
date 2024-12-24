@@ -24,7 +24,7 @@ const cartItems = (
     const data = {
       attributeName,
       productID: id,
-      productName: name,
+      productName: name ?? title,
       id: variations?.id,
       name: variations?.name ?? title,
       price: Number(variations?.price || 0).toFixed(2),
