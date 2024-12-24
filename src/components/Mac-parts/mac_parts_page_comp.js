@@ -152,7 +152,7 @@ export default function MacrpartpageComp({ }) {
         </section>
       )}
 
-      {/* <section className="mac_parts_form">
+      <section className="mac_parts_form">
         <Container>
           <div className="form_outer">
             <div className="heading_form">
@@ -189,7 +189,7 @@ export default function MacrpartpageComp({ }) {
             </form>
           </div>
         </Container>
-      </section> */}
+      </section>
 
       <MacSerialLookupComp sendDataToParent={handleDataFromChild} oldDataSerial={ShowData} setShowProducts={setShowProducts} setChildCategoryID={setChildCategoryID} collection={collections} />
 

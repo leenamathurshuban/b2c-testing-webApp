@@ -12,7 +12,7 @@ const cartItems = (
   url,
   proVariant
 ) => {
-  const { id, name, variations,title } = product;
+  const { id, name, variations,title,images } = product;
   const cartDataIndex = oldCart.findIndex(
     (e) => e.productID === id && e.id === variations?.id
   );
@@ -26,9 +26,9 @@ const cartItems = (
       productID: id,
       productName: name,
       id: variations?.id,
-      name: variations?.name || title,
+      name: variations?.name ?? title,
       price: Number(variations?.price || 0).toFixed(2),
-      image_url: variations?.image?.[0]?.src ?? variations?.image?.src,
+      image_url: variations?.images?.[0]?.src ?? images?.[0]?.src,
       quantity,
       remaningQty,
       url,

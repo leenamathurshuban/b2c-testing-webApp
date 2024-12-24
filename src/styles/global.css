@@ -723,7 +723,6 @@ ul.list_device li:hover p b {
 
 .title_header p {
   margin: 0;
-  line-height: 24px;
 }
 
 .title_header a {
@@ -755,7 +754,6 @@ ul.assess_list li p a {
 
 ul.assess_list li p {
   margin: 0;
-  line-height: 24px;
 }
 
 ul.assess_list li button.btn {
@@ -890,10 +888,9 @@ ul.list_device.shipping li {
 }
 
 ul.list_device.shipping li p {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   margin: 0;
-  line-height: 22px;
 }
 
 ul.list_device.device li .inner_box p {
@@ -912,7 +909,7 @@ section.main_buyrepair.mrt50 {
   position: relative;
 }
 
-.main_trusted.home_pge:before {
+.main_trusted.main_trusted:before {
   content: "";
   width: 50%;
   display: block;
@@ -924,132 +921,8 @@ section.main_buyrepair.mrt50 {
   background-image: url(https://cdn.shopify.com/s/files/1/0492/9414/7746/files/rb_37021.png?v=1734691348);
 }
 
-.mac_parts_form .heading_form {
-  margin-bottom: 25px;
-}
-
-.mac_parts_form .form_outer {
-  background: #fff;
-  border: 1px solid rgba(218, 218, 218, 0.73);
-  box-shadow: 0px 15px 43px rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
-  padding: 40px;
-}
-
-.mac_parts_form form {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.mac_parts_form form .form-group {
-  width: 31%;
-}
-
-.mac_parts_form form .form_button {
-  width: 5.5%;
-}
-
-.mac_parts_form form .form-control {
-  border-radius: 0;
-  padding: 15px 20px;
-  font-size: 15px;
-  outline: 0;
-  box-shadow: none;
-  border: solid 1px #ddd;
-}
-
-.mac_parts_form form .form-group:first-child .form-control {
-  border-right: 0;
-  border-radius: 10px 0 0 10px;
-}
-
-.mac_parts_form form .form-group:nth-child(3) .form-control {
-  border-left: 0;
-}
-
-.mac_parts_form form .form_button img {
-  width: 28px;
-  filter: invert(1);
-}
-
-.mac_parts_form form .form_button button.btn {
-  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
-  width: 100%;
-  height: 55px;
-  border-radius: 0 10px 10px 0;
-}
-
 @media (max-width: 767.98px) {
   .main_trusted:before {
     display: none;
-  }
-  ul.list_device li {
-    width: 100% !important;
-    padding: 0;
-  }
-  .find_your_divs h4 {
-    margin-bottom: 20px;
-  }
-  ul.list_device .inner_box h4 {
-    font-size: 16px;
-  }
-  ul.assess_list li .assess_buttons {
-    margin-left: 5px;
-    display: flex;
-  }
-  ul.assess_list li button.btn {
-    padding: 10px 11px;
-  }
-  ul.list_device.shipping {
-    margin: 0 0px 25px;
-  }
-  .file-repair-main .container {
-    max-width: 100%;
-    padding: 0;
-  }
-  .find_your_divs .repair-form > span {
-    margin-bottom: 10px;
-    display: block;
-  }
-  .find_your_divs .repair-form > span {
-    margin-bottom: 10px;
-    display: block;
-  }
-  .find_your_divs .repair-form .mb-3.row {
-    margin: 0 !important;
-  }
-  .find_your_divs .repair-form .mob-inmargin {
-    margin: 0;
-  }
-  .find_your_divs .repair-form .mb-3.row > div {
-    margin-bottom: 15px;
-    padding: 0;
-  }
-  .mac_parts_form .form_outer {
-    padding: 25px;
-  }
-  .mac_parts_form .heading_form {
-    margin-bottom: 20px;
-  }
-  .mac_parts_form form .form-group {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  .mac_parts_form form .form-control {
-    border: solid 1px #ddd !important;
-    border-radius: 10px !important;
-  }
-  .mac_parts_form form .form_button {
-    width: 50%;
-    margin: auto;
-  }
-  .mac_parts_form form .form_button button.btn {
-    border-radius: 50px;
-  }
-  section.macparts-page {
-    padding-bottom: 40px;
-  }
-  section.macparts-page .main_heading-gradiant-p h1 {
-    margin-top: 15px;
   }
 }/*# sourceMappingURL=global.css.map */
