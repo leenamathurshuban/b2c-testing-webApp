@@ -219,7 +219,9 @@ export const DeviceIdentificationForm = ({ dataFromChild, ansOfQuestions, prices
   console.log(formInput)
   return (
     <div>
-      <ToastContainer autoClose={4000} />
+      <ToastContainer
+        position='top-center'
+        autoClose={4000} />
       <section className="main_macsalecomp sell_mac_list">
         <div className="main_heading inner_gheading">
           <div className="mac-repair-new-sell">

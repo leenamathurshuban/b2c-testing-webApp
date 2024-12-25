@@ -159,14 +159,17 @@ export const Findyourmac = ({ data }) => {
                                                                 }}
                                                             ></div>
                                                         )
+                                                    } else if (val.title === 'Mac Mini' && device === 'Mac mini') {
+                                                        return (
+                                                            <div
+                                                                className='new_shopmac_img pdimg-next'
+                                                                dangerouslySetInnerHTML={{
+                                                                    __html: val.svghtml,
+                                                                }}
+                                                            ></div>
+                                                        )
                                                     }
                                                 })}
-                                                {device === "Mac mini" && (
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
-                                                        <path d="M3.5 8C3.5 7.04306 3.50106 6.37565 3.56876 5.87208C3.63453 5.3829 3.75483 5.12385 3.93934 4.93934C4.12385 4.75483 4.3829 4.63453 4.87208 4.56876C5.37565 4.50106 6.04306 4.5 7 4.5H17C17.9569 4.5 18.6244 4.50106 19.1279 4.56876C19.6171 4.63453 19.8762 4.75483 20.0607 4.93934C20.2452 5.12385 20.3655 5.3829 20.4312 5.87208C20.4989 6.37565 20.5 7.04306 20.5 8V16.5H3.5V8Z" stroke="#000" />
-                                                        <path d="M3.66667 16.5C3.02233 16.5 2.5 17.0223 2.5 17.6667C2.5 18.6792 3.32081 19.5 4.33333 19.5H19.6667C20.6792 19.5 21.5 18.6792 21.5 17.6667C21.5 17.0223 20.9777 16.5 20.3333 16.5H3.66667Z" stroke="#000" />
-                                                    </svg>
-                                                )}
                                                 {device === "Mac Studio" && (
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
                                                         <path d="M3.5 8C3.5 7.04306 3.50106 6.37565 3.56876 5.87208C3.63453 5.3829 3.75483 5.12385 3.93934 4.93934C4.12385 4.75483 4.3829 4.63453 4.87208 4.56876C5.37565 4.50106 6.04306 4.5 7 4.5H17C17.9569 4.5 18.6244 4.50106 19.1279 4.56876C19.6171 4.63453 19.8762 4.75483 20.0607 4.93934C20.2452 5.12385 20.3655 5.3829 20.4312 5.87208C20.4989 6.37565 20.5 7.04306 20.5 8V16.5H3.5V8Z" stroke="#000" />
@@ -203,9 +206,42 @@ export const Findyourmac = ({ data }) => {
                                         <li className={`${Val.name == serialType && 'active'}`} onClick={() => handleSeriesStatic(Val)}>
                                             <div className='inner_box'>
                                                 <div className='icon'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 25 25" fill="none">
+                                                    {/* <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 25 25" fill="none">
                                                         <path d="M4.5 14.5V16.5C4.5 17.0523 4.94772 17.5 5.5 17.5H12.5M4.5 14.5V6.5C4.5 5.94772 4.94772 5.5 5.5 5.5H19.5C20.0523 5.5 20.5 5.94772 20.5 6.5V14.5M4.5 14.5H20.5M20.5 14.5V16.5C20.5 17.0523 20.0523 17.5 19.5 17.5H12.5M12.5 17.5V20.5M12.5 20.5H8M12.5 20.5H17" stroke="#000" stroke-width="1" />
-                                                    </svg>
+                                                    </svg> */}
+                                                    {GetCollectionSvg.map((value) => {
+                                                        if (value.title === Val.type) {
+                                                            return (
+                                                                <div
+                                                                    className='new_shopmac_img pdimg-next'
+                                                                    dangerouslySetInnerHTML={{
+                                                                        __html: value.svghtml,
+                                                                    }}
+                                                                ></div>
+                                                            )
+                                                        } else if (value.title === 'Mac Mini' && Val.type === 'Mac mini') {
+                                                            return (
+                                                                <div
+                                                                    className='new_shopmac_img pdimg-next'
+                                                                    dangerouslySetInnerHTML={{
+                                                                        __html: value.svghtml,
+                                                                    }}
+                                                                ></div>
+                                                            )
+                                                        }
+                                                    })}
+                                                    {Val.type === "Mac Studio" && (
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M3.5 8C3.5 7.04306 3.50106 6.37565 3.56876 5.87208C3.63453 5.3829 3.75483 5.12385 3.93934 4.93934C4.12385 4.75483 4.3829 4.63453 4.87208 4.56876C5.37565 4.50106 6.04306 4.5 7 4.5H17C17.9569 4.5 18.6244 4.50106 19.1279 4.56876C19.6171 4.63453 19.8762 4.75483 20.0607 4.93934C20.2452 5.12385 20.3655 5.3829 20.4312 5.87208C20.4989 6.37565 20.5 7.04306 20.5 8V16.5H3.5V8Z" stroke="#000" />
+                                                            <path d="M3.66667 16.5C3.02233 16.5 2.5 17.0223 2.5 17.6667C2.5 18.6792 3.32081 19.5 4.33333 19.5H19.6667C20.6792 19.5 21.5 18.6792 21.5 17.6667C21.5 17.0223 20.9777 16.5 20.3333 16.5H3.66667Z" stroke="#000" />
+                                                        </svg>
+                                                    )}
+                                                    {Val.type === "Thunderbolt & Studio Display" && (
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M3.5 8C3.5 7.04306 3.50106 6.37565 3.56876 5.87208C3.63453 5.3829 3.75483 5.12385 3.93934 4.93934C4.12385 4.75483 4.3829 4.63453 4.87208 4.56876C5.37565 4.50106 6.04306 4.5 7 4.5H17C17.9569 4.5 18.6244 4.50106 19.1279 4.56876C19.6171 4.63453 19.8762 4.75483 20.0607 4.93934C20.2452 5.12385 20.3655 5.3829 20.4312 5.87208C20.4989 6.37565 20.5 7.04306 20.5 8V16.5H3.5V8Z" stroke="#000" />
+                                                            <path d="M3.66667 16.5C3.02233 16.5 2.5 17.0223 2.5 17.6667C2.5 18.6792 3.32081 19.5 4.33333 19.5H19.6667C20.6792 19.5 21.5 18.6792 21.5 17.6667C21.5 17.0223 20.9777 16.5 20.3333 16.5H3.66667Z" stroke="#000" />
+                                                        </svg>
+                                                    )}
                                                 </div>
                                                 <div className='cnt'>
                                                     <h4>{Val?.name}</h4>
@@ -228,9 +264,42 @@ export const Findyourmac = ({ data }) => {
                                         <li className={`${Val.name == finalType && 'active'}`} onClick={() => handleSelectedItem(Val)}>
                                             <div className='inner_box'>
                                                 <div className='icon'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 25 25" fill="none">
+                                                    {/* <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 25 25" fill="none">
                                                         <path d="M4.5 14.5V16.5C4.5 17.0523 4.94772 17.5 5.5 17.5H12.5M4.5 14.5V6.5C4.5 5.94772 4.94772 5.5 5.5 5.5H19.5C20.0523 5.5 20.5 5.94772 20.5 6.5V14.5M4.5 14.5H20.5M20.5 14.5V16.5C20.5 17.0523 20.0523 17.5 19.5 17.5H12.5M12.5 17.5V20.5M12.5 20.5H8M12.5 20.5H17" stroke="#000" stroke-width="1" />
-                                                    </svg>
+                                                    </svg> */}
+                                                    {GetCollectionSvg.map((value) => {
+                                                        if (value.title === Val.type) {
+                                                            return (
+                                                                <div
+                                                                    className='new_shopmac_img pdimg-next'
+                                                                    dangerouslySetInnerHTML={{
+                                                                        __html: value.svghtml,
+                                                                    }}
+                                                                ></div>
+                                                            )
+                                                        } else if (value.title === 'Mac Mini' && Val.type === 'Mac mini') {
+                                                            return (
+                                                                <div
+                                                                    className='new_shopmac_img pdimg-next'
+                                                                    dangerouslySetInnerHTML={{
+                                                                        __html: value.svghtml,
+                                                                    }}
+                                                                ></div>
+                                                            )
+                                                        }
+                                                    })}
+                                                    {Val.type === "Mac Studio" && (
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M3.5 8C3.5 7.04306 3.50106 6.37565 3.56876 5.87208C3.63453 5.3829 3.75483 5.12385 3.93934 4.93934C4.12385 4.75483 4.3829 4.63453 4.87208 4.56876C5.37565 4.50106 6.04306 4.5 7 4.5H17C17.9569 4.5 18.6244 4.50106 19.1279 4.56876C19.6171 4.63453 19.8762 4.75483 20.0607 4.93934C20.2452 5.12385 20.3655 5.3829 20.4312 5.87208C20.4989 6.37565 20.5 7.04306 20.5 8V16.5H3.5V8Z" stroke="#000" />
+                                                            <path d="M3.66667 16.5C3.02233 16.5 2.5 17.0223 2.5 17.6667C2.5 18.6792 3.32081 19.5 4.33333 19.5H19.6667C20.6792 19.5 21.5 18.6792 21.5 17.6667C21.5 17.0223 20.9777 16.5 20.3333 16.5H3.66667Z" stroke="#000" />
+                                                        </svg>
+                                                    )}
+                                                    {Val.type === "Thunderbolt & Studio Display" && (
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M3.5 8C3.5 7.04306 3.50106 6.37565 3.56876 5.87208C3.63453 5.3829 3.75483 5.12385 3.93934 4.93934C4.12385 4.75483 4.3829 4.63453 4.87208 4.56876C5.37565 4.50106 6.04306 4.5 7 4.5H17C17.9569 4.5 18.6244 4.50106 19.1279 4.56876C19.6171 4.63453 19.8762 4.75483 20.0607 4.93934C20.2452 5.12385 20.3655 5.3829 20.4312 5.87208C20.4989 6.37565 20.5 7.04306 20.5 8V16.5H3.5V8Z" stroke="#000" />
+                                                            <path d="M3.66667 16.5C3.02233 16.5 2.5 17.0223 2.5 17.6667C2.5 18.6792 3.32081 19.5 4.33333 19.5H19.6667C20.6792 19.5 21.5 18.6792 21.5 17.6667C21.5 17.0223 20.9777 16.5 20.3333 16.5H3.66667Z" stroke="#000" />
+                                                        </svg>
+                                                    )}
                                                 </div>
                                                 <div className='cnt'>
                                                     <h4>{Val?.name}</h4>
