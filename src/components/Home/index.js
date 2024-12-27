@@ -93,7 +93,7 @@ export default function HomeComp() {
       </section>       */}
       <Shoppopularpart loading={loading} parts={parts} />
       <BuyrepairComp />
-      <Image src={back_banner} alt="Apple Fix Pro" className="img-fluid" />
+      {/* <Image src={back_banner} alt="Apple Fix Pro" className="img-fluid" /> */}
       <Looking_macparts />
       <TrustedComp />
     </>
