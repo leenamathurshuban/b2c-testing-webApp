@@ -738,11 +738,13 @@ ul.list_device li {
   padding: 0 10px;
 }
 
-ul.list_device .icon svg {
-  width: 40px;
-  height: 50px;
-  filter: invert(0.4);
+ul.list_device .icon svg,
+ul.list_device .icon img {
+  width: 70px !important;
+  height: 50px !important;
   margin-right: 8px;
+  object-fit: contain;
+  fill: #34495e !important;
 }
 
 ul.list_device .inner_box h4 {
@@ -777,10 +779,6 @@ ul.list_device li.active .inner_box {
 ul.list_device .inner_box:hover {
   background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
   border-color: #fff;
-}
-
-ul.list_device .inner_box:hover svg {
-  filter: invert(1);
 }
 
 ul.list_device .inner_box:hover h4 {
@@ -860,9 +858,8 @@ ul.assess_list li {
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.0901960784);
 }
 
-ul.assess_list li p a {
+ul.assess_list li p span {
   text-decoration: underline !important;
-  ;
   font-weight: 400;
   color: #f37e8f;
 }
@@ -1093,6 +1090,84 @@ section.main_buyrepair.mrt50 {
   border-radius: 0 10px 10px 0;
 }
 
+.title_header span {
+  font-size: 15px;
+  color: #f38a96;
+  text-decoration: underline;
+}
+
+ul.list_device .icon svg path.inverse {
+  fill: #fff !important;
+}
+
+.inspection_tips_modl .modal-content {
+    max-width: 550px;
+    margin: auto;
+}
+
+.inspection_tips_modl h3 {
+    font-size: 22px;
+    font-weight: 400 !important;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.inspection_tips_modl .modal-body {
+    padding: 20px;
+}
+
+.inspection_tips_modl .text {
+    width: 92%;
+}
+
+.inspection_tips_modl .text h4 {
+    font-size: 16px;
+    font-weight: 500 !important;
+}
+
+.inspection_tips_modl .text p {
+    line-height: 22px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.inspection_tips_modl .cnt_outer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.inspection_tips_modl .cnt_outer svg {
+    width: 35px;
+    filter: invert(0.7);
+}
+
+.inspection_tips_modl button {
+  width: 100%;
+  background: transparent;
+  color: #000;
+  font-size: 15px;
+  border-color: #ddd;
+  transition: 0.4s;
+}
+
+.inspection_tips_modl button:hover {
+  background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
+  border-color: #fff;
+}
+
+div#popover-positioned-top {
+  max-width: 420px;
+}
+
+div#popover-positioned-top .popover-body {
+  line-height: 24px;
+}
+ul.list_device .inner_box img {
+  max-width: 65px;
+  margin-right: 8px;
+}
 
 @media (max-width: 767.98px) {
   .main_trusted:before {
@@ -1106,7 +1181,7 @@ section.main_buyrepair.mrt50 {
 
   .find_your_divs h4 {
     margin-bottom: 20px;
-  } 
+  }
 
   ul.list_device .inner_box h4 {
     font-size: 16px;
@@ -1159,7 +1234,7 @@ section.main_buyrepair.mrt50 {
 
   .mac_parts_form .heading_form {
     margin-bottom: 20px;
-  }   
+  }
 
   .mac_parts_form form .form-group {
     width: 100%;
@@ -1186,7 +1261,14 @@ section.main_buyrepair.mrt50 {
 
   section.macparts-page .main_heading-gradiant-p h1 {
     margin-top: 15px;
-} 
+  }
 
-  
+  .main_footer {
+    background: linear-gradient(359deg, #2BB2C8 0.35%, #A82654 40%, #E8003E 106.3%) !important;
+  }
+
+  .main_footer .footer-bottom {
+    padding-bottom: 15px;
+  }
+
 }

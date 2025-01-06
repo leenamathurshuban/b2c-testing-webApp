@@ -626,14 +626,11 @@ ul.list_device li {
   padding: 0 10px;
 }
 
-ul.list_device .icon svg,
-ul.list_device .icon img {
-  width: 70px !important;
-  height: 50px !important;
+ul.list_device .icon svg {
+  width: 40px;
+  height: 50px;
+  filter: invert(0.4);
   margin-right: 8px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  fill: #34495e !important;
 }
 
 ul.list_device .inner_box h4 {
@@ -667,6 +664,10 @@ ul.list_device li.active .inner_box {
 ul.list_device .inner_box:hover {
   background: linear-gradient(90deg, #93f2ff 1.35%, #fd79a1 68.04%, #e78478 106.3%);
   border-color: #fff;
+}
+
+ul.list_device .inner_box:hover svg {
+  filter: invert(1);
 }
 
 ul.list_device .inner_box:hover h4 {
@@ -911,6 +912,18 @@ section.main_buyrepair.mrt50 {
   position: relative;
 }
 
+.main_trusted.home_pge:before {
+  content: "";
+  width: 50%;
+  display: block;
+  height: 600px;
+  position: absolute;
+  bottom: 0;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url(https://cdn.shopify.com/s/files/1/0492/9414/7746/files/rb_37021.png?v=1734691348);
+}
+
 .mac_parts_form .heading_form {
   margin-bottom: 25px;
 }
@@ -1041,11 +1054,6 @@ div#popover-positioned-top .popover-body {
   line-height: 24px;
 }
 
-ul.list_device .inner_box img {
-  max-width: 65px;
-  margin-right: 8px;
-}
-
 @media (max-width: 767.98px) {
   .main_trusted:before {
     display: none;
@@ -1125,4 +1133,4 @@ ul.list_device .inner_box img {
   .main_footer .footer-bottom {
     padding-bottom: 15px;
   }
-}/*# sourceMappingURL=global.css.map */
+}/*# sourceMappingURL=global-r.css.map */

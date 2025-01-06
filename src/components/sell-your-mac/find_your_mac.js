@@ -1,10 +1,142 @@
 import React, { useEffect, useState } from 'react';
 import MacSerialLookupComp from "../Mac-repair/lookupform";
 import { DeviceIdentificationForm } from './device_identify_form';
-import { Form } from 'react-bootstrap';
+import { Form, OverlayTrigger, Popover } from 'react-bootstrap';
 import { CategoryArray, Mac_type, Series } from '@/utils/staticData';
 import { GetCollectionSvg } from '@/utils/svgFile';
+import FourPointInspection from '../Custom-model/FourPointInspection';
+import thIcon from '../../../public/images/sell47.png';
 
+import macbook2015 from '../../../public/images/mac-repair/Macbook/macbook_12_early_2015.jpg';
+import macbook2016 from '../../../public/images/mac-repair/Macbook/macbook_12_early_2016.jpg';
+import macbook2017 from '../../../public/images/mac-repair/Macbook/macbook_12_2017.jpg';
+
+import macmini1 from '../../../public/images/mac-repair/Mac-mini/mac_mini.jpg';
+import macmini2 from '../../../public/images/mac-repair/Mac-mini/mac_mini.jpg';
+import macmini3 from '../../../public/images/mac-repair/Mac-mini/mac_mini.jpg';
+import macmini4 from '../../../public/images/mac-repair/Mac-mini/mac_mini_2018.jpg';
+import macmini5 from '../../../public/images/mac-repair/Mac-mini/mac_mini_2018.jpg';
+import macmini6 from '../../../public/images/mac-repair/Mac-mini/mac_mini_2018.jpg';
+import macmini7 from '../../../public/images/mac-repair/Mac-mini/mac_mini_2018.jpg';
+
+import imac21icon1 from '../../../public/images/mac-repair/Imac/imac_21_late_2012.jpg';
+import imac21icon2 from '../../../public/images/mac-repair/Imac/imac_21_early_2013.jpg';
+import imac21icon3 from '../../../public/images/mac-repair/Imac/imac_21_late_2013.jpg';
+import imac21icon4 from '../../../public/images/mac-repair/Imac/imac_21_mid_2014.jpg';
+import imac21icon5 from '../../../public/images/mac-repair/Imac/imac_21_late_2015.jpg';
+import imac21icon6 from '../../../public/images/mac-repair/Imac/imac_21_4k_late_2015.jpg';
+import imac21icon7 from '../../../public/images/mac-repair/Imac/imac_21_2017.jpg';
+import imac21icon8 from '../../../public/images/mac-repair/Imac/imac_21_4k_2017.jpg';
+import imac21icon9 from '../../../public/images/mac-repair/Imac/imac_21_4k_2019.jpg';
+
+import imac24icon1 from '../../../public/images/mac-repair/Imac/imac_24_m1_1_2021.jpg';
+import imac24icon2 from '../../../public/images/mac-repair/Imac/iMac_m3_colors_231030.jpg';
+import imac24icon3 from '../../../public/images/mac-repair/Imac/iMac_m3_colors_231030.jpg';
+
+import imac27icon1 from '../../../public/images/mac-repair/Imac/imac_27_late_2012.jpg';
+import imac27icon2 from '../../../public/images/mac-repair/Imac/imac_27_late_2013.jpg';
+import imac27icon3 from '../../../public/images/mac-repair/Imac/imac_21_mid_2014.jpg';
+import imac27icon4 from '../../../public/images/mac-repair/Imac/imac_27_5k_mid_2015.jpg';
+import imac27icon5 from '../../../public/images/mac-repair/Imac/imac_27_5k_late_2015.jpg';
+import imac27icon6 from '../../../public/images/mac-repair/Imac/imac_27_5k_2017.jpg';
+import imac27icon7 from '../../../public/images/mac-repair/Imac/imac_27_5k_2019.jpg';
+import imac27icon8 from '../../../public/images/mac-repair/Imac/imac_27_5k_2020.jpg';
+
+import macbookpro1 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_mid_2012.jpg';
+import macbookpro2 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_retina_late_2012.jpg';
+import macbookpro3 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_retina_early_2013.jpg';
+import macbookpro4 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_retina_late_2013.jpg';
+import macbookpro5 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_retina_mid_2014.jpg';
+import macbookpro6 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_retina_early_2015.jpg';
+import macbookpro7 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_2tbt3_2016.jpg';
+import macbookpro8 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_4tbt3_2016.jpg';
+import macbookpro9 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_2tbt3_2017.jpg';
+import macbookpro10 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_4tbt3_2017.jpg';
+import macbookpro11 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_4tbt3_2018.jpg';
+import macbookpro12 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_2tbt3_2019.jpg';
+import macbookpro13 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_4tbt3_2019.jpg';
+import macbookpro14 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_2tbt3_2020.jpg';
+import macbookpro15 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_2tbt3_2020.jpg';
+import macbookpro16 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_2tbt3_2020.jpg';
+import macbookpro17 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_m2_2022.jpg';
+
+import macbookpro18 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_14_2021.jpg';
+import macbookpro19 from '../../../public/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg';
+import macbookpro20 from '../../../public/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg';
+import macbookpro21 from '../../../public/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg';
+import macbookpro22 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_14_2023.jpeg';
+import macbookpro23 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_14_2023.jpeg';
+
+import macbookpro24 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_15_retina_mid_2012.jpg';
+import macbookpro25 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_15_retina_mid_2012.jpg';
+import macbookpro26 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_15_retina_mid_2012.jpg';
+import macbookpro27 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_15_retina_early_2013.jpg';
+import macbookpro28 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_retina_late_2013.jpg';
+import macbookpro29 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_15_retina_mid_2014.jpg';
+import macbookpro30 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_15_retina_mid_2015.jpg';
+import macbookpro31 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_15_2016.jpg';
+import macbookpro32 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_15_2017.jpg';
+import macbookpro33 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_15_2018.jpg';
+import macbookpro34 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_15_2019.jpg';
+
+import macbookpro35 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_16_2019.jpg';
+import macbookpro36 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_16_2021.jpg';
+import macbookpro37 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_16_2023.jpg';
+import macbookpro38 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_16_2023.jpg';
+import macbookpro39 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_16_2023.jpg';
+
+import macbookair1 from '../../../public/images/mac-repair/Macbook_air/macbook_air_11_mid_2012.jpg';
+import macbookair2 from '../../../public/images/mac-repair/Macbook_air/macbook_air_11_mid_2012.jpg';
+import macbookair3 from '../../../public/images/mac-repair/Macbook_air/macbook_air_11_mid_2012.jpg';
+import macbookair4 from '../../../public/images/mac-repair/Macbook_air/macbook_air_11_early_2014.jpg';
+import macbookair5 from '../../../public/images/mac-repair/Macbook_air/macbook_air_11_early_2015.jpg';
+
+import macbookair6 from '../../../public/images/mac-repair/Macbook_air/macbook_air_13_mid_2012.jpg';
+import macbookair7 from '../../../public/images/mac-repair/Macbook_air/macbook_air_13_mid_2012.jpg';
+import macbookair8 from '../../../public/images/mac-repair/Macbook_air/macbook_air_13_mid_2012.jpg';
+import macbookair9 from '../../../public/images/mac-repair/Macbook_air/macbook_air_13_mid_2013.jpg';
+import macbookair10 from '../../../public/images/mac-repair/Macbook_air/macbook_air_13_early_2014.jpg';
+import macbookair11 from '../../../public/images/mac-repair/Macbook_air/macbook_air_13_early_2015.jpg';
+import macbookair12 from '../../../public/images/mac-repair/Macbook_air/macbook_air_13_2017.jpg';
+import macbookair13 from '../../../public/images/mac-repair/Macbook_air/macbook_air_13_retina_2018.jpg';
+import macbookair14 from '../../../public/images/mac-repair/Macbook_air/macbook_air_13_retina_2019.jpg';
+import macbookair15 from '../../../public/images/mac-repair/Macbook_air/macbook_air_13_retina_2019.jpg';
+import macbookair16 from '../../../public/images/mac-repair/Macbook_air/macbook_air_13_m1_2020.jpg';
+import macbookair17 from '../../../public/images/mac-repair/Macbook_air/macbook_air_13_m2_2022.png';
+import macbookair18 from '../../../public/images/mac-repair/Macbook_air/macbook_air_13_m2_2022.png';
+
+import macbookair15inch from '../../../public/images/mac-repair/Macbook_air/macbook_air_15_m2_2023.png';
+import imacProicon from '../../../public/images/mac-repair/Imac-pro/imac_pro_27_2017.jpg';
+
+import macpro1 from '../../../public/images/mac-repair/Mac-pro/mac_pro_black.jpg';
+import macpro2 from '../../../public/images/mac-repair/Mac-pro/mac_pro_2019.jpg';
+import macpro3 from '../../../public/images/mac-repair/Mac-pro/mac_pro_rack_2019.jpg';
+
+import Image from 'next/image';
+
+const macbookproicon13 = [macbookpro1, macbookpro2, macbookpro3, macbookpro4, macbookpro5, macbookpro6, macbookpro7,
+    macbookpro8, macbookpro9, macbookpro10, macbookpro11, macbookpro12, macbookpro13, macbookpro14, macbookpro15, macbookpro16, macbookpro17
+];
+const macbookproicon14 = [macbookpro18, macbookpro19, macbookpro20, macbookpro21, macbookpro22, macbookpro23];
+const macbookproicon15 = [macbookpro24, macbookpro25, macbookpro26, macbookpro27, macbookpro28, macbookpro29, macbookpro30,
+    macbookpro31, macbookpro32, macbookpro33, macbookpro34
+];
+const macbookproicon16 = [macbookpro35, macbookpro36, macbookpro37, macbookpro38, macbookpro39];
+const macbookairincon11 = [macbookair1, macbookair2, macbookair3, macbookair4, macbookair5];
+const macbookairincon13 = [macbookair6, macbookair7, macbookair8, macbookair9, macbookair10, macbookair11, macbookair12, macbookair13,
+    macbookair14, macbookair15, macbookair16, macbookair17, macbookair18
+];
+const macminiIcon = [macmini1, macmini2, macmini3, macmini4, macmini5, macmini6, macmini7];
+const imacIcon21 = [imac21icon1, imac21icon2, imac21icon3, imac21icon4, imac21icon5, imac21icon6, imac21icon7,
+    imac21icon8, imac21icon9
+];
+const imacIcon24 = [imac24icon1, imac24icon2, imac24icon3];
+const imacIcon27 = [imac27icon1, imac27icon2, imac27icon3, imac27icon4, imac27icon5, imac27icon6, imac27icon7, imac27icon8];
+const macProIcon = [macpro1, macpro2, macpro3];
+
+const macstudioIcon = ['https://shop.applefixpros.com/wp-content/uploads/2024/04/macstudio_2022-1.jpeg',
+    "https://shop.applefixpros.com/wp-content/uploads/2024/04/macstudio2023.jpeg"
+]
 
 export const Findyourmac = ({ data }) => {
     const [hideStepUp, setHideStepUp] = useState(false);
@@ -13,6 +145,7 @@ export const Findyourmac = ({ data }) => {
     const [showSerialBox, setShowSerialBox] = useState(false)
     const [dataFromChild, setDataFromChild] = useState(null);
     const [type, setType] = useState(null);
+    const [show, setShow] = useState(false);
 
     const handleDataFromChild = (e, data, serialNumber) => {
         setDataFromChild(data);
@@ -118,7 +251,9 @@ export const Findyourmac = ({ data }) => {
             setDataFromChild(null)
         }
     }, [accessDevice?.notes])
-
+    // console.log(Mac_type)
+    console.log(seriesData)
+    console.log(finalData)
     return (
         <>
             <section className='find_your_divs'>
@@ -170,17 +305,8 @@ export const Findyourmac = ({ data }) => {
                                                         )
                                                     }
                                                 })}
-                                                {device === "Mac Studio" && (
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
-                                                        <path d="M3.5 8C3.5 7.04306 3.50106 6.37565 3.56876 5.87208C3.63453 5.3829 3.75483 5.12385 3.93934 4.93934C4.12385 4.75483 4.3829 4.63453 4.87208 4.56876C5.37565 4.50106 6.04306 4.5 7 4.5H17C17.9569 4.5 18.6244 4.50106 19.1279 4.56876C19.6171 4.63453 19.8762 4.75483 20.0607 4.93934C20.2452 5.12385 20.3655 5.3829 20.4312 5.87208C20.4989 6.37565 20.5 7.04306 20.5 8V16.5H3.5V8Z" stroke="#000" />
-                                                        <path d="M3.66667 16.5C3.02233 16.5 2.5 17.0223 2.5 17.6667C2.5 18.6792 3.32081 19.5 4.33333 19.5H19.6667C20.6792 19.5 21.5 18.6792 21.5 17.6667C21.5 17.0223 20.9777 16.5 20.3333 16.5H3.66667Z" stroke="#000" />
-                                                    </svg>
-                                                )}
                                                 {device === "Thunderbolt & Studio Display" && (
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
-                                                        <path d="M3.5 8C3.5 7.04306 3.50106 6.37565 3.56876 5.87208C3.63453 5.3829 3.75483 5.12385 3.93934 4.93934C4.12385 4.75483 4.3829 4.63453 4.87208 4.56876C5.37565 4.50106 6.04306 4.5 7 4.5H17C17.9569 4.5 18.6244 4.50106 19.1279 4.56876C19.6171 4.63453 19.8762 4.75483 20.0607 4.93934C20.2452 5.12385 20.3655 5.3829 20.4312 5.87208C20.4989 6.37565 20.5 7.04306 20.5 8V16.5H3.5V8Z" stroke="#000" />
-                                                        <path d="M3.66667 16.5C3.02233 16.5 2.5 17.0223 2.5 17.6667C2.5 18.6792 3.32081 19.5 4.33333 19.5H19.6667C20.6792 19.5 21.5 18.6792 21.5 17.6667C21.5 17.0223 20.9777 16.5 20.3333 16.5H3.66667Z" stroke="#000" />
-                                                    </svg>
+                                                    <Image src={thIcon} width={60} height={50} />
                                                 )}
                                             </div>
                                             <div className='cnt'>
@@ -202,14 +328,14 @@ export const Findyourmac = ({ data }) => {
                             </div>
                             <div className='col-md-10'>
                                 <ul className='list_device series'>
-                                    {seriesData?.map((Val) => (
+                                    {seriesData?.map((Val, index) => (
                                         <li className={`${Val.name == serialType && 'active'}`} onClick={() => handleSeriesStatic(Val)}>
                                             <div className='inner_box'>
                                                 <div className='icon'>
                                                     {/* <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 25 25" fill="none">
                                                         <path d="M4.5 14.5V16.5C4.5 17.0523 4.94772 17.5 5.5 17.5H12.5M4.5 14.5V6.5C4.5 5.94772 4.94772 5.5 5.5 5.5H19.5C20.0523 5.5 20.5 5.94772 20.5 6.5V14.5M4.5 14.5H20.5M20.5 14.5V16.5C20.5 17.0523 20.0523 17.5 19.5 17.5H12.5M12.5 17.5V20.5M12.5 20.5H8M12.5 20.5H17" stroke="#000" stroke-width="1" />
                                                     </svg> */}
-                                                    {GetCollectionSvg.map((value) => {
+                                                    {/* {GetCollectionSvg.map((value) => {
                                                         if (value.title === Val.type) {
                                                             return (
                                                                 <div
@@ -230,17 +356,64 @@ export const Findyourmac = ({ data }) => {
                                                             )
                                                         }
                                                     })}
-                                                    {Val.type === "Mac Studio" && (
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M3.5 8C3.5 7.04306 3.50106 6.37565 3.56876 5.87208C3.63453 5.3829 3.75483 5.12385 3.93934 4.93934C4.12385 4.75483 4.3829 4.63453 4.87208 4.56876C5.37565 4.50106 6.04306 4.5 7 4.5H17C17.9569 4.5 18.6244 4.50106 19.1279 4.56876C19.6171 4.63453 19.8762 4.75483 20.0607 4.93934C20.2452 5.12385 20.3655 5.3829 20.4312 5.87208C20.4989 6.37565 20.5 7.04306 20.5 8V16.5H3.5V8Z" stroke="#000" />
-                                                            <path d="M3.66667 16.5C3.02233 16.5 2.5 17.0223 2.5 17.6667C2.5 18.6792 3.32081 19.5 4.33333 19.5H19.6667C20.6792 19.5 21.5 18.6792 21.5 17.6667C21.5 17.0223 20.9777 16.5 20.3333 16.5H3.66667Z" stroke="#000" />
-                                                        </svg>
-                                                    )}
+                                                 */}
+                                                    {GetCollectionSvg.map((value) => {
+                                                        if (value.title === 'MacBook Air' && Val.type == 'MacBook Air') {
+                                                            return (
+                                                                <div
+                                                                    className='new_shopmac_img pdimg-next'
+                                                                    dangerouslySetInnerHTML={{
+                                                                        __html: value.svghtml,
+                                                                    }}
+                                                                ></div>
+                                                            )
+                                                        }else if (value.title === 'MacBook Pro' && Val.type == 'MacBook Pro') {
+                                                            return (
+                                                                <div
+                                                                    className='new_shopmac_img pdimg-next'
+                                                                    dangerouslySetInnerHTML={{
+                                                                        __html: value.svghtml,
+                                                                    }}
+                                                                ></div>
+                                                            )
+                                                        }else if (value.title === 'iMac' && Val.type == 'iMac') {
+                                                            return (
+                                                                <div
+                                                                    className='new_shopmac_img pdimg-next'
+                                                                    dangerouslySetInnerHTML={{
+                                                                        __html: value.svghtml,
+                                                                    }}
+                                                                ></div>
+                                                            )
+                                                        }
+                                                    })}
                                                     {Val.type === "Thunderbolt & Studio Display" && (
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
                                                             <path d="M3.5 8C3.5 7.04306 3.50106 6.37565 3.56876 5.87208C3.63453 5.3829 3.75483 5.12385 3.93934 4.93934C4.12385 4.75483 4.3829 4.63453 4.87208 4.56876C5.37565 4.50106 6.04306 4.5 7 4.5H17C17.9569 4.5 18.6244 4.50106 19.1279 4.56876C19.6171 4.63453 19.8762 4.75483 20.0607 4.93934C20.2452 5.12385 20.3655 5.3829 20.4312 5.87208C20.4989 6.37565 20.5 7.04306 20.5 8V16.5H3.5V8Z" stroke="#000" />
                                                             <path d="M3.66667 16.5C3.02233 16.5 2.5 17.0223 2.5 17.6667C2.5 18.6792 3.32081 19.5 4.33333 19.5H19.6667C20.6792 19.5 21.5 18.6792 21.5 17.6667C21.5 17.0223 20.9777 16.5 20.3333 16.5H3.66667Z" stroke="#000" />
                                                         </svg>
+                                                    )}
+                                                    {Val.name === 'MacBook (Retina, 12-inch, Early 2015)' && Val.type === 'MacBook' && (
+                                                        <Image src={macbook2015} width={100} height={50} />
+                                                    )}
+                                                    {Val.name === 'MacBook (Retina, 12-inch, Early 2016)' && Val.type === 'MacBook' && (
+                                                        <Image src={macbook2016} width={100} height={50} />
+                                                    )}
+                                                    {Val.name === 'MacBook (Retina, 12-inch, 2017)' && Val.type === 'MacBook' && (
+                                                        <Image src={macbook2017} width={100} height={50} />
+                                                    )}
+
+                                                    {Val.type === 'Mac mini' && (
+                                                        <Image src={macminiIcon[index]} width={100} height={50} />
+                                                    )}
+                                                    {Val.type === 'iMac Pro' && (
+                                                        <Image src={imacProicon} width={100} height={50} />
+                                                    )}
+                                                    {Val.type === 'Mac Pro' && (
+                                                        <Image src={macProIcon[index]} width={100} height={50} />
+                                                    )}
+                                                    {Val.type === 'Mac Studio' && (
+                                                        <Image src={macstudioIcon[index]} width={100} height={50} />
                                                     )}
                                                 </div>
                                                 <div className='cnt'>
@@ -260,14 +433,14 @@ export const Findyourmac = ({ data }) => {
                             </div>
                             <div className='col-md-10'>
                                 <ul className='list_device series'>
-                                    {finalData?.map((Val) => (
+                                    {finalData?.map((Val, index) => (
                                         <li className={`${Val.name == finalType && 'active'}`} onClick={() => handleSelectedItem(Val)}>
                                             <div className='inner_box'>
                                                 <div className='icon'>
                                                     {/* <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 25 25" fill="none">
                                                         <path d="M4.5 14.5V16.5C4.5 17.0523 4.94772 17.5 5.5 17.5H12.5M4.5 14.5V6.5C4.5 5.94772 4.94772 5.5 5.5 5.5H19.5C20.0523 5.5 20.5 5.94772 20.5 6.5V14.5M4.5 14.5H20.5M20.5 14.5V16.5C20.5 17.0523 20.0523 17.5 19.5 17.5H12.5M12.5 17.5V20.5M12.5 20.5H8M12.5 20.5H17" stroke="#000" stroke-width="1" />
                                                     </svg> */}
-                                                    {GetCollectionSvg.map((value) => {
+                                                    {/* {GetCollectionSvg.map((value) => {
                                                         if (value.title === Val.type) {
                                                             return (
                                                                 <div
@@ -287,18 +460,45 @@ export const Findyourmac = ({ data }) => {
                                                                 ></div>
                                                             )
                                                         }
-                                                    })}
-                                                    {Val.type === "Mac Studio" && (
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M3.5 8C3.5 7.04306 3.50106 6.37565 3.56876 5.87208C3.63453 5.3829 3.75483 5.12385 3.93934 4.93934C4.12385 4.75483 4.3829 4.63453 4.87208 4.56876C5.37565 4.50106 6.04306 4.5 7 4.5H17C17.9569 4.5 18.6244 4.50106 19.1279 4.56876C19.6171 4.63453 19.8762 4.75483 20.0607 4.93934C20.2452 5.12385 20.3655 5.3829 20.4312 5.87208C20.4989 6.37565 20.5 7.04306 20.5 8V16.5H3.5V8Z" stroke="#000" />
-                                                            <path d="M3.66667 16.5C3.02233 16.5 2.5 17.0223 2.5 17.6667C2.5 18.6792 3.32081 19.5 4.33333 19.5H19.6667C20.6792 19.5 21.5 18.6792 21.5 17.6667C21.5 17.0223 20.9777 16.5 20.3333 16.5H3.66667Z" stroke="#000" />
-                                                        </svg>
-                                                    )}
+                                                    })}                                                    
                                                     {Val.type === "Thunderbolt & Studio Display" && (
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
                                                             <path d="M3.5 8C3.5 7.04306 3.50106 6.37565 3.56876 5.87208C3.63453 5.3829 3.75483 5.12385 3.93934 4.93934C4.12385 4.75483 4.3829 4.63453 4.87208 4.56876C5.37565 4.50106 6.04306 4.5 7 4.5H17C17.9569 4.5 18.6244 4.50106 19.1279 4.56876C19.6171 4.63453 19.8762 4.75483 20.0607 4.93934C20.2452 5.12385 20.3655 5.3829 20.4312 5.87208C20.4989 6.37565 20.5 7.04306 20.5 8V16.5H3.5V8Z" stroke="#000" />
                                                             <path d="M3.66667 16.5C3.02233 16.5 2.5 17.0223 2.5 17.6667C2.5 18.6792 3.32081 19.5 4.33333 19.5H19.6667C20.6792 19.5 21.5 18.6792 21.5 17.6667C21.5 17.0223 20.9777 16.5 20.3333 16.5H3.66667Z" stroke="#000" />
                                                         </svg>
+                                                    )} */}
+                                                    {Val.type === 'MacBook Air' && Val.series === '11-inch' && (
+                                                        <Image src={macbookairincon11[index]} width={100} height={50} />
+                                                    )}
+                                                    {Val.type === 'MacBook Air' && Val.series === '13-inch' && (
+                                                        <Image src={macbookairincon13[index]} width={100} height={50} />
+                                                    )}
+
+                                                    {Val.type === 'MacBook Air' && Val.series === '15-inch' && (
+                                                        <Image src={macbookair15inch} width={100} height={50} />
+                                                    )}
+
+                                                    {Val.type === 'MacBook Pro' && Val.series === '13-inch' && (
+                                                        <Image src={macbookproicon13[index]} width={100} height={50} />
+                                                    )}
+                                                    {Val.type === 'MacBook Pro' && Val.series === '14-inch' && (
+                                                        <Image src={macbookproicon14[index]} width={100} height={50} />
+                                                    )}
+                                                    {Val.type === 'MacBook Pro' && Val.series === '15-inch' && (
+                                                        <Image src={macbookproicon15[index]} width={100} height={50} />
+                                                    )}
+                                                    {Val.type === 'MacBook Pro' && Val.series === '16-inch' && (
+                                                        <Image src={macbookproicon16[index]} width={100} height={50} />
+                                                    )}
+
+                                                    {Val.type === 'iMac' && Val.series === '21-inch' && (
+                                                        <Image src={imacIcon21[index]} width={100} height={50} />
+                                                    )}
+                                                    {Val.type === 'iMac' && Val.series === '24-inch' && (
+                                                        <Image src={imacIcon24[index]} width={100} height={50} />
+                                                    )}
+                                                    {Val.type === 'iMac' && Val.series === '27-inch' && (
+                                                        <Image src={imacIcon27[index]} width={100} height={50} />
                                                     )}
                                                 </div>
                                                 <div className='cnt'>
@@ -318,27 +518,87 @@ export const Findyourmac = ({ data }) => {
                                     <div className='title_header'>
                                         <h2>Assess Device Condition</h2>
                                         <p>Your quoted value is based on the information provided and confirmed upon final inspection.</p>
-                                        <a href='#'>View Device Inspection Tips</a>
+                                        <span style={{ cursor: 'pointer' }} onClick={() => setShow(true)}>View Device Inspection Tips</span>
+                                        {/* <a href='#' onClick={()=>setShow(true)}>View Device Inspection Tips</a> */}
                                     </div>
                                 </div>
                                 <div className='col-md-12'>
                                     <ul className='assess_list'>
                                         <li>
-                                            <p>Does your device power on? <a href='#'>More Info</a></p>
+                                            <p className='p_info'>Does your device power on?
+                                                <OverlayTrigger
+                                                    trigger="click"
+                                                    key='top'
+                                                    placement='top'
+                                                    rootClose
+                                                    overlay={
+                                                        <Popover id={`popover-positioned-top`}>
+                                                            {/* <Popover.Header as="h3">{`Popover top`}</Popover.Header> */}
+                                                            <Popover.Body>
+                                                                <strong>Select "No"</strong>if the device has issues powering on and off.<br />
+                                                                <strong>Select "No"</strong>if the device has Liquid Damage.<br />
+                                                                <strong>Select "No"</strong>if the device has Bad Battery.<br />
+                                                                <strong>Select "No"</strong>if the device has other Power Issues.<br />
+                                                            </Popover.Body>
+                                                        </Popover>
+                                                    }
+                                                >
+                                                    <span href='#'>More Info</span>
+                                                </OverlayTrigger>
+                                            </p>
                                             <div className='assess_buttons'>
                                                 <button className={`${accessDevice?.device_power == 'Yes' && 'active'} btn`} onClick={() => handleAccessQuestion('device_power', 'Yes')} >Yes</button>
                                                 <button className={`${accessDevice?.device_power == 'No' && 'active'} btn`} onClick={() => handleAccessQuestion('device_power', 'No')}>No	</button>
                                             </div>
                                         </li>
                                         <li>
-                                            <p>Does the device function properly? <a href='#'>More Info</a></p>
+                                            <p className='p_info'>Does the device function properly?
+                                                <OverlayTrigger
+                                                    trigger="click"
+                                                    key='top'
+                                                    placement='top'
+                                                    rootClose
+                                                    overlay={
+                                                        <Popover id={`popover-positioned-top`}>
+                                                            {/* <Popover.Header as="h3">{`Popover top`}</Popover.Header> */}
+                                                            <Popover.Body>
+                                                                <strong>Select "No"</strong>if the device has Admin or iCloud or MDM<br />
+                                                                <strong>Select "No"</strong>if the device has macOS Booting Issues<br />
+                                                                <strong>Select "No"</strong>if the device has other Hardware issues<br />
+                                                            </Popover.Body>
+                                                        </Popover>
+                                                    }
+                                                >
+                                                    <span href='#'>More Info</span>
+                                                </OverlayTrigger>
+                                            </p>
                                             <div className='assess_buttons'>
                                                 <button className={`${accessDevice?.device_function == 'Yes' && 'active'} btn`} onClick={() => handleAccessQuestion('device_function', 'Yes')}>Yes</button>
                                                 <button className={`${accessDevice?.device_function == 'No' && 'active'} btn`} onClick={() => handleAccessQuestion('device_function', 'No')}>No	</button>
                                             </div>
                                         </li>
                                         <li>
-                                            <p>Is the device in good physical condition? <a href='#'>More Info</a></p>
+                                            <p className='p_info'>Is the device in good physical condition?
+                                                <OverlayTrigger
+                                                    trigger="click"
+                                                    key='top'
+                                                    placement='top'
+                                                    rootClose
+                                                    overlay={
+                                                        <Popover id={`popover-positioned-top`}>
+                                                            {/* <Popover.Header as="h3">{`Popover top`}</Popover.Header> */}
+                                                            <Popover.Body>
+                                                                <strong>Select "No"</strong>if the device has Cracked or malfunctioning LCD<br />
+                                                                <strong>Select "No"</strong>if the device has Cracks, dents or severe scratches to the housing, sticker marks or fading <br />
+                                                                <strong>Select "No"</strong>if the device has Liquid damaged<br />
+                                                                <strong>Select "No"</strong>if the device has Keyboard or Trackpad or Speakers or other non-functional components
+                                                            </Popover.Body>
+                                                        </Popover>
+                                                    }
+                                                >
+                                                    <span href='#'>More Info</span>
+                                                </OverlayTrigger>
+                                            </p>
                                             <div className='assess_buttons'>
                                                 <button className={`${accessDevice?.physical_condition == 'Yes' && 'active'} btn`} onClick={() => handleAccessQuestion('physical_condition', 'Yes')}>Yes</button>
                                                 <button className={`${accessDevice?.physical_condition == 'No' && 'active'} btn`} onClick={() => handleAccessQuestion('physical_condition', 'No')}>No	</button>
@@ -411,6 +671,7 @@ export const Findyourmac = ({ data }) => {
                     )}
                 </div>
             </section>
+            <FourPointInspection show={show} onHide={() => setShow(false)} />
         </>
     )
 }
