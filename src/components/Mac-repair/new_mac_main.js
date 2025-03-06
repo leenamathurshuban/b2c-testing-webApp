@@ -168,12 +168,24 @@ export default function Newmacmain() {
             </g>
           </svg>`,
             },
+            {
+                // "id": 288802898074,
+                // handle: "mac-studio",
+                handle:"",
+                title: "Mac Studio",
+                svghtml: `<svg id="mac_mini_svg" enable-background="new 0 0 128 128" viewBox="10 24 110 80" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+            <path d="M90,104H38c-7.7,0-14-6.3-14-14V38c0-7.7,6.3-14,14-14h52c7.7,0,14,6.3,14,14v52C104,97.7,97.7,104,90,104z"></path>
+            <path class="inverse" d="M65.3,55.5c-0.4,0.1-0.9,0.2-1.5,0.2c0-1.4,0.4-2.7,1.1-3.7c0.7-1,1.9-1.8,3.6-2.2c0.1,0.6-0.1,1.9-0.3,2.6  c-0.3,0.7-0.7,1.4-1.4,2C66.4,55,65.8,55.3,65.3,55.5z M71.8,67.8c-0.7-1-1-2-1-3.2c0-1.1,0.3-2.1,0.9-3c0.3-0.5,0.9-1.1,1.7-1.7  c-0.5-0.6-1-1.1-1.5-1.5c-0.9-0.6-1.9-0.9-3.1-0.9c-0.7,0-1.5,0.2-2.5,0.5c-1,0.3-1.6,0.5-2.1,0.5c-0.3,0-1-0.1-2-0.4  c-1-0.3-1.9-0.4-2.6-0.4c-1.7,0-3,0.7-4.1,2.1c-1.1,1.4-1.6,3.2-1.6,5.4c0,2.4,0.7,4.8,2.1,7.3c1.4,2.5,2.9,3.8,4.4,3.8  c0.5,0,1.1-0.2,1.9-0.5c0.8-0.3,1.5-0.5,2.1-0.5c0.6,0,1.4,0.2,2.2,0.5c0.9,0.3,1.6,0.5,2,0.5c1.2,0,2.5-1,3.7-2.9  c0.8-1.2,1.4-2.4,1.8-3.6C73.3,69.4,72.5,68.8,71.8,67.8z"></path>
+        </svg>`,
+            },
         ];
         setAllCollections(getCollections);
         // }
         setIsLoading(false);
     };
 
+    const firstLine = allCollections.slice(0, 4);
+    const secondLine = allCollections.slice(4, 8);
     const myLoader = ({ src, width, quality }) => {
         return `${src}&w=${width}&q=${quality || 75}`;
     };
@@ -255,13 +267,13 @@ export default function Newmacmain() {
                                 <h1>
                                     Mac <b>Repair</b>
                                 </h1>
-                                <p className="mb-2 haddingh_h2">
+                                {/* <p className="mb-2 haddingh_h2">
                                 You have two ways to submit a repair request: 
                                 </p>
                                 <Row className="mcr_iconrow">
                                     <div className="mcr_iconbox"><p><strong>1</strong> Click on the device icon and follow the process</p></div>
                                     <div className="mcr_iconbox"><p><strong>2</strong> If you have the serial number just type it in the Mac Serial Lookup.</p></div>
-                                </Row>
+                                </Row> */}
                             </div>
 
                             <div className='shopmac-full mrt50'>
@@ -278,7 +290,7 @@ export default function Newmacmain() {
                                         </h4>
                                     </div>
                                 </Row>
-                                <Row
+                                {/* <Row
                                     className={
                                         allCollections.length > 0
                                             ? "repair-row justify-content-center mac_repairicons"
@@ -286,6 +298,78 @@ export default function Newmacmain() {
                                     }
                                 >
                                     {allCollections.map((val, key) => {
+                                        return (
+                                            <Col
+                                                md={3}
+                                                lg={3}
+                                                key={key}
+                                                data-aos='fade-down'
+                                            >
+                                                <Link
+                                                    href={`/mac-repair/${encodeURIComponent(
+                                                        val.handle
+                                                    )}`}
+                                                >
+                                                    <div className='new_repairmac_box'>
+                                                        <div
+                                                            className='new_shopmac_img pdimg-next'
+                                                            dangerouslySetInnerHTML={{
+                                                                __html: val.svghtml,
+                                                            }}
+                                                        ></div>
+                                                        <div className='new_shopmac_content'>
+                                                            <h2>{val.title}</h2>
+                                                        </div>
+                                                    </div>
+                                                </Link>
+                                            </Col>
+                                        );
+                                    })}
+                                </Row> */}
+                                <Row
+                                    className={
+                                        allCollections.length > 0
+                                            ? "repair-row justify-content-center mac_repairicons"
+                                            : "d-none"
+                                    }
+                                >
+                                    {firstLine.map((val, key) => {
+                                        return (
+                                            <Col
+                                                md={3}
+                                                lg={3}
+                                                key={key}
+                                                data-aos='fade-down'
+                                            >
+                                                <Link
+                                                    href={`/mac-repair/${encodeURIComponent(
+                                                        val.handle
+                                                    )}`}
+                                                >
+                                                    <div className='new_repairmac_box'>
+                                                        <div
+                                                            className='new_shopmac_img pdimg-next'
+                                                            dangerouslySetInnerHTML={{
+                                                                __html: val.svghtml,
+                                                            }}
+                                                        ></div>
+                                                        <div className='new_shopmac_content'>
+                                                            <h2>{val.title}</h2>
+                                                        </div>
+                                                    </div>
+                                                </Link>
+                                            </Col>
+                                        );
+                                    })}
+                                </Row>
+                                <Row
+                                    className={
+                                        allCollections.length > 0
+                                            ? "repair-row justify-content-center mac_repairicons"
+                                            : "d-none"
+                                    }
+                                >
+                                    {secondLine.map((val, key) => {
                                         return (
                                             <Col
                                                 md={3}
@@ -321,7 +405,7 @@ export default function Newmacmain() {
                 </section>
             )}
 
-            <LookupForm sendDataToParent={handleDataFromChild} />
+            {/* <LookupForm sendDataToParent={handleDataFromChild} /> */}
 
             {/* <TestiComp /> */}
             <main className={isLoading ? "" : "d-none"}>

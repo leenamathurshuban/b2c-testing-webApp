@@ -324,12 +324,23 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
           setShowProducts(false);
         }
         window.localStorage.removeItem("mac-part-collection-child")
+        let baseUrl;
+        if(form_data_serial.serial_number.length >10){
+          baseUrl = `https://shop.applefixpros.com/wp-json/custom-woo/v1/searchbymodal/${form_data_serial.serial_number}`;
+        }else{
+          baseUrl = `https://shop.applefixpros.com/wp-json/custom-woo/v1/external/${form_data_serial.serial_number}`;
+        }
         await axios
           .get(
-            `https://shop.applefixpros.com/wp-json/custom-woo/v1/external/${form_data_serial.serial_number}`
+            // `https://shop.applefixpros.com/wp-json/custom-woo/v1/external/${form_data_serial.serial_number}`
+            baseUrl
           )
           .then((res) => {
             if (res?.data?.response) {
+              if(res?.data?.response?.thumbnailUrl){
+                delete res.data.response.thumbnailUrl
+                delete res.data.response.specUrl
+              }
               window.localStorage.setItem(
                 "api_last_serial_response",
                 JSON.stringify(res?.data?.response)

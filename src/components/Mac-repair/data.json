@@ -71,14 +71,14 @@
           "tags": "imac",
           "handle": "imac-24inch-m3-2023",
           "title": "iMac (24-inch, M3, 2023)",
-          "image": "/images/mac-repair/Imac/iMac_m3_colors_231030.jpg",
+          "image": "/images/mac-repair/Imac/imac_m3.png",
           "description": "Model A2874 : ID iMac15,4 : EMC 8207"
         },
         {
           "tags": "imac",
           "handle": "imac-24inch-m3-2023",
           "title": "iMac (24-inch, M3, 2023)",
-          "image": "/images/mac-repair/Imac/iMac_m3_colors_231030.jpg",
+          "image": "/images/mac-repair/Imac/imac_m3.png",
           "description": "Model A2874 : ID iMac15,5 : EMC 8206"
         },
         {
@@ -94,6 +94,20 @@
           "title": "iMac (24-inch, M1 2021)",
           "image": "/images/mac-repair/Imac/imac_24_m1_1_2021.jpg",
           "description": "Model A2438 : ID Mac21,1 : EMC 3663"
+        },
+        {
+          "tags": "imac",
+          "handle": "imac-24inch-m4-2024",
+          "title": "iMac (24-inch, M4, 2024)",
+          "image": "/images/mac-repair/Imac/imac_4.png",
+          "description": "Model A3247 : ID Mac16,2 : EMC 8531"
+        },
+        {
+          "tags": "imac",
+          "handle": "imac-24inch-2-m4-2024",
+          "title": "iMac (24-inch, M4, 2024)",
+          "image": "/images/mac-repair/Imac/imac_4.png",
+          "description": "Model A3137 : ID Mac16,3 : EMC 8532"
         }
       ],
       "iMac 27-inch": [
@@ -249,6 +263,22 @@
           "description": "Model A2816 : ID Mac14,12 : EMC 8180"
         }
       ],
+      "Mac mini M4":[
+        {
+          "tags": "mac-mini",
+          "handle": "mac-mini-m4-2024",
+          "title": "Mac mini (M4 , 2024)",
+          "image": "/images/mac-repair/Mac-mini/mac_mini.jpg",
+          "description": "Model A3238 : ID Mac16,10 : EMC 8739"
+        },
+        {
+          "tags": "mac-mini",
+          "handle": "mac-mini-m4-pro-2024",
+          "title": "Mac min (M4 Pro, 2024)",
+          "image": "/images/mac-repair/Mac-mini/mac_mini.jpg",
+          "description": "Model A3239 : ID Mac16,11 : EMC 8852"
+        }
+      ],
       "Mac mini Server": [
         {
           "tags": "mac-mini",
@@ -392,6 +422,13 @@
           "title": "MacBook Air (13-inch, Mid 2012)",
           "image": "/images/mac-repair/Macbook_air/macbook_air_13_mid_2012.jpg",
           "description": "Model A1466 : ID MacBookAir5,2 : EMC 2559"
+        },
+        {
+          "tags": "macbook-air",
+          "handle": "macbook-air-m3-2024",
+          "title": "MacBook Air (M3, 2024)",
+          "image": "/images/mac-repair/Macbook_air/macbookair13M3.jpg",
+          "description": "Model A3113 : ID 15,12 : EMC 8611"
         }
       ],
       "MacBook Air 15-inch": [
@@ -401,6 +438,13 @@
           "title": "MacBook Air (M2, 2023)",
           "image": "/images/mac-repair/Macbook_air/macbook_air_15_m2_2023.png",
           "description": "Model: A2941 : ID 14,15 : EMC 8301"
+        },
+        {
+          "tags": "macbook-air",
+          "handle": "macbook-air-m3-2023",
+          "title": "MacBook Air (M3, 2024)",
+          "image": "/images/mac-repair/Macbook_air/macbookair15.jpg",
+          "description": "Model A3114 : ID 15,13 : EMC 8612"
         }
       ]
     },
@@ -547,27 +591,41 @@
           "title": "MacBook Pro (14-inch, 2023)",
           "image": "/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg",
           "description": "Model A2992 : ID Mac15,8(M3 Max) : EMC 8407"
-        },
+        },        
         {
           "tags": "macbook-pro",
           "handle": "macbook-pro-14inch-2023",
           "title": "MacBook Pro (14-inch, 2023)",
           "image": "/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg",
-          "description": "Model A2992 : ID Mac15,10(M3 Max) : EMC 8407"
-        },
-        {
-          "tags": "macbook-pro",
-          "handle": "macbook-pro-14inch-2023",
-          "title": "MacBook Pro (14-inch, 2023)",
-          "image": "/images/mac-repair/macbook_pro/macbook_pro_14_2023.jpeg",
           "description": "Model A2779 : ID Mac14,5(M2 Max) : EMC 8102"
         },
         {
           "tags": "macbook-pro",
           "handle": "macbook-pro-14inch-2023",
           "title": "MacBook Pro (14-inch, 2023)",
-          "image": "/images/mac-repair/macbook_pro/macbook_pro_14_2023.jpeg",
+          "image": "/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg",
           "description": "Model A2779 : ID Mac14,9(M2 Pro) : EMC 8102"
+        },
+        {
+          "tags": "macbook-pro",
+          "handle": "macbook-pro-14inch-2024",
+          "title": "MacBook Pro (14-inch, 2024)",
+          "image": "/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg",
+          "description": "Model A3112 : ID Mac16,1 : EMC 8526"
+        },
+        {
+          "tags": "macbook-pro",
+          "handle": "macbook-pro-14inch-m4-pro-2024",
+          "title": "MacBook Pro (14-inch, 2024)",
+          "image": "/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg",
+          "description": "Model A3401 : ID Mac16,8 (M4 Pro) : EMC 8894"
+        },
+        {
+          "tags": "macbook-pro",
+          "handle": "macbook-pro-14inch-m4-max-2024",
+          "title": "MacBook Pro (14-inch, 2024)",
+          "image": "/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg",
+          "description": "Model A3185 : ID Mac16,6 (M4 Max) : EMC 8632"
         },
         {
           "tags": "macbook-pro",
@@ -645,18 +703,25 @@
       "MacBook Pro 16-inch": [
         {
           "tags": "macbook-pro",
-          "handle": "macbook-pro-16inch-2023",
-          "title": "MacBook Pro (16-inch,2023)",
+          "handle": "macbook-pro-16inch-m4-pro-2024",
+          "title": "MacBook Pro (16-inch, 2024)",
           "image": "/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg",
-          "description": "Model A2991 : ID Mac15,7(M3 Pro) : EMC 8408"
+          "description": "Model A2991 : ID Mac15,7 (M4 Pro) : EMC 8408"
+        },
+        {
+          "tags": "macbook-pro",
+          "handle": "macbook-pro-16inch-m4-max-2024",
+          "title": "MacBook Pro (16-inch, 2024)",
+          "image": "/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg",
+          "description": "Model A2991 : ID Mac15,11 (M4 Max) : EMC 8408"
         },
         {
           "tags": "macbook-pro",
           "handle": "macbook-pro-16inch-2023",
           "title": "MacBook Pro (16-inch,2023)",
           "image": "/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg",
-          "description": "Model A2991 : ID Mac15,09(M3 Max) : EMC 8408"
-        },
+          "description": "Model A2991 : ID Mac15,7(M3 Pro) : EMC 8408"
+        },        
         {
           "tags": "macbook-pro",
           "handle": "macbook-pro-16inch-2023",
@@ -693,6 +758,6 @@
           "description": "Model A2141 : ID MacBookPro16,1 : EMC 3347"
         }
       ]
-    }
+    }    
   }
 }

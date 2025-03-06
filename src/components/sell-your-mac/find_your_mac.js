@@ -15,9 +15,9 @@ import macmini1 from '../../../public/images/mac-repair/Mac-mini/mac_mini.jpg';
 import macmini2 from '../../../public/images/mac-repair/Mac-mini/mac_mini.jpg';
 import macmini3 from '../../../public/images/mac-repair/Mac-mini/mac_mini.jpg';
 import macmini4 from '../../../public/images/mac-repair/Mac-mini/mac_mini_2018.jpg';
-import macmini5 from '../../../public/images/mac-repair/Mac-mini/mac_mini_2018.jpg';
-import macmini6 from '../../../public/images/mac-repair/Mac-mini/mac_mini_2018.jpg';
-import macmini7 from '../../../public/images/mac-repair/Mac-mini/mac_mini_2018.jpg';
+import macmini5 from '../../../public/images/mac-repair/Mac-mini/m124.jpg';
+import macmini6 from '../../../public/images/mac-repair/Mac-mini/m124.jpg';
+import macmini7 from '../../../public/images/mac-repair/Mac-mini/m124.jpg';
 
 import imac21icon1 from '../../../public/images/mac-repair/Imac/imac_21_late_2012.jpg';
 import imac21icon2 from '../../../public/images/mac-repair/Imac/imac_21_early_2013.jpg';
@@ -30,8 +30,8 @@ import imac21icon8 from '../../../public/images/mac-repair/Imac/imac_21_4k_2017.
 import imac21icon9 from '../../../public/images/mac-repair/Imac/imac_21_4k_2019.jpg';
 
 import imac24icon1 from '../../../public/images/mac-repair/Imac/imac_24_m1_1_2021.jpg';
-import imac24icon2 from '../../../public/images/mac-repair/Imac/iMac_m3_colors_231030.jpg';
-import imac24icon3 from '../../../public/images/mac-repair/Imac/iMac_m3_colors_231030.jpg';
+import imac24icon2 from '../../../public/images/mac-repair/Imac/imac_m3.png';
+import imac24icon3 from '../../../public/images/mac-repair/Imac/imac_4.png';
 
 import imac27icon1 from '../../../public/images/mac-repair/Imac/imac_27_late_2012.jpg';
 import imac27icon2 from '../../../public/images/mac-repair/Imac/imac_27_late_2013.jpg';
@@ -61,11 +61,11 @@ import macbookpro16 from '../../../public/images/mac-repair/macbook_pro/macbook_
 import macbookpro17 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_13_m2_2022.jpg';
 
 import macbookpro18 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_14_2021.jpg';
-import macbookpro19 from '../../../public/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg';
+import macbookpro19 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_14_2023.jpeg';
 import macbookpro20 from '../../../public/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg';
 import macbookpro21 from '../../../public/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg';
-import macbookpro22 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_14_2023.jpeg';
-import macbookpro23 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_14_2023.jpeg';
+import macbookpro22 from '../../../public/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg';
+import macbookpro23 from '../../../public/images/mac-repair/macbook_pro/for all new macbooks mbp14-m3-max-pro-spaceblack-select-202310.jpeg';
 
 import macbookpro24 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_15_retina_mid_2012.jpg';
 import macbookpro25 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_15_retina_mid_2012.jpg';
@@ -82,8 +82,8 @@ import macbookpro34 from '../../../public/images/mac-repair/macbook_pro/macbook_
 import macbookpro35 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_16_2019.jpg';
 import macbookpro36 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_16_2021.jpg';
 import macbookpro37 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_16_2023.jpg';
-import macbookpro38 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_16_2023.jpg';
-import macbookpro39 from '../../../public/images/mac-repair/macbook_pro/macbook_pro_16_2023.jpg';
+import macbookpro38 from '../../../public/images/mac-repair/macbook_pro/mbpm3.jpg';
+import macbookpro39 from '../../../public/images/mac-repair/macbook_pro/mbpm4.jpg';
 
 import macbookair1 from '../../../public/images/mac-repair/Macbook_air/macbook_air_11_mid_2012.jpg';
 import macbookair2 from '../../../public/images/mac-repair/Macbook_air/macbook_air_11_mid_2012.jpg';
@@ -112,6 +112,8 @@ import macpro1 from '../../../public/images/mac-repair/Mac-pro/mac_pro_black.jpg
 import macpro2 from '../../../public/images/mac-repair/Mac-pro/mac_pro_2019.jpg';
 import macpro3 from '../../../public/images/mac-repair/Mac-pro/mac_pro_rack_2019.jpg';
 
+import macstudio from '../../../public/images/mac-repair/studio/studio.jpg';
+
 import Image from 'next/image';
 
 const macbookproicon13 = [macbookpro1, macbookpro2, macbookpro3, macbookpro4, macbookpro5, macbookpro6, macbookpro7,
@@ -134,8 +136,10 @@ const imacIcon24 = [imac24icon1, imac24icon2, imac24icon3];
 const imacIcon27 = [imac27icon1, imac27icon2, imac27icon3, imac27icon4, imac27icon5, imac27icon6, imac27icon7, imac27icon8];
 const macProIcon = [macpro1, macpro2, macpro3];
 
-const macstudioIcon = ['https://shop.applefixpros.com/wp-content/uploads/2024/04/macstudio_2022-1.jpeg',
-    "https://shop.applefixpros.com/wp-content/uploads/2024/04/macstudio2023.jpeg"
+const macstudioIcon = [
+    // 'https://shop.applefixpros.com/wp-content/uploads/2024/04/macstudio_2022-1.jpeg',
+    // "https://shop.applefixpros.com/wp-content/uploads/2024/04/macstudio2023.jpeg"
+    macstudio, macstudio
 ]
 
 export const Findyourmac = ({ data }) => {
