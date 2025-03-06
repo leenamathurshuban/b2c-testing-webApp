@@ -34,8 +34,8 @@ export const Series = [
     { name: "Mac Studio (M1, 2022)", type: "Mac Studio" },
     { name: "Mac Studio (M2, 2023)", type: "Mac Studio" },
 
-    { name: "LED Cinema Display (27-inch)", type: "Thunderbolt & Studio Display" },
-    {name:"Apple Thunderbolt Display (27-inch)",type: "Thunderbolt & Studio Display"},
+    { name: "Apple Cinema Display (without 27-inch)", type: "Thunderbolt & Studio Display" },
+    {name:"Apple Thunderbolt Display (without 27-inch)",type: "Thunderbolt & Studio Display"},
     {name:"Pro Display XDR",type: "Thunderbolt & Studio Display"},
     {name:"Studio Display (2022)",type: "Thunderbolt & Studio Display"},
 ];
