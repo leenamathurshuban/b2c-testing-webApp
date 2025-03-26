@@ -135,8 +135,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
   const formatKey = (key) => {
     return key
       .replace(/([A-Z])/g, " $1") // Add space before capital letters
-      .replace(/^./, (str) => str.toUpperCase()) // Capitalize first letter
-      .trim();
+      .replace(/^./, (str) => str.toUpperCase()); // Capitalize first letter
   };
   // ===SELECT DATA ==
   const [isSubmitForm, setIsSubmitForm] = useState(false);
