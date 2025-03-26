@@ -132,7 +132,12 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
   const handleClick = (e, val,s_no) => {
     sendDataToParent(e, val,s_no);
   };
-
+  const formatKey = (key) => {
+    return key
+      .replace(/([A-Z])/g, " $1") // Add space before capital letters
+      .replace(/^./, (str) => str.toUpperCase()) // Capitalize first letter
+      .trim();
+  };
   // ===SELECT DATA ==
   const [isSubmitForm, setIsSubmitForm] = useState(false);
   const [selectedMac, setSelectedMac] = useState("");
@@ -965,7 +970,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
                                     {Object.entries(ShowData).map(([key, value]) => (
                                       <li key={key}>
                                         <span className="response-title">
-                                          <b>{key} : </b>
+                                          <b>{formatKey(key)} : </b>
                                         </span>
                                         <span className="response-value">{value}</span>
                                       </li>
@@ -1004,7 +1009,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
                                     {Object.entries(ShowData).map(([key, value]) => (
                                       <li key={key}>
                                         <span className="response-title">
-                                          <b>{key} : </b>
+                                          <b>{formatKey(key)} : </b>
                                         </span>
                                         <span className="response-value">{value}</span>
                                       </li>
@@ -1043,7 +1048,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
                                     {Object.entries(oldDataSerial).map(([key, value]) => (
                                       <li key={key}>
                                         <span className="response-title">
-                                          <b>{key} : </b>
+                                          <b>{formatKey(key)} : </b>
                                         </span>
                                         <span className="response-value">{value}</span>
                                       </li>
@@ -1150,7 +1155,7 @@ export default function LookupForm({ sendDataToParent, setParentActive, oldDataS
                   {Object.entries(ShowData).map(([key, value]) => (
                     <li key={key}>
                       <span className="response-title">
-                        <b>{key} : </b>
+                        <b>{formatKey(key)} : </b>
                       </span>
                       <span className="response-value">{value}</span>
                     </li>
