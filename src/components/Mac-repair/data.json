@@ -69,6 +69,20 @@
       "iMac 24-inch": [
         {
           "tags": "imac",
+          "handle": "imac-24inch-m4-2024",
+          "title": "iMac (24-inch, M4, 2024)",
+          "image": "/images/mac-repair/Imac/imac_4.png",
+          "description": "Model A3247 : ID Mac16,2 : EMC 8531"
+        },
+        {
+          "tags": "imac",
+          "handle": "imac-24inch-2-m4-2024",
+          "title": "iMac (24-inch, M4, 2024)",
+          "image": "/images/mac-repair/Imac/imac_4.png",
+          "description": "Model A3137 : ID Mac16,3 : EMC 8532"
+        },
+        {
+          "tags": "imac",
           "handle": "imac-24inch-m3-2023",
           "title": "iMac (24-inch, M3, 2023)",
           "image": "/images/mac-repair/Imac/imac_m3.png",
@@ -94,21 +108,7 @@
           "title": "iMac (24-inch, M1 2021)",
           "image": "/images/mac-repair/Imac/imac_24_m1_1_2021.jpg",
           "description": "Model A2438 : ID Mac21,1 : EMC 3663"
-        },
-        {
-          "tags": "imac",
-          "handle": "imac-24inch-m4-2024",
-          "title": "iMac (24-inch, M4, 2024)",
-          "image": "/images/mac-repair/Imac/imac_4.png",
-          "description": "Model A3247 : ID Mac16,2 : EMC 8531"
-        },
-        {
-          "tags": "imac",
-          "handle": "imac-24inch-2-m4-2024",
-          "title": "iMac (24-inch, M4, 2024)",
-          "image": "/images/mac-repair/Imac/imac_4.png",
-          "description": "Model A3137 : ID Mac16,3 : EMC 8532"
-        }
+        }        
       ],
       "iMac 27-inch": [
         {
@@ -355,6 +355,13 @@
       "MacBook Air 13-inch": [
         {
           "tags": "macbook-air",
+          "handle": "macbook-air-m3-2024",
+          "title": "MacBook Air (M3, 2024)",
+          "image": "/images/mac-repair/Macbook_air/macbookair13M3.jpg",
+          "description": "Model A3113 : ID 15,12 : EMC 8611"
+        },
+        {
+          "tags": "macbook-air",
           "handle": "macbook-air-m2-2022",
           "title": "MacBook Air (M2, 2022)",
           "image": "/images/mac-repair/Macbook_air/macbook_air_13_m2_2022.png",
@@ -422,30 +429,23 @@
           "title": "MacBook Air (13-inch, Mid 2012)",
           "image": "/images/mac-repair/Macbook_air/macbook_air_13_mid_2012.jpg",
           "description": "Model A1466 : ID MacBookAir5,2 : EMC 2559"
-        },
-        {
-          "tags": "macbook-air",
-          "handle": "macbook-air-m3-2024",
-          "title": "MacBook Air (M3, 2024)",
-          "image": "/images/mac-repair/Macbook_air/macbookair13M3.jpg",
-          "description": "Model A3113 : ID 15,12 : EMC 8611"
         }
       ],
       "MacBook Air 15-inch": [
-        {
-          "tags": "macbook-air",
-          "handle": "macbook-air-m2-2023",
-          "title": "MacBook Air (M2, 2023)",
-          "image": "/images/mac-repair/Macbook_air/macbook_air_15_m2_2023.png",
-          "description": "Model: A2941 : ID 14,15 : EMC 8301"
-        },
         {
           "tags": "macbook-air",
           "handle": "macbook-air-m3-2023",
           "title": "MacBook Air (M3, 2024)",
           "image": "/images/mac-repair/Macbook_air/macbookair15.jpg",
           "description": "Model A3114 : ID 15,13 : EMC 8612"
-        }
+        },
+        {
+          "tags": "macbook-air",
+          "handle": "macbook-air-m2-2023",
+          "title": "MacBook Air (M2, 2023)",
+          "image": "/images/mac-repair/Macbook_air/macbook_air_15_m2_2023.png",
+          "description": "Model: A2941 : ID 14,15 : EMC 8301"
+        }        
       ]
     },
     "macbook-pro": {
