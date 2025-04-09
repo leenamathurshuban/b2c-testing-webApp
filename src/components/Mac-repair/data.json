@@ -758,6 +758,56 @@
           "description": "Model A2141 : ID MacBookPro16,1 : EMC 3347"
         }
       ]
-    }    
+    },  
+    "mac-studio":{
+      "Mac Studio M1":[
+        {
+          "tags": "mac-studio",
+          "handle": "mac-studio-m1-max-2022",
+          "title": "Mac Studio (M1 Max, 2022)",
+          "image": "/images/mac-repair/studio/studio.jpg",
+          "description": "Model A2615 : ID Mac13,1 : EMC 3988"
+        },
+        {
+          "tags": "mac-studio",
+          "handle": "Mac-Studio-M1-Ultra-2022",
+          "title": "Mac Studio (M1, Ultra 2022)",
+          "image": "/images/mac-repair/studio/studio.jpg",
+          "description": "Model A2615 : ID Mac13,2 : EMC 3988"
+        }        
+      ],
+      "Mac Studio M2":[
+        {
+          "tags": "mac-studio",
+          "handle": "Mac-Studio-M2-Max-2023",
+          "title": "Mac Studio (M2 Max, 2023)",
+          "image": "/images/mac-repair/studio/studio.jpg",
+          "description": "Model A2901 : ID Mac14,13 : EMC 8292"
+        },
+        {
+          "tags": "mac-studio",
+          "handle": "Mac-Studio-M2-Ultra-2023",
+          "title": "Mac Studio (M2 Ultra, 2023)",
+          "image": "/images/mac-repair/studio/studio.jpg",
+          "description": "Model A2901 : ID Mac14,14 : EMC 8292"
+        }        
+      ],
+      "Mac Studio M4":[
+        {
+          "tags": "mac-studio",
+          "handle": "Mac-Studio-M4-Max-2025",
+          "title": "Mac Studio (M4 Max, 2025)",
+          "image": "/images/mac-repair/studio/studio.jpg",
+          "description": "Model A3143 : ID Mac16,9 : EMC 8549"
+        },
+        {
+          "tags": "mac-studio",
+          "handle": "Mac-Studio-M4-Ultra-2025",
+          "title": "Mac Studio (M4 Ultra, 2025)",
+          "image": "/images/mac-repair/studio/studio.jpg",
+          "description": "Model A3143 : ID Mac16,10 : EMC 8549"
+        }        
+      ]
+    }
   }
 }

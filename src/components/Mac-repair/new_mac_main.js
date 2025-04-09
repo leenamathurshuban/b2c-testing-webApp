@@ -170,8 +170,7 @@ export default function Newmacmain() {
             },
             {
                 // "id": 288802898074,
-                // handle: "mac-studio",
-                handle:"",
+                handle: "mac-studio",
                 title: "Mac Studio",
                 svghtml: `<svg id="mac_mini_svg" enable-background="new 0 0 128 128" viewBox="10 24 110 80" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
             <path d="M90,104H38c-7.7,0-14-6.3-14-14V38c0-7.7,6.3-14,14-14h52c7.7,0,14,6.3,14,14v52C104,97.7,97.7,104,90,104z"></path>
