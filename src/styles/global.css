@@ -911,6 +911,12 @@ section.main_buyrepair.mrt50 {
   position: relative;
 }
 
+h5.home_top_text {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
 .mac_parts_form .heading_form {
   margin-bottom: 25px;
 }
