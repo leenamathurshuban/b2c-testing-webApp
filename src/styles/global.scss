@@ -1027,6 +1027,14 @@ h5.home_top_text {
   margin-top: 10px;
   font-size: 20px;
 }
+h5.home_top_text span {
+  color: #b72859;
+  letter-spacing: .1rem;
+  background: linear-gradient(90deg, #93f2ff 35%, #fd79a1 68.04%, #e78478 106.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
 // .main_trusted.home_pge:before {
 //   content: "";

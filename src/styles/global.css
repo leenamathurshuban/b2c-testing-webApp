@@ -917,6 +917,15 @@ h5.home_top_text {
   font-size: 20px;
 }
 
+h5.home_top_text span {
+  color: #b72859;
+  letter-spacing: 0.1rem;
+  background: linear-gradient(90deg, #93f2ff 35%, #fd79a1 68.04%, #e78478 106.3%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .mac_parts_form .heading_form {
   margin-bottom: 25px;
 }

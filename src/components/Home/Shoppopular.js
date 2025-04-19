@@ -192,7 +192,7 @@ export default function Shoppopular({ loading, products }) {
       <Container>
         <div className="main_heading-gradiant-p">
           <p className="sub_title">Welcome to Apple Fix Pros</p>
-          <h5 class="home_top_text">A one-stop shop for new Macs, refurbished  devices, parts , repairs, and recycling</h5>
+          <h5 class="home_top_text"><span>A one-stop shop for new Macs, refurbished  devices, parts , repairs, and recycling</span></h5>
           <h1>
             <b>Shop Our Popular Products</b>
           </h1>          
