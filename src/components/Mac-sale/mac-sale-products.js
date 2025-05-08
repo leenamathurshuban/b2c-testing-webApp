@@ -175,7 +175,7 @@ export default function MacSaleProducts({ webUrl, query }) {
           <Container>
             <div className="main_heading-gradiant-p">
               <h1>
-                Looking for a <b>New Mac?</b>
+                {/* Looking for a <b>New Mac?</b> */}
               </h1>
               {/* <p>
                 Apple Fix Pros will repair your MacBook Air, MacBook Pro, iMac
